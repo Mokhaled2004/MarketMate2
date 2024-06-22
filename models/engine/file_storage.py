@@ -1,29 +1,26 @@
 #!/usr/bin/python3
-"""Defines the FileStorage class."""
-import sys
-import os
-
-# Add the Models directory to the Python path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'Models')))
+"""This is the file storage class for AirBnB"""
 import json
-from base_model import BaseModel
-from user import User
-from product import Product
-from review import Review
-from order import Order
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.product import Amenity
+from models.order import Order
+from models.review import Review
 import shlex
 
-class FileStorage:
-    """Represent an abstracted storage engine.
 
+class FileStorage:
+    """This class serializes instances to a JSON file and
+    deserializes JSON file to instances
     Attributes:
-        __file_path (str): The name of the file to save objects to.
-        __objects (dict): A dictionary of instantiated objects.
+        __file_path: path to the JSON file
+        __objects: objects will be stored
     """
-    
     __file_path = "file.json"
     __objects = {}
-    
+
     def all(self, cls=None):
         """returns a dictionary
         Return:
@@ -40,7 +37,7 @@ class FileStorage:
             return (dic)
         else:
             return self.__objects
-    
+
     def new(self, obj):
         """sets __object to given obj
         Args:
@@ -49,7 +46,7 @@ class FileStorage:
         if obj:
             key = "{}.{}".format(type(obj).__name__, obj.id)
             self.__objects[key] = obj
-        
+
     def save(self):
         """serialize the file path to JSON file path
         """
@@ -58,7 +55,7 @@ class FileStorage:
             my_dict[key] = value.to_dict()
         with open(self.__file_path, 'w', encoding="UTF-8") as f:
             json.dump(my_dict, f)
-            
+
     def reload(self):
         """serialize the file path to JSON file path
         """
@@ -76,7 +73,7 @@ class FileStorage:
         if obj:
             key = "{}.{}".format(type(obj).__name__, obj.id)
             del self.__objects[key]
-            
+
     def close(self):
         """ calls reload()
         """
