@@ -17,11 +17,11 @@ class DBStorage:
     __session = None
 
     def __init__(self):
-        user = getenv("MM_MYSQL_USER")
-        passwd = getenv("MM_MYSQL_PWD")
-        db = getenv("MM_MYSQL_DB")
-        host = getenv("MM_MYSQL_HOST")
-        env = getenv("MM_ENV")
+        user = getenv("MarketMate_MYSQL_USER")
+        passwd = getenv("MarketMate_MYSQL_PWD")
+        db = getenv("MarketMate_MYSQL_DB")
+        host = getenv("MarketMate_MYSQL_HOST")
+        env = getenv("MarketMate_ENV")
 
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'
                                       .format(user, passwd, host, db),

@@ -14,7 +14,6 @@ class Review(BaseModel,Base):
 
     
     user_id = Column(String(60), ForeignKey("users.id"), nullable=False)
-    order_id = Column(String(60), ForeignKey("orders.id"), nullable=False)
     text = Column(String(1024), nullable=False)
 
 
