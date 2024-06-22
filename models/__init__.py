@@ -7,10 +7,11 @@ from models.user import User
 from models.product import Product
 from models.order import Order
 from models.review import Review
+from models.order import order_product
 from os import getenv
 
 
-if getenv("HBNB_TYPE_STORAGE") == "db":
+if getenv("MarketMate_TYPE_STORAGE") == "db":
     storage = DBStorage()
 else:
     storage = FileStorage()

@@ -17,11 +17,11 @@ class DBStorage:
     __session = None
 
     def __init__(self):
-        user = getenv("HBNB_MYSQL_USER")
-        passwd = getenv("HBNB_MYSQL_PWD")
-        db = getenv("HBNB_MYSQL_DB")
-        host = getenv("HBNB_MYSQL_HOST")
-        env = getenv("HBNB_ENV")
+        user = getenv("MM_MYSQL_USER")
+        passwd = getenv("MM_MYSQL_PWD")
+        db = getenv("MM_MYSQL_DB")
+        host = getenv("MM_MYSQL_HOST")
+        env = getenv("MM_ENV")
 
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'
                                       .format(user, passwd, host, db),
@@ -44,7 +44,7 @@ class DBStorage:
                 key = "{}.{}".format(type(elem).__name__, elem.id)
                 dic[key] = elem
         else:
-            lista = [State, City, User, Order, Review, Amenity]
+            lista = [ User, Order, Review, Product]
             for clase in lista:
                 query = self.__session.query(clase)
                 for elem in query:
