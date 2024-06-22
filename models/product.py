@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """Defines the Product  class."""
 
-from Models.base_model import BaseModel, Base
+from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Table, String, Integer, Float, ForeignKey
-from Models.order import order_product
+from models.order import order_product
 
 
 

@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """Defines the User class."""
 
-from Models.base_model import BaseModel, Base
+from models.base_model import BaseModel, Base
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 from hashlib import md5
+import models
 
 
 
@@ -13,7 +14,7 @@ from hashlib import md5
 class User(BaseModel, Base):
     
     """Represents a user for the application."""
-    if Models.storage_t == 'db':
+    if models.storage_t == 'db':
 
         __tablename__ = 'users'
         email = Column(String(128), nullable=False)

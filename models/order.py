@@ -3,11 +3,12 @@
 
 import shlex
 from sqlalchemy.ext.declarative import declarative_base
-from Models.base_model import BaseModel, Base
+from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Table, String, Integer, Float, ForeignKey
 from sqlalchemy.orm import relationship
 from os import getenv
-from Models.product import Product
+from models.product import Product
+import models
 
 order_product = Table ("order_product", Base.metadata,
                       Column("order_id", Integer, ForeignKey("orders.order_id"), primary_key=True),
@@ -36,7 +37,7 @@ class Order(BaseModel, Base):
         @property
         def reviews(self):
             """ Returns list of reviews.id """
-            var = Models.storage.all()
+            var = models.storage.all()
             lista = []
             result = []
             for key in var:
@@ -57,7 +58,7 @@ class Order(BaseModel, Base):
         @products.setter
         def products(self, obj=None):
             """ Appends amenity ids to the attribute """
-            if type(obj) is Models.product and obj.id not in self.product_ids:
+            if type(obj) is models.product and obj.id not in self.product_ids:
                 self.product_ids.append(obj.id)
     
 

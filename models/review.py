@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Defines the Review class."""
 from sqlalchemy.ext.declarative import declarative_base
-from Models.base_model import BaseModel, Base
+from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String, ForeignKey, Float
 
 class Review(BaseModel):

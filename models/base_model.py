@@ -4,10 +4,10 @@
 This Module contains a definition for BaseModel Class
 """
 from sqlalchemy.ext.declarative import declarative_base
-import Models
+import models
 import uuid
 from datetime import datetime
-from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy import Column, String, DateTime
 
 Base = declarative_base()
 
@@ -64,8 +64,8 @@ class BaseModel:
         """updates the public instance attribute updated_at to current
         """
         self.updated_at = datetime.now()
-        Models.storage.new(self)
-        Models.storage.save()
+        models.storage.new(self)
+        models.storage.save()
             
     def to_dict(self):
         """creates dictionary of the class  and returns
@@ -83,4 +83,4 @@ class BaseModel:
     def delete(self):
         """ delete object
         """
-        Models.storage.delete(self)
+        models.storage.delete(self)
