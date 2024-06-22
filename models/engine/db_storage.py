@@ -10,7 +10,7 @@ from models.city import City
 from models.user import User
 from models.order import Order
 from models.review import Review
-from models.product import Amenity
+from models.product import Product
 
 
 class DBStorage:
