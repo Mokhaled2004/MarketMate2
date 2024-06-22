@@ -10,11 +10,11 @@ from models.product import Product
 from models.review import Review
 
 
-class HBNBCommand(cmd.Cmd):
+class MarketMateCommand(cmd.Cmd):
     """ Contains the functionality for the HBNB console"""
 
     # determines prompt for interactive/non-interactive modes
-    prompt = '(hbnb) ' if sys.__stdin__.isatty() else ''
+    prompt = '(marketmate) ' if sys.__stdin__.isatty() else ''
 
     classes = {
                'BaseModel': BaseModel, 'User': User, 'Order': Order,
@@ -53,7 +53,7 @@ class HBNBCommand(cmd.Cmd):
 
             # isolate and validate <command>
             _cmd = pline[pline.find('.') + 1:pline.find('(')]
-            if _cmd not in HBNBCommand.dot_cmds:
+            if _cmd not in MarketMateCommand.dot_cmds:
                 raise Exception
 
             # if parantheses contain arguments, parse them
@@ -128,7 +128,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         except NameError:
             print("** class doesn't exist **")
-        new_instance = HBNBCommand.classes[arg_list[0]](**kw)
+        new_instance = MarketMateCommand.classes[arg_list[0]](**kw)
         new_instance.save()
         print(new_instance.id)
 
@@ -151,7 +151,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-        if c_name not in HBNBCommand.classes:
+        if c_name not in MarketMateCommand.classes:
             print("** class doesn't exist **")
             return
 
@@ -182,7 +182,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-        if c_name not in HBNBCommand.classes:
+        if c_name not in MarketMateCommand.classes:
             print("** class doesn't exist **")
             return
 
@@ -209,10 +209,10 @@ class HBNBCommand(cmd.Cmd):
 
         if args:
             args = args.split(' ')[0]  # remove possible trailing args
-            if args not in HBNBCommand.classes:
+            if args not in MarketMateCommand.classes:
                 print("** class doesn't exist **")
                 return
-            for k, v in storage.all(HBNBCommand.classes[args]).items():
+            for k, v in storage.all(MarketMateCommand.classes[args]).items():
                 print_list.append(str(v))
         else:
             for k, v in storage.all().items():
@@ -247,7 +247,7 @@ class HBNBCommand(cmd.Cmd):
         else:  # class name not present
             print("** class name missing **")
             return
-        if c_name not in HBNBCommand.classes:  # class name invalid
+        if c_name not in MarketMateCommand.classes:  # class name invalid
             print("** class doesn't exist **")
             return
 
@@ -311,8 +311,8 @@ class HBNBCommand(cmd.Cmd):
                     print("** value missing **")
                     return
                 # type cast as necessary
-                if att_name in HBNBCommand.types:
-                    att_val = HBNBCommand.types[att_name](att_val)
+                if att_name in MarketMateCommand.types:
+                    att_val = MarketMateCommand.types[att_name](att_val)
 
                 # update dictionary with name, value pair
                 new_dict.__dict__.update({att_name: att_val})
@@ -325,4 +325,4 @@ class HBNBCommand(cmd.Cmd):
         print("Usage: update <className> <id> <attName> <attVal>\n")
 
 if __name__ == "__main__":
-    HBNBCommand().cmdloop()
+    MarketMateCommand().cmdloop()

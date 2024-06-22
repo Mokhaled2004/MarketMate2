@@ -5,8 +5,6 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import (create_engine)
 from sqlalchemy.ext.declarative import declarative_base
 from models.base_model import Base
-from models.state import State
-from models.city import City
 from models.user import User
 from models.order import Order
 from models.review import Review
