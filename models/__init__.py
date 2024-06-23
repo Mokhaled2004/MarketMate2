@@ -1,17 +1,15 @@
 #!/usr/bin/python3
 """create a unique FileStorage instance for your application"""
-from models.engine.file_storage import FileStorage
-from models.engine.db_storage import DBStorage
-from models.base_model import BaseModel
-from models.user import User
-from models.product import Product
-from models.order import Order
-from models.review import Review
 from os import getenv
 
 
-if getenv("HBNB_TYPE_STORAGE") == "db":
+
+storage_t = getenv("MarketMate_TYPE_STORAGE")
+
+if storage_t == "db":
+    from models.engine.db_storage import DBStorage
     storage = DBStorage()
 else:
+    from models.engine.file_storage import FileStorage
     storage = FileStorage()
 storage.reload()

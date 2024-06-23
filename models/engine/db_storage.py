@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ new class for sqlAlchemy """
-from os import getenv
+import models
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import (create_engine)
 from sqlalchemy.ext.declarative import declarative_base
@@ -9,25 +9,27 @@ from models.user import User
 from models.order import Order
 from models.review import Review
 from models.product import Product
+from os import getenv
+import sqlalchemy
 
-
+classes = {"Product": Product  , "Review": Review, "Order": Order, "User": User}
 class DBStorage:
     """ create tables in environmental"""
     __engine = None
     __session = None
 
     def __init__(self):
-        user = getenv("HBNB_MYSQL_USER")
-        passwd = getenv("HBNB_MYSQL_PWD")
-        db = getenv("HBNB_MYSQL_DB")
-        host = getenv("HBNB_MYSQL_HOST")
-        env = getenv("HBNB_ENV")
+        MarketMate_MYSQL_USER = getenv("MarketMate_MYSQL_USER")
+        MarketMate_MYSQL_PWD = getenv("MarketMate_MYSQL_PWD")
+        MarketMate_MYSQL_DB = getenv("MarketMate_MYSQL_DB")
+        MarketMate_MYSQL_HOST = getenv("MarketMate_MYSQL_HOST")
+        MarketMate_ENV = getenv("MarketMate_ENV")
 
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'
-                                      .format(user, passwd, host, db),
+                                      .format(MarketMate_MYSQL_USER, MarketMate_MYSQL_PWD, MarketMate_MYSQL_HOST, MarketMate_MYSQL_DB),
                                       pool_pre_ping=True)
 
-        if env == "test":
+        if MarketMate_ENV == "test":
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
@@ -44,7 +46,7 @@ class DBStorage:
                 key = "{}.{}".format(type(elem).__name__, elem.id)
                 dic[key] = elem
         else:
-            lista = [State, City, User, Order, Review, Amenity]
+            lista = [ User, Order, Review, Product]
             for clase in lista:
                 query = self.__session.query(clase)
                 for elem in query:
@@ -80,3 +82,34 @@ class DBStorage:
         """ calls remove()
         """
         self.__session.close()
+
+
+    def get(self, cls, id):
+        """
+        Returns the object based on the class name and its ID, or
+        None if not found
+        """
+        if cls not in classes.values():
+            return None
+
+        all_cls = models.storage.all(cls)
+        for value in all_cls.values():
+            if (value.id == id):
+                return value
+
+        return None
+
+    def count(self, cls=None):
+        """
+        count the number of objects in storage
+        """
+        all_class = classes.values()
+
+        if not cls:
+            count = 0
+            for clas in all_class:
+                count += len(models.storage.all(clas).values())
+        else:
+            count = len(models.storage.all(cls).values())
+
+        return count
