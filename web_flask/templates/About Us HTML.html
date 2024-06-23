@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <title>
+
+            About Us
+
+        </title>
+
+        <meta charset = "utf-8">
+
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+
+        <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/About Us CSS.css') }}">
+
+	    
+	<link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
+
+    </head>
+
+    <body>
+        
+         <!--==Navigation================================-->
+         <nav class="navigation">
+
+            <!--logo-------->
+            
+
+            <img src="{{ url_for('static', filename='/images/images/Logo.png') }}" alt="Logo" class = "Logo" >
+
+
+            
+            <label for="menu-btn" class="menu-icon">
+
+                <span class="nav-icon"></span>
+
+            </label>
+
+            <!--menu-------->
+            <ul class="menu">
+
+                <li>
+                    <a href="{{ url_for('home') }}" >
+                        
+                        Home
+
+                    </a>
+                
+                </li>
+
+                <li>
+
+                    <a href="{{ url_for('home') }}#category"  >    
+
+
+                        Categories
+                    
+                    </a>
+                
+                </li>
+
+                <li>
+
+                    <a href="{{ url_for('home') }}#category"  >    
+
+                        
+                        Stores
+                    
+                    </a>
+                
+                </li>
+
+                <li>
+                    
+                    <a href="{{ url_for('contactus') }}"  >
+                        
+                        Contact&nbsp;Us
+                    
+                    </a>
+                
+                </li>
+				
+				<li>
+                    
+                    <a href="{{ url_for('feedback') }}" >
+
+                        
+                        Feedback
+                    
+                    </a>
+                
+                </li>
+				
+				<li>
+
+					
+                    <a href="{{ url_for('aboutus') }}" class="active">
+
+						About&nbsp;us
+
+					</a>
+
+                </li>
+
+                <li>
+                    
+                    
+                    <a href="{{ url_for('home') }}#popular-bundle-pack"  >    
+                        
+                        Packages
+                    
+                    </a>
+                
+                </li>
+
+                <li>
+                    
+                    <a href="{{ url_for('signup') }}" >
+
+                            
+                        Sign&nbsp;up
+                        
+                    </a>
+                    
+                </li>
+
+                
+                <li>
+                    
+                    <a href="{{ url_for('login') }}" >
+
+                        
+                        Login
+                    
+                    </a>
+                
+                </li>
+
+				</ul>
+
+            <!--right-nav-(cart-like)-->
+            <div class="right-nav">
+
+                <!--like----->
+                
+                <a href="{{ url_for('wishlist') }}" class=" like"  >
+
+
+                    <i class="fas fa-heart"></i>
+                    <img src="{{ url_for('static', filename='/images/images/wishlist.jpg') }}" alt="wishlist" >
+
+                    <span>
+                        
+                        2
+                    
+                    </span>
+
+                </a>
+
+                <!--cart----->
+                <a href="{{ url_for('cart') }}" class=" like"  >
+
+                    <i class="fas fa-shopping-cart"></i>
+                    <img src="{{ url_for('static', filename='/images/images/cart3.jpg') }}" alt="cart3" >
+
+                    <span>
+                        
+                        2
+                    
+                    </span>
+
+                </a>
+
+                <!--cart----->
+                <a href="{{ url_for('profile') }}" class=" like"  >
+
+                    <i class="fas fa-user"></i>
+                    <img src="{{ url_for('static', filename='/images/images/profile2.png') }}" alt="profile" >
+
+                    <span>
+
+                        1
+
+                    </span>
+
+                </a>
+
+            </div>
+
+        </nav>
+
+        <!--nav-end--------------------->
+        
+        <div class = "section">
+
+            <div class = "container">
+
+                <div class = "content-section">
+
+                    <div class = "title">
+
+                        <h1 style = "font-family: 'Poppins', sans-serif;">
+
+                            About Us
+
+                        </h1>
+
+                    </div>
+
+                    <div class = "content">
+
+                        <p>
+
+							At MarketMate, we simplify your shopping experience by offering a seamless way to select and purchase products from a variety of supermarkets. Our platform allows you to effortlessly browse, compare, and choose your favorite items, all from the comfort of your home. With a focus on convenience and quality, MarketMate ensures that your groceries are delivered promptly and efficiently, so you can spend more time on what truly matters. Experience the future of grocery shopping with MarketMate, where variety meets convenience.</b>.
+                    </div>
+
+
+
+                <div class = "image-section">
+
+                    <a href="{{ url_for('home') }}" >
+
+                        <img src="{{ url_for('static', filename='/images/images/Logo.png') }}" alt="Logo" style = 'cursor: pointer;' >
+
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+    
+</html>
