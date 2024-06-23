@@ -29,7 +29,7 @@ class DBStorage:
                                       .format(MarketMate_MYSQL_USER, MarketMate_MYSQL_PWD, MarketMate_MYSQL_HOST, MarketMate_MYSQL_DB),
                                       pool_pre_ping=True)
 
-        if env == "test":
+        if MarketMate_ENV == "test":
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
