@@ -16,6 +16,11 @@ class Product(BaseModel, Base):
         name = Column(String(128), nullable=False)
         price = Column(Float, nullable=False)
         orders = relationship("Order", secondary='order_product', back_populates="products")
+<<<<<<< HEAD
+=======
+
+        
+>>>>>>> ccfd4db818d17a6f56426ef637d3a4fe76d3552a
         
     else:
         name = ""
