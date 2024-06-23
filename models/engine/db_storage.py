@@ -19,14 +19,14 @@ class DBStorage:
     __session = None
 
     def __init__(self):
-        user = getenv("MarketMate_MYSQL_USER")
-        passwd = getenv("MarketMate_MYSQL_PWD")
-        db = getenv("MarketMate_MYSQL_DB")
-        host = getenv("MarketMate_MYSQL_HOST")
-        env = getenv("MarketMate_ENV")
+        MarketMate_MYSQL_USER = getenv("MarketMate_MYSQL_USER")
+        MarketMate_MYSQL_PWD = getenv("MarketMate_MYSQL_PWD")
+        MarketMate_MYSQL_DB = getenv("MarketMate_MYSQL_DB")
+        MarketMate_MYSQL_HOST = getenv("MarketMate_MYSQL_HOST")
+        MarketMate_ENV = getenv("MarketMate_ENV")
 
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'
-                                      .format(user, passwd, host, db),
+                                      .format(MarketMate_MYSQL_USER, MarketMate_MYSQL_PWD, MarketMate_MYSQL_HOST, MarketMate_MYSQL_DB),
                                       pool_pre_ping=True)
 
         if env == "test":
