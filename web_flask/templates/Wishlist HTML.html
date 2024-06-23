@@ -10,7 +10,8 @@
         
         </title>
 
-		<link rel ="stylesheet" type="text/css" href="Shopping Cart CSS.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Shopping Cart CSS.css') }}">
+
 
 		<script src="https://kit.fontawesome.com/9088cc6401.js" crossorigin="anonymous"></script>
 		
@@ -35,7 +36,8 @@
 
                     <div class="product">
 
-                        <img src="\web_static\images\images\pack3.jpeg">
+                        <img src="{{ url_for('static', filename='/images/images/pack3.jpeg') }}" alt="order1" >
+
 
                         <div class="product-info">
 
@@ -83,7 +85,10 @@
 
                     <div class="product">
 
-                        <img src="\web_static\images\images\pack4.jpeg">
+                        
+                        <img src="{{ url_for('static', filename='/images/images/pack4.jpeg') }}" alt="order2" >
+
+
 
                         <div class="product-info">
 
@@ -179,7 +184,7 @@
 
                     </p>
 
-                    <a href="Details For Checkout HTML.html">
+                    <a href="{{ url_for('checkoutdetails') }}" >
                         
                         Buy Now
                     

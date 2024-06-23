@@ -10,7 +10,7 @@
         
         </title>
 
-        <link rel="stylesheet" type="text/css" href="Feedback Form CSS.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Feedback Form CSS.css') }}">
 
         <link rel="stylesheet" href="">
 
@@ -63,7 +63,7 @@
                     <label for="rating5" class="fa fa-star"></label>
                     
 
-                    <button type="submit" class="btn"><a href="Feedback Form Confirm HTML and CSS.html"style = 'color: #ffffff; text-decoration: none;'>Submit</a></button>
+                    <button type="submit" class="btn"><a href="{{ url_for('feedbacksubmit') }}"style = 'color: #ffffff; text-decoration: none;'>Submit</a></button>
                     
                 </div>
                 

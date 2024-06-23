@@ -12,7 +12,9 @@
         
         </title>
 
-        <link type="text/css" rel="stylesheet" href="Login And Registration CSS.css">
+        
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Login And Registration CSS.css') }}">
+
 
         <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
         
@@ -86,7 +88,7 @@
 
                         <button type="submit" class = 'sign_in_btn'>
 
-                            <a href = 'Home Page HTML.html' style = 'color: white;'>
+                            <a href="{{ url_for('home') }}" style = 'color: white;'>
                             
                                 SIGN IN
 
@@ -218,7 +220,7 @@
 
                         <button type="submit" style = "cursor: pointer;" class = 'sign_up_btn'>
 
-                            <a href = 'Home Page HTML.html' style = "color: white; text-decoration: none;">
+                            <a href="{{ url_for('home') }}" style = "color: white; text-decoration: none;">
                             
                             SIGN UP
 
@@ -237,7 +239,9 @@
         </section>
 
         
-    <script src="Login And Registration JS.js"></script>
+    
+    <script src="{{ url_for('static', filename='js/Login And Registration JS.js') }}"></script>
+
 
     </body>
 

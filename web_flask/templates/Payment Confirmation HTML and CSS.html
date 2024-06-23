@@ -22,7 +22,7 @@
 				min-height:100vh;
 				align-items:center;
 				justify-content:center;
-				background: linear-gradient(120deg,#2980b9,#8e44ad);
+				background-color: #eebe4560;
 			}
 			.box{
 				height:380px;
@@ -44,7 +44,7 @@
 				color:#fff;
 				margin-top:18px;
 				padding:10px;
-				background: linear-gradient(120deg,#2980b9,#8e44ad);
+				background: linear-gradient(45deg,#2d1b0b,#623103,#bc824c);
 				font-size:18px;
 				border:none;
 				cursor:pointer;
@@ -58,7 +58,7 @@
 			<div>
 				<h1 style = "text-transform: uppercase;">Success!</h1><br>
 				<h5>The payment has been made and the order has been successfully placed. <br> Happy Shopping!</h5>
-				<button type="button" class="btn"><a href="Home Page HTML.html" style = 'color: white; text-decoration: none;'>Home</a></button>
+				<button type="button" class="btn"><a href="{{ url_for('home') }}" style = 'color: white; text-decoration: none;'>Home</a></button>
 			</div>
 		</div>
 	</body>

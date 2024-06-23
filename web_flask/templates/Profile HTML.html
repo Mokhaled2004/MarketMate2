@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Profile Page</title>
-    <link rel="stylesheet" href="Profile CSS.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Profile CSS.css') }}">
+
     <script src="https://kit.fontawesome.com/cacf32ff12.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
 </head>
@@ -102,6 +103,7 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="Profile JS.js"></script>
+<script src="{{ url_for('static', filename='js/Profile JS.js') }}"></script>
+
 </body>
 </html>

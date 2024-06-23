@@ -16,20 +16,23 @@
 
         <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
 
-        <link rel = 'stylesheet' type = "text/css" href = 'About Us CSS.css'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/About Us CSS.css') }}">
+
 	    
 	<link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
 
     </head>
 
     <body>
-        <!--==Navigation================================-->
-        <nav class="navigation">
+        
+         <!--==Navigation================================-->
+         <nav class="navigation">
 
             <!--logo-------->
             
 
-            <img alt="MarketMate Logo" class = "Logo" src="../web_static/images/images/Logo.png">
+            <img src="{{ url_for('static', filename='/images/images/Logo.png') }}" alt="Logo" class = "Logo" >
+
 
             
             <label for="menu-btn" class="menu-icon">
@@ -42,7 +45,7 @@
             <ul class="menu">
 
                 <li>
-                    <a href="Home Page HTML.html" >
+                    <a href="{{ url_for('home') }}" >
                         
                         Home
 
@@ -52,7 +55,8 @@
 
                 <li>
 
-                    <a href="Home Page HTML.html#category">
+                    <a href="{{ url_for('home') }}#category"  >    
+
 
                         Categories
                     
@@ -62,7 +66,8 @@
 
                 <li>
 
-                    <a href="Home Page HTML.html#category">
+                    <a href="{{ url_for('home') }}#category"  >    
+
                         
                         Stores
                     
@@ -72,7 +77,7 @@
 
                 <li>
                     
-                    <a href="Contact Form HTML.html" >
+                    <a href="{{ url_for('contactus') }}"  >
                         
                         Contact&nbsp;Us
                     
@@ -82,7 +87,8 @@
 				
 				<li>
                     
-                    <a href="Feedback Form HTML.html">
+                    <a href="{{ url_for('feedback') }}" >
+
                         
                         Feedback
                     
@@ -92,7 +98,8 @@
 				
 				<li>
 
-					<a href="About Us HTML.html" class = "active">
+					
+                    <a href="{{ url_for('aboutus') }}" class="active">
 
 						About&nbsp;us
 
@@ -102,7 +109,8 @@
 
                 <li>
                     
-                    <a href="Home Page HTML.html#popular-bundle-pack">
+                    
+                    <a href="{{ url_for('home') }}#popular-bundle-pack"  >    
                         
                         Packages
                     
@@ -112,7 +120,8 @@
 
                 <li>
                     
-                    <a href="Login And Registration HTML.html">
+                    <a href="{{ url_for('signup') }}" >
+
                             
                         Sign&nbsp;up
                         
@@ -123,7 +132,8 @@
                 
                 <li>
                     
-                    <a href="Login And Registration HTML.html">
+                    <a href="{{ url_for('login') }}" >
+
                         
                         Login
                     
@@ -137,10 +147,13 @@
             <div class="right-nav">
 
                 <!--like----->
-                <a href="Wishlist HTML.html" class="like">
+                
+                <a href="{{ url_for('wishlist') }}" class=" like"  >
+
 
                     <i class="fas fa-heart"></i>
-                    <img alt="wishlist"  src="..\web_static\images\images\wishlist.jpg">
+                    <img src="{{ url_for('static', filename='/images/images/wishlist.jpg') }}" alt="wishlist" >
+
                     <span>
                         
                         2
@@ -150,10 +163,11 @@
                 </a>
 
                 <!--cart----->
-                <a href="Shopping Cart HTML.html" class="like">
+                <a href="{{ url_for('cart') }}" class=" like"  >
 
                     <i class="fas fa-shopping-cart"></i>
-                    <img alt="shopping cart"  src="..\web_static\images\images\cart3.jpg">
+                    <img src="{{ url_for('static', filename='/images/images/cart3.jpg') }}" alt="cart3" >
+
                     <span>
                         
                         2
@@ -163,10 +177,11 @@
                 </a>
 
                 <!--cart----->
-                <a href="Profile HTML.html" class="like">
+                <a href="{{ url_for('profile') }}" class=" like"  >
 
                     <i class="fas fa-user"></i>
-                    <img alt="profile"  src="..\web_static\images\images\profile2.png">
+                    <img src="{{ url_for('static', filename='/images/images/profile2.png') }}" alt="profile" >
+
                     <span>
 
                         1
@@ -180,6 +195,7 @@
         </nav>
 
         <!--nav-end--------------------->
+        
         <div class = "section">
 
             <div class = "container">
@@ -207,9 +223,10 @@
 
                 <div class = "image-section">
 
-                    <a href = 'Home Page HTML.html'>
+                    <a href="{{ url_for('home') }}" >
 
-                        <img src = '\web_static\images\images\Logo.png' alt = 'MarketMate' style = 'cursor: pointer;'>
+                        <img src="{{ url_for('static', filename='/images/images/Logo.png') }}" alt="Logo" style = 'cursor: pointer;' >
+
 
                     </a>
 
@@ -220,5 +237,5 @@
         </div>
 
     </body>
-
+    
 </html>

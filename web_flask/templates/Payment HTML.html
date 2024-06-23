@@ -17,7 +17,8 @@
         </title>
 
         <!-- custom css file link  -->
-        <link rel="stylesheet" href="Payment CSS.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Payment CSS.css') }}">
+
         
         <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
 
@@ -33,9 +34,11 @@
 
                 <div class="image">
 
-                    <img src="https://i.imgur.com/iPjGMpM.png" alt = "chip">
+                    <img src="{{ url_for('static', filename='/images/chip.png') }}" alt="chip" >
 
-                    <img src="https://i.imgur.com/HDMROff.png" alt = 'visa'>
+
+                    <img src="{{ url_for('static', filename='/images/visa.png') }}" alt="visa" >
+
 
                 </div>
 
@@ -102,7 +105,9 @@
 
                     <div class="cvv-box"> </div>
 
-                    <img src="https://i.imgur.com/HDMROff.png" alt = "Visa">
+                    
+                    <img src="{{ url_for('static', filename='/images/visa.png') }}" alt="visa" >
+
 
                 </div>
 
@@ -326,7 +331,7 @@
 
             <button type="button" class="submit-btn">
 
-                <a href = 'Payment Confirmation HTML and CSS.html' style = 'color: white; text-decoration: none;'>
+                <a href="{{ url_for('paymentconfirm') }}" style = 'color: white; text-decoration: none;'>
                     
                     Submit
 
@@ -338,7 +343,8 @@
 
     </div>
     
-    <script src = 'Payment JS.js'> </script>
+    <script src="{{ url_for('static', filename='js/Payment JS.js') }}"></script>
+
 
     </body>
 
