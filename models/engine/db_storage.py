@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ new class for sqlAlchemy """
-from os import getenv
+import models
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import (create_engine)
 from sqlalchemy.ext.declarative import declarative_base
@@ -9,8 +9,10 @@ from models.user import User
 from models.order import Order
 from models.review import Review
 from models.product import Product
+from os import getenv
+import sqlalchemy
 
-
+classes = {"Product": Product  , "Review": Review, "Order": Order, "User": User}
 class DBStorage:
     """ create tables in environmental"""
     __engine = None
@@ -80,3 +82,34 @@ class DBStorage:
         """ calls remove()
         """
         self.__session.close()
+
+
+    def get(self, cls, id):
+        """
+        Returns the object based on the class name and its ID, or
+        None if not found
+        """
+        if cls not in classes.values():
+            return None
+
+        all_cls = models.storage.all(cls)
+        for value in all_cls.values():
+            if (value.id == id):
+                return value
+
+        return None
+
+    def count(self, cls=None):
+        """
+        count the number of objects in storage
+        """
+        all_class = classes.values()
+
+        if not cls:
+            count = 0
+            for clas in all_class:
+                count += len(models.storage.all(clas).values())
+        else:
+            count = len(models.storage.all(cls).values())
+
+        return count
