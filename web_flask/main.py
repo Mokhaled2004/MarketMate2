@@ -59,7 +59,33 @@ def payment():
 def paymentconfirm():
     return render_template('Payment Confirmation HTML and CSS.html', title='Payment Confirmation')
 
+@app.route('/category/fruits')
+def fruits():
+    return render_template('Fruits Category Page HTML.html', title='Fruits & Vegetables')
 
+@app.route('/category/medicine')
+def medicine():
+    return render_template('Medicine Category Page HTML.html', title='Medicine')
+
+@app.route('/category/babycare')
+def babycare():
+    return render_template('Baby Care Category Page HTML.html', title='Baby Care')
+
+@app.route('/category/meat')
+def meat():
+    return render_template('Meat Category Page HTML.html', title='Meat')
+
+@app.route('/category/bakery')
+def bakery():
+    return render_template('Bakery Category Page HTML.html', title='Bakery')
+
+@app.route('/category/snacks')
+def snacks():
+    return render_template('Snacks Category Page HTML.html', title='Snacks')
+
+@app.route('/category/dairy')
+def dairy():
+    return render_template('Dairy Category Page HTML.html', title='Dairy Products')
 
 
 
