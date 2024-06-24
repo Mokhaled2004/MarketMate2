@@ -189,9 +189,7 @@
         <div>
         
             <div class="left-sidebar">
-                <img src="{{ url_for('static', filename='/images/images/plate92.png') }}" alt="plate92" >
-
-
+                <img src="../web_static/images/images/plate92.png" alt="Sidebar Image">
                 
             </div>
         </div>
@@ -204,8 +202,7 @@
             <div class="product-container">
                 <!--box---------->
                 <div class="product-box" >
-                    <img src="{{ url_for('static', filename='/images/images/chips.jpg') }}" alt="chips" >
-
+                    <img alt="chips" src="\web_static\images\images\chips.jpg">
                     <strong>Chips</strong>
                     <span class="quantity">1 bag</span>
                     <span class="price">LE 15</span>
@@ -220,8 +217,7 @@
                 </div>
                 <!--box---------->
                 <div class="product-box" >
-                    <img src="{{ url_for('static', filename='/images/images/pretzels.jpg') }}" alt="pretzels" >
-
+                    <img alt="pretzels" src="\web_static\images\images\pretzels.jpg">
                     <strong>Pretzels</strong>
                     <span class="quantity">1 kilo</span>
                     <span class="price">LE 80</span>
@@ -237,8 +233,6 @@
                 <!--box---------->
                 <div class="product-box" >
                     <img alt="popcorn" src="\web_static\images\images\popcorn.jpg">
-                    <img src="{{ url_for('static', filename='/images/images/popcorn.jpg') }}" alt="popcorn" >
-
                     <strong>Popcorn </strong>
                     <span class="quantity">1</span>
                     <span class="price">LE 40</span>
@@ -253,8 +247,7 @@
                 </div>
                 <!--box---------->
                 <div class="product-box" >
-                    <img src="{{ url_for('static', filename='/images/images/crackers.jpg') }}" alt="crackers" >
-
+                    <img alt="crackers" src="\web_static\images\images\crackers.jpg">
                     <strong>crackers </strong>
                     <span class="quantity">1</span>
                     <span class="price">LE 25</span>
@@ -269,8 +262,7 @@
                 </div>
                 <!--box---------->
                 <div class="product-box" >
-                    <img src="{{ url_for('static', filename='/images/images/trail mix.jpg) }}" alt="trail mix" >
-
+                    <img alt="trail mix" src="\web_static\images\images\trail mix.jpg">
                     <strong>Trail Mix </strong>
                     <span class="quantity">1 kilo</span>
                     <span class="price">LE 300</span>
@@ -285,8 +277,7 @@
                 </div>
                 <!--box---------->
                 <div class="product-box" >
-                    <img src="{{ url_for('static', filename='/images/images/sweets.jpg') }}" alt="sweets" >
-
+                    <img alt="sweets" src="\web_static\images\images\sweets.jpg">
                     <strong>Candy</strong>
                     <span class="quantity">1 kilo</span>
                     <span class="price">LE 175</span>
@@ -301,8 +292,7 @@
                 </div>
                 <!--box---------->
                 <div class="product-box" >
-                    <img src="{{ url_for('static', filename='/images/images/icecream.jpg') }}" alt="icecream" >
-
+                    <img alt="icecream" src="\web_static\images\images\icecream.jpg">
                     <strong>IceCream</strong>
                     <span class="quantity">1</span>
                     <span class="price">LE 35</span>
@@ -317,8 +307,7 @@
                 </div>
                 <!--box---------->
                 <div class="product-box" >
-                    <img src="{{ url_for('static', filename='/images/images/waterbottle.jpg') }}" alt="waterbottle" >
-
+                    <img alt="waterbottle" src="\web_static\images\images\waterbottle.jpg">
                     <strong>Water</strong>
                     <span class="quantity">1</span>
                     <span class="price">LE 10</span>
@@ -333,8 +322,7 @@
                 </div>
                 <!--box---------->
                 <div class="product-box" >
-                    <img src="{{ url_for('static', filename='/images/images/orangejuice.jpg') }}" alt="orangejuice" >
-
+                    <img alt="orangejuice" src="\web_static\images\images\orangejuice.jpg">
                     <strong>Orange Juice</strong>
                     <span class="quantity">1</span>
                     <span class="price">LE 15</span>
@@ -350,8 +338,6 @@
                 <!--box---------->
                 <div class="product-box" >
                     <img alt="applejuice" src="\web_static\images\images\applejuice.jpg">
-                    <img src="{{ url_for('static', filename='/images/images/applejuice.jpg') }}" alt="applejuice" >
-
                     <strong>Apple Juice</strong>
                     <span class="quantity">1</span>
                     <span class="price">LE 15</span>
@@ -367,8 +353,6 @@
                 <!--box---------->
                 <div class="product-box" >
                     <img alt="soda" src="\web_static\images\images\soda.jpg">
-                    <img src="{{ url_for('static', filename='/images/images/soda.jpg') }}" alt="soda" >
-
                     <strong>Sodas</strong>
                     <span class="quantity">1</span>
                     <span class="price">LE 20</span>
@@ -383,8 +367,7 @@
                 </div>
                 <!--box---------->
                 <div class="product-box" >
-                    <img src="{{ url_for('static', filename='/images/images/redbull.jpg') }}" alt="redbull" >
-
+                    <img alt="Redbull" src="\web_static\images\images\redbull.jpg">
                     <strong>Redbull</strong>
                     <span class="quantity">1</span>
                     <span class="price">LE 45</span>
@@ -402,59 +385,58 @@
 
         <section id="category">
            <!--box-container---------->
-           <div class="category-container">
+            <div class="category-container">
 
-            <!--box---------------->
-                <a href="{{ url_for('fruits') }}" class=" category-box"  >
+                <!--box---------------->
+                    <a href="{{ url_for('fruits') }}" class=" category-box"  >
 
-                <img src="{{ url_for('static', filename='/images/images/Vegetables.png') }}" alt="fruits&vegetables">
-                <span>Fruits & <br> Vegetables</span>
-            </a>
-            <!--box---------------->
-            <a href="{{ url_for('medicine') }}" class=" category-box"  >
+                    <img src="{{ url_for('static', filename='/images/images/Vegetables.png') }}" alt="fruits&vegetables">
+					<span>Fruits & <br> Vegetables</span>
+				</a>
+				<!--box---------------->
+                <a href="{{ url_for('medicine') }}" class=" category-box"  >
 
 
-                
-                <img src="{{ url_for('static', filename='/images/images/medicine.png') }}" alt="medicines">
-                <span>Medicine</span>
-            </a>
-            <!--box---------------->
-            <a href="{{ url_for('babycare') }}" class=" category-box"  >
+                    
+                    <img src="{{ url_for('static', filename='/images/images/medicine.png') }}" alt="medicines">
+                    <span>Medicine</span>
+                </a>
+                <!--box---------------->
+                <a href="{{ url_for('babycare') }}" class=" category-box"  >
 
-                
-                <img src="{{ url_for('static', filename='/images/images/baby.png') }}" alt="babycare">
-                <span>Baby Care</span>
-            </a>
-            <!--box---------------->
-            <a href="{{ url_for('meat') }}" class=" category-box"  >
+                    
+                    <img src="{{ url_for('static', filename='/images/images/baby.png') }}" alt="babycare">
+                    <span>Baby Care</span>
+                </a>
+                <!--box---------------->
+                <a href="{{ url_for('meat') }}" class=" category-box"  >
 
-                <img src="{{ url_for('static', filename='/images/images/fish.png') }}" alt="meat" >
-                <span>Meat</span>
-            </a>
-            <!--box---------------->
-            <a href="{{ url_for('bakery') }}" class=" category-box"  >
+                    <img src="{{ url_for('static', filename='/images/images/fish.png') }}" alt="meat" >
+                    <span>Meat</span>
+                </a>
+                <!--box---------------->
+                <a href="{{ url_for('bakery') }}" class=" category-box"  >
 
-                <img src="{{ url_for('static', filename='/images/images/bakery1.png') }}" alt="bakery" >
-                <span>Bakery</span>
-            </a>
-            <!--box---------------->
-            <a href="{{ url_for('snacks') }}" class=" category-box"  >
+                    <img src="{{ url_for('static', filename='/images/images/bakery1.png') }}" alt="bakery" >
+                    <span>Bakery</span>
+                </a>
+                <!--box---------------->
+                <a href="{{ url_for('snacks') }}" class=" category-box"  >
 
-                <img src="{{ url_for('static', filename='/images/images/snacks.png') }}" alt="snacks" >
-                <span>Snacks</span>
-            </a>
-            <!--box---------------->
-            <a href="{{ url_for('dairy') }}" class=" category-box"  >
+                    <img src="{{ url_for('static', filename='/images/images/snacks.png') }}" alt="snacks" >
+                    <span>Snacks</span>
+                </a>
+                <!--box---------------->
+                <a href="{{ url_for('dairy') }}" class=" category-box"  >
 
-                <img src="{{ url_for('static', filename='/images/images/dairy2.png') }}" alt="dairyproducts" >
-                <span>Dairy Products</span>
-            </a>
-        </div>
+                    <img src="{{ url_for('static', filename='/images/images/dairy2.png') }}" alt="dairyproducts" >
+                    <span>Dairy Products</span>
+                </a>
+            </div>
             <!--box-container---------->
         </section>
         <div class="right">
-            <img src="{{ url_for('static', filename='/images/images/plate91.png') }}" alt="plate" >
-
+            <img src="../web_static/images/images/plate91.png" alt="Sidebar Image">
             
         </div>
     </body>
