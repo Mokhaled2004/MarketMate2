@@ -202,7 +202,7 @@
             <div class="product-container">
                 <!--box---------->
                 <div class="product-box" >
-                    <img alt="Milk" src="\web_static\images\images\Milk.jpeg">
+                    <img src="{{ url_for('static', filename='/images/images/Milk.jpeg') }}" alt="Milk">
                     <strong>Milk</strong>
                     <span class="quantity">1 kilo</span>
                     <span class="price">LE 40</span>
@@ -218,6 +218,8 @@
                 <!--box---------->
                 <div class="product-box" >
                     <img alt="Feta Cheese" src="\web_static\images\images\Feta.jpeg">
+                    <img src="{{ url_for('static', filename='/images/images/Milk.jpeg') }}" alt="Milk">
+
                     <strong>Feta Cheese</strong>
                     <span class="quantity">1 kilo</span>
                     <span class="price">LE 20</span>
