@@ -1,8 +1,13 @@
 #!/usr/bin/python3
-""" Starts a Flash Web Application """
-from flask import Flask , render_template
-app = Flask(__name__)
+""" Starts a Flask Web Application """
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+from models.user import User
+from hashlib import md5
+from models import storage
+from models.user import User
 
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'your_secret_key'
 
 @app.route('/')
 def home():
@@ -12,85 +17,54 @@ def home():
 def aboutus():
     return render_template('About Us HTML.html', title='About Us')
 
-@app.route('/contactus')
-def contactus():
-    return render_template('Contact Form HTML.html', title='Contact Us')
-
-@app.route('/feedback')
-def feedback():
-    return render_template('Feedback Form HTML.html', title='FeedBack')
-
-@app.route('/feedbacksubmit')
-def feedbacksubmit():
-    return render_template('Feedback Form Confirm HTML and CSS.html', title='FeedBack')
-
-
-
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        hashed_password = md5(password.encode()).hexdigest()
+        
+        # Fetching user by email
+        users = storage.all(User)
+        user = None
+        for u in users.values():
+            if u.email == email:
+                user = u
+                break
+
+        if user and user.password == hashed_password:
+            session['user_id'] = user.id
+            flash('Login successful!', 'success')
+            return redirect(url_for('home'))
+        else:
+            flash('Invalid email or password', 'danger')
     return render_template('Login And Registration HTML.html', title='Login')
 
-@app.route('/signup')
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    return render_template('Login And Registration HTML.html', title='About Us')
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        address = request.form['address']
+        
+        # Checking if user already exists
+        users = storage.all(User)
+        for u in users.values():
+            if u.email == email:
+                flash('Email already registered.', 'danger')
+                return render_template('Login And Registration HTML.html', title='Sign Up')
 
-@app.route('/wishlist')
-def wishlist():
-    return render_template('Wishlist HTML.html', title='Wish List')
+        # Creating new user
+        user = User(email=email, password=password, first_name=first_name, last_name=last_name, address=address)
+        storage.new(user)
+        storage.save()
+        flash('Registration successful! You can now log in.', 'success')
+        return redirect(url_for('login'))
+    return render_template('Login And Registration HTML.html', title='Sign Up')
 
-@app.route('/cart')
-def cart():
-    return render_template('Shopping Cart HTML.html', title='Shopping Cart')
-
-@app.route('/profile')
-def profile():
-    return render_template('Profile HTML.html', title='Profile')
-
-
-@app.route('/checkoutdetails')
-def checkoutdetails():
-    return render_template('Details For Checkout HTML.html', title='Checkout Details')
-
-@app.route('/payment')
-def payment():
-    return render_template('Payment HTML.html', title='Payment')
-
-@app.route('/paymentconfirm')
-def paymentconfirm():
-    return render_template('Payment Confirmation HTML and CSS.html', title='Payment Confirmation')
-
-@app.route('/fruits')
-def fruits():
-    return render_template('Fruits Category Page HTML.html', title='Fruits & Vegetables')
-
-@app.route('/medicine')
-def medicine():
-    return render_template('Medicine Category Page HTML.html', title='Medicine')
-
-
-@app.route('/babycare')
-def babycare():
-    return render_template('Baby Care Category Page HTML.html', title='Baby Care')
-
-@app.route('/meat')
-def meat():
-    return render_template('Meat Category Page HTML.html', title='Meat')
-
-
-@app.route('/bakery')
-def bakery():
-    return render_template('Bakery Category Page HTML.html', title='Bakery')
-
-@app.route('/snacks')
-def snacks():
-    return render_template('Snacks Category Page HTML.html', title='Snacks')
-
-@app.route('/dairy')
-def dairy():
-    return render_template('Dairy Category Page HTML.html', title='Dairy Products')
-
-
+# Other routes...
 
 if __name__ == "__main__":
-    """ Main Function """
     app.run(debug=True, port=5001)
