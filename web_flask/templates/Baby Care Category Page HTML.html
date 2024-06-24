@@ -203,7 +203,8 @@
             <div class="product-container">
                 <!--box---------->
                 <div class="product-box" >
-                    <img alt="Johnson's Baby Oil" src="\web_static\images\johnsonoil.jpg">
+                   <img src="{{ url_for('static', filename='/images/johnsonoil.jpg') }}" alt="Johnson's Baby Oil">
+
                     <strong>Johnson's Baby Oil</strong>
                     <span class="quantity">500 ml</span>
                     <span class="price">LE 350</span>
@@ -218,7 +219,7 @@
                 </div>
                 <!--box---------->
                 <div class="product-box" >
-                    <img alt="Little's Baby Wipes" src="\web_static\images\Baby Wipes.jpg">
+                   <img src="{{ url_for('static', filename='/images/Baby Wipes.jpg') }}" alt="Little's Baby Wipes">
                     <strong>Little's Baby Wipes</strong>
                     <span class="quantity">80 Wipes</span>
                     <span class="price">LE 70</span>
@@ -233,7 +234,7 @@
                 </div>
                 <!--box---------->
                 <div class="product-box" >
-                    <img alt="Mama Earth Baby Moisturizer" src="\web_static\images\Moisturizer.jpg">
+                    <img src="{{ url_for('static', filename='/images/Moisturizer.jpg') }}" alt="Mama Earth Baby Moisturizer">
                     <strong>Moisturizer </strong>
                     <span class="quantity">400 ml</span>
                     <span class="price">LE 470</span>
