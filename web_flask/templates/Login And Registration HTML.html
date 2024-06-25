@@ -1,248 +1,149 @@
 <!DOCTYPE html>
-
-<!--This is a login page made up with HTML,CSS and javascript-->
-
 <html>
 
-    <head>
+<head>
+    <title>Login In/Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Login And Registration CSS.css') }}">
+    <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
+</head>
 
-        <title>
-            
-            Login In/Sign Up
-        
-        </title>
+<body>
 
-        
-        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Login And Registration CSS.css') }}">
+<section class="imp">
 
+    <section>
 
-        <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
-        
-        <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
+        <div class="login show" id="one">
 
-    </head>
-
-    <body>
-
-        <section class="imp">
-
-            <section>
-
-            <div class="login show" id="one">
-
-                <div class="textbox slide-left2">
+            <div class="textbox slide-left2">
 
                 <div class="head">
 
-                    <h1>
-                        
-                        Sign In to MarketMate
+                    <h1>Sign In to MarketMate</h1>
+
                     
-                    </h1>
-
-                    <ul>
-
-                        <li>
-                            
-                            <i class="fab fa-facebook-f" style = "cursor: pointer;"></i>
-                        
-                        </li>
-
-                        <li>
-                            
-                            <i class="fab fa-google-plus-g" style = "cursor: pointer;"></i>
-                        
-                        </li>
-
-                        <li>
-                            
-                            <i class="fab fa-linkedin-in" style = "cursor: pointer;"></i>
-                        
-                        </li>
-
-                    </ul>
-
-                    <h3 style = "cursor: pointer;">
-                        
-                        or use your E-mail ID
-                    
-                    </h3>
+                    <h3 style="cursor: pointer;">Use your E-mail ID</h3>
 
                 </div>
 
-                    <form action="">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <ul class="flashes">
+                            {% for category, message in messages %}
+                                <li class="{{ category }}">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
 
-                        <input type="text" placeholder="EMAIL" required>
-
-                        <input type="password" placeholder="PASSWORD" required>
-
-                        <button id="b">
-                            
-                            <a href="#" style = "cursor: pointer;">
-                                
-                                Forgot password?
-                            
-                            </a>
-                        
-                        </button>
-
-                        <button type="submit" class = 'sign_in_btn'>
-
-                            <a href="{{ url_for('home') }}" style = 'color: white;'>
-                            
-                                SIGN IN
-
-                            </a>
-                        
-                        </button>
-
-                    </form>
-
-                </div>
+                <form action="{{ url_for('login') }}" method="POST">
+                    <input type="text" name="email" placeholder="EMAIL" required>
+                    <input type="password" name="password" placeholder="PASSWORD" required>
+                    <button id="b">
+                        <a href="#" style="cursor: pointer;">Forgot password?</a>
+                    </button>
+                    <button type="submit" class='sign_in_btn' style='color: white;'>
+                        SIGN IN
+                    </button>
+                </form>
 
             </div>
 
-            <div class="sec show" id="two">
+        </div>
 
-                <div class="textbox slide-left">
+        <div class="sec show" id="two">
 
-                <h1>
-                    
-                    Not a member?
-                
-                </h1>
+            <div class="textbox slide-left">
 
-                <p>
-                    
-                    Sign up and start shopping.
-                
-                </p>
-
-                <button id="b1" style = "cursor: pointer;" class = 'prompt_sign_up'>
-                    
+                <h1>Not a member?</h1>
+                <p>Sign up and start shopping.</p>
+                <button id="b1" style="cursor: pointer;" class='prompt_sign_up'>
                     SIGN UP
-                
                 </button>
-
-                </div>
 
             </div>
 
-        </section>
-        
-        <section>
+        </div>
 
-            <div class="sec hide" id="three">
+    </section>
 
-                <div class="textbox slide-left">
+    <section>
 
-                    <h1>
-                        
-                        Already a member?
-                    
-                    </h1>
+        <div class="sec hide" id="three">
 
-                <p>
-                    
-                    Login to keep shopping.
-                
-                </p>
+            <div class="textbox slide-left">
 
-                <button id="b2" style = "cursor: pointer;" class = 'prompt_sign_in'>
-                    
+                <h1>Already a member?</h1>
+                <p>Login to keep shopping.</p>
+                <button id="b2" style="cursor: pointer;" class='prompt_sign_in'>
                     SIGN IN
-                
                 </button>
-
-                </div>
 
             </div>
 
-            <div class="login hide" id="four">
+        </div>
 
-                <div class="textbox slide-right">
+        <div class="login hide" id="four">
+
+            <div class="textbox slide-right">
 
                 <div class="head">
 
-                    <h1>
-                        
-                        Create Account 
-                    
-                    </h1>
+                    <h1>Create Account</h1>
 
                     <ul>
-
                         <li>
-                            
-                            <i class="fab fa-facebook-f" style = "cursor: pointer;"></i>
-                        
+                            <i class="fab fa-facebook-f" style="cursor: pointer;"></i>
                         </li>
-
                         <li>
-                            
-                            <i class="fab fa-google-plus-g" style = "cursor: pointer;"></i>
-                        
+                            <i class="fab fa-google-plus-g" style="cursor: pointer;"></i>
                         </li>
-
                         <li>
-                            
-                            <i class="fab fa-linkedin-in" style = "cursor: pointer;"></i>
-                        
+                            <i class="fab fa-linkedin-in" style="cursor: pointer;"></i>
                         </li>
-
                     </ul>
 
-                    <h3 style = "cursor: pointer;">
-                        
-                        or use your E-mail ID
-                    
-                    </h3>
-
-                    </div>
-
-                    <form action="">
-
-                        <input type="text" placeholder="NAME" required>
-                        
-                        <br>
-
-                        <input type="text" placeholder="EMAIL" required>
-                        
-                        <br>
-
-                        <input type="password" placeholder="PASSWORD" required>
-
-                        <br>
-
-                        <input type="text" placeholder="PHONE NO. (optional)">
-
-                        <br>
-
-                        <button type="submit" style = "cursor: pointer;" class = 'sign_up_btn'>
-
-                            <a href="{{ url_for('home') }}" style = "color: white; text-decoration: none;">
-                            
-                            SIGN UP
-
-                            </a>
-                        
-                        </button>
-
-                    </form>
+                    <h3 style="cursor: pointer;">or use your E-mail ID</h3>
 
                 </div>
 
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <ul class="flashes">
+                            {% for category, message in messages %}
+                                <li class="{{ category }}">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+
+                <form action="{{ url_for('signup') }}" method="POST">
+                    <input type="text" name="first_name" placeholder="FIRST NAME" required>
+                    <br>
+                    <input type="text" name="last_name" placeholder="LAST NAME" required>
+                    <br>
+                    <input type="text" name="email" placeholder="EMAIL" required>
+                    <br>
+                    <input type="password" name="password" placeholder="PASSWORD" required>
+                    <br>
+                    <input type="text" name="address" placeholder="ADDRESS (optional)">
+                    <br>
+                    <button type="submit" style="cursor: pointer;" class='sign_up_btn' style="color: white; text-decoration: none;">
+                        SIGN UP
+                    </button>
+                </form>
+
             </div>
 
-        </section>
+        </div>
 
-        </section>
+    </section>
 
-        
-    
-    <script src="{{ url_for('static', filename='js/Login And Registration JS.js') }}"></script>
+</section>
 
+<script src="{{ url_for('static', filename='js/Login And Registration JS.js') }}"></script>
 
-    </body>
+</body>
 
 </html>
