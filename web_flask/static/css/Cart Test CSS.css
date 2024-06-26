@@ -81,11 +81,18 @@ body{
   display: flex;
   justify-content: space-between;
   background-color: #9a693b;
-  
   color: white;
   margin: 20px 0px;
   padding: 10px 0px;
-  border-top: 1px solid #333;
+}
+
+a.foot{
+    display: block;
+	text-align: center;
+	border-top: #ffffff;
+	background-color: #9a693b;;
+	color: #ffffff;
+	text-decoration: none;
 }
 .box{
   display: flex;
