@@ -1,35 +1,199 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Shopping Cart</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Shopping Cart CSS.css') }}">
-    <script src="https://kit.fontawesome.com/9088cc6401.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <div class="container">
-        <h1>Shopping Cart</h1>
-        <div class="cart">
-            <div class="products" id="cart-items">
-                <!-- Dynamic content will be inserted here -->
-            </div>
-            <div class="cart-total">
-                <p>
-                    <span>Total Price</span>
-                    <span id="total-price">LE 0</span>
-                </p>
-                <p>
-                    <span>No. of Items</span>
-                    <span id="total-items">0</span>
-                </p>
-                <p>
-                    <span>You Save</span>
-                    <span id="total-savings">LE 0</span>
-                </p>
-                <a href="{{ url_for('checkoutdetails') }}">Proceed to Checkout</a>
-            </div>
-        </div>
-    </div>
 
-    <script src="shoppingcart.js"></script> <!-- Include your JavaScript file -->
-</body>
+<html>
+
+	<head>
+
+		<title>
+            
+            Shopping Cart
+        
+        </title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Shopping Cart CSS.css') }}">
+
+
+		<script src="https://kit.fontawesome.com/9088cc6401.js" crossorigin="anonymous"></script>
+
+	</head>
+	
+	<link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
+
+    <body>
+        
+        
+        <div class="container">
+                
+            <h1>
+                
+                Shopping Cart
+            
+            </h1>
+
+            <div class="cart">
+
+                <div class="products">
+
+                    <div class="product">
+
+                        <img src="{{ url_for('static', filename='/images/images/pack1.png') }}" alt="order1" >
+
+
+                        <div class="product-info">
+
+                            <h3 class="product-name">
+                                
+                                Green Garden Bundle
+                            
+                            </h3>
+
+                            <h4 class="product-price">
+                                
+                                LE 350
+                            
+                            </h4>
+
+                            <h4 class="product-offer">
+                                
+                                50%
+                            
+                            </h4>
+
+                            <p class="product-quantity">
+                                
+                                Qnt: 
+                                
+                                <input value="1" name="">
+                            
+                            </p>
+
+                            <p class="product-remove">
+
+                                <i class="fas fa-trash-alt"></i>
+
+                                <span class="remove">
+                                    
+                                    Remove
+                                
+                                </span>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="product">
+
+                        <img src="{{ url_for('static', filename='/images/images/pack5.jpeg') }}" alt="order2" >
+
+
+                        <div class="product-info">
+
+                            <h3 class="product-name">
+                                
+                                Baker's Delight Box
+                            
+                            </h3>
+
+                            <h4 class="product-price">
+                                
+                                LE 100
+                            
+                            </h4>
+
+                            <h4 class="product-offer">
+                                
+                                20%
+                            
+                            </h4>
+
+                            <p class="product-quantity">
+                                
+                                Qnt: 
+                                
+                                <input value="1" name="">
+                            
+                            </p>
+                            <p class="product-remove">
+
+                                <i class="fas fa-trash-alt"></i>
+
+                                <span class="remove">
+                                    
+                                    Remove
+                                
+                                </span>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="cart-total">
+
+                    <p>
+
+                        <span>
+                            
+                            Total Price
+                        
+                        </span>
+
+                        <span>
+                            
+                            LE 450
+                        
+                        </span>
+
+                    </p>
+                    <p>
+
+                        <span>
+                            
+                            No. of Items
+                        
+                        </span>
+
+                        <span>
+                            
+                            2
+                        
+                        </span>
+
+                    </p>
+
+                    <p>
+
+                        <span>
+                            
+                            You Save
+                        
+                        </span>
+
+                        <span>
+                            
+                            LE 250
+                        
+                        </span>
+
+                    </p>
+
+                    <a href="{{ url_for('checkoutdetails') }}" >
+                        
+                        Proceed to Checkout
+                    
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+
 </html>

@@ -177,6 +177,7 @@
         </nav>
 
         <!--nav-end--------------------->
+        
         <div>
         
             <div class="left-sidebar">
@@ -186,7 +187,7 @@
             </div>
             </div>
         <div class="header">
-            <h2 class = "title">Fruits & Vegetables<h2>
+            <h3 id="categoryTitle">Fruits & Vegetables</h3>
             <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
         </div>
         <div class="container">
@@ -208,10 +209,11 @@
         </div>
         <script src="{{ url_for('static', filename='js/Cart Test JS.js') }}"></script>
         <!--box-container---------->
+
         <div class="category-container">
 
             <!--box---------------->
-                <a href="{{ url_for('fruits') }}" class=" category-box"  >
+                <a class="category-box" data-category="fruitVegetableProducts" onclick="switchCategory('fruitVegetableProducts')"  >
 
                 <img src="{{ url_for('static', filename='/images/images/Vegetables.png') }}" alt="fruits&vegetables">
                 <span>Fruits & <br> Vegetables</span>
@@ -232,7 +234,7 @@
                 <span>Baby Care</span>
             </a>
             <!--box---------------->
-            <a href="{{ url_for('meat') }}" class=" category-box"  >
+            <a class="category-box" data-category="meatProducts" onclick="switchCategory('meatProducts')"  >
 
                 <img src="{{ url_for('static', filename='/images/images/fish.png') }}" alt="meat" >
                 <span>Meat</span>
@@ -256,9 +258,19 @@
                 <span>Dairy Products</span>
             </a>
         </div>
+        
+        <div id="root"></div>
+        
+        <!-- Cart Display -->
+        <div>
+            <div id="cartItem"></div>
+            <div id="total"></div>
+        </div>
+        
         <div class ="right">
             <img src="{{ url_for('static', filename='/images/images/plate2.png') }}" alt="plate" >
 
         <div>
+            
     </body>
 </html>
