@@ -9,21 +9,6 @@ const products = [
 const categories = [...new Set(products.map(item => item))];
 let cart = [];
 
-document.getElementById('root').innerHTML = categories.map((item, index) => {
-    return `
-        <div class='box'>
-            <div class='img-box'>
-                <img class='images' src='${item.image}' alt='${item.title}'>
-            </div>
-            <div class='bottom'>
-                <p>${item.title}</p>
-                <h2>$ ${item.price}.00</h2>
-                <button onclick='addToCart(${index})'>Add to cart</button>
-            </div>
-        </div>
-    `;
-}).join('');
-
 function addToCart(index) {
     cart.push({ ...categories[index] });
     displayCart();
