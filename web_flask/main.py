@@ -5,13 +5,58 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from hashlib import md5
 from models import storage
 from models.user import User
+from models.product import Product
+from models.order   import Order
 
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
 
+products = [
+    {'id': 1, 'name': 'Apple', 'price': 30, 'image': '/images/images/apple.png'},
+    {'id': 2, 'name': 'Chili', 'price': 20, 'image': '/images/images/chili.png'},
+    # Add other products here
+]
 
+@app.route('/add_to_cart', methods=['POST'])
+def add_to_cart():
+    if request.method == 'POST':
+        product_id = request.form['product_id']
+        user_id = request.form['user_id']  # Assuming you have user ID in the form data
+
+        # Check if the product exists
+        product = storage.get(Product, product_id)
+        if product is None:
+            flash('Product not found.', 'warning')
+            return redirect(url_for('cart'))
+
+        # Check if the user exists
+        user = storage.get(User, user_id)
+        if user is None:
+            flash('User not found.', 'warning')
+            return redirect(url_for('cart'))
+
+        # Create a new order item
+        new_order = Order(user_id=user_id, product_id=product_id, product_name=product.name, product_price=product.price)
+        storage.new(new_order)
+        storage.save()
+
+        # Check if the order item was saved
+        if storage.get(Order, new_order.id) is not None:
+            print("Order saved successfully:", new_order)
+        else:
+            print("Failed to save order:", new_order)
+
+        flash('Product added to cart successfully!', 'success')
+        return redirect(url_for('cart'))
+    return render_template('Shopping Cart HTML.html')
+
+
+
+@app.route('/carttest')
+def carttest():
+    return render_template('Cart Test HTML.html', title='carttest')
 
 @app.route('/')
 def home():

@@ -1,1 +1,22 @@
-{"User.4d71bf7f-fe31-437b-bad0-39a408996ddd": {"first_name": "Mohamed", "last_name": "Khaled", "email": "mokhaled2004@gmail.com", "password": "c20ad4d76fe97759aa27a0c99bff6710", "address": "7832 Mohamed Ibrahim street, Region C Mokattam", "created_at": "2024-06-24T19:56:11.172612", "updated_at": "2024-06-24T19:56:11.172612", "id": "4d71bf7f-fe31-437b-bad0-39a408996ddd", "__class__": "User"}}
+{
+    "Product.c0d936a5-c275-489c-86e1-e353a33bba52": {
+        "name": "apple",
+        "price": 10,
+        "image": "../webstatic/images/images/apple.png",
+        "id": "c0d936a5-c275-489c-86e1-e353a33bba52",
+        "created_at": "2024-06-25T15:26:37.118401",
+        "updated_at": "2024-06-25T15:26:37.118401",
+        "__class__": "Product"
+    },
+    "User.eefbcc5a-0a59-4200-b907-f4c1948ad75a": {
+        "first_name": "Mohamed",
+        "last_name": "Khaled",
+        "email": "mokhaled2004@gmail.com",
+        "password": "c20ad4d76fe97759aa27a0c99bff6710",
+        "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
+        "created_at": "2024-06-26T10:23:51.794875",
+        "updated_at": "2024-06-26T10:23:51.794875",
+        "id": "eefbcc5a-0a59-4200-b907-f4c1948ad75a",
+        "__class__": "User"
+    }
+}

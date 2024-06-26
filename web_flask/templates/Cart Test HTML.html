@@ -1,0 +1,258 @@
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Cart Test CSS.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Category Page CSS.css') }}">
+
+        <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!--==Navigation================================-->
+        <nav class="navigation">
+
+            <!--logo-------->
+            
+
+            <img src="{{ url_for('static', filename='/images/images/Logo.png') }}" alt="Logo" class = "Logo" >
+
+
+            
+            <label for="menu-btn" class="menu-icon">
+
+                <span class="nav-icon"></span>
+
+            </label>
+
+            <!--menu-------->
+            <ul class="menu">
+
+                <li>
+                    <a href="{{ url_for('home') }}" >
+                        
+                        Home
+
+                    </a>
+                
+                </li>
+
+                <li>
+
+                    <a href="{{ url_for('home') }}#category" class="active" >    
+
+
+                        Categories
+                    
+                    </a>
+                
+                </li>
+
+                <li>
+
+                    <a href="{{ url_for('home') }}#category"  >    
+
+                        
+                        Stores
+                    
+                    </a>
+                
+                </li>
+
+                <li>
+                    
+                    <a href="{{ url_for('contactus') }}"  >
+                        
+                        Contact&nbsp;Us
+                    
+                    </a>
+                
+                </li>
+				
+				<li>
+                    
+                    <a href="{{ url_for('feedback') }}" >
+
+                        
+                        Feedback
+                    
+                    </a>
+                
+                </li>
+				
+				<li>
+
+					
+                    <a href="{{ url_for('aboutus') }}" >
+
+						About&nbsp;us
+
+					</a>
+
+                </li>
+
+                <li>
+                    
+                    
+                    <a href="{{ url_for('home') }}#popular-bundle-pack"  >    
+                        
+                        Packages
+                    
+                    </a>
+                
+                </li>
+
+                <li>
+                    
+                    <a href="{{ url_for('signup') }}" >
+
+                            
+                        Sign&nbsp;up
+                        
+                    </a>
+                    
+                </li>
+
+                
+                <li>
+                    
+                    <a href="{{ url_for('login') }}" >
+
+                        
+                        Login
+                    
+                    </a>
+                
+                </li>
+
+				</ul>
+
+            <!--right-nav-(cart-like)-->
+            <div class="right-nav">
+
+                <!--like----->
+                
+                <a href="{{ url_for('wishlist') }}" class=" like"  >
+
+
+                    <img src="{{ url_for('static', filename='/images/images/wishlist.jpg') }}" alt="wishlist" >
+
+                    <span>
+                        
+                        2
+                    
+                    </span>
+
+                </a>
+
+                <!--cart----->
+                <a href="{{ url_for('cart') }}" class=" like"  >
+
+                    <img src="{{ url_for('static', filename='/images/images/cart3.jpg') }}" alt="cart3" >
+
+                    <span>
+                        
+                        2
+                    
+                    </span>
+
+                </a>
+
+                <!--cart----->
+                <a href="{{ url_for('profile') }}" class=" like"  >
+
+                    <img src="{{ url_for('static', filename='/images/images/profile2.png') }}" alt="profile" >
+
+                    <span>
+
+                        1
+
+                    </span>
+
+                </a>
+
+            </div>
+
+        </nav>
+
+        <!--nav-end--------------------->
+        <div>
+        
+            <div class="left-sidebar">
+                <img src="{{ url_for('static', filename='/images/images/plate.png') }}" alt="plate" >
+    
+                
+            </div>
+            </div>
+        <div class="header">
+            <h2 class = "title">Fruits & Vegetables<h2>
+            <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
+        </div>
+        <div class="container">
+            <div id="root"></div>
+            <div class="sidebar">
+                <div class="head"><p>My Cart</p></div>
+                <div id="cartItem">Your cart is empty</div>
+                <div class="foot">
+                    <h3>Total</h3>
+                    <h2 id="total">$ 0.00</h2>
+                </div>
+            </div>
+        </div>
+        <script src="{{ url_for('static', filename='js/Cart Test JS.js') }}"></script>
+        <!--box-container---------->
+        <div class="category-container">
+
+            <!--box---------------->
+                <a href="{{ url_for('fruits') }}" class=" category-box"  >
+
+                <img src="{{ url_for('static', filename='/images/images/Vegetables.png') }}" alt="fruits&vegetables">
+                <span>Fruits & <br> Vegetables</span>
+            </a>
+            <!--box---------------->
+            <a href="{{ url_for('medicine') }}" class=" category-box"  >
+
+
+                
+                <img src="{{ url_for('static', filename='/images/images/medicine.png') }}" alt="medicines">
+                <span>Medicine</span>
+            </a>
+            <!--box---------------->
+            <a href="{{ url_for('babycare') }}" class=" category-box"  >
+
+                
+                <img src="{{ url_for('static', filename='/images/images/baby.png') }}" alt="babycare">
+                <span>Baby Care</span>
+            </a>
+            <!--box---------------->
+            <a href="{{ url_for('meat') }}" class=" category-box"  >
+
+                <img src="{{ url_for('static', filename='/images/images/fish.png') }}" alt="meat" >
+                <span>Meat</span>
+            </a>
+            <!--box---------------->
+            <a href="{{ url_for('bakery') }}" class=" category-box"  >
+
+                <img src="{{ url_for('static', filename='/images/images/bakery1.png') }}" alt="bakery" >
+                <span>Bakery</span>
+            </a>
+            <!--box---------------->
+            <a href="{{ url_for('snacks') }}" class=" category-box"  >
+
+                <img src="{{ url_for('static', filename='/images/images/snacks.png') }}" alt="snacks" >
+                <span>Snacks</span>
+            </a>
+            <!--box---------------->
+            <a href="{{ url_for('dairy') }}" class=" category-box"  >
+
+                <img src="{{ url_for('static', filename='/images/images/dairy2.png') }}" alt="dairyproducts" >
+                <span>Dairy Products</span>
+            </a>
+        </div>
+        <div class ="right">
+            <img src="{{ url_for('static', filename='/images/images/plate2.png') }}" alt="plate" >
+
+        <div>
+    </body>
+</html>

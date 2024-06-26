@@ -15,12 +15,14 @@ class Product(BaseModel, Base):
         __tablename__ = 'products'
         name = Column(String(128), nullable=False)
         price = Column(Float, nullable=False)
+        image = Column(String(128), nullable=False)
         orders = relationship("Order", secondary='order_product', back_populates="products")
 
         
     else:
         name = ""
         price = 0.0
+        image = ""
 
     def __init__(self, *args, **kwargs):
         """initializes Product"""
