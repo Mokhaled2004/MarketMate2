@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "image": "../static/images/images/apple.png",
+        "title": "apple",
+        "price": 2
+    },
+    {
+        "id": 1,
+        "image": "../static/images/images/patato.png",
+        "title": "potato",
+        "price": 8
+    },
+    {
+        "id": 2,
+        "image": "../static/images/images/chili.png",
+        "title": "chili",
+        "price": 4
+    },
+    {
+        "id": 3,
+        "image": "../static/images/images/onion.png",
+        "title": "onion",
+        "price": 20
+    },
+    {
+        "id": 4,
+        "image": "../static/images/images/tamato.png",
+        "title": "tomato",
+        "price": 20
+    }
+]
