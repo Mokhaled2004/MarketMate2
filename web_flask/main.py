@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """ Starts a Flask Web Application """
-import os
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+from models.user import User
 from hashlib import md5
-from models import storage
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+
 from models.user import User
 from models.product import Product
 from models.order   import Order
