@@ -491,14 +491,14 @@ const PopularPackges = [
         },
         {
             id: 87,
-            image: '../static/images/images/osteocare.jpg',
-            title: 'Green Garden Bundle which contains Apple, Tomato, Potato,Blueberry',
+            image: '../static/images/images/pack5.jpg',
+            title: 'Baker Delight Box which contains White Bread, Rye Bread, Sourdough Bread',
             price: 250,
         },
         {
             id: 88,
-            image: '../static/images/images/pack5.jpeg',
-            title: 'Bakers Delight Box which contains White Bread, Rye Bread, Sourdough Bread',
+            image: '../static/images/images/pack6.jpeg',
+            title: 'Snack Attack Bundle which contains Chips, Pretzels, crackers, Candy',
             price: 100,
         }
     ];
