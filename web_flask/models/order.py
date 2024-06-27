@@ -15,8 +15,8 @@ from sqlalchemy.orm import relationship
 class OrderProduct(Base):
     __tablename__ = 'order_product'
 
-    order_id = db.Column(db.String(60), ForeignKey('orders.id', onupdate='CASCADE', ondelete='CASCADE'), primary_key=True)
-    product_id = db.Column(db.String(60), ForeignKey('products.id', onupdate='CASCADE', ondelete='CASCADE'), primary_key=True)
+    order_id = db.Column(db.String(60), db.ForeignKey('orders.id', onupdate='CASCADE', ondelete='CASCADE'), primary_key=True)
+    product_id = db.Column(db.String(60), db.ForeignKey('products.id', onupdate='CASCADE', ondelete='CASCADE'), primary_key=True)
 
 
 class Order(Base):
@@ -24,7 +24,7 @@ class Order(Base):
     __tablename__ = 'orders'
 
     id = db.Column(db.String(60), primary_key=True)
-    user_id = db.Column(db.String(60), ForeignKey('users.id'), nullable=False)
+    user_id = db.Column(db.String(60), db.ForeignKey('users.id'), nullable=False)
     market_name = db.Column(db.String(128), nullable=False)
 
     products = relationship("Product", secondary='order_product', back_populates="orders")
