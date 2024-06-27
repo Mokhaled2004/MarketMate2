@@ -19,39 +19,11 @@ products = [
     # Add other products here
 ]
 
-@app.route('/add_to_cart', methods=['POST'])
-def add_to_cart():
-    if request.method == 'POST':
-        product_id = request.form['product_id']
-        user_id = request.form['user_id']  # Assuming you have user ID in the form data
 
-        # Check if the product exists
-        product = storage.get(Product, product_id)
-        if product is None:
-            flash('Product not found.', 'warning')
-            return redirect(url_for('cart'))
 
-        # Check if the user exists
-        user = storage.get(User, user_id)
-        if user is None:
-            flash('User not found.', 'warning')
-            return redirect(url_for('cart'))
-
-        # Create a new order item
-        new_order = Order(user_id=user_id, product_id=product_id, product_name=product.name, product_price=product.price)
-        storage.new(new_order)
-        storage.save()
-
-        # Check if the order item was saved
-        if storage.get(Order, new_order.id) is not None:
-            print("Order saved successfully:", new_order)
-        else:
-            print("Failed to save order:", new_order)
-
-        flash('Product added to cart successfully!', 'success')
-        return redirect(url_for('cart'))
-    return render_template('Shopping Cart HTML.html')
-
+@app.route('/logged')
+def logged():
+    return render_template('Logged Home Page HTML.html', title='Logged Home Page')
 
 
 @app.route('/carttest')
@@ -87,7 +59,7 @@ def login():
                 break
         if user:
             flash('Logged in successfully!', 'success')
-            return redirect(url_for('home'))
+            return redirect(url_for('logged'))
         else:
             flash('Invalid credentials, please try again.', 'danger')
             return redirect(url_for('login'))
