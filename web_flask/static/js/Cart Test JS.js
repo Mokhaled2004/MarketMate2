@@ -464,12 +464,51 @@ const medicineProducts = [
         price: 45,
     }
 ];
+const PopularPackges = [   
+        {
+            id: 83,
+            image: '../static/images/images/pack1.png',
+            title: 'Green Garden Bundle which contains Apple, Tomato, Potato,Blueberry',
+            price: 350,
+        },
+        {
+            id: 84,
+            image: '../static/images/images/pack2.jpeg',
+            title: 'Health Essentials Kit which contains Panadol, Bruffen, Zyrtec,Aspirin',
+            price: 500,
+        },
+        {
+            id: 85,
+            image: '../static/images/images/pack3.jpeg',
+            title: 'Butcher Choice Bundle which contains Beef, Lamb, Chicken,Duck',
+            price: 35,
+        },
+        {
+            id: 86,
+            image: '../static/images/images/pack4.jpeg',
+            title: 'Baby Essentials Bundle  which contains Johnsons Baby Oil, Himalaya Baby Shampoo, Moisturizer',
+            price: 30,
+        },
+        {
+            id: 87,
+            image: '../static/images/images/osteocare.jpg',
+            title: 'Green Garden Bundle which contains Apple, Tomato, Potato,Blueberry',
+            price: 250,
+        },
+        {
+            id: 88,
+            image: '../static/images/images/pack5.jpeg',
+            title: 'Bakers Delight Box which contains White Bread, Rye Bread, Sourdough Bread',
+            price: 100,
+        }
+    ];
+
 
 
 
 
 // Merge fruitVegetableProducts and meatProducts into a single categories array
-const categories = [...fruitVegetableProducts, ...meatProducts, ...bakeryProducts, ...snacksProducts, ...dairyProducts, ...babyProducts, ...medicineProducts];
+const categories = [...fruitVegetableProducts, ...meatProducts, ...bakeryProducts, ...snacksProducts, ...dairyProducts, ...babyProducts, ...medicineProducts, ...PopularPackges];
 
 let i = 0;
 
@@ -495,6 +534,9 @@ function switchCategory(category) {
     else if (category === 'medicineProducts') {
         document.getElementById('categoryTitle').textContent = 'Medicine Products';
     }
+    else if (category === 'PopularPackges') {
+        document.getElementById('categoryTitle').textContent = 'Popular Packges';
+    }
     
     displayProducts(category);
 }
@@ -519,6 +561,8 @@ function displayProducts(category) {
         products = babyProducts;
     }else if(category === 'medicineProducts') {
         products = medicineProducts;
+    }else if(category === 'PopularPackges') {
+        products = PopularPackges;
     }else {
         products = [];
     }
