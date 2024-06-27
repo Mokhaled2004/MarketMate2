@@ -267,7 +267,7 @@ const snacksProducts = [
     },
     {
         id: 49,
-        image: '../static/images/images/trail mix.jpg',
+        image: '../static/images/images/trail_mix.jpg',
         title: 'Trail Mix',
         price: 230,
     },
@@ -353,7 +353,7 @@ const dairyProducts = [
     },
     {
         id: 63,
-        image: '../static/images/images/Whipping cream.jpeg',
+        image: '../static/images/images/Whipping_cream.jpeg',
         title: 'Whipping cream',
         price: 35,
     },
@@ -365,7 +365,7 @@ const dairyProducts = [
     },
     {
         id: 65,
-        image: '../static/images/images/Cottage Cheese.jpeg',
+        image: '../static/images/images/Cottage_Cheese.jpeg',
         title: 'Cottage Cheese',
         price: 20,
     }
@@ -379,7 +379,7 @@ const babyProducts = [
     },
     {
         id: 67,
-        image: '../static/images/Baby Wipes.jpg',
+        image: '../static/images/Baby_Wipes.jpg',
         title: "Little's Baby Wipes",
         price: 70,
     },
@@ -391,13 +391,13 @@ const babyProducts = [
     },
     {
         id: 69,
-        image: '../static/images/Baby Shampoo.jpg',
+        image: '../static/images/Baby_Shampoo.jpg',
         title: 'Himalaya Baby Shampoo',
         price: 330,
     },
     {
         id: 70,
-        image: '../static/images/Baby Powder.jpg',
+        image: '../static/images/Baby_Powder.jpg',
         title: "Johnson's Baby Powder",
         price: 125,
     },
