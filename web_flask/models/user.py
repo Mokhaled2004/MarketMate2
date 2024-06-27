@@ -6,8 +6,6 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 import models
 from models.base_model import BaseModel, Base
-from os import getenv
-import sqlalchemy
 from hashlib import md5
 
 
@@ -23,10 +21,8 @@ class User(BaseModel, Base):
     phone_number = db.Column(db.Text, nullable=True)
     address = db.Column(db.Text, nullable=True)
 
-    orders = relationship("Order", cascade='all, delete, delete-orphan',
-                            backref="user")
-    reviews = relationship("Review", cascade='all, delete, delete-orphan',
-                            backref="user")
+    orders = db.relationship("Order", cascade='all, delete, delete-orphan', backref="user")
+    reviews = db.relationship("Review", cascade='all, delete, delete-orphan', backref="user")
         
     
 
