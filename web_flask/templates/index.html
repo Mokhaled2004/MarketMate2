@@ -17,7 +17,8 @@
     
         <!--==Stylesheet=============================-->
         <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Home Page CSS.css') }}">
-        
+        <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
     
         <!--==Fav-icon===============================-->
         <link rel="shortcut icon" href="images/fav-icon.png"/>
@@ -180,46 +181,23 @@
             <!--nav-end--------------------->
             <!--==Search-banner=======================================-->
             <section id="search-banner">
-    
-                <!--bg--------->
-                
+                <!-- Background Image -->
                 <img src="{{ url_for('static', filename='/images/images/Fly5.jpeg') }}" alt="banner" class="bg-1">
-    
-            
-                <!--text------->
+        
+                <!-- Search Banner Text -->
                 <div class="search-banner-text">
-    
-                    <h1>
-                        
-                        Order Your daily Groceries
-                    
-                    </h1>
-    
-                    
-    
-                    <!--search-box------>
-                    <form action="" class="search-box">
-    
-                        <!--icon------>
+                    <h1>Order Your daily Groceries</h1>
+        
+                    <!-- Search Box Form -->
+                    <form action="" class="search-box" onsubmit="searchText(); return false;">
                         <i class="fas fa-search"></i>
-    
-                        <!--input----->
-                        <input type="text" class="search-input" placeholder="Search" name="search" size = "80px" required>
-    
-                        <!--btn------->
+                        <input type="text" class="search-input" id="searchText" placeholder="Search" size="80" required>
                         <input type="submit" class="search-btn" value="Search">
-    
                     </form>
-    
-                    <br>
-    
-            
-    
                 </div>
-    
             </section>
-    
-            <!--search-banner-end--------------->
+            
+<!--search-banner-end--------------->
     
             
     
