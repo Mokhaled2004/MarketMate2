@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This is the base model class for AirBnB"""
-
+from app import db
+from sqlalchemy import Column, Integer, String, Float
 from datetime import datetime
 import models
 from os import getenv
