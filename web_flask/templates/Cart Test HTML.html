@@ -240,13 +240,13 @@
                 <span>Meat</span>
             </a>
             <!--box---------------->
-            <a href="{{ url_for('bakery') }}" class=" category-box"  >
+            <a class="category-box" data-category="bakeryProducts" onclick="switchCategory('bakeryProducts')"  >
 
                 <img src="{{ url_for('static', filename='/images/images/bakery1.png') }}" alt="bakery" >
                 <span>Bakery</span>
             </a>
             <!--box---------------->
-            <a href="{{ url_for('snacks') }}" class=" category-box"  >
+            <a class="category-box" data-category="snacksProducts" onclick="switchCategory('snacksProducts')"  >
 
                 <img src="{{ url_for('static', filename='/images/images/snacks.png') }}" alt="snacks" >
                 <span>Snacks</span>
