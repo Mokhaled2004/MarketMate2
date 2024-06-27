@@ -4,6 +4,7 @@
     
         <head>
     
+<<<<<<< HEAD
         <meta charset="utf-8">
     
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,6 +28,20 @@
     
         
         <script src="{{ url_for('static', filename='js/Home Page JS.js') }}"></script>
+=======
+    <script src="{{ url_for('static', filename='js/Home Page JS.js') }}"></script>
+	    
+   <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
+
+    </head>
+
+    <body>
+
+         <!--==Navigation================================-->
+         <nav class="navigation">
+
+            <!--logo-------->
+>>>>>>> 83cd290653bd635407283957ddc929a12c1fb58f
             
        <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
     
@@ -275,6 +290,353 @@
                     </h2>
     
                     <span>
+<<<<<<< HEAD
+=======
+
+                        1
+
+                    </span>
+
+                </a>
+
+            </div>
+
+        </nav>
+
+        <!--nav-end--------------------->
+        <!--==Search-banner=======================================-->
+        <section id="search-banner">
+
+            <!--bg--------->
+            
+            <img src="{{ url_for('static', filename='/images/images/Fly5.jpeg') }}" alt="banner" class="bg-1">
+
+        
+            <!--text------->
+            <div class="search-banner-text">
+
+                <h1>
+                    
+                    Order Your daily Groceries
+                
+                </h1>
+
+                
+
+                <!--search-box------>
+                <form action="" class="search-box">
+
+                    <!--icon------>
+                    <i class="fas fa-search"></i>
+
+                    <!--input----->
+                    <input type="text" class="search-input" placeholder="Search" name="search" size = "80px" required>
+
+                    <!--btn------->
+                    <input type="submit" class="search-btn" value="Search">
+
+                </form>
+
+                <br>
+
+        
+
+            </div>
+
+        </section>
+
+        <!--search-banner-end--------------->
+
+        
+
+        <!--Markets-->>
+        
+        
+        <!--==category=========================================-->
+        <section id="category">
+
+            <div class = "store-heading"> 
+            
+                <h2>
+    
+                    Stores
+                    
+                </h2>
+
+    
+            </div>
+
+            <!--Stores-container---------->
+            <div class="stores-container">
+
+                <!--box---------------->
+                <a class="store-box" href = '#stores'>
+					
+                    <img src="{{ url_for('static', filename='/images/images/carrefour.png') }}" alt="carrefour" >
+					
+				</a>
+				<!--box---------------->
+                <a class="store-box" href = '#category'>
+                    
+                    <img src="{{ url_for('static', filename='/images/images/Kher.jpg') }}" alt="Kher" >
+                    
+                </a>
+                <!--box---------------->
+                <a class="store-box" href="#category">
+                    
+                    <img src="{{ url_for('static', filename='/images/images/Bim.png') }}" alt="Bim" >
+                    
+                </a>
+                
+                
+            </div>
+
+            <!--heading---------------->
+            <div class="category-heading">
+
+                <h2>
+                    
+                    Category
+                
+                </h2>
+
+                <span>
+                    
+                    All
+                
+                </span>
+
+            </div>
+
+
+            
+
+            <!--box-container---------->
+            <div class="category-container">
+
+                <!--box---------------->
+<<<<<<< HEAD
+                    <a href="{{ url_for('fruits') }}" class=" category-box"  >
+=======
+<<<<<<< HEAD
+                    <a href="{{ url_for('carttest') }}" class=" category-box"  >
+=======
+                <a class="category-box" data-category="fruitVegetableProducts" onclick="switchCategory('fruitVegetableProducts')"  >
+>>>>>>> 4a94041051fefafa20773ead18a46e80fc412887
+>>>>>>> refs/remotes/origin/main
+
+                    <img src="{{ url_for('static', filename='/images/images/Vegetables.png') }}" alt="fruits&vegetables">
+					<span>Fruits & <br> Vegetables</span>
+				</a>
+				<!--box---------------->
+                <a href="{{ url_for('carttest') }}" class=" category-box"  >
+
+
+                    
+                    <img src="{{ url_for('static', filename='/images/images/medicine.png') }}" alt="medicines">
+                    <span>Medicine</span>
+                </a>
+                <!--box---------------->
+                <a href="{{ url_for('carttest') }}" class=" category-box"  >
+
+                    
+                    <img src="{{ url_for('static', filename='/images/images/baby.png') }}" alt="babycare">
+                    <span>Baby Care</span>
+                </a>
+                <!--box---------------->
+                <a href="{{ url_for('carttest') }}" class=" category-box"  >
+
+                    <img src="{{ url_for('static', filename='/images/images/fish.png') }}" alt="meat" >
+                    <span>Meat</span>
+                </a>
+                <!--box---------------->
+                <a href="{{ url_for('carttest') }}" class=" category-box"  >
+
+                    <img src="{{ url_for('static', filename='/images/images/bakery1.png') }}" alt="bakery" >
+                    <span>Bakery</span>
+                </a>
+                <!--box---------------->
+                <a href="{{ url_for('carttest') }}" class=" category-box"  >
+
+                    <img src="{{ url_for('static', filename='/images/images/snacks.png') }}" alt="snacks" >
+                    <span>Snacks</span>
+                </a>
+                <!--box---------------->
+                <a href="{{ url_for('carttest') }}" class=" category-box"  >
+
+                    <img src="{{ url_for('static', filename='/images/images/dairy2.png') }}" alt="dairyproducts" >
+                    <span>Dairy Products</span>
+                </a>
+            </div>
+            
+        </section>
+
+
+        <!--category-end----------------------------------->
+        <!--==Products====================================-->
+        <section id="popular-product">
+            <!--heading----------->
+            <div class="product-heading">
+                <h3>Popular Product</h3>
+                <span>All</span>
+            </div>
+            <!--box-container------>
+            <div class="product-container">
+                <!--box---------->
+                <div class="product-box">
+                    <img src="{{ url_for('static', filename='/images/images/apple.png') }}" alt="apple">
+                    <strong>Apple</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">LE 30</span>
+                    
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img src="{{ url_for('static', filename='/images/images/chili.png') }}" alt="chili" >
+                    <strong>Chili</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">LE 20</span>
+                    
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img src="{{ url_for('static', filename='/images/images/onion.png') }}" alt="onion" >
+                    <strong>Onion</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">LE 35</span>
+                    
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img src="{{ url_for('static', filename='/images/images/patato.png') }}" alt="patato" >
+                    <strong>Potato</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">LE 25</span>
+                    
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img src="{{ url_for('static', filename='/images/images/mango.jpg') }}" alt="mango" >
+                    <strong>Mango</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">LE 50</span>
+                    
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img src="{{ url_for('static', filename='/images/images/tamato.png') }}" alt="tamato">
+                    <strong>Tomato</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">LE 35</span>
+                    
+                </div>
+            </div>
+        </section>
+        <!--popular-product-end--------------------->
+        <!--Popular-bundle-pack===================================-->
+        <section id="popular-bundle-pack">
+            <!--heading-------------->
+            <div class="product-heading">
+                <h3>Popular Bundle Pack</h3>
+            </div>
+            <!--box-container------>
+            <div class="product-container">
+                <!--box---------->
+                <div class="product-box">
+                    <img src="{{ url_for('static', filename='/images/images/pack1.png') }}" alt="pack1" >
+                    <strong>Green Garden Bundle</strong>
+                    <span class="quantity">Apple, Tomato, Potato,Blueberry</span>
+                    <span class="Sizes">Kilogram each</span>
+                    <span class="price">LE 350</span>
+                    
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img src="{{ url_for('static', filename='/images/images/pack2.jpeg') }}" alt="pack2" >
+                    <strong>Health Essentials Kit</strong>
+                    <span class="quantity">Panadol, Bruffen, Zyrtec,Aspirin</span>
+                    <span class="Sizes">12 Tablets each</span>
+                    <span class="price">LE 500</span>
+                   
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img src="{{ url_for('static', filename='/images/images/pack3.jpeg') }}" alt="pack3" >
+                    <strong>Butcher's Choice Bundle</strong>
+                    <span class="quantity">Beef, Lamb, Chicken,Duck</span>
+                    <span class="Sizes">Kilogram each</span>
+                    <span class="price">LE 750</span>
+                    
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img src="{{ url_for('static', filename='/images/images/pack4.jpeg') }}" alt="pack4" >
+                    <strong>Baby Essentials Bundle</strong>
+                    <span class="quantity">Johnson's Baby Oil, Himalaya Baby Shampoo, Moisturizer</span>
+                    <span class="Sizes">500 ml each</span>
+                    <span class="price">LE 250</span>
+                    
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img src="{{ url_for('static', filename='/images/images/pack5.jpeg') }}" alt="pack5" >
+                    <strong>Baker's Delight Box</strong>
+                    <span class="quantity">White Bread, Rye Bread, Sourdough Bread</span>
+                    <span class="Sizes">12 piece each</span>
+                    <span class="price">LE 100</span>
+                    
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img src="{{ url_for('static', filename='/images/images/pack6.jpeg') }}" alt="pack6" >
+                    <strong>Snack Attack Bundle</strong>
+                    <span class="quantity">Chips, Pretzels, crackers, Candy</span>
+                    <span class="Sizes">1  bag each</span>
+                    <span class="price">LE 200</span>
+                    
+                </div>
+            </div>
+        </section>
+        <!--popular-bundle-pack-end-------------------------------->
+
+
+        <!--==Clients===============================================-->
+        <section id="clients">
+            <!--heading---------------->
+            <div class="client-heading">
+                <h3>What Our Clients Say</h3>
+            </div>
+            <!--box-container---------->
+            <div class="client-box-container">
+                <!--box------------->
+                <div class="client-box">
+                    <!--==profile===-->
+                    <div class="client-profile">
+                        <!--img--->
+                        <img src="{{ url_for('static', filename='/images/images/Mazen.png') }}" alt="user1">
+                        <!--text-->
+                        <div class="profile-text">
+                            <strong>Mazen Wael</strong>
+                            <span>SWE</span>
+                        </div>
+                    </div>
+                    <!--==Rating======-->
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <!--==comments===-->
+                    <p>MarketMate Gamed Fashkh .</Str></p>
+                </div>
+                <!--box------------->
+                <div class="client-box">
+                    <!--==profile===-->
+                    <div class="client-profile">
+                        <!--img--->
+>>>>>>> 83cd290653bd635407283957ddc929a12c1fb58f
                         
                         All
                     
