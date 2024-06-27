@@ -219,21 +219,6 @@
                 <span>Fruits & <br> Vegetables</span>
             </a>
             <!--box---------------->
-            <a href="{{ url_for('medicine') }}" class=" category-box"  >
-
-
-                
-                <img src="{{ url_for('static', filename='/images/images/medicine.png') }}" alt="medicines">
-                <span>Medicine</span>
-            </a>
-            <!--box---------------->
-            <a href="{{ url_for('babycare') }}" class=" category-box"  >
-
-                
-                <img src="{{ url_for('static', filename='/images/images/baby.png') }}" alt="babycare">
-                <span>Baby Care</span>
-            </a>
-            <!--box---------------->
             <a class="category-box" data-category="meatProducts" onclick="switchCategory('meatProducts')"  >
 
                 <img src="{{ url_for('static', filename='/images/images/fish.png') }}" alt="meat" >
@@ -252,10 +237,21 @@
                 <span>Snacks</span>
             </a>
             <!--box---------------->
-            <a href="{{ url_for('dairy') }}" class=" category-box"  >
+            <a class="category-box" data-category="dairyProducts" onclick="switchCategory('dairyProducts')"  >
 
-                <img src="{{ url_for('static', filename='/images/images/dairy2.png') }}" alt="dairyproducts" >
-                <span>Dairy Products</span>
+                <img src="{{ url_for('static', filename='/images/images/dairy.png') }}" alt="dairy" >
+                <span>Dairy</span>
+            </a>
+            <!--box---------------->
+            <a class="category-box" data-category="babyProducts" onclick="switchCategory('babyProducts')"  >
+
+                <img src="{{ url_for('static', filename='/images/images/baby.png') }}" alt="Baby" >
+                <span>Baby</span>
+            </a>
+            <a class="category-box" data-category="medicineProducts" onclick="switchCategory('medicineProducts')"  >
+
+                <img src="{{ url_for('static', filename='/images/images/medicine.png') }}" alt="medicine" >
+                <span>Medicine</span>
             </a>
         </div>
         
