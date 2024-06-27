@@ -12,39 +12,32 @@ from sqlalchemy.orm import relationship
 
 
 
-
+class OrderProduct(Base):
     __tablename__ = 'order_product'
-
 
     order_id = db.Column(db.String(60), ForeignKey('orders.id', onupdate='CASCADE', ondelete='CASCADE'), primary_key=True)
     product_id = db.Column(db.String(60), ForeignKey('products.id', onupdate='CASCADE', ondelete='CASCADE'), primary_key=True)
 
 
-
-class Order(BaseModel, Base):
+class Order(Base):
     """Representation of Order"""
-    tablename__ = 'orders'
+    __tablename__ = 'orders'
+
     id = db.Column(db.String(60), primary_key=True)
     user_id = db.Column(db.String(60), ForeignKey('users.id'), nullable=False)
     market_name = db.Column(db.String(128), nullable=False)
 
-    products = relationship("Product", secondary=OrderProduct, back_populates="orders")
-
-    else:
-
-    user_id = ""
-    market_name = ""
-    products_ids = []
+    products = relationship("Product", secondary='order_product', back_populates="orders")
 
     def __init__(self, *args, **kwargs):
-        """initializes Order"""
+        """Initializes Order"""
         super().__init__(*args, **kwargs)
 
     if models.storage_t != 'db':
         
         @property
         def products(self):
-            """getter attribute returns the list of Product instances"""
+            """Getter attribute returns the list of Product instances"""
             from models.product import Product
             product_list = []
             all_products = models.storage.all(Product)
