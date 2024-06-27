@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """This is the base model class for AirBnB"""
-from app import db
-from sqlalchemy import Column, Integer, String, Float
+
 from datetime import datetime
 import models
 from os import getenv
@@ -12,17 +11,19 @@ import uuid
 
 time = "%Y-%m-%dT%H:%M:%S.%f"
 
-Base = declarative_base()
-
+if models.storage_t == "db":
+    Base = declarative_base()
+else:
+    Base = object
 
 
 
 class BaseModel:
     """The BaseModel class from which future classes will be derived"""
-    
-    id = db.Column(db.String(60), primary_key=True)
-    created_at = db.Column(db.DateTime, default=db.func.utcnow)
-    updated_at = db.Column(db.DateTime, default=db.func.utcnow)
+    if models.storage_t == "db":
+        id = Column(String(60), primary_key=True)
+        created_at = Column(DateTime, default=datetime.utcnow)
+        updated_at = Column(DateTime, default=datetime.utcnow)
 
     def __init__(self, *args, **kwargs):
         """Initialization of the base model"""

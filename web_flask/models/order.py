@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """This is the order class"""
 
-from app import db
 
 import models
 from models.base_model import BaseModel, Base
@@ -12,32 +11,35 @@ from sqlalchemy.orm import relationship
 
 
 
-class OrderProduct(Base):
-    __tablename__ = 'order_product'
+if models.storage_t == 'db':
+    order_product = Table('order_product', Base.metadata,
+                      Column('order_id', String(60), ForeignKey('orders.id', onupdate='CASCADE', ondelete='CASCADE'), primary_key=True),
+                      Column('product_id', String(60), ForeignKey('products.id', onupdate='CASCADE', ondelete='CASCADE'), primary_key=True))
 
-    order_id = db.Column(db.String(60), ForeignKey('orders.id', onupdate='CASCADE', ondelete='CASCADE'), primary_key=True)
-    product_id = db.Column(db.String(60), ForeignKey('products.id', onupdate='CASCADE', ondelete='CASCADE'), primary_key=True)
 
-
-class Order(Base):
+class Order(BaseModel, Base):
     """Representation of Order"""
-    __tablename__ = 'orders'
+    if models.storage_t == 'db':
+        __tablename__ = 'orders'
+        user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
+        market_name = Column(String(128), nullable=False)
+        products = relationship("Product", secondary=order_product, back_populates="orders")
 
-    id = db.Column(db.String(60), primary_key=True)
-    user_id = db.Column(db.String(60), ForeignKey('users.id'), nullable=False)
-    market_name = db.Column(db.String(128), nullable=False)
+    else:
 
-    products = relationship("Product", secondary='order_product', back_populates="orders")
+        user_id = ""
+        market_name = ""
+        products_ids = []
 
     def __init__(self, *args, **kwargs):
-        """Initializes Order"""
+        """initializes Order"""
         super().__init__(*args, **kwargs)
 
     if models.storage_t != 'db':
         
         @property
         def products(self):
-            """Getter attribute returns the list of Product instances"""
+            """getter attribute returns the list of Product instances"""
             from models.product import Product
             product_list = []
             all_products = models.storage.all(Product)

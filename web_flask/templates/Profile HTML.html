@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Profile Page</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Profile CSS.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Profile CSS.css') }}">
     <script src="https://kit.fontawesome.com/cacf32ff12.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
 </head>
 <body>
-
 <div class="container">
     <div class="leftbox">
         <nav>
@@ -33,77 +31,23 @@
     <div class="rightbox">
         <div class="profile tabShow">
             <h1>Personal Information</h1>
-            <h2>Name</h2>
-            <input type="text" class="input" placeholder="Example: Mazen Wael">
-            <h2>Gender</h2>
-            <input type="text" class="input" placeholder="Example: Male">
-            <h2>Birthday</h2>
-            <input type="text" class="input" placeholder="Example: October 15, 2003">
-            <h2>Email</h2>
-            <input type="email" class="input" placeholder="Example: Mazenwael575@example.com">
-            <h2>Password</h2>
-            <input type="password" class="input" placeholder="Enter Password">
-            <button class="btn">
-                update
-            </button>
+            <form action="{{ url_for('profile') }}" method="POST">
+                <h2>Name</h2>
+                <input type="text" class="input" name="first_name" value="{{ user.first_name }}">
+                <input type="text" class="input" name="last_name" value="{{ user.last_name }}">
+                <h2>Email</h2>
+                <input type="email" class="input" name="email" value="{{ user.email }}">
+                <h2>Password</h2>
+                <input type="password" class="input" name="password"  value="{{ user.password }}" readonly>
+                <h2>Address</h2>
+                <input type="text" class="input" name="address" value="{{ user.address }}">
+                <button class="btn" type="submit">Update</button> <a href="{{ url_for('logged') }}"class="btn" type="submit">Home</a>
+            </form>
         </div>
-        <div class="Payment tabShow">
-            <h1>Shipment Information</h1>
-            <h2>Billing Address</h2>
-            <input type="text" class="input" placeholder="Example: 14, Nasr city 19, Egypt">
-            <h2>Pincode</h2>
-            <input type="text" class="input" placeholder="Example: 190125">
-            <h2>Last Order Shipped On</h2>
-            <input type="text" class="input" placeholder="Example: January 10, 2022">
-            <h2>Redeem Card</h2>
-            <input type="text" class="input" placeholder="Enter Gift Code">
-            <button class="btn">
-                update
-            </button>
-        </div>
-        <div class="Subscription tabShow">
-            <h1>Subscription Information</h1>
-            <h2>Payment Date</h2>
-            <p>December 10, 2021 </p>
-            <h2>Date of Next Payment</h2>
-            <p>December 10, 2022</p>
-            <h2>Plan</h2>
-            <p>Yearly</p>
-            <button class="btn">
-                update
-            </button>
-        </div>
-        <div class="Privacy tabShow">
-            <h1>Privacy Setting</h1>
-            <h2>Manage Email Notification</h2>
-            <p></p>
-            <h2>Manage Privacy Settings</h2>
-            <p></p>
-            <h2>Terms Of Use</h2>
-            <p></p>
-            <button class="btn">
-                update
-            </button>
-        </div>
-        <div class="settings tabShow">
-            <h1>Account Setting</h1>
-            <h2>Hold Subscription</h2>
-            <p></p>
-            <h2>Cancel Subscription</h2>
-            <p></p>
-            <h2>Your Devices</h2>
-            <p></p>
-            <h2>Referrals</h2>
-            <p></p>
-            <button class="btn">
-                update
-            </button>
-        </div>
+        <!-- Rest of the tabs go here -->
     </div>
 </div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{ url_for('static', filename='js/Profile JS.js') }}"></script>
-
 </body>
 </html>

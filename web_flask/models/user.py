@@ -1,34 +1,45 @@
 #!/usr/bin/python3
 """This is the user class"""
 
-from app import db
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import relationship
+
 import models
 from models.base_model import BaseModel, Base
+from os import getenv
+import sqlalchemy
+from sqlalchemy import Column, String
+from sqlalchemy.orm import relationship
 from hashlib import md5
 
 
 
 class User(BaseModel, Base):
-    
-    __tablename__ = "users"
-        
-    email = db.Column(db.Text, nullable=False)
-    password = db.Column(db.Text, nullable=False)
-    first_name = db.Column(db.Text, nullable=True)
-    last_name = db.Column(db.Text, nullable=True)
-    phone_number = db.Column(db.Text, nullable=True)
-    address = db.Column(db.Text, nullable=True)
+    """This is the class for user
+    Attributes:
+        email: email address
+        password: password for you login
+        first_name: first name
+        last_name: last name
+    """
+    if models.storage_t == 'db':
+        __tablename__ = "users"
 
-    orders = db.relationship("Order", cascade='all, delete, delete-orphan', backref="user")
-    reviews = db.relationship("Review", cascade='all, delete, delete-orphan', backref="user")
-        
-    
+        email = Column(String(128), nullable=False)
+        password = Column(String(128), nullable=False)
+        first_name = Column(String(128))
+        last_name = Column(String(128))
+        address = Column(String(128))
+        orders = relationship("Order", cascade='all, delete, delete-orphan',
+                            backref="user")
+        reviews = relationship("Review", cascade='all, delete, delete-orphan',
+                            backref="user")
 
-    def __repr__(self):
-        return f'person with name {self.first_name} and email {self.email}'
+    else:
 
+        email = ""
+        password = ""
+        first_name = ""
+        last_name = ""
+        address = ""
 
     def __init__(self, *args, **kwargs):
         """initializes user"""
