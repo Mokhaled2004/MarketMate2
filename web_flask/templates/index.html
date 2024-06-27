@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 
 <html>
 
@@ -26,8 +26,7 @@
     <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
 
     
-    <script src="../static/js/Cart Test JS.js"></script>
-    <script src="{{ url_for('static', filename='../js/Cart Test JS.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/Home Page JS.js') }}"></script>
 	    
    <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
 
@@ -316,11 +315,11 @@
             <div class="category-container">
 
                 <!--box---------------->
-                <a class="category-box" data-category="fruitVegetableProducts" onclick="switchCategory('fruitVegetableProducts')"  >
+                    <a href="{{ url_for('fruits') }}" class=" category-box"  >
 
                     <img src="{{ url_for('static', filename='/images/images/Vegetables.png') }}" alt="fruits&vegetables">
-                    <span>Fruits & <br> Vegetables</span>
-                </a>
+					<span>Fruits & <br> Vegetables</span>
+				</a>
 				<!--box---------------->
                 <a href="{{ url_for('medicine') }}" class=" category-box"  >
 
