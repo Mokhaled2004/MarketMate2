@@ -26,8 +26,8 @@
 
     <body>
          <!--==Navigation================================-->
-        <nav class="navigation">
-
+         <nav class="navigation">
+    
             <!--logo-------->
             
 
@@ -45,7 +45,7 @@
             <ul class="menu">
 
                 <li>
-                    <a href="{{ url_for('home') }}" >
+                    <a href="{{ url_for('home') }}" class="active">
                         
                         Home
 
@@ -77,15 +77,15 @@
 
                 <li>
                     
-                    <a href="{{ url_for('contactus') }}" class="active" >
+                    <a href="{{ url_for('home') }}#popular-bundle-pack"  >    
                         
-                        Contact&nbsp;Us
+                        Packages
                     
                     </a>
                 
                 </li>
-				
-				<li>
+                
+                <li>
                     
                     <a href="{{ url_for('feedback') }}" >
 
@@ -95,86 +95,51 @@
                     </a>
                 
                 </li>
-				
-				<li>
+                
+                <li>
 
-					
+                    
                     <a href="{{ url_for('aboutus') }}" >
 
-						About&nbsp;us
+                        About&nbsp;us
 
-					</a>
+                    </a>
 
                 </li>
 
                 <li>
                     
                     
-                    <a href="{{ url_for('home') }}#popular-bundle-pack"  >    
+                    <a href="{{ url_for('contactus') }}"  >
                         
-                        Packages
+                        Contact&nbsp;Us
                     
                     </a>
                 
                 </li>
 
-                <li>
-                    
-                    <a href="{{ url_for('signup') }}" >
-
-                            
-                        Sign&nbsp;up
-                        
-                    </a>
-                    
-                </li>
-
-                
                 <li>
                     
                     <a href="{{ url_for('login') }}" >
 
+                            
+                        Logout
                         
-                        Login
-                    
                     </a>
-                
+                    
                 </li>
 
-				</ul>
+                
+            
+
+                </ul>
 
             <!--right-nav-(cart-like)-->
             <div class="right-nav">
 
-                <!--like----->
                 
-                <a href="{{ url_for('wishlist') }}" class=" like"  >
 
-
-                    <i class="fas fa-heart"></i>
-                    <img src="{{ url_for('static', filename='/images/images/wishlist.jpg') }}" alt="wishlist" >
-
-                    <span>
-                        
-                        2
-                    
-                    </span>
-
-                </a>
-
-                <!--cart----->
-                <a href="{{ url_for('cart') }}" class=" like"  >
-
-                    <i class="fas fa-shopping-cart"></i>
-                    <img src="{{ url_for('static', filename='/images/images/cart3.jpg') }}" alt="cart3" >
-
-                    <span>
-                        
-                        2
-                    
-                    </span>
-
-                </a>
+                
 
                 <!--cart----->
                 <a href="{{ url_for('profile') }}" class=" like"  >
