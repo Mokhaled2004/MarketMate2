@@ -1,32 +1,73 @@
-const daysEl = document.getElementById("days");
-const hoursEl = document.getElementById("hours");
-const minsEl = document.getElementById("mins");
-const secondsEl = document.getElementById("seconds");
+const categories = {
+    fruitVegetableProducts: {
+        url: '{{ url_for('carttest', category='fruitVegetableProducts') }}',
+        img: '/images/images/Vegetables.png',
+        alt: 'fruits&vegetables',
+        label: 'Fruits & Vegetables'
+    },
+    medicineProducts: {
+        url: '{{ url_for('carttest', category='medicineProducts') }}',
+        img: '/images/images/medicine.png',
+        alt: 'medicines',
+        label: 'Medicine'
+    },
+    babyCare: {
+        url: '{{ url_for('carttest', category='babyCare') }}',
+        img: '/images/images/baby.png',
+        alt: 'babycare',
+        label: 'Baby Care'
+    },
+    meatProducts: {
+        url: '{{ url_for('carttest', category='meatProducts') }}',
+        img: '/images/images/fish.png',
+        alt: 'meat',
+        label: 'Meat'
+    },
+    bakeryProducts: {
+        url: '{{ url_for('carttest', category='bakeryProducts') }}',
+        img: '/images/images/bakery1.png',
+        alt: 'bakery',
+        label: 'Bakery'
+    },
+    snacksProducts: {
+        url: '{{ url_for('carttest', category='snacksProducts') }}',
+        img: '/images/images/snacks.png',
+        alt: 'snacks',
+        label: 'Snacks'
+    },
+    dairyProducts: {
+        url: '{{ url_for('carttest', category='dairyProducts') }}',
+        img: '/images/images/dairy2.png',
+        alt: 'dairyproducts',
+        label: 'Dairy Products'
+    }
+};
+document.addEventListener('DOMContentLoaded', () => {
+    const categoryContainer = document.querySelector('.category-container');
 
-const newYears = "31 Jan 2022";
+    if (categoryContainer) {
+        categoryContainer.innerHTML = ''; // Clear the existing content
 
-function countdown() {
-    const newYearsDate = new Date(newYears);
-    const currentDate = new Date();
+        for (const key in categories) {
+            if (categories.hasOwnProperty(key)) {
+                const category = categories[key];
+                
+                const a = document.createElement('a');
+                a.href = category.url;
+                a.className = 'category-box';
 
-    const totalSeconds = (newYearsDate - currentDate) / 1000;
+                const img = document.createElement('img');
+                img.src = category.img;
+                img.alt = category.alt;
+                
+                const span = document.createElement('span');
+                span.innerHTML = category.label;
 
-    const days = Math.floor(totalSeconds / 3600 / 24);
-    const hours = Math.floor(totalSeconds / 3600) % 24;
-    const mins = Math.floor(totalSeconds / 60) % 60;
-    const seconds = Math.floor(totalSeconds) % 60;
-
-    daysEl.innerHTML = days;
-    hoursEl.innerHTML = formatTime(hours);
-    minsEl.innerHTML = formatTime(mins);
-    secondsEl.innerHTML = formatTime(seconds);
-}
-
-function formatTime(time) {
-    return time < 10 ? `0${time}` : time;
-}
-
-// initial call
-countdown();
-
-setInterval(countdown, 1000);
+                a.appendChild(img);
+                a.appendChild(span);
+                
+                categoryContainer.appendChild(a);
+            }
+        }
+    }
+});
