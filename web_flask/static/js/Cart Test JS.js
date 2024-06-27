@@ -472,21 +472,7 @@ const medicineProducts = [
 const categories = [...fruitVegetableProducts, ...meatProducts, ...bakeryProducts, ...snacksProducts, ...dairyProducts, ...babyProducts, ...medicineProducts];
 
 let i = 0;
-async function fetchProducts() {
-    try {
-        const response = await fetch('path/to/products.json');
-        const products = await response.json();
-        
-        // Split products into categories
-        fruitVegetableProducts = products.filter(p => p.id < 5);
-        meatProducts = products.filter(p => p.id >= 5);
-        
-        // Initial display of products (default: fruit/vegetable products)
-        displayProducts();
-    } catch (error) {
-        console.error('Error fetching products:', error);
-    }
-}
+
 // Function to switch between displaying fruit/vegetable and meat products
 function switchCategory(category) {
     if (category === 'fruitVegetableProducts') {
