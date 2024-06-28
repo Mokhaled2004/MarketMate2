@@ -585,17 +585,54 @@ function displayProducts(category) {
 }
 var cart = [];
 
-function addtocart(id) {
-    const selectedProducts = categories.find(item => item.id === id);
-    const itemIndex = cart.findIndex(item => item.id === id);
-    
+function addtocart(productId) {
+    const selectedProduct = categories.find(item => item.id === productId);
+    const itemIndex = cart.findIndex(item => item.id === productId);
+
     if (itemIndex > -1) {
         cart[itemIndex].quantity += 1;
     } else {
-        cart.push({...selectedProducts, quantity: 1});
+        // Add the product details to the cart
+        const { id, title, image, price } = selectedProduct;
+        cart.push({ id, title, image, price, quantity: 1 });
     }
+
+    // Update the cart display
     displaycart();
+
+    // Prepare cart data for Flask
+    const cartDataForServer = cart.map(item => ({
+        id: item.id,
+        title: item.title,
+        image: item.image,
+        price: item.price,
+        quantity: item.quantity
+    }));
+
+    // Send cart data to Flask
+    fetch('/process_cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cart: cartDataForServer }), // Pass processed cart data
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to send cart data to server');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data); // Optional: Handle success response from server
+    })
+    .catch(error => {
+        console.error('Error:', error); // Optional: Handle error case
+    });
 }
+
+
+
 
 function delElement(a) {
     if (cart[a].quantity > 1) {
@@ -607,27 +644,71 @@ function delElement(a) {
 }
 
 function displaycart() {
-    let j = 0, total = 0;
+    let total = 0;
     document.getElementById("count").innerHTML = cart.length;
-    if (cart.length == 0) {
+    
+    if (cart.length === 0) {
         document.getElementById('cartItem').innerHTML = "Your cart is empty";
         document.getElementById("total").innerHTML = "LE " + 0 + ".00";
     } else {
-        document.getElementById("cartItem").innerHTML = cart.map((items) => {
-            var { image, title, price, quantity } = items;
-            total = total + (price * quantity);
-            document.getElementById("total").innerHTML = "LE " + total + ".00";
+        // Prepare the data to send to Flask
+        const cartData = cart.map(item => {
+            return {
+                image: item.image,
+                title: item.title,
+                price: item.price,
+                quantity: item.quantity
+            };
+        });
+
+        // Calculate the total price
+        total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+        document.getElementById("total").innerHTML = "LE " + total + ".00";
+
+        // Send the cartData to Flask via a POST request
+        fetch('/process_cart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ cart: cartData })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Handle the response from Flask if needed
+            console.log('Success:', data);
+            // Optionally, you can perform actions based on the response
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle errors
+        });
+
+        // Display cart items on the client side
+        document.getElementById("cartItem").innerHTML = cart.map((item, index) => {
             return (
                 `<div class='cart-item'>
                     <div class='row-img'>
-                        <img class='rowimg' src=${image}>
+                        <img class='rowimg' src=${item.image}>
                     </div>
-                    <p style='font-size:12px;'>${title}</p>
-                    <p style='font-size:12px;'>Quantity: ${quantity}</p>
-                    <h2 style='font-size: 15px;'>LE ${price * quantity}.00</h2>
-                    <i class='fa-solid fa-trash' onclick='delElement(${j++})'></i>
+                    <p style='font-size:12px;'>${item.title}</p>
+                    <p style='font-size:12px;'>Quantity: ${item.quantity}</p>
+                    <h2 style='font-size: 15px;'>LE ${item.price * item.quantity}.00</h2>
+                    <i class='fa-solid fa-trash' onclick='delElement(${index})'></i>
                 </div>`
             );
         }).join('');
     }
 }
+
+
+
+
+
+
+

@@ -19,8 +19,12 @@ class Product(BaseModel, Base):
 
 
     else:
-        name = ""
+        
+        id = ""
+        titlee = ""
         price = 0.0
+        quantity = 0
+        image = ""
 
     def __init__(self, *args, **kwargs):
         """initializes Product"""

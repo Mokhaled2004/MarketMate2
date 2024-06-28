@@ -1,17 +1,44 @@
 #!/usr/bin/python3
 """ Starts a Flask Web Application """
 import os
-from flask import Flask, render_template, request, redirect, url_for, flash,session
+from flask import Flask, render_template, request, redirect, url_for, flash,session, jsonify    
 from hashlib import md5
 from models import storage
 from models.user import User
 from models.product import Product
 from models.order   import Order
-
+import json
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
+
+
+@app.route('/process_cart', methods=['POST'])
+def process_cart():
+    if request.method == 'POST':
+        cart_data = request.json.get('cart')
+        
+        if cart_data:
+            for item in cart_data:
+                # Extract product details from cart data
+                id = item.get('id')
+                title = item.get('title')
+                image = item.get('image')
+                price = item.get('price')
+                quantity = item.get('quantity')
+
+                # Create Product objects and save to storage
+                # Assuming Product class and storage are properly defined
+                new_product = Product(id=id, title=title, image=image, price=price, quantity=quantity)
+                storage.new(new_product)
+                storage.save()
+
+            return jsonify({'message': 'Cart processed successfully'}), 200
+        else:
+            return jsonify({'error': 'No cart data received'}), 400
+    else:
+        return jsonify({'error': 'Method not allowed'}), 405
 
 
 
@@ -22,9 +49,7 @@ def logged():
     return render_template('Logged Home Page HTML.html', title='Logged Home Page')
 
 
-@app.route('/carttest')
-def carttest():
-    return render_template('Cart Test HTML.html', title='carttest')
+
 
 @app.route('/')
 def home():
@@ -44,6 +69,9 @@ def feedbacksubmit():
 
 
 from flask import session
+@app.route('/carttest')
+def carttest():
+    return render_template('Cart Test HTML.html', title='carttest')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -131,6 +159,8 @@ def profile():
     }
 
     return render_template('Profile HTML.html', title='Profile', user=user_details)
+
+
 
 
 
