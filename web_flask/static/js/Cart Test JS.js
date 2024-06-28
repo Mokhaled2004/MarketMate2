@@ -468,37 +468,41 @@ const PopularPackges = [
         {
             id: 83,
             image: '../static/images/images/pack1.png',
-            title: 'Green Garden Bundle which contains Apple, Tomato, Potato,Blueberry',
+            title: 'Green Garden Bundle ',
             price: 350,
         },
         {
             id: 84,
             image: '../static/images/images/pack2.jpeg',
-            title: 'Health Essentials Kit which contains Panadol, Bruffen, Zyrtec,Aspirin',
+            title: 'Health Essentials Kit ',
             price: 500,
         },
         {
             id: 85,
             image: '../static/images/images/pack3.jpeg',
-            title: 'Butcher Choice Bundle which contains Beef, Lamb, Chicken,Duck',
+            title: 'Butcher Choice Bundle ',
             price: 35,
         },
         {
             id: 86,
             image: '../static/images/images/pack4.jpeg',
-            title: 'Baby Essentials Bundle  which contains Johnsons Baby Oil, Himalaya Baby Shampoo, Moisturizer',
+            title: 'Baby Essentials Bundle ',
             price: 30,
         },
         {
             id: 87,
             image: '../static/images/images/pack5.jpeg',
+<<<<<<< HEAD
             title: 'Baker Delight Box which contains White Bread, Rye Bread, Sourdough Bread',
+=======
+            title: 'Baker Delight Box ',
+>>>>>>> refs/remotes/origin/main
             price: 250,
         },
         {
             id: 88,
             image: '../static/images/images/pack6.jpeg',
-            title: 'Snack Attack Bundle which contains Chips, Pretzels, crackers, Candy',
+            title: 'Snack Attack Bundle ',
             price: 100,
         }
     ];
