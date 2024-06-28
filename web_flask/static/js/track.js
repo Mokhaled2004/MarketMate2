@@ -45,11 +45,7 @@ function startTimer(seconds, message, callback) {
 
     const interval = setInterval(() => {
         if (timeLeft > 0) {
-<<<<<<< HEAD
             timerDiv.textContent = `${message} ${timeLeft}s`;
-=======
-            timerDiv.textContent = ${message} ${timeLeft}s;
->>>>>>> refs/remotes/origin/main
             timeLeft--;
         } else {
             clearInterval(interval);
@@ -85,12 +81,6 @@ function updateStage(stage) {
 
     const progress = document.querySelector('.progress::after');
     if (progress) {
-<<<<<<< HEAD
         progress.style.width = `${(stageIndex[stage] / 3) * 100}%`;
     }
 }
-=======
-        progress.style.width = ${(stageIndex[stage] / 3) * 100}%;
-    }
-}
->>>>>>> refs/remotes/origin/main
