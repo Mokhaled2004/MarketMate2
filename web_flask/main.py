@@ -27,6 +27,51 @@ def track():
     return render_template('track.html', title='track order')
 
 
+@app.route('/mark_delivered', methods=['PUT'])
+def mark_latest_delivered():
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'error': 'User not logged in'}), 401
+
+    all_orders = storage.all(Order)
+    latest_order = None
+
+    # Find the latest order for the logged-in user
+    for order in all_orders.values():
+        if order.user_id == user_id:
+            if latest_order is None or order.created_at > latest_order.created_at:
+                latest_order = order
+
+    if not latest_order:
+        return jsonify({'error': 'No orders found for the user'}), 404
+
+    latest_order.delivered = 'Delivered'  # Update status to 'Delivered'
+    storage.save()  # Save the updated order
+
+    return jsonify({'message': 'Latest order marked as Delivered'}), 200
+
+@app.route('/mark_cancelled', methods=['PUT'])
+def mark_cancelled():
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'error': 'User not logged in'}), 401
+
+    all_orders = storage.all(Order)
+    latest_order = None
+
+    # Find the latest order for the logged-in user
+    for order in all_orders.values():
+        if order.user_id == user_id:
+            if latest_order is None or order.created_at > latest_order.created_at:
+                latest_order = order
+
+    if not latest_order:
+        return jsonify({'error': 'No orders found for the user'}), 404
+
+    latest_order.delivered = 'Cancelled'  # Update status to 'Delivered'
+    storage.save()  # Save the updated order
+
+    return jsonify({'message': 'Latest order marked as Delivered'}), 200
 
 
 
