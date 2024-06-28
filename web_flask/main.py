@@ -17,6 +17,17 @@ app.config['SECRET_KEY'] = 'your_secret_key'
 
 from flask import session, jsonify, request
 
+@app.route('/checkoutdetails')
+def checkoutdetails():
+    return render_template('Details For Checkout HTML.html', title='Checkout Details')
+
+
+
+
+
+
+
+
 @app.route('/process_cart', methods=['POST'])
 def process_cart():
     if request.method == 'POST':
@@ -89,44 +100,50 @@ def remove_item_by_title(product_title):
         return jsonify({'error': 'Product not found or does not belong to the user'}), 404
 
 
+
+
 @app.route('/checkout', methods=['POST'])
 def checkout():
-    
-        user_id = session.get('user_id')
-        if not user_id:
-            return jsonify({'error': 'User not logged in'}), 401
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'error': 'User not logged in'}), 401
 
-        # Fetch all products belonging to the user
-        products = []
-        total_price = 0.0
+    # Fetch all products belonging to the user
+    products_to_delete = []
+    products = []
+    total_price = 0.0
+    delivered = "not delivered"
 
-        all_products = storage.all(Product)  # Adjust according to your storage implementation
-        for product in all_products.values():
-            if product.user_id == user_id:
-                products.append({
-                    
-                    'title': product.title,
-                    'price': product.price,
-                    'quantity': product.quantity  # Assuming quantity is already correct
-                })
-                total_price += product.price * product.quantity
+    all_products = storage.all(Product)  # Adjust according to your storage implementation
+    for product in all_products.values():
+        if product.user_id == user_id:
+            products_to_delete.append(product)
+            products.append({
+                'title': product.title,
+                'price': product.price,
+                'quantity': product.quantity  # Assuming quantity is already correct
+            })
+            total_price += product.price 
 
-                # Adjust product quantity in storage if needed
-                # Note: This part depends on your storage implementation
+    # Create a new Order object
+    order = Order(
+        delivered=delivered,
+        user_id=user_id,
+        products=products,
+        total_price=total_price,
+        created_at=datetime.now()
+    )
 
-        # Create a new Order object
-        order = Order(
-            user_id=user_id,
-            products=products,
-            total_price=total_price,
-            created_at=datetime.now()
-        )
+    # Save the order to storage (assuming your storage handles SQLAlchemy sessions or file-based storage)
+    storage.new(order)
+    storage.save()
 
-        # Save the order to storage (assuming your storage handles SQLAlchemy sessions or file-based storage)
-        storage.new(order)
-        storage.save()
+    # Delete all products that belong to the user
+    for product in products_to_delete:
+        storage.delete(product)
+    storage.save()
+    return jsonify({'message': 'Order placed successfully'}), 200
 
-        return jsonify({'message': 'Order placed successfully'}), 200
 
   
 
@@ -259,9 +276,7 @@ def wishlist():
 def cart():
     return render_template('Shopping Cart HTML.html', title='Shopping Cart')
 
-@app.route('/checkoutdetails')
-def checkoutdetails():
-    return render_template('Details For Checkout HTML.html', title='Checkout Details')
+
 @app.route('/payment')
 def payment():
     return render_template('Payment HTML.html', title='Payment')

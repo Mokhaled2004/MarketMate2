@@ -27,6 +27,7 @@ class Order(BaseModel, Base):
 
     else:
 
+        delivered = "not delivered"
         user_id = ""
         products = []
         total_price = 0.0
