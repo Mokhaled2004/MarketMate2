@@ -10,8 +10,22 @@
     <div class="order-status">
         <h2>Order Status</h2>
         <div id="status">Order placed. Preparing for shipment...</div>
+        <div class="progress-container">
+            <div class="progress" id="progress"></div>
+            <div class="circle active">1</div>
+            <div class="circle">2</div>
+            <div class="circle">3</div>
+            <div class="circle">4</div>
+        </div>
+        <div class="status-messages">
+            <div id="stage1" class="active">Order Placed</div>
+            <div id="stage2">Shipped</div>
+            <div id="stage3">Out for Delivery</div>
+            <div id="stage4">Delivered</div>
+        </div>
         <div id="timer"></div>
-        <button id="markDelivered">Mark as Delivered</button>
+        <button id="markDelivered" class="hidden" disabled>Mark as Delivered</button>
+        <button id="cancelOrder">Cancel Order</button>
         <div id="thankYouMessage" class="hidden">Thanks for shopping with us!</div>
     </div>
 
