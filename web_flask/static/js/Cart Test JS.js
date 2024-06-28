@@ -774,3 +774,53 @@ function displaycart() {
     }
 }
 
+// Assuming you have included this script at the end of your HTML body or use window.onload or DOMContentLoaded event
+
+// script.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Select the 'Proceed to Checkout' button
+    const checkoutButton = document.getElementById('checkoutButton');
+
+    if (checkoutButton) {
+        checkoutButton.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default action of anchor tag
+
+            // Fetch cart data or use existing data from your page
+            const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Prepare payload for POST request
+            const payload = {
+                cart: cartData
+            };
+
+            // Send POST request to /checkout endpoint
+            fetch('/checkout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Handle successful response
+                console.log(data.message); // Log success message
+                // Optionally, redirect to checkout details page or handle UI updates
+            })
+            .catch(error => {
+                // Handle errors
+                console.error('Error:', error);
+                // Optionally, display an error message to the user
+            });
+        });
+    }
+});
+
+
+

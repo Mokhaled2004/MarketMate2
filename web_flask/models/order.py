@@ -35,11 +35,11 @@ class Order(BaseModel, Base):
         """initializes Order"""
         super()._init_(*args, **kwargs)
 
-    if models.storage_t != 'db':
+    
         
         @property
         def products(self):
-            """getter attribute returns the list of Product instances"""
+            """Getter attribute returns the list of Product instances"""
             from models.product import Product
             product_list = []
             all_products = models.storage.all(Product)
@@ -47,3 +47,10 @@ class Order(BaseModel, Base):
                 if product.order_id == self.id:
                     product_list.append(product)
             return product_list
+        
+        @products.setter
+        def products(self, value):
+            """Setter attribute sets the list of Product instances"""
+            self._products = value
+        
+   

@@ -8,6 +8,7 @@ from models.user import User
 from models.product import Product
 from models.order   import Order
 import json
+from datetime import datetime, timedelta
 
 
 app = Flask(__name__)
@@ -88,9 +89,46 @@ def remove_item_by_title(product_title):
         return jsonify({'error': 'Product not found or does not belong to the user'}), 404
 
 
+@app.route('/checkout', methods=['POST'])
+def checkout():
+    
+        user_id = session.get('user_id')
+        if not user_id:
+            return jsonify({'error': 'User not logged in'}), 401
 
+        # Fetch all products belonging to the user
+        products = []
+        total_price = 0.0
 
+        all_products = storage.all(Product)  # Adjust according to your storage implementation
+        for product in all_products.values():
+            if product.user_id == user_id:
+                products.append({
+                    
+                    'title': product.title,
+                    'price': product.price,
+                    'quantity': product.quantity  # Assuming quantity is already correct
+                })
+                total_price += product.price * product.quantity
 
+                # Adjust product quantity in storage if needed
+                # Note: This part depends on your storage implementation
+
+        # Create a new Order object
+        order = Order(
+            user_id=user_id,
+            products=products,
+            total_price=total_price,
+            created_at=datetime.now()
+        )
+
+        # Save the order to storage (assuming your storage handles SQLAlchemy sessions or file-based storage)
+        storage.new(order)
+        storage.save()
+
+        return jsonify({'message': 'Order placed successfully'}), 200
+
+  
 
 
 
