@@ -492,11 +492,7 @@ const PopularPackges = [
         {
             id: 87,
             image: '../static/images/images/pack5.jpeg',
-<<<<<<< HEAD
-            title: 'Baker Delight Box which contains White Bread, Rye Bread, Sourdough Bread',
-=======
             title: 'Baker Delight Box ',
->>>>>>> refs/remotes/origin/main
             price: 250,
         },
         {
@@ -516,33 +512,54 @@ const categories = [...fruitVegetableProducts, ...meatProducts, ...bakeryProduct
 
 let i = 0;
 
+
 // Function to switch between displaying fruit/vegetable and meat products
 function switchCategory(category) {
-    if (category === 'fruitVegetableProducts') {
-        document.getElementById('categoryTitle').textContent = 'Fruits & Vegetables';
-    } else if (category === 'meatProducts') {
-        document.getElementById('categoryTitle').textContent = 'Meat';
+    let products = [];
+    console.log("Category switched to:", category);
+    switch (category) {
+        case 'fruitVegetableProducts':
+            products = fruitVegetableProducts;
+            break;
+        case 'meatProducts':
+            products = meatProducts;
+            break;
+        case 'bakeryProducts':
+            products = bakeryProducts;
+            break;
+        case 'snacksProducts':
+            products = snacksProducts;
+            break;
+        case 'dairyProducts':
+            products = dairyProducts;
+            break;
+        case 'babyProducts':
+            products = babyProducts;
+            break;
+        case 'medicineProducts':
+            products = medicineProducts;
+            break;
+        case 'PopularPackages':
+            products = popularPackages;
+            break;
+        default:
+            products = fruitVegetableProducts;
     }
-    else if (category === 'bakeryProducts') {
-        document.getElementById('categoryTitle').textContent = 'Bakery Products';
-    }
-    else if (category === 'snacksProducts') {
-        document.getElementById('categoryTitle').textContent = 'SnacksProducts';
-    }
-    else if (category === 'dairyProducts') {
-        document.getElementById('categoryTitle').textContent = 'Dairy Products';
-    }
-    else if (category === 'babyProducts') {
-        document.getElementById('categoryTitle').textContent = 'Baby Products';
-    }
-    else if (category === 'medicineProducts') {
-        document.getElementById('categoryTitle').textContent = 'Medicine Products';
-    }
-    else if (category === 'PopularPackges') {
-        document.getElementById('categoryTitle').textContent = 'Popular Packges';
-    }
+
     
-    displayProducts(category);
+    const root = document.getElementById('root');
+    root.innerHTML = '';
+
+    products.forEach(product => {
+        root.innerHTML += `
+            <div class="product">
+                <img src="${product.image}" alt="${product.title}">
+                <h3>${product.title}</h3>
+                <p>$${product.price}</p>
+                <button onclick="addToCart(${product.id})">Add to Cart</button>
+            </div>
+        `;
+    });
 }
 
 // Initial display of products (default: fruit/vegetable products)
