@@ -206,7 +206,7 @@ def order_details():
     user_orders = []
     all_orders = storage.all(Order)
     for order in all_orders.values():
-        if order.user_id == user_id:
+        if order.user_id == user_id and order.delivered == "not delivered":
             user_orders.append(order.to_dict())
 
     return jsonify(user_orders), 200

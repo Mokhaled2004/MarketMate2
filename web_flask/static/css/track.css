@@ -35,9 +35,12 @@ button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #007BFF;
+    background-color: #9a693b;
     color: white;
     cursor: pointer;
+}
+button:hover {
+    background-color: #66380d;
 }
 
 button:disabled {
@@ -73,7 +76,7 @@ button:disabled {
     top: 0;
     left: 0;
     height: 4px;
-    background-color: #007BFF;
+    background-color: #9a693b;
     width: 0;
     transition: width 0.3s;
 }
@@ -91,7 +94,7 @@ button:disabled {
 }
 
 .circle.active {
-    background-color: #007BFF;
+    background-color: #9a693b;
 }
 
 .status-messages {
@@ -107,5 +110,5 @@ button:disabled {
 
 .status-messages .active {
     font-weight: bold;
-    color: #007BFF;
+    color: #9a693b;
 }
