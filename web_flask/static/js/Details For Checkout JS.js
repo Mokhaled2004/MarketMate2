@@ -44,12 +44,12 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 let orderDetailsHtml = '<h2>Order Details</h2>';
                 data.forEach(order => {
-                    orderDetailsHtml += <p>Order ID: ${order.id}</p>;
-                    orderDetailsHtml += <p>Order Date: ${order.created_at}</p>;
-                    orderDetailsHtml += <p>Total Price: ${order.total_price}</p>;
-                    orderDetailsHtml += <p>Status: ${order.delivered}</p>;
+                    orderDetailsHtml += `<p>Order ID: ${order.id}</p>`;
+                    orderDetailsHtml += `<p>Order Date: ${order.created_at}</p>`;
+                    orderDetailsHtml += `<p>Total Price: ${order.total_price}</p>`;
+                    orderDetailsHtml += `<p>Status: ${order.delivered}</p>`;
                     order.products.forEach(product => {
-                        orderDetailsHtml += <p>${product.title} - ${product.quantity} x ${product.price}</p>;
+                        orderDetailsHtml += `<p>${product.title} - ${product.quantity} x ${product.price}</p>`;
                     });
                 });
                 orderDetailsDiv.innerHTML = orderDetailsHtml;
@@ -59,3 +59,5 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error:', error);
         });
 });
+
+
