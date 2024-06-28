@@ -580,37 +580,107 @@ const PopularPackges = [
         quantity: 1
     }
 ];
+<<<<<<< HEAD
+=======
+const PopularPackges = [   
+        {
+            id: 83,
+            image: '../static/images/images/pack1.png',
+            title: 'Green Garden Bundle ',
+            price: 350,
+        },
+        {
+            id: 84,
+            image: '../static/images/images/pack2.jpeg',
+            title: 'Health Essentials Kit ',
+            price: 500,
+        },
+        {
+            id: 85,
+            image: '../static/images/images/pack3.jpeg',
+            title: 'Butcher Choice Bundle ',
+            price: 35,
+        },
+        {
+            id: 86,
+            image: '../static/images/images/pack4.jpeg',
+            title: 'Baby Essentials Bundle ',
+            price: 30,
+        },
+        {
+            id: 87,
+            image: '../static/images/images/pack5.jpeg',
+            title: 'Baker Delight Box ',
+            price: 250,
+        },
+        {
+            id: 88,
+            image: '../static/images/images/pack6.jpeg',
+            title: 'Snack Attack Bundle ',
+            price: 100,
+        }
+    ];
+
+
+
+
+>>>>>>> b295d94 (lol)
 
 // Merge fruitVegetableProducts and meatProducts into a single categories array
 const categories = [...fruitVegetableProducts, ...meatProducts, ...bakeryProducts, ...snacksProducts, ...dairyProducts, ...babyProducts, ...medicineProducts, ...PopularPackges];
 let i = 0;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> b295d94 (lol)
 // Function to switch between displaying fruit/vegetable and meat products
 function switchCategory(category) {
-    if (category === 'fruitVegetableProducts') {
-        document.getElementById('categoryTitle').textContent = 'Fruits & Vegetables';
-    } else if (category === 'meatProducts') {
-        document.getElementById('categoryTitle').textContent = 'Meat';
+    let products = [];
+    console.log("Category switched to:", category);
+    switch (category) {
+        case 'fruitVegetableProducts':
+            products = fruitVegetableProducts;
+            break;
+        case 'meatProducts':
+            products = meatProducts;
+            break;
+        case 'bakeryProducts':
+            products = bakeryProducts;
+            break;
+        case 'snacksProducts':
+            products = snacksProducts;
+            break;
+        case 'dairyProducts':
+            products = dairyProducts;
+            break;
+        case 'babyProducts':
+            products = babyProducts;
+            break;
+        case 'medicineProducts':
+            products = medicineProducts;
+            break;
+        case 'PopularPackages':
+            products = popularPackages;
+            break;
+        default:
+            products = fruitVegetableProducts;
     }
-    else if (category === 'bakeryProducts') {
-        document.getElementById('categoryTitle').textContent = 'Bakery Products';
-    }
-    else if (category === 'snacksProducts') {
-        document.getElementById('categoryTitle').textContent = 'SnacksProducts';
-    }
-    else if (category === 'dairyProducts') {
-        document.getElementById('categoryTitle').textContent = 'Dairy Products';
-    }
-    else if (category === 'babyProducts') {
-        document.getElementById('categoryTitle').textContent = 'Baby Products';
-    }
-    else if (category === 'medicineProducts') {
-        document.getElementById('categoryTitle').textContent = 'Medicine Products';
-    }
-    else if (category === 'PopularPackges') {
-        document.getElementById('categoryTitle').textContent = 'Popular Packges';
-    }
+
     
-    displayProducts(category);
+    const root = document.getElementById('root');
+    root.innerHTML = '';
+
+    products.forEach(product => {
+        root.innerHTML += `
+            <div class="product">
+                <img src="${product.image}" alt="${product.title}">
+                <h3>${product.title}</h3>
+                <p>$${product.price}</p>
+                <button onclick="addToCart(${product.id})">Add to Cart</button>
+            </div>
+        `;
+    });
 }
 // Initial display of products (default: fruit/vegetable products)
 displayProducts('fruitVegetableProducts');
