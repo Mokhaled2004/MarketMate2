@@ -144,6 +144,20 @@ def checkout():
     storage.save()
     return jsonify({'message': 'Order placed successfully'}), 200
 
+@app.route('/order_details', methods=['GET'])
+def order_details():
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'error': 'User not logged in'}), 401
+
+    # Fetch all orders for the logged-in user
+    user_orders = []
+    all_orders = storage.all(Order)
+    for order in all_orders.values():
+        if order.user_id == user_id:
+            user_orders.append(order.to_dict())
+
+    return jsonify(user_orders), 200
 
   
 

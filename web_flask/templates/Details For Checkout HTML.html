@@ -1,84 +1,38 @@
 <!DOCTYPE html>
-
 <html>
-
     <head>
-
-        <meta http-equiv="contact-type" content="text/html; charset-utf-8"/>
-
-        <meta name="viewport" content="width-device-width,initial-scale=1,mininmum-scale=1,maximum-scale=1,user-scalable=no">
-
-        <title>
-            
-            Details for Delivery
-        
-        </title>
-
-        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Details For Checkout CSS.css') }}">
-
-        
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Details for Delivery</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/Details For Checkout CSS.css') }}">
         <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
-
         <script src="{{ url_for('static', filename='js/Details For Checkout JS.js') }}"></script>
-
-
-    
     </head>
-
     <body>
-
         <div class="contact-in">
-
             <div class="contact-map">
-
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d345654.57630879284!2d31.235711!3d30.044419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145847b5730a4e1f%3A0x1a1e1a4a1e1e1e1e!2sCairo%2C%20Egypt!5e0!3m2!1sen!2s!4v1642929688022!5m2!1sen!2sin" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-
-
             </div>
-
             <div class="contact-form">
-
-                <h1 align = 'center'>
-                    
-                    Details For Delivery
-                
-                </h1>
-
+                <!-- Section to display order details -->
+                <div id="order-details" class="order-details"></div>a
+                <h1 align='center'>Details For Delivery</h1>
                 <div id="error_message"></div>
-
-                <form class = 'address_form' onsubmit="return validate_form();">
-
-                    <input type="text" placeholder="Name" class="contact-form-txt" id = 'name' required/>
-
-                    <input type="text" placeholder="Address" class="contact-form-txt" id = 'address' required/>
-
-                    <input type="text" placeholder="Email-ID" class="contact-form-txt" id = 'email' required/>
-
+                <form class='address_form' onsubmit="return validate_form();">
+                    <input type="text" placeholder="Name" class="contact-form-txt" id='name' required/>
+                    <input type="text" placeholder="Address" class="contact-form-txt" id='address' required/>
+                    <input type="text" placeholder="Email-ID" class="contact-form-txt" id='email' required/>
                     <input type="text" placeholder="Locality/Apartment" class="contact-form-txt" required/>
-
-                    <input type="text" placeholder="Pincode" class="contact-form-txt" id = 'pincode' required/>
-
-                    <input type="text" placeholder="Contact No." class="contact-form-txt" id = 'phone' required/>
-
-                    <input type="text" placeholder="Date (Format: dd/mm/yyyy)" class="contact-form-txt" id = 'date' required/>
-
-                    <input type="text" placeholder="Time Slot (Format: Starting Time - Ending Time. Give a duration of 2 hours.)" class="contact-form-txt" id = 'time' required/>
-
-                    <button type="submit" class="contact-form-btn" id = 'submit'>
-
-                        <a href="{{ url_for('payment') }}" style = "cursor: pointer; text-decoration: none; color: white;">
-                            
-                            Submit
-        
-                        </a>
+                    <input type="text" placeholder="Contact No." class="contact-form-txt" id='phone' required/>
+                    <input type="text" placeholder="Date (Format: dd/mm/yyyy)" class="contact-form-txt" id='date' required/>
                     
+                    
+                    <button type="submit" class="contact-form-btn" id="submit" onclick="window.location.href = '{{ url_for('payment') }}';">
+                        Submit
                     </button>
+                   
                 </form>
-
             </div>
-
         </div>
-
     </body>
-
 </html>

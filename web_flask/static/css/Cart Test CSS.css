@@ -94,6 +94,10 @@
       color: #ffffff;
       text-decoration: none;
   }
+
+  .foot:hover{
+      background-color: #66380d;
+  }
   .box{
     display: flex;
     flex-direction: column;
