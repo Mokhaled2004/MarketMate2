@@ -619,13 +619,46 @@ function addtocart(id) {
 }
 
 function delElement(a) {
+<<<<<<< HEAD
     if (cart[a].quantity > 1) {
         cart[a].quantity -= 1;
     } else {
         cart.splice(a, 1);
     }
     displaycart();
+=======
+    const productTitle = dcart[a].title;
+
+    // Send DELETE request to Flask server to remove item from storage
+    fetch(`/remove_item_by_title/${encodeURIComponent(productTitle)}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            console.error('Error:', data.error);
+        } else {
+            // Update the display-only cart (dcart) based on server response
+            if (dcart[a].quantity > 1) {
+                dcart[a].quantity -= 1;
+            } else {
+                dcart.splice(a, 1);
+            }
+
+            // Update the cart display
+            displaycart();
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error); // Optional: Handle error case
+    });
+>>>>>>> refs/remotes/origin/main
 }
+
+
 
 function displaycart() {
     let j = 0, total = 0;

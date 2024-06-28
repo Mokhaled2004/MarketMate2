@@ -59,6 +59,34 @@ def process_cart():
         return jsonify({'error': 'Method not allowed'}), 405
 
 
+@app.route('/remove_item_by_title/<string:product_title>', methods=['DELETE'])
+def remove_item_by_title(product_title):
+    user_id = session.get('user_id')  # Assume you store user_id in the session
+
+    if not user_id:
+        return jsonify({'error': 'User not logged in'}), 401
+
+    product_to_remove = None
+
+    # Find the product in storage that matches the product_title and belongs to the logged-in user
+    for product in storage.all(Product).values():
+        if product.title == product_title and product.user_id == user_id:
+            product_to_remove = product
+            break
+
+    if product_to_remove:
+        if product_to_remove.quantity > 1:
+            product_to_remove.quantity -=1 
+            product_to_remove.price = product_to_remove.price * product_to_remove.quantity / (product_to_remove.quantity + 1)
+
+        else:
+            storage.delete(product_to_remove)
+
+        storage.save()
+        return jsonify({'message': 'Item removed successfully'}), 200
+    else:
+        return jsonify({'error': 'Product not found or does not belong to the user'}), 404
+
 
 
 
