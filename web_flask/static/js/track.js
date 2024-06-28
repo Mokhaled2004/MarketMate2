@@ -3,7 +3,7 @@ window.addEventListener('load', function() {
     statusDiv.textContent = 'Order placed. Preparing for shipment...';
 
     // Set the duration for each stage to 3 seconds (3000 milliseconds)
-    const stageDuration = 30; // in seconds
+    const stageDuration = 3; // in seconds
 
     const stages = [
         { stage: 'Order Placed', duration: stageDuration },
@@ -84,3 +84,74 @@ function updateStage(stage) {
         progress.style.width = `${(stageIndex[stage] / 3) * 100}%`;
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Fetch order details from the server
+    fetch('/order_details')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Display order details
+            const orderDetailsDiv = document.getElementById('order-details');
+            if (data.length === 0) {
+                orderDetailsDiv.innerHTML = '<p>No orders found</p>';
+            } else {
+                let orderDetailsHtml = '<h2>Order Details</h2>';
+                data.forEach(order => {
+                    orderDetailsHtml += `<p>Order ID: ${order.id}</p>`;
+                    orderDetailsHtml += `<p>Order Date: ${order.created_at}</p>`;
+                    orderDetailsHtml += `<p>Total Price: ${order.total_price}</p>`;
+                    orderDetailsHtml += `<p>Status: ${order.delivered}</p>`;
+                    order.products.forEach(product => {
+                        orderDetailsHtml += `<p>${product.title} - ${product.quantity} x ${product.price}</p>`;
+                    });
+                });
+                orderDetailsDiv.innerHTML = orderDetailsHtml;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+});
+
+document.getElementById('markDelivered').addEventListener('click', function() {
+    fetch(`/mark_delivered`, {
+        method: 'PUT'
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to update order status');
+        }
+        // Update UI or show confirmation message
+        alert('Order status updated to Delivered');
+        // Optionally, you can update UI elements dynamically here
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Failed to update order status');
+    });
+});
+
+document.getElementById('cancelOrder').addEventListener('click', function() {
+    fetch(`/mark_cancelled`, {
+        method: 'PUT'
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to update order status');
+        }
+        // Update UI or show confirmation message
+        alert('Order status updated to Delivered');
+        // Optionally, you can update UI elements dynamically here
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Failed to update order status');
+    });
+});
+
