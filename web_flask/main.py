@@ -22,6 +22,11 @@ def checkoutdetails():
     return render_template('Details For Checkout HTML.html', title='Checkout Details')
 
 
+@app.route('/track')
+def track():
+    return render_template('track.html', title='track order')
+
+
 
 
 
