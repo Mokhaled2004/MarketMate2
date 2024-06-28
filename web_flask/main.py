@@ -14,34 +14,41 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
 
 
+from flask import session, jsonify, request
+
 @app.route('/process_cart', methods=['POST'])
 def process_cart():
     if request.method == 'POST':
         cart_data = request.json.get('cart')
         
         if cart_data:
+            user_id = session.get('user_id')  # Retrieve the logged-in user ID from the session
+            
+            if not user_id:
+                return jsonify({'error': 'User not logged in'}), 401
+
             for item in cart_data:
                 # Extract product details from cart data
                 title = item.get('title')
                 image = item.get('image')
                 price = item.get('price')
 
-                # Check if the product with the same title already exists in storage
+                # Check if the product with the same title and user ID already exists in storage
                 existing_product = None
                 for product in storage.all(Product).values():
-                    if product.title == title:
+                    if product.title == title and product.user_id == user_id:
                         existing_product = product
                         break
                 
                 if existing_product is None:
                     # Create Product object with quantity set to 1 and save to storage
-                    new_product = Product(title=title, image=image, price=price, quantity=1)
+                    new_product = Product(title=title, image=image, price=price, quantity=1, user_id=user_id)
                     storage.new(new_product)
                     storage.save()
                 else:
                     # Increment the existing product's quantity by 1
                     existing_product.quantity += 1
-                    existing_product.price = price*existing_product.quantity
+                    existing_product.price = price * existing_product.quantity
 
                     storage.save()
 
@@ -50,6 +57,7 @@ def process_cart():
             return jsonify({'error': 'No cart data received'}), 400
     else:
         return jsonify({'error': 'Method not allowed'}), 405
+
 
 
 

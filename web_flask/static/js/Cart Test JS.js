@@ -713,10 +713,10 @@ function addtocart(productId) {
 }
 
 function delElement(a) {
-    if (cart[a].quantity > 1) {
-        cart[a].quantity -= 1;
+    if (dcart[a].quantity > 1) {
+        dcart[a].quantity -= 1;
     } else {
-        cart.splice(a, 1);
+        dcart.splice(a, 1);
     }
     
     // Update the display-only cart (dcart)
