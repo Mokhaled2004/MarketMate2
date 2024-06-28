@@ -20,11 +20,12 @@ class Product(BaseModel, Base):
 
     else:
         
-        id = ""
+        user_id = ""
         titlee = ""
         price = 0.0
         quantity = 0
         image = ""
 
     def __init__(self, *args, **kwargs):
-        """initializes Product"""
+
+               super().__init__(*args, **kwargs)

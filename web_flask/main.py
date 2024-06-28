@@ -22,23 +22,37 @@ def process_cart():
         if cart_data:
             for item in cart_data:
                 # Extract product details from cart data
-                id = item.get('id')
                 title = item.get('title')
                 image = item.get('image')
                 price = item.get('price')
-                quantity = item.get('quantity')
 
-                # Create Product objects and save to storage
-                # Assuming Product class and storage are properly defined
-                new_product = Product(id=id, title=title, image=image, price=price, quantity=quantity)
-                storage.new(new_product)
-                storage.save()
+                # Check if the product with the same title already exists in storage
+                existing_product = None
+                for product in storage.all(Product).values():
+                    if product.title == title:
+                        existing_product = product
+                        break
+                
+                if existing_product is None:
+                    # Create Product object with quantity set to 1 and save to storage
+                    new_product = Product(title=title, image=image, price=price, quantity=1)
+                    storage.new(new_product)
+                    storage.save()
+                else:
+                    # Increment the existing product's quantity by 1
+                    existing_product.quantity += 1
+                    existing_product.price = price*existing_product.quantity
+
+                    storage.save()
 
             return jsonify({'message': 'Cart processed successfully'}), 200
         else:
             return jsonify({'error': 'No cart data received'}), 400
     else:
         return jsonify({'error': 'Method not allowed'}), 405
+
+
+
 
 
 

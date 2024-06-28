@@ -28,9 +28,8 @@ class Order(BaseModel, Base):
     else:
 
         user_id = ""
-        market_name = ""
-        products_ids = []
         products = []
+        total_price = 0.0
 
     def _init_(self, *args, **kwargs):
         """initializes Order"""
