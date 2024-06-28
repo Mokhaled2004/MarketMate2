@@ -26,6 +26,9 @@ def checkoutdetails():
 def track():
     return render_template('track.html', title='track order')
 
+@app.route('/Contact Form Confirm HTML and CSS')
+def Contact():
+    return render_template('Contact Form Confirm HTML and CSS.html', title='Contact Form Confirm HTML and CSS')
 
 @app.route('/mark_delivered', methods=['PUT'])
 def mark_latest_delivered():
