@@ -107,5 +107,10 @@ button:disabled {
 
 .status-messages .active {
     font-weight: bold;
+<<<<<<< HEAD
     color: #007BFF;
 }
+=======
+    color: #007BFF;
+}
+>>>>>>> refs/remotes/origin/main

@@ -1,1 +1,44 @@
-{"Order.3654941d-4eec-467f-bd50-e1bde20a674b": {"delivered": "not delivered", "user_id": "00adc6a7-a2f5-48d0-8034-bc2becc4602d", "products": [{"title": "Potato", "price": 50, "quantity": 2}], "total_price": 50.0, "created_at": "2024-06-28T20:15:49.229212", "updated_at": "2024-06-28T20:15:49.229213", "id": "3654941d-4eec-467f-bd50-e1bde20a674b", "__class__": "Order"}}
+{
+    "User.76ff8c07-a190-4b8c-86bc-8e1728e8dbd2": {
+        "first_name": "Mohamed",
+        "last_name": "Khaled",
+        "email": "mokhaled2004@gmail.com",
+        "password": "c20ad4d76fe97759aa27a0c99bff6710",
+        "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
+        "created_at": "2024-06-28T20:32:06.372755",
+        "updated_at": "2024-06-28T20:32:06.372755",
+        "id": "76ff8c07-a190-4b8c-86bc-8e1728e8dbd2",
+        "__class__": "User"
+    },
+    "Order.a4f6d0e8-2871-4519-b16b-b7b6985f9b47": {
+        "delivered": "not delivered",
+        "user_id": "76ff8c07-a190-4b8c-86bc-8e1728e8dbd2",
+        "products": [
+            {
+                "title": "Potato",
+                "price": 25,
+                "quantity": 1
+            },
+            {
+                "title": "Apple",
+                "price": 30,
+                "quantity": 1
+            },
+            {
+                "title": "Oranges",
+                "price": 40,
+                "quantity": 1
+            },
+            {
+                "title": "Chili",
+                "price": 20,
+                "quantity": 1
+            }
+        ],
+        "total_price": 115.0,
+        "created_at": "2024-06-28T20:32:15.881304",
+        "updated_at": "2024-06-28T20:32:15.881304",
+        "id": "a4f6d0e8-2871-4519-b16b-b7b6985f9b47",
+        "__class__": "Order"
+    }
+}
