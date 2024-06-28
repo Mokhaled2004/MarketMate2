@@ -492,7 +492,11 @@ const PopularPackges = [
         {
             id: 87,
             image: '../static/images/images/pack5.jpeg',
+<<<<<<< HEAD
+            title: 'Baker Delight Box which contains White Bread, Rye Bread, Sourdough Bread',
+=======
             title: 'Baker Delight Box ',
+>>>>>>> refs/remotes/origin/main
             price: 250,
         },
         {
