@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/track.css') }}">
+</head>
+<body>
+    <div class="order-status">
+        <h2>Order Status</h2>
+        <div id="status">Order placed. Preparing for shipment...</div>
+        <div id="timer"></div>
+        <button id="markDelivered">Mark as Delivered</button>
+        <div id="thankYouMessage" class="hidden">Thanks for shopping with us!</div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/track.js') }}"></script>
+</body>
+</html>
