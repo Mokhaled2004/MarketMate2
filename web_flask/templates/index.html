@@ -27,7 +27,7 @@
         <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
     
         
-        <script src="/web_flask/static/js/Cart Test JS.js"></script>
+        <script src="{{ url_for('static', filename='js/Home Page JS.js') }}"></script>
             
        <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
     
@@ -273,7 +273,7 @@
                         <span>Fruits & <br> Vegetables</span>
                     </a>
                     <!--box---------------->
-                    <a class="category-box" data-category="medicineProducts" onclick="switchCategory('medicineProducts')">
+                    <a href="{{ url_for('carttest', category='medicineProducts') }}" class=" category-box"  >
     
     
                         
@@ -317,8 +317,7 @@
                         <span>Packges</span>
                     </a>
                 </div>
-                <div id="root"></div>
-                <script src="/web_flask/static/js/Cart Test JS.js"></script>
+                
             </section>
     
     
@@ -552,13 +551,13 @@
                 <div class="footer-links">
                     <strong>Category</strong>
                     <ul>
-                        <li><a href="Fruits Category Page HTML.html">Fruits and Vegetables</a></li>
-                        <li><a href="Medicine Category Page HTML.html">Medicine</a></li>
-                        <li><a href="Baby Care Category Page HTML.html">Baby Care</a></li>
-                        <li><a href="Meat Category Page HTML.html">Meat</a></li>
-                        <li><a href="Baby Care Category Page HTML.html">Bakery</a></li>
-                        <li><a href="Snacks Category Page HTML.html">Snacks</a></li>
-                        <li><a href="Dairy Category Page HTML.html">Dairy Products</a></li>
+                        <li><a href="{{ url_for('carttest') }}">Fruits and Vegetables</a></li>
+                        <li><a href="{{ url_for('carttest') }}">Medicine</a></li>
+                        <li><a href="{{ url_for('carttest') }}">Baby Care</a></li>
+                        <li><a href="{{ url_for('carttest') }}">Meat</a></li>
+                        <li><a href="{{ url_for('carttest') }}">Bakery</a></li>
+                        <li><a href="{{ url_for('carttest') }}">Snacks</a></li>
+                        <li><a href="{{ url_for('carttest') }}">Dairy Products</a></li>
     
     
                     </ul>
