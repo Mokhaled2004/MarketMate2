@@ -162,60 +162,26 @@
 
         <!--nav-end--------------------->
         <div class="wrapper">
-
-            <h2 align = 'center'>
-                
-                Contact Form
-        
-            </h2>
-
+            <h2 align='center'>Contact Form</h2>
             <div id="error_message"></div>
-
-            <form id="myform" onsubmit="return validate();">
-
+            <form id="myform" method="POST" action="{{ url_for('submit_contact_form') }}" onsubmit="return validate();">
                 <div class="input_field">
-
-                    <input type="text" placeholder="Name" id="name">
-
+                    <input type="text" placeholder="Name" id="name" name="name">
                 </div>
-
                 <div class="input_field">
-
-                    <input type="text" placeholder="Subject" id="subject">
-
+                    <input type="text" placeholder="Subject" id="subject" name="subject">
                 </div>
-
                 <div class="input_field">
-
-                    <input type="text" placeholder="Phone" id="phone">
-
+                    <input type="text" placeholder="Phone" id="phone" name="phone">
                 </div>
-
                 <div class="input_field">
-
-                    <input type="text" placeholder="Email" id="email">
-
+                    <input type="text" placeholder="Email" id="email" name="email">
                 </div>
-
                 <div class="input_field">
-
-                    <textarea placeholder="Message" id="message"></textarea>
-
+                    <textarea placeholder="Message" id="message" name="message"></textarea>
                 </div>
-
-                <button type="submit" class="btn">
-                    
-                    <a href="{{ url_for('Contact') }}" style = 'color: #ffffff; text-decoration: none;'>
-                        
-                        Submit
-                    
-                    </a>
-
-                
-                </button>
-
+                <button type="submit" class="btn">Submit</button>
             </form>
-
         </div>
 
     </body>

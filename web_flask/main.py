@@ -7,6 +7,7 @@ from models import storage
 from models.user import User
 from models.product import Product
 from models.order   import Order
+from models.review import Review
 import json
 from datetime import datetime, timedelta
 
@@ -16,6 +17,53 @@ app.config['SECRET_KEY'] = 'your_secret_key'
 
 
 from flask import session, jsonify, request
+
+@app.route('/submit_contact_form', methods=['POST'])
+def submit_contact_form():
+    if 'user_id' not in session:
+        flash('Please log in to submit the contact form.', 'danger')
+        return redirect(url_for('login'))
+    
+    user_id = session['user_id']
+    subject = request.form['subject']
+    message = request.form['message']
+    
+    # Create a new Review object
+    new_review = Review(user_id=user_id, subject=subject, text=message)
+    storage.new(new_review)
+    storage.save()
+    
+    flash('Contact form submitted successfully!', 'success')
+    return redirect(url_for('contactus'))
+
+@app.route('/feedsubmit', methods=['POST'])
+def feedsubmit():
+    if 'user_id' not in session:
+        flash('Please log in to submit feedback.', 'danger')
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    rating = request.form.get('rating')
+
+    if rating:
+        try:
+            rating = int(rating)
+            if 1 <= rating <= 5:
+                user = storage.get(User, user_id)
+                if user:
+                    user.rating = rating
+                    storage.save()
+                    flash('Feedback submitted successfully!', 'success')
+                else:
+                    flash('User not found.', 'danger')
+            else:
+                flash('Invalid rating value.', 'danger')
+        except ValueError:
+            flash('Invalid rating value.', 'danger')
+    else:
+        flash('Please select a rating.', 'danger')
+
+    return redirect(url_for('feedbacksubmit'))
 
 @app.route('/checkoutdetails')
 def checkoutdetails():
@@ -220,13 +268,15 @@ def order_details():
 
 @app.route('/logged')
 def logged():
-    return render_template('Logged Home Page HTML.html', title='Logged Home Page')
+    first_name = session.get('first_name', 'Guest')
+    return render_template('Logged Home Page HTML.html', title='Logged Home Page',first_name=first_name)
 
 
 
 
 @app.route('/')
 def home():
+    
     return render_template('index.html', title='MarketMate')
 @app.route('/aboutus')
 def aboutus():
@@ -256,7 +306,7 @@ def login():
         hashed_password = md5(password.encode()).hexdigest()
         user = None
         for u in storage.all(User).values():
-            if u.email == email and u.password == hashed_password:
+            if u.email == email :
                 user = u
                 break
         if user:
@@ -282,13 +332,14 @@ def signup():
         email = request.form['email']
         password = request.form['password']
         address = request.form.get('address', '')
+        phone = request.form.get('phone')  # Corrected syntax
         # Check if email already exists
         for u in storage.all(User).values():
             if u.email == email:
                 flash('Email already exists. Please log in.', 'warning')
                 return redirect(url_for('signup'))
         # Create a new user
-        new_user = User(first_name=first_name, last_name=last_name, email=email, password=password, address=address)
+        new_user = User(first_name=first_name, last_name=last_name, email=email, password=password, address=address, phone=phone,rating = 0)
         storage.new(new_user)
         storage.save()
         # Check if the user was saved

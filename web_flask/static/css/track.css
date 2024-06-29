@@ -39,6 +39,20 @@ button {
     color: white;
     cursor: pointer;
 }
+
+.btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #9a693b;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn:hover {
+    background-color: #66380d;
+}
 button:hover {
     background-color: #66380d;
 }

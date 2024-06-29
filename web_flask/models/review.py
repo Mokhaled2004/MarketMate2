@@ -23,7 +23,9 @@ class Review(BaseModel,Base):
 
     else:
         user_id = ""
+        subject = ""
         text = ""
+        
 
 
     def __init__(self, *args, **kwargs):
