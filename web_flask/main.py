@@ -8,6 +8,7 @@ from models.user import User
 from models.product import Product
 from models.order   import Order
 from models.review import Review
+from models.payment import Payment
 import json
 from datetime import datetime, timedelta
 
@@ -18,6 +19,63 @@ app.config['SECRET_KEY'] = 'your_secret_key'
 
 from flask import session, jsonify, request
 
+@app.route('/process_payment', methods=['POST'])
+def process_payment():
+    if request.method == 'POST':
+        user_id = session.get('user_id')
+        if not user_id:
+            flash('Please log in to complete payment.', 'danger')
+            return redirect(url_for('login'))
+        
+   
+
+        all_orders = storage.all(Order)
+        latest_order = None
+
+        # Find the latest order for the logged-in user
+        for order in all_orders.values():
+            if order.user_id == user_id:
+                if latest_order is None or order.created_at > latest_order.created_at:
+                    latest_order = order
+
+        if not latest_order:
+            return jsonify({'error': 'No orders found for the user'}), 404
+
+        order_id = latest_order.id # Update status to 'Delivered'
+        storage.save()  # Save the updated order
+
+
+        card_number = request.form['card_number']
+        card_name = request.form['card_name']
+        expiry_month = request.form['expiry_month']
+        expiry_year = request.form['expiry_year']
+        cvv = request.form['cvv']
+        payment_type = request.form['payment_type']
+
+        # Create a new Payment object
+        payment = Payment(
+            order_id=order_id,
+            user_id=user_id,
+            card_number=card_number,
+            card_name=card_name,
+            expiry_month=expiry_month,
+            expiry_year=expiry_year,
+            cvv=cvv,
+            payment_type=payment_type,
+            status="not delivered"
+        )
+
+        # Assuming storage handles SQLAlchemy session or file-based storage
+        storage.new(payment)
+        storage.save()
+
+        flash('Payment processed successfully!', 'success')
+        return redirect(url_for('track'))  # Redirect to track page or another appropriate page
+
+    # If method is not POST (though form should handle this)
+    return redirect(url_for('home'))  # Redirect to home page if method is not POST
+    
+    
 @app.route('/update_market_name', methods=['POST'])
 def update_market_name():
     user_id = session.get('user_id')
