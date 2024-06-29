@@ -468,15 +468,30 @@ def profile():
         'password': session.get('user_password'),
     }
 
+    
     return render_template('Profile HTML.html', title='Profile', user=user_details)
 
 
+@app.route('/order_history')
+def order_history():
+    user_id = session.get('user_id')
+    if not user_id:
+        return render_template('error.html', message='User not logged in')
+
+    # Fetch orders from storage
+    all_orders = storage.all(Order)
+    user_orders = [order for order in all_orders.values() if order.user_id == user_id]
+
+    # Render the template with orders data
+    return render_template('History HTMl.html', orders=user_orders)
 
 
 
-@app.route('/wishlist')
-def wishlist():
-    return render_template('Wishlist HTML.html', title='Wish List')
+
+@app.route('/history')
+def history():
+    return render_template('History HTML.html', title='History')
+
 @app.route('/cart')
 def cart():
     return render_template('Shopping Cart HTML.html', title='Shopping Cart')

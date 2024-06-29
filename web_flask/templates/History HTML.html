@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order History</title>
+</head>
+<body>
+    <div class="History tabShow">
+        <h1>Order History</h1>
+        <ul>
+            {% for order in orders %}
+            <li>
+                <strong>Order ID:</strong> {{ order.id }}<br>
+                <strong>Order Date:</strong> {{ order.created_at }}<br>
+                <strong>Market Name:</strong> {{ order.market_name }}<br>
+                <!-- Add other relevant order details as needed -->
+                <hr>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
