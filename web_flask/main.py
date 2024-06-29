@@ -62,7 +62,7 @@ def process_payment():
             expiry_year=expiry_year,
             cvv=cvv,
             payment_type=payment_type,
-            status="not delivered"
+            
         )
 
         # Assuming storage handles SQLAlchemy session or file-based storage
