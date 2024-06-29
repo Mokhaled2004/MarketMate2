@@ -18,6 +18,32 @@ app.config['SECRET_KEY'] = 'your_secret_key'
 
 from flask import session, jsonify, request
 
+@app.route('/update_market_name', methods=['POST'])
+def update_market_name():
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'error': 'User not logged in'}), 401
+
+    # Fetch all orders for the logged-in user
+    all_orders = storage.all(Order)
+    latest_order = None
+
+    # Find the latest order for the logged-in user
+    for order in all_orders.values():
+        if order.user_id == user_id:
+            if latest_order is None or order.created_at > latest_order.created_at:
+                latest_order = order
+
+    if not latest_order:
+        return jsonify({'error': 'No orders found for the user'}), 404
+
+    # Update the market_name in the latest order
+    latest_order.market_name = request.form.get('market_name')
+    storage.save()  # Save the updated order
+
+    return redirect(url_for('payment'))
+
+
 @app.route('/submit_contact_form', methods=['POST'])
 def submit_contact_form():
     if 'user_id' not in session:
@@ -234,7 +260,8 @@ def checkout():
         user_id=user_id,
         products=products,
         total_price=total_price,
-        created_at=datetime.now()
+        created_at=datetime.now(),
+        market_name= ""
     )
 
     # Save the order to storage (assuming your storage handles SQLAlchemy sessions or file-based storage)
