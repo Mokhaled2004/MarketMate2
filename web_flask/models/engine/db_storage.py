@@ -9,10 +9,11 @@ from models.user import User
 from models.order import Order
 from models.review import Review
 from models.product import Product
+from models.payment import Payment
 from os import getenv
 import sqlalchemy
 
-classes = {"Product": Product  , "Review": Review, "Order": Order, "User": User}
+classes = {"Product": Product  , "Review": Review, "Order": Order, "User": User,"Payment": Payment}
 class DBStorage:
     """ create tables in environmental"""
     __engine = None

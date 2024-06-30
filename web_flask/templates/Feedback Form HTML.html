@@ -1,75 +1,37 @@
 <!DOCTYPE html>
-
 <html>
-
     <head>
-
-        <title>
-            
-            Feedback
-        
-        </title>
-
-        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Feedback Form CSS.css') }}">
-
-        <link rel="stylesheet" href="">
-
+        <title>Feedback</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/Feedback Form CSS.css') }}">
         <script src="https://kit.fontawesome.com/9088cc6401.js" crossorigin="anonymous"></script>
-        
-        <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
-
+        <link rel="shortcut icon" type="image/jpg" href="path/to/favicon.ico"/>
     </head>
-
     <body>
         
         <section>
             <div class="rating-css">
-
-                <div style = "font-family: 'Poppins', sans-serif;">
-                    
-                    Feedback
-                    
-                    <br>
-                    
-                    Form
-                
-                </div>
-
-
-                <div class="star-icon">
-
-                    <input type="radio" name="rating1" id="rating1">
-
-                    <label for="rating1" class="fa fa-star"></label>
-                    
-
-                    <input type="radio" name="rating1" id="rating2">
-
-                    <label for="rating2" class="fa fa-star"></label>
-                    
-
-                    <input type="radio" name="rating1" id="rating3">
-
-                    <label for="rating3" class="fa fa-star"></label>
-                    
-
-                    <input type="radio" name="rating1" id="rating4">
-
-                    <label for="rating4" class="fa fa-star"></label>
-                    
-
-                    <input type="radio" name="rating1" id="rating5">
-
-                    <label for="rating5" class="fa fa-star"></label>
-                    
-
-                    <button type="submit" class="btn"><a href="{{ url_for('feedbacksubmit') }}"style = 'color: #ffffff; text-decoration: none;'>Submit</a></button>
-                    
-                </div>
-                
+                <div style="font-family: 'Poppins', sans-serif;">Feedback<br>Form</div>
+                <form action="{{ url_for('feedsubmit') }}" method="POST">
+                    <div class="star-icon">
+                        <input type="radio" name="rating" id="rating1" value="1">
+                        <label for="rating1" class="fa fa-star"></label>
+    
+                        <input type="radio" name="rating" id="rating2" value="2">
+                        <label for="rating2" class="fa fa-star"></label>
+    
+                        <input type="radio" name="rating" id="rating3" value="3">
+                        <label for="rating3" class="fa fa-star"></label>
+    
+                        <input type="radio" name="rating" id="rating4" value="4">
+                        <label for="rating4" class="fa fa-star"></label>
+    
+                        <input type="radio" name="rating" id="rating5" value="5">
+                        <label for="rating5" class="fa fa-star"></label>
+    
+                        <button type="submit" class="btn" style="color: #ffffff; text-decoration: none;">Submit</button>
+                    </div>
+                </form>
             </div>
-        
         </section>
     </body>
-    
 </html>

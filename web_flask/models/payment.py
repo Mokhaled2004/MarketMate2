@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This is the review class"""
+"""This is the Payment class"""
 
 
 import models
@@ -9,22 +9,28 @@ import sqlalchemy
 from sqlalchemy import Column, Integer, String, ForeignKey, Float
 
 
-class Review(BaseModel,Base):
+class Payment(BaseModel,Base):
 
-    """Represents a review """
+    """Represents a payment """
 
     if models.storage_t == 'db':
 
-        __tablename__ = "reviews"
+        __tablename__ = "payments"
 
 
         user_id = Column(String(60), ForeignKey("users.id"), nullable=False)
-        text = Column(String(1024), nullable=False)
+        order_id = Column(String(60), ForeignKey("orders.id"), nullable=False)
+        payment_type = Column(String(1024), nullable=False)
 
     else:
         user_id = ""
-        subject = ""
-        text = ""
+        order_id = ""
+        payment_type = ""
+        card_number = ""
+        card_name = ""
+        expiry_month= ""
+        expiry_year= ""
+        cvv= ""
         
 
 

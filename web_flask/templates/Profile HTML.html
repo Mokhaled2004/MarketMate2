@@ -41,10 +41,26 @@
                 <input type="password" class="input" name="password"  value="{{ user.password }}" readonly>
                 <h2>Address</h2>
                 <input type="text" class="input" name="address" value="{{ user.address }}">
-                <button class="btn" type="submit">Update</button> <a href="{{ url_for('logged') }}"class="btn" type="submit">Home</a>
+                <button class="btn" type="submit">Update</button> <a href="{{ url_for('logged') }}" class="btn" type="submit">Home</a>
             </form>
         </div>
+        <div class="History tabShow">
+            <h1>Order History</h1>
+            <ul>
+                {% for order in orders %}
+                <li>
+                    <strong>Order ID:</strong> {{ order.id }}<br>
+                    <strong>Order Date:</strong> {{ order.created_at }}<br>
+                    <strong>Market Name:</strong> {{ order.market_name }}<br>
+                    <!-- Add other relevant order details as needed -->
+                    <hr>
+                </li>
+                {% endfor %}
+            </ul>
+            
+        </div>
         <!-- Rest of the tabs go here -->
+    
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

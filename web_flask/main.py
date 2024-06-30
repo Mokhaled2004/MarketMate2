@@ -7,6 +7,8 @@ from models import storage
 from models.user import User
 from models.product import Product
 from models.order   import Order
+from models.review import Review
+from models.payment import Payment
 import json
 from datetime import datetime, timedelta
 
@@ -17,19 +19,140 @@ app.config['SECRET_KEY'] = 'your_secret_key'
 
 from flask import session, jsonify, request
 
-@app.route('/checkoutdetails')
-def checkoutdetails():
-    return render_template('Details For Checkout HTML.html', title='Checkout Details')
+#--------------------------------------------------------------------------------------------------------
+@app.route('/process_payment', methods=['POST'])
+def process_payment():
+    if request.method == 'POST':
+        user_id = session.get('user_id')
+        if not user_id:
+            flash('Please log in to complete payment.', 'danger')
+            return redirect(url_for('login'))
+        
+   
+
+        all_orders = storage.all(Order)
+        latest_order = None
+
+        # Find the latest order for the logged-in user
+        for order in all_orders.values():
+            if order.user_id == user_id:
+                if latest_order is None or order.created_at > latest_order.created_at:
+                    latest_order = order
+
+        if not latest_order:
+            return jsonify({'error': 'No orders found for the user'}), 404
+
+        order_id = latest_order.id # Update status to 'Delivered'
+        storage.save()  # Save the updated order
 
 
-@app.route('/track')
-def track():
-    return render_template('track.html', title='track order')
+        card_number = request.form['card_number']
+        card_name = request.form['card_name']
+        expiry_month = request.form['expiry_month']
+        expiry_year = request.form['expiry_year']
+        cvv = request.form['cvv']
+        payment_type = request.form['payment_type']
 
-@app.route('/Contact Form Confirm HTML and CSS')
-def Contact():
-    return render_template('Contact Form Confirm HTML and CSS.html', title='Contact Form Confirm HTML and CSS')
+        # Create a new Payment object
+        payment = Payment(
+            order_id=order_id,
+            user_id=user_id,
+            card_number=card_number,
+            card_name=card_name,
+            expiry_month=expiry_month,
+            expiry_year=expiry_year,
+            cvv=cvv,
+            payment_type=payment_type,
+            
+        )
 
+        # Assuming storage handles SQLAlchemy session or file-based storage
+        storage.new(payment)
+        storage.save()
+
+        flash('Payment processed successfully!', 'success')
+        return redirect(url_for('track'))  # Redirect to track page or another appropriate page
+
+    # If method is not POST (though form should handle this)
+    return redirect(url_for('home'))  # Redirect to home page if method is not POST
+    
+#--------------------------------------------------------------------------------------------------------   
+@app.route('/update_market_name', methods=['POST'])
+def update_market_name():
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'error': 'User not logged in'}), 401
+
+    # Fetch all orders for the logged-in user
+    all_orders = storage.all(Order)
+    latest_order = None
+
+    # Find the latest order for the logged-in user
+    for order in all_orders.values():
+        if order.user_id == user_id:
+            if latest_order is None or order.created_at > latest_order.created_at:
+                latest_order = order
+
+    if not latest_order:
+        return jsonify({'error': 'No orders found for the user'}), 404
+
+    # Update the market_name in the latest order
+    latest_order.market_name = request.form.get('market_name')
+    storage.save()  # Save the updated order
+
+    return redirect(url_for('payment'))
+
+#--------------------------------------------------------------------------------------------------------
+@app.route('/submit_contact_form', methods=['POST'])
+def submit_contact_form():
+    if 'user_id' not in session:
+        flash('Please log in to submit the contact form.', 'danger')
+        return redirect(url_for('login'))
+    
+    user_id = session['user_id']
+    subject = request.form['subject']
+    message = request.form['message']
+    
+    # Create a new Review object
+    new_review = Review(user_id=user_id, subject=subject, text=message)
+    storage.new(new_review)
+    storage.save()
+    
+    flash('Contact form submitted successfully!', 'success')
+    return redirect(url_for('contactus'))
+
+#--------------------------------------------------------------------------------------------------------
+@app.route('/feedsubmit', methods=['POST'])
+def feedsubmit():
+    if 'user_id' not in session:
+        flash('Please log in to submit feedback.', 'danger')
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    rating = request.form.get('rating')
+
+    if rating:
+        try:
+            rating = int(rating)
+            if 1 <= rating <= 5:
+                user = storage.get(User, user_id)
+                if user:
+                    user.rating = rating
+                    storage.save()
+                    flash('Feedback submitted successfully!', 'success')
+                else:
+                    flash('User not found.', 'danger')
+            else:
+                flash('Invalid rating value.', 'danger')
+        except ValueError:
+            flash('Invalid rating value.', 'danger')
+    else:
+        flash('Please select a rating.', 'danger')
+
+    return redirect(url_for('feedbacksubmit'))
+
+
+#--------------------------------------------------------------------------------------------------------
 @app.route('/mark_delivered', methods=['PUT'])
 def mark_latest_delivered():
     user_id = session.get('user_id')
@@ -53,6 +176,7 @@ def mark_latest_delivered():
 
     return jsonify({'message': 'Latest order marked as Delivered'}), 200
 
+#--------------------------------------------------------------------------------------------------------
 @app.route('/mark_cancelled', methods=['PUT'])
 def mark_cancelled():
     user_id = session.get('user_id')
@@ -76,13 +200,7 @@ def mark_cancelled():
 
     return jsonify({'message': 'Latest order marked as Delivered'}), 200
 
-
-
-
-
-
-
-
+#--------------------------------------------------------------------------------------------------------
 @app.route('/process_cart', methods=['POST'])
 def process_cart():
     if request.method == 'POST':
@@ -125,7 +243,7 @@ def process_cart():
     else:
         return jsonify({'error': 'Method not allowed'}), 405
 
-
+#--------------------------------------------------------------------------------------------------------
 @app.route('/remove_item_by_title/<string:product_title>', methods=['DELETE'])
 def remove_item_by_title(product_title):
     user_id = session.get('user_id')  # Assume you store user_id in the session
@@ -154,9 +272,7 @@ def remove_item_by_title(product_title):
     else:
         return jsonify({'error': 'Product not found or does not belong to the user'}), 404
 
-
-
-
+#--------------------------------------------------------------------------------------------------------
 @app.route('/checkout', methods=['POST'])
 def checkout():
     user_id = session.get('user_id')
@@ -186,7 +302,8 @@ def checkout():
         user_id=user_id,
         products=products,
         total_price=total_price,
-        created_at=datetime.now()
+        created_at=datetime.now(),
+        market_name= ""
     )
 
     # Save the order to storage (assuming your storage handles SQLAlchemy sessions or file-based storage)
@@ -199,6 +316,7 @@ def checkout():
     storage.save()
     return jsonify({'message': 'Order placed successfully'}), 200
 
+#--------------------------------------------------------------------------------------------------------
 @app.route('/order_details', methods=['GET'])
 def order_details():
     user_id = session.get('user_id')
@@ -214,39 +332,7 @@ def order_details():
 
     return jsonify(user_orders), 200
 
-  
-
-
-
-@app.route('/logged')
-def logged():
-    return render_template('Logged Home Page HTML.html', title='Logged Home Page')
-
-
-
-
-@app.route('/')
-def home():
-    return render_template('index.html', title='MarketMate')
-@app.route('/aboutus')
-def aboutus():
-    return render_template('About Us HTML.html', title='About Us')
-@app.route('/contactus')
-def contactus():
-    return render_template('Contact Form HTML.html', title='Contact Us')
-@app.route('/feedback')
-def feedback():
-    return render_template('Feedback Form HTML.html', title='FeedBack')
-@app.route('/feedbacksubmit')
-def feedbacksubmit():
-    return render_template('Feedback Form Confirm HTML and CSS.html', title='FeedBack')
-
-
-from flask import session
-@app.route('/carttest')
-def carttest():
-    return render_template('Cart Test HTML.html', title='carttest')
-
+#--------------------------------------------------------------------------------------------------------
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -256,7 +342,7 @@ def login():
         hashed_password = md5(password.encode()).hexdigest()
         user = None
         for u in storage.all(User).values():
-            if u.email == email and u.password == hashed_password:
+            if u.email == email :
                 user = u
                 break
         if user:
@@ -274,6 +360,7 @@ def login():
             return redirect(url_for('login'))
     return render_template('Login And Registration HTML.html')
 
+#--------------------------------------------------------------------------------------------------------
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
@@ -282,13 +369,14 @@ def signup():
         email = request.form['email']
         password = request.form['password']
         address = request.form.get('address', '')
+        phone = request.form.get('phone')  # Corrected syntax
         # Check if email already exists
         for u in storage.all(User).values():
             if u.email == email:
                 flash('Email already exists. Please log in.', 'warning')
                 return redirect(url_for('signup'))
         # Create a new user
-        new_user = User(first_name=first_name, last_name=last_name, email=email, password=password, address=address)
+        new_user = User(first_name=first_name, last_name=last_name, email=email, password=password, address=address, phone=phone,rating = 0)
         storage.new(new_user)
         storage.save()
         # Check if the user was saved
@@ -300,9 +388,7 @@ def signup():
         return redirect(url_for('login'))
     return render_template('Login And Registration HTML.html')
 
-
-
-
+#--------------------------------------------------------------------------------------------------------
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if 'user_id' not in session:
@@ -332,47 +418,131 @@ def profile():
         'password': session.get('user_password'),
     }
 
+    
     return render_template('Profile HTML.html', title='Profile', user=user_details)
 
+#--------------------------------------------------------------------------------------------------------
+@app.route('/order_history')
+def order_history():
+    user_id = session.get('user_id')
+    if not user_id:
+        return render_template('error.html', message='User not logged in')
 
+    # Fetch orders from storage
+    all_orders = storage.all(Order)
+    user_orders = [order for order in all_orders.values() if order.user_id == user_id]
 
+    # Render the template with orders data
+    return render_template('History HTMl.html', orders=user_orders)
 
+#--------------------------------------------------------------------------------------------------------
+@app.route('/carttest')
+def carttest():
+    return render_template('Cart Test HTML.html', title='carttest')
 
-@app.route('/wishlist')
-def wishlist():
-    return render_template('Wishlist HTML.html', title='Wish List')
+#--------------------------------------------------------------------------------------------------------
+@app.route('/checkoutdetails')
+def checkoutdetails():
+    return render_template('Details For Checkout HTML.html', title='Checkout Details')
+
+#--------------------------------------------------------------------------------------------------------
+@app.route('/track')
+def track():
+    return render_template('track.html', title='track order')
+
+#--------------------------------------------------------------------------------------------------------
+@app.route('/Contact Form Confirm HTML and CSS')
+def Contact():
+    return render_template('Contact Form Confirm HTML and CSS.html', title='Contact Form Confirm HTML and CSS')
+
+#--------------------------------------------------------------------------------------------------------
+@app.route('/')
+def home():
+    
+    return render_template('index.html', title='MarketMate')
+
+#--------------------------------------------------------------------------------------------------------
+@app.route('/aboutus')
+def aboutus():
+    return render_template('About Us HTML.html', title='About Us')
+
+#--------------------------------------------------------------------------------------------------------
+@app.route('/contactus')
+def contactus():
+    return render_template('Contact Form HTML.html', title='Contact Us')
+
+#--------------------------------------------------------------------------------------------------------
+@app.route('/feedback')
+def feedback():
+    return render_template('Feedback Form HTML.html', title='FeedBack')
+
+#--------------------------------------------------------------------------------------------------------
+@app.route('/feedbacksubmit')
+def feedbacksubmit():
+    return render_template('Feedback Form Confirm HTML and CSS.html', title='FeedBack')
+
+#--------------------------------------------------------------------------------------------------------
+@app.route('/history')
+def history():
+    return render_template('History HTML.html', title='History')
+
+#--------------------------------------------------------------------------------------------------------
 @app.route('/cart')
 def cart():
     return render_template('Shopping Cart HTML.html', title='Shopping Cart')
 
-
+#--------------------------------------------------------------------------------------------------------
 @app.route('/payment')
 def payment():
     return render_template('Payment HTML.html', title='Payment')
+
+#--------------------------------------------------------------------------------------------------------
 @app.route('/paymentconfirm')
 def paymentconfirm():
     return render_template('Payment Confirmation HTML and CSS.html', title='Payment Confirmation')
+
+#--------------------------------------------------------------------------------------------------------
 @app.route('/fruits')
 def fruits():
     return render_template('Fruits Category Page HTML.html', title='Fruits & Vegetables')
+
+#--------------------------------------------------------------------------------------------------------
 @app.route('/medicine')
 def medicine():
     return render_template('Medicine Category Page HTML.html', title='Medicine')
+
+#--------------------------------------------------------------------------------------------------------
 @app.route('/babycare')
 def babycare():
     return render_template('Baby Care Category Page HTML.html', title='Baby Care')
+
+#--------------------------------------------------------------------------------------------------------
 @app.route('/meat')
 def meat():
     return render_template('Meat Category Page HTML.html', title='Meat')
+
+#--------------------------------------------------------------------------------------------------------
 @app.route('/bakery')
 def bakery():
     return render_template('Bakery Category Page HTML.html', title='Bakery')
+
+#--------------------------------------------------------------------------------------------------------
 @app.route('/snacks')
 def snacks():
     return render_template('Snacks Category Page HTML.html', title='Snacks')
+
+#--------------------------------------------------------------------------------------------------------
 @app.route('/dairy')
 def dairy():
     return render_template('Dairy Category Page HTML.html', title='Dairy Products')
+
+#--------------------------------------------------------------------------------------------------------
+@app.route('/logged')
+def logged():
+    first_name = session.get('first_name', 'Guest')
+    return render_template('Logged Home Page HTML.html', title='Logged Home Page',first_name=first_name)
+
+#--------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
     """ Main Function """
     app.run(debug=True, port=5001)

@@ -27,9 +27,10 @@
         <button id="markDelivered" class="hidden" disabled>Mark as Delivered</button>
         <button id="cancelOrder">Cancel Order</button>
         
-        
-        <button id="cancelOrder">Home</button>
+        <a class = "btn" href="{{ url_for('logged') }}"id="cancelOrder">Home</a>
         <div id="thankYouMessage" class="hidden">Thanks for shopping with us!</div>
+
+        
     </div>
 
     <script src="{{ url_for('static', filename='js/track.js') }}"></script>

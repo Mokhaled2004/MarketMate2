@@ -7,10 +7,11 @@ from models.user import User
 from models.product import Product
 from models.order import Order
 from models.review import Review
+from models.payment import Payment
 import shlex
 from hashlib import md5
 
-classes = {"Product": Product  , "Review": Review, "Order": Order, "User": User}
+classes = {"Product": Product  , "Review": Review, "Order": Order, "User": User,"Payment": Payment}
 
 class FileStorage:
     """serializes instances to a JSON file & deserializes back to instances"""

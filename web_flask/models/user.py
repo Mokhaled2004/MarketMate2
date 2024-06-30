@@ -39,7 +39,9 @@ class User(BaseModel, Base):
         password = ""
         first_name = ""
         last_name = ""
+        phone = ""
         address = ""
+        rating = 0
 
     def __init__(self, *args, **kwargs):
         """initializes user"""
