@@ -1,1 +1,61 @@
-{"User.b1800b5e-8864-470b-9ab9-b5ff760c315e": {"first_name": "Mohamed", "last_name": "Khaled", "email": "mokhaled2004@gmail.com", "password": "c20ad4d76fe97759aa27a0c99bff6710", "address": "7832 Mohamed Ibrahim street, Region C Mokattam", "created_at": "2024-06-28T21:57:55.010725", "updated_at": "2024-06-28T21:57:55.010725", "id": "b1800b5e-8864-470b-9ab9-b5ff760c315e", "__class__": "User"}, "Order.0491e607-1665-43bb-96c4-bf751629c5f0": {"delivered": "not delivered", "user_id": "b1800b5e-8864-470b-9ab9-b5ff760c315e", "products": [{"title": "Potato", "price": 25, "quantity": 1}, {"title": "Apple", "price": 30, "quantity": 1}], "total_price": 55.0, "created_at": "2024-06-28T21:58:01.804873", "updated_at": "2024-06-28T21:58:01.804873", "id": "0491e607-1665-43bb-96c4-bf751629c5f0", "__class__": "Order"}}
+{
+    "User.b1800b5e-8864-470b-9ab9-b5ff760c315e": {
+        "first_name": "Mohamed",
+        "last_name": "Khaled",
+        "email": "mokhaled2004@gmail.com",
+        "password": "c8b2f17833a4c73bb20f88876219ddcd",
+        "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
+        "created_at": "2024-06-28T21:57:55.010725",
+        "updated_at": "2024-06-28T21:57:55.010725",
+        "id": "b1800b5e-8864-470b-9ab9-b5ff760c315e",
+        "__class__": "User"
+    },
+    "Order.0491e607-1665-43bb-96c4-bf751629c5f0": {
+        "delivered": "not delivered",
+        "user_id": "b1800b5e-8864-470b-9ab9-b5ff760c315e",
+        "products": [
+            {
+                "title": "Potato",
+                "price": 25,
+                "quantity": 1
+            },
+            {
+                "title": "Apple",
+                "price": 30,
+                "quantity": 1
+            }
+        ],
+        "total_price": 55.0,
+        "created_at": "2024-06-28T21:58:01.804873",
+        "updated_at": "2024-06-28T21:58:01.804873",
+        "id": "0491e607-1665-43bb-96c4-bf751629c5f0",
+        "__class__": "Order"
+    },
+    "User.1cecbe4d-6b8f-47b4-980b-687db358f771": {
+        "first_name": "mazen",
+        "last_name": "wael",
+        "email": "Mazenwael575@gmail.com",
+        "password": "202cb962ac59075b964b07152d234b70",
+        "address": "nasr",
+        "created_at": "2024-06-28T21:59:23.801344",
+        "updated_at": "2024-06-28T21:59:23.801348",
+        "id": "1cecbe4d-6b8f-47b4-980b-687db358f771",
+        "__class__": "User"
+    },
+    "Order.e2052dd3-6338-4ae4-bb34-91c55071500f": {
+        "delivered": "Cancelled",
+        "user_id": "1cecbe4d-6b8f-47b4-980b-687db358f771",
+        "products": [
+            {
+                "title": "Potato",
+                "price": 50,
+                "quantity": 2
+            }
+        ],
+        "total_price": 50.0,
+        "created_at": "2024-06-28T21:59:33.359981",
+        "updated_at": "2024-06-28T21:59:33.359982",
+        "id": "e2052dd3-6338-4ae4-bb34-91c55071500f",
+        "__class__": "Order"
+    }
+}
