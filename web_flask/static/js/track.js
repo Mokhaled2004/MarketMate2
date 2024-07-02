@@ -19,23 +19,25 @@ window.addEventListener('load', function() {
         currentStage++;
         if (currentStage < stages.length) {
             updateStage(stages[currentStage].stage);
-            startTimer(stages[currentStage].duration, `Time until ${stages[currentStage].stage.toLowerCase()}: `, nextStage);
-            saveCurrentStageToStorage(currentStage);
-        } else {
-            document.getElementById('markDelivered').disabled = false;
-            document.getElementById('markDelivered').classList.remove('hidden');
-            document.getElementById('timer').classList.add('hidden');
-            document.getElementById('status').classList.add('hidden');
-            document.getElementById('thankYouMessage').classList.remove('hidden');
-            clearCurrentStageFromStorage();
-            localStorage.removeItem('timeLeft');
-        }
-    });
+            if (stages[currentStage].stage === 'Delivered') { // Added condition for "Delivered" stage
+                clearCurrentStageFromStorage();
+                localStorage.removeItem('timeLeft');
+                //document.getElementById('markDelivered').disabled = false;
+              //document.getElementById('markDelivered').classList.remove('hidden');
+                document.getElementById('timer').classList.add('hidden');
+                document.getElementById('status').classList.add('hidden');
+                document.getElementById('thankYouMessage').classList.remove('hidden');
+                document.getElementById('order-details').innerHTML = '<h2>Order Details</h2>'; // Remove order details
+                localStorage.removeItem('timeLeft');
+                document.querySelector('#order-details').innerHTML += '<div style="font-size: 1em; font-weight: bold;">Delivered</div>'; // Add "Delivered" message
+            } else {
+                startTimer(stages[currentStage].duration, `Time until ${stages[currentStage].stage.toLowerCase()}: `, nextStage);
+                saveCurrentStageToStorage(currentStage);
+            }
+    }
+});
 
-    document.getElementById('markDelivered').addEventListener('click', function() {
-        alert('Order marked as delivered!');
-        // Optionally, update UI or perform further actions
-    });
+
 
     document.getElementById('cancelOrder').addEventListener('click', function() {
         alert('Order cancelled!');
@@ -164,8 +166,9 @@ document.getElementById('cancelOrder').addEventListener('click', function() {
             throw new Error('Failed to update order status');
         }
         // Update UI or show confirmation message
-        alert('Order status updated to Delivered');
+        alert('Order status updated to Canceled');
         // Optionally, you can update UI elements dynamically here
+        window.location.href = '/';
     })
     .catch(error => {
         console.error('Error:', error);
