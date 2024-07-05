@@ -1,1 +1,96 @@
-{"User.b1800b5e-8864-470b-9ab9-b5ff760c315e": {"first_name": "Mohamed", "last_name": "Khaled", "email": "mokhaled2004@gmail.com", "password": "cee3e318d457a093244aab903d02f724", "address": "7832 Mohamed Ibrahim street, Region C Mokattam", "created_at": "2024-06-28T21:57:55.010725", "updated_at": "2024-06-28T21:57:55.010725", "id": "b1800b5e-8864-470b-9ab9-b5ff760c315e", "__class__": "User"}, "Order.0491e607-1665-43bb-96c4-bf751629c5f0": {"delivered": "not delivered", "user_id": "b1800b5e-8864-470b-9ab9-b5ff760c315e", "products": [{"title": "Potato", "price": 25, "quantity": 1}, {"title": "Apple", "price": 30, "quantity": 1}], "total_price": 55.0, "created_at": "2024-06-28T21:58:01.804873", "updated_at": "2024-06-28T21:58:01.804873", "id": "0491e607-1665-43bb-96c4-bf751629c5f0", "__class__": "Order"}, "User.d58acf4b-d767-4996-8d2d-c5d1bc1fb09e": {"first_name": "mazen", "last_name": "wael", "email": "Mazenwael575@gmail.com", "password": "30cd2f99101cdd52cc5fda1e996ee137", "address": "nasr", "phone": "01286080266", "rating": 0, "created_at": "2024-06-30T16:09:29.835456", "updated_at": "2024-06-30T16:09:29.835460", "id": "d58acf4b-d767-4996-8d2d-c5d1bc1fb09e", "__class__": "User"}, "Order.cd5034b9-2fc6-47fd-87ca-28c6a428a956": {"delivered": "not delivered", "user_id": "d58acf4b-d767-4996-8d2d-c5d1bc1fb09e", "products": [{"title": "Potato", "price": 25, "quantity": 1}, {"title": "Apple", "price": 30, "quantity": 1}], "total_price": 55.0, "created_at": "2024-06-30T16:09:40.510211", "market_name": "carefour", "updated_at": "2024-06-30T16:09:40.510212", "id": "cd5034b9-2fc6-47fd-87ca-28c6a428a956", "__class__": "Order"}, "Payment.847cff61-889d-4aa9-a33f-e8e50d2ee509": {"order_id": "cd5034b9-2fc6-47fd-87ca-28c6a428a956", "user_id": "d58acf4b-d767-4996-8d2d-c5d1bc1fb09e", "card_number": "12312312321341", "card_name": "mazen wael", "expiry_month": "11", "expiry_year": "2027", "cvv": "222", "payment_type": "visa", "created_at": "2024-06-30T16:10:22.302941", "updated_at": "2024-06-30T16:10:22.302943", "id": "847cff61-889d-4aa9-a33f-e8e50d2ee509", "__class__": "Payment"}, "Payment.c6b3d13d-bff0-458d-8e0a-89c2891e337c": {"order_id": "cd5034b9-2fc6-47fd-87ca-28c6a428a956", "user_id": "d58acf4b-d767-4996-8d2d-c5d1bc1fb09e", "card_number": "12312312321341", "card_name": "mazen wael", "expiry_month": "11", "expiry_year": "2027", "cvv": "222", "payment_type": "cash", "created_at": "2024-06-30T16:10:34.003683", "updated_at": "2024-06-30T16:10:34.003685", "id": "c6b3d13d-bff0-458d-8e0a-89c2891e337c", "__class__": "Payment"}, "Order.0649eb3f-5612-4907-a42d-584daaaece97": {"delivered": "not delivered", "user_id": "d58acf4b-d767-4996-8d2d-c5d1bc1fb09e", "products": [{"title": "Potato", "price": 100, "quantity": 4}, {"title": "Apple", "price": 30, "quantity": 1}, {"title": "Ghee", "price": 45, "quantity": 1}, {"title": "Himalaya Baby Shampoo", "price": 330, "quantity": 1}], "total_price": 505.0, "created_at": "2024-06-30T18:46:25.172572", "market_name": "bmi", "updated_at": "2024-06-30T18:46:25.172573", "id": "0649eb3f-5612-4907-a42d-584daaaece97", "__class__": "Order"}, "Payment.8cc2ab15-1a65-4321-8b1b-5fe72b6e8b00": {"order_id": "0649eb3f-5612-4907-a42d-584daaaece97", "user_id": "d58acf4b-d767-4996-8d2d-c5d1bc1fb09e", "card_number": "111", "card_name": "2121", "expiry_month": "01", "expiry_year": "2022", "cvv": "852", "payment_type": "cash", "created_at": "2024-06-30T18:47:37.012357", "updated_at": "2024-06-30T18:47:37.012359", "id": "8cc2ab15-1a65-4321-8b1b-5fe72b6e8b00", "__class__": "Payment"}, "User.dcf485cc-f390-4182-8227-a2651f98bf9a": {"first_name": "mazen", "last_name": "wael", "email": "Mazenwael595@gmail.com", "password": "7363a0d0604902af7b70b271a0b96480", "address": "nasr", "phone": "01286080266", "rating": 0, "created_at": "2024-07-01T16:01:27.193647", "updated_at": "2024-07-01T16:01:27.193651", "id": "dcf485cc-f390-4182-8227-a2651f98bf9a", "__class__": "User"}, "Order.fd532990-c9c3-4aac-8c22-095d6d786a4e": {"delivered": "Delivered", "user_id": "dcf485cc-f390-4182-8227-a2651f98bf9a", "products": [{"title": "Apple", "price": 30, "quantity": 1}, {"title": "Potato", "price": 50, "quantity": 2}, {"title": "Onion", "price": 35, "quantity": 1}, {"title": "Goat", "price": 400, "quantity": 1}, {"title": "Baguette Bread", "price": 210, "quantity": 3}, {"title": "Feta Cheese", "price": 20, "quantity": 1}, {"title": "Little's Baby Wipes", "price": 70, "quantity": 1}, {"title": "Green Garden Bundle", "price": 350, "quantity": 1}], "total_price": 1165.0, "created_at": "2024-07-01T16:02:29.739192", "market_name": "carefour", "updated_at": "2024-07-01T16:02:29.739193", "id": "fd532990-c9c3-4aac-8c22-095d6d786a4e", "__class__": "Order"}, "Payment.5c4d5aa2-ac0b-4a81-a3f1-259937b84205": {"order_id": "fd532990-c9c3-4aac-8c22-095d6d786a4e", "user_id": "dcf485cc-f390-4182-8227-a2651f98bf9a", "card_number": "414532325932", "card_name": "mazen wael", "expiry_month": "10", "expiry_year": "2028", "cvv": "245", "payment_type": "visa", "created_at": "2024-07-01T16:03:48.638472", "updated_at": "2024-07-01T16:03:48.638475", "id": "5c4d5aa2-ac0b-4a81-a3f1-259937b84205", "__class__": "Payment"}, "Order.b7bd919b-7c6b-4ea0-95da-92286362bee0": {"delivered": "Delivered", "user_id": "dcf485cc-f390-4182-8227-a2651f98bf9a", "products": [{"title": "Apple", "price": 30, "quantity": 1}, {"title": "Potato", "price": 50, "quantity": 2}, {"title": "Onion", "price": 35, "quantity": 1}, {"title": "Goat", "price": 400, "quantity": 1}, {"title": "Baguette Bread", "price": 210, "quantity": 3}, {"title": "Feta Cheese", "price": 20, "quantity": 1}, {"title": "Little's Baby Wipes", "price": 70, "quantity": 1}, {"title": "Green Garden Bundle", "price": 350, "quantity": 1}], "total_price": 1165.0, "created_at": "2024-07-01T16:05:56.795635", "market_name": "carefour", "updated_at": "2024-07-01T16:05:56.795636", "id": "b7bd919b-7c6b-4ea0-95da-92286362bee0", "__class__": "Order"}, "Payment.26497c6c-1ec1-4c80-98f4-5cded044bae9": {"order_id": "b7bd919b-7c6b-4ea0-95da-92286362bee0", "user_id": "dcf485cc-f390-4182-8227-a2651f98bf9a", "card_number": "201245679234", "card_name": "mazen wael", "expiry_month": "10", "expiry_year": "2028", "cvv": "245", "payment_type": "visa", "created_at": "2024-07-01T16:07:02.943463", "updated_at": "2024-07-01T16:07:02.943465", "id": "26497c6c-1ec1-4c80-98f4-5cded044bae9", "__class__": "Payment"}, "Order.5ae3241e-a112-410a-bf2d-7f2e5fa9a1d2": {"delivered": "not delivered", "user_id": "dcf485cc-f390-4182-8227-a2651f98bf9a", "products": [{"title": "Potato", "price": 75, "quantity": 3}, {"title": "Apple", "price": 60, "quantity": 2}], "total_price": 135.0, "created_at": "2024-07-02T15:18:45.590671", "market_name": "carefour", "updated_at": "2024-07-02T15:18:45.590672", "id": "5ae3241e-a112-410a-bf2d-7f2e5fa9a1d2", "__class__": "Order"}, "Payment.cb899c5a-e457-4d7b-803b-7c00e4c3f298": {"order_id": "5ae3241e-a112-410a-bf2d-7f2e5fa9a1d2", "user_id": "dcf485cc-f390-4182-8227-a2651f98bf9a", "card_number": "222222", "card_name": "2222", "expiry_month": "06", "expiry_year": "2024", "cvv": "22", "payment_type": "cash", "created_at": "2024-07-02T15:19:36.885156", "updated_at": "2024-07-02T15:19:36.885158", "id": "cb899c5a-e457-4d7b-803b-7c00e4c3f298", "__class__": "Payment"}, "Order.3e4e2c12-58b5-40d3-978f-0e28d25249bb": {"delivered": "Cancelled", "user_id": "dcf485cc-f390-4182-8227-a2651f98bf9a", "products": [{"title": "Potato", "price": 75, "quantity": 3}], "total_price": 75.0, "created_at": "2024-07-02T15:31:13.931753", "market_name": "carefour", "updated_at": "2024-07-02T15:31:13.931754", "id": "3e4e2c12-58b5-40d3-978f-0e28d25249bb", "__class__": "Order"}, "Payment.402772e0-18e3-495e-976f-1f7154ad5313": {"order_id": "3e4e2c12-58b5-40d3-978f-0e28d25249bb", "user_id": "dcf485cc-f390-4182-8227-a2651f98bf9a", "card_number": "2222", "card_name": "2222", "expiry_month": "03", "expiry_year": "2022", "cvv": "222", "payment_type": "cash", "created_at": "2024-07-02T15:31:39.993028", "updated_at": "2024-07-02T15:31:39.993030", "id": "402772e0-18e3-495e-976f-1f7154ad5313", "__class__": "Payment"}}
+{
+    "User.21eef3d3-bc76-4e47-9265-8ec9bfc0337c": {
+        "first_name": "Mohamed",
+        "last_name": "Khaled",
+        "email": "mokhaled2004@gmail.com",
+        "password": "c20ad4d76fe97759aa27a0c99bff6710",
+        "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
+        "phone": "01097757050",
+        "rating": 4,
+        "created_at": "2024-07-05T18:04:21.685742",
+        "updated_at": "2024-07-05T18:04:21.685742",
+        "id": "21eef3d3-bc76-4e47-9265-8ec9bfc0337c",
+        "__class__": "User"
+    },
+    "Order.c83f7d11-19d2-4647-bdd6-62937734b661": {
+        "delivered": "Cancelled",
+        "user_id": "21eef3d3-bc76-4e47-9265-8ec9bfc0337c",
+        "products": [
+            {
+                "title": "Watermelon",
+                "price": 55,
+                "quantity": 1
+            },
+            {
+                "title": "Mango",
+                "price": 100,
+                "quantity": 2
+            }
+        ],
+        "total_price": 155.0,
+        "created_at": "2024-07-05T18:05:03.198390",
+        "market_name": "BIM",
+        "updated_at": "2024-07-05T18:05:03.198390",
+        "id": "c83f7d11-19d2-4647-bdd6-62937734b661",
+        "__class__": "Order"
+    },
+    "Payment.7c3ac228-d4f9-4331-ab38-bfddcfb22553": {
+        "order_id": "c83f7d11-19d2-4647-bdd6-62937734b661",
+        "user_id": "21eef3d3-bc76-4e47-9265-8ec9bfc0337c",
+        "card_number": "4456",
+        "card_name": "1245",
+        "expiry_month": "01",
+        "expiry_year": "2022",
+        "cvv": "345",
+        "payment_type": "visa",
+        "created_at": "2024-07-05T18:06:03.795658",
+        "updated_at": "2024-07-05T18:06:03.795658",
+        "id": "7c3ac228-d4f9-4331-ab38-bfddcfb22553",
+        "__class__": "Payment"
+    },
+    "Review.127eb44d-76bf-4508-be0c-bad7e08747c5": {
+        "user_id": "21eef3d3-bc76-4e47-9265-8ec9bfc0337c",
+        "subject": "order",
+        "text": "GOOD",
+        "created_at": "2024-07-05T18:07:37.826310",
+        "updated_at": "2024-07-05T18:07:37.826310",
+        "id": "127eb44d-76bf-4508-be0c-bad7e08747c5",
+        "__class__": "Review"
+    },
+    "Order.d57dca6d-3f4e-4f82-9f58-a3f1ada44e7d": {
+        "delivered": "Delivered",
+        "user_id": "21eef3d3-bc76-4e47-9265-8ec9bfc0337c",
+        "products": [
+            {
+                "title": "Potato",
+                "price": 25,
+                "quantity": 1
+            },
+            {
+                "title": "Oranges",
+                "price": 80,
+                "quantity": 2
+            }
+        ],
+        "total_price": 105.0,
+        "created_at": "2024-07-05T18:14:10.677436",
+        "market_name": "Raya",
+        "updated_at": "2024-07-05T18:14:10.677436",
+        "id": "d57dca6d-3f4e-4f82-9f58-a3f1ada44e7d",
+        "__class__": "Order"
+    },
+    "Payment.fe0c4ca7-53ad-4392-8f6f-4fa5e7e94b68": {
+        "order_id": "d57dca6d-3f4e-4f82-9f58-a3f1ada44e7d",
+        "user_id": "21eef3d3-bc76-4e47-9265-8ec9bfc0337c",
+        "card_number": "2123",
+        "card_name": "mikeee",
+        "expiry_month": "01",
+        "expiry_year": "2022",
+        "cvv": "31",
+        "payment_type": "cash",
+        "created_at": "2024-07-05T18:14:26.075881",
+        "updated_at": "2024-07-05T18:14:26.075881",
+        "id": "fe0c4ca7-53ad-4392-8f6f-4fa5e7e94b68",
+        "__class__": "Payment"
+    }
+}

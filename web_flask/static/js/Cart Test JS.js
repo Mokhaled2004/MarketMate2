@@ -86,13 +86,6 @@ const fruitVegetableProducts = [
     },
     {
         id: 12,
-        image: '../static/images/images/cucumber.jpg',
-        title: 'Cucumber',
-        price: 25,
-        quantity: 1
-    },
-    {
-        id: 13,
         image: '../static/images/images/melon.jpg',
         title: 'Watermelon',
         price: 55,
