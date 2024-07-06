@@ -659,7 +659,18 @@ def logged():
     else:
             photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
 
-    return render_template('Logged Home Page HTML.html', title='Logged Home Page', first_name=first_name, photo_url=photo_url)
+
+    users = storage.all(User)  # Retrieve all users from storage
+    total_ratings = 0
+    for u in users.values():
+        total_ratings   += u.rating
+                             
+    num_users = len(users)
+    if num_users > 0:
+        average_rating = total_ratings / num_users
+    else:
+        average_rating = 0  # Handle case where there are no users or ratings
+    return render_template('Logged Home Page HTML.html', title='Logged Home Page', first_name=first_name, photo_url=photo_url, average_rating=average_rating)
 
 
 #--------------------------------------------------------------------------------------------------------
