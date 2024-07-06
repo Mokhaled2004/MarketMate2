@@ -17,6 +17,7 @@
         <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/About Us CSS.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Home Page CSS.css') }}">
 
 	    
 	<link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
@@ -25,8 +26,8 @@
 
     <body>
         
-         <!--==Navigation================================-->
-         <nav class="navigation">
+        <!--==Navigation================================-->
+        <nav class="navigation">
     
             <!--logo-------->
             
@@ -45,7 +46,7 @@
             <ul class="menu">
 
                 <li>
-                    <a href="{{ url_for('home') }}" >
+                    <a href="{{ url_for('logged') }}" >
                         
                         Home
 
@@ -99,7 +100,7 @@
                 <li>
 
                     
-                    <a href="{{ url_for('aboutus') }}" class="active">
+                    <a href="{{ url_for('aboutus') }}" class="active" >
 
                         About&nbsp;us
 
@@ -119,8 +120,8 @@
                 </li>
 
                 <li>
-                        
-                        
+                    
+                    
                     <a href="{{ url_for('track') }}"  >
                         
                         Track&nbsp;Your&nbsp;Order  
@@ -141,6 +142,7 @@
                 </li>
 
                 
+               
             
 
                 </ul>
@@ -152,21 +154,17 @@
 
                 
 
-                <!--cart----->
-                <a href="{{ url_for('profile') }}" class=" like"  >
-
-                    <i class="fas fa-user"></i>
-                    <img src="{{ url_for('static', filename='/images/images/profile2.png') }}" alt="profile" >
-
-                    <span>
-
-                        1
-
-                    </span>
-
+                <!--User----->
+                <!-- Inside profile.html -->
+                
+                
+                <a class = "like" href="{{ url_for('profile') }}">
+                    <img src="{{ photo_url }}" alt="Profile Image">
                 </a>
-
+                
+                <a class = "greeting">Welcome, {{ first_name }}</a>
             </div>
+            
 
         </nav>
 

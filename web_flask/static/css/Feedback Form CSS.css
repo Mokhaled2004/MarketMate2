@@ -19,11 +19,11 @@ body{
 	width:400px;
 	background:#101012;
 	padding:20px;
-    box-shadow: 4px 4px 2px #fdd01c;
+    box-shadow: 4px 4px 2px #eebe4560
 }
 
 .rating-css div{
-	color:#ffe400;
+	color:#e5ff00;
 	font-size:30px;
 	font-family:sans-serif;
 	font-weight:800;
@@ -38,7 +38,7 @@ body{
 
 .rating-css input+label{
 	font-size:60px;
-	text-shadow:1px 1px 0 #ffe400;
+	text-shadow:1px 1px 0 #e5ff00;
 	cursor:pointer;
 }
 
@@ -64,8 +64,9 @@ body{
 }
 
 .btn:hover{
-	background-color:#66380d
-	;
+	background-color:#66380d;
+	transition: all .3s ease-in-out;
+	
 }
 
  /* Navigation */

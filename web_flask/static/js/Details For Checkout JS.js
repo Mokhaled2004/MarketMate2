@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 data.forEach(order => {
                     orderDetailsHtml += `<p>Order ID: ${order.id}</p>`;
                     orderDetailsHtml += `<p>Order Date: ${order.created_at}</p>`;
+                    orderDetailsHtml += `<p>Order Delivery Date: ${order.date}</p>`;
                     orderDetailsHtml += `<p>Total Price: ${order.total_price}</p>`;
                     orderDetailsHtml += `<p>Status: ${order.delivered}</p>`;
                     order.products.forEach(product => {

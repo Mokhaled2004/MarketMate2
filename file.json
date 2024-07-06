@@ -1,1 +1,126 @@
-{"User.c2e65f1f-9f4b-43f8-af0c-7ead46a955d3": {"first_name": "Mohamed", "last_name": "Khaled", "email": "mokhaled2004@gmail.com", "password": "3c2717e3f79ac68b0869071df8f5f5d9", "address": "7832 Mohamed Ibrahim street, Region C Mokattam", "phone": "01097757050", "rating": 0, "created_at": "2024-07-06T09:29:09.955897", "updated_at": "2024-07-06T09:29:09.955897", "id": "c2e65f1f-9f4b-43f8-af0c-7ead46a955d3", "__class__": "User"}, "Order.7dcceca6-21ab-4a49-961c-62eb095039c6": {"delivered": "Delivered", "user_id": "c2e65f1f-9f4b-43f8-af0c-7ead46a955d3", "products": [{"title": "Potato", "price": 25, "quantity": 1}, {"title": "Apple", "price": 30, "quantity": 1}], "total_price": 55.0, "created_at": "2024-07-06T09:29:20.361809", "market_name": "Raya", "updated_at": "2024-07-06T09:29:20.361809", "id": "7dcceca6-21ab-4a49-961c-62eb095039c6", "__class__": "Order"}, "Payment.e0e4cc57-97ea-4961-b633-c37f370d28be": {"order_id": "7dcceca6-21ab-4a49-961c-62eb095039c6", "user_id": "c2e65f1f-9f4b-43f8-af0c-7ead46a955d3", "card_number": "12", "card_name": "Mohamed Bayoumy", "expiry_month": "01", "expiry_year": "2022", "cvv": "34", "payment_type": "visa", "created_at": "2024-07-06T09:29:44.601413", "updated_at": "2024-07-06T09:29:44.601413", "id": "e0e4cc57-97ea-4961-b633-c37f370d28be", "__class__": "Payment"}, "Order.6739a32f-aa4b-4fab-b6ec-3eeae45a4b26": {"delivered": "Cancelled", "user_id": "c2e65f1f-9f4b-43f8-af0c-7ead46a955d3", "products": [{"title": "Onion", "price": 35, "quantity": 1}, {"title": "Potato", "price": 25, "quantity": 1}], "total_price": 60.0, "created_at": "2024-07-06T09:30:07.703254", "market_name": "BIM", "updated_at": "2024-07-06T09:30:07.703254", "id": "6739a32f-aa4b-4fab-b6ec-3eeae45a4b26", "__class__": "Order"}, "Payment.e64cbc88-0692-4e2e-8db9-678f360e60f1": {"order_id": "6739a32f-aa4b-4fab-b6ec-3eeae45a4b26", "user_id": "c2e65f1f-9f4b-43f8-af0c-7ead46a955d3", "card_number": "67", "card_name": "BAKA", "expiry_month": "01", "expiry_year": "2022", "cvv": "67", "payment_type": "cash", "created_at": "2024-07-06T09:30:20.444241", "updated_at": "2024-07-06T09:30:20.444241", "id": "e64cbc88-0692-4e2e-8db9-678f360e60f1", "__class__": "Payment"}, "Order.5c535296-3009-42e1-a3cc-0dbb14503025": {"delivered": "not delivered", "user_id": "c2e65f1f-9f4b-43f8-af0c-7ead46a955d3", "products": [{"title": "Apple", "price": 60, "quantity": 2}], "total_price": 60.0, "created_at": "2024-07-06T09:30:33.979552", "market_name": "Raya", "updated_at": "2024-07-06T09:30:33.979552", "id": "5c535296-3009-42e1-a3cc-0dbb14503025", "__class__": "Order"}, "Payment.02485c6e-c1b2-4710-b71e-250f8b77a3b4": {"order_id": "5c535296-3009-42e1-a3cc-0dbb14503025", "user_id": "c2e65f1f-9f4b-43f8-af0c-7ead46a955d3", "card_number": "23", "card_name": "Mohamed Bayoumy", "expiry_month": "01", "expiry_year": "2022", "cvv": "23", "payment_type": "visa", "created_at": "2024-07-06T09:30:48.533061", "updated_at": "2024-07-06T09:30:48.533061", "id": "02485c6e-c1b2-4710-b71e-250f8b77a3b4", "__class__": "Payment"}, "User.2220cd59-fa96-43db-b447-1853497c5a44": {"first_name": "mazen", "last_name": "wael", "email": "mazen@gmail.com", "password": "3c2717e3f79ac68b0869071df8f5f5d9", "address": "Nasr-city", "phone": "01097757050", "rating": 0, "created_at": "2024-07-06T09:32:12.611194", "updated_at": "2024-07-06T09:32:12.611194", "id": "2220cd59-fa96-43db-b447-1853497c5a44", "__class__": "User"}, "Order.5155d2d6-4cd2-4546-bc45-298e584f7674": {"delivered": "Cancelled", "user_id": "2220cd59-fa96-43db-b447-1853497c5a44", "products": [{"title": "Potato", "price": 50, "quantity": 2}], "total_price": 50.0, "created_at": "2024-07-06T09:32:24.714142", "market_name": "Starbucks", "updated_at": "2024-07-06T09:32:24.714142", "id": "5155d2d6-4cd2-4546-bc45-298e584f7674", "__class__": "Order"}, "Payment.97702618-fea2-4ae1-88ca-973cd9b6d8ef": {"order_id": "5155d2d6-4cd2-4546-bc45-298e584f7674", "user_id": "2220cd59-fa96-43db-b447-1853497c5a44", "card_number": "23", "card_name": "Mazen", "expiry_month": "01", "expiry_year": "2022", "cvv": "23", "payment_type": "cash", "created_at": "2024-07-06T09:32:37.790925", "updated_at": "2024-07-06T09:32:37.790925", "id": "97702618-fea2-4ae1-88ca-973cd9b6d8ef", "__class__": "Payment"}, "Order.d50100e5-5683-4302-ba30-34971b3ebfd8": {"delivered": "not delivered", "user_id": "c2e65f1f-9f4b-43f8-af0c-7ead46a955d3", "products": [{"title": "Potato", "price": 25, "quantity": 1}], "total_price": 25.0, "created_at": "2024-07-06T09:38:21.789309", "market_name": "MC", "updated_at": "2024-07-06T09:38:21.789309", "id": "d50100e5-5683-4302-ba30-34971b3ebfd8", "address": null, "date": null, "__class__": "Order"}, "Order.9b0468d9-08aa-44e3-a780-bdef94a9ef78": {"delivered": "Delivered", "user_id": "c2e65f1f-9f4b-43f8-af0c-7ead46a955d3", "products": [{"title": "Apple", "price": 60, "quantity": 2}], "total_price": 60.0, "created_at": "2024-07-06T09:43:22.937318", "market_name": "MC", "updated_at": "2024-07-06T09:43:22.937318", "id": "9b0468d9-08aa-44e3-a780-bdef94a9ef78", "address": "Tagamo3", "date": "6/17/2024", "__class__": "Order"}, "Payment.43fa844c-9a8c-4084-83e7-41034f440c95": {"order_id": "9b0468d9-08aa-44e3-a780-bdef94a9ef78", "user_id": "c2e65f1f-9f4b-43f8-af0c-7ead46a955d3", "card_number": "12", "card_name": "mikeee", "expiry_month": "01", "expiry_year": "2022", "cvv": "12", "payment_type": "cash", "created_at": "2024-07-06T09:54:41.310554", "updated_at": "2024-07-06T09:54:41.310554", "id": "43fa844c-9a8c-4084-83e7-41034f440c95", "__class__": "Payment"}}
+{
+    "User.242d7303-3dbb-49c4-8f88-dcf4d079cb5f": {
+        "first_name": "Mohamed",
+        "last_name": "Khaled",
+        "email": "mokhaled2004@gmail.com",
+        "password": "94310321953ed2ae3122c5e875685c97",
+        "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
+        "phone": "01097757050",
+        "rating": 0,
+        "created_at": "2024-07-06T12:58:12.385162",
+        "updated_at": "2024-07-06T12:58:12.385162",
+        "id": "242d7303-3dbb-49c4-8f88-dcf4d079cb5f",
+        "photo": "https://play-lh.googleusercontent.com/dB871HGe4u27jK6S8WztToQhRyy1Z417PrIKjhcywPAq1P8WO6oc3z25NhoTqdd4K-w=w526-h296-rw",
+        "__class__": "User"
+    },
+    "User.8f4a1fc1-59e9-4268-b649-6129c5690cb7": {
+        "first_name": "Mazen",
+        "last_name": "Wael",
+        "email": "mazen@gmail.com",
+        "password": "92e976f60a9beb54fdabb2d7cd63cb2b",
+        "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
+        "phone": "01097757050",
+        "rating": 3,
+        "created_at": "2024-07-06T12:59:09.066371",
+        "updated_at": "2024-07-06T12:59:09.066371",
+        "id": "8f4a1fc1-59e9-4268-b649-6129c5690cb7",
+        "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWQjHkZM9zsn6seWyHBjy4aXdlwBRkoGI66g&s",
+        "__class__": "User"
+    },
+    "Order.c7b4753c-bda5-45f8-a1f5-196dab7be4d2": {
+        "delivered": "Cancelled",
+        "user_id": "8f4a1fc1-59e9-4268-b649-6129c5690cb7",
+        "products": [
+            {
+                "title": "Eggplant",
+                "price": 35,
+                "quantity": 1
+            },
+            {
+                "title": "Potato",
+                "price": 50,
+                "quantity": 2
+            }
+        ],
+        "total_price": 85.0,
+        "created_at": "2024-07-06T14:28:56.482530",
+        "market_name": "Starbucks",
+        "updated_at": "2024-07-06T14:28:56.482530",
+        "id": "c7b4753c-bda5-45f8-a1f5-196dab7be4d2",
+        "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
+        "date": "6/17/2024",
+        "__class__": "Order"
+    },
+    "Payment.f0b1729e-e717-435b-afcf-1029ad9d1200": {
+        "order_id": "c7b4753c-bda5-45f8-a1f5-196dab7be4d2",
+        "user_id": "8f4a1fc1-59e9-4268-b649-6129c5690cb7",
+        "card_number": "34",
+        "card_name": "mikeee",
+        "expiry_month": "01",
+        "expiry_year": "2022",
+        "cvv": "34",
+        "payment_type": "visa",
+        "created_at": "2024-07-06T14:29:15.511223",
+        "updated_at": "2024-07-06T14:29:15.511223",
+        "id": "f0b1729e-e717-435b-afcf-1029ad9d1200",
+        "__class__": "Payment"
+    },
+    "Review.da0d696c-2249-447b-be02-764a2066b15b": {
+        "user_id": "8f4a1fc1-59e9-4268-b649-6129c5690cb7",
+        "subject": "Order",
+        "text": "Amazing",
+        "created_at": "2024-07-06T14:34:10.240324",
+        "updated_at": "2024-07-06T14:34:10.240324",
+        "id": "da0d696c-2249-447b-be02-764a2066b15b",
+        "__class__": "Review"
+    },
+    "Review.d7da7cda-7669-45d8-8684-4da3a0a9dbfe": {
+        "user_id": "8f4a1fc1-59e9-4268-b649-6129c5690cb7",
+        "subject": "23",
+        "text": "43",
+        "created_at": "2024-07-06T14:38:04.198175",
+        "updated_at": "2024-07-06T14:38:04.198175",
+        "id": "d7da7cda-7669-45d8-8684-4da3a0a9dbfe",
+        "__class__": "Review"
+    },
+    "Review.192c0269-1fff-4611-a962-da8f246cdef8": {
+        "user_id": "8f4a1fc1-59e9-4268-b649-6129c5690cb7",
+        "subject": "order",
+        "text": "23",
+        "created_at": "2024-07-06T14:41:57.276154",
+        "updated_at": "2024-07-06T14:41:57.276154",
+        "id": "192c0269-1fff-4611-a962-da8f246cdef8",
+        "__class__": "Review"
+    },
+    "Order.a2dd8dd2-a7a8-40bf-a7e1-632395613f17": {
+        "delivered": "not delivered",
+        "user_id": "8f4a1fc1-59e9-4268-b649-6129c5690cb7",
+        "products": [
+            {
+                "title": "Little's Baby Wipes",
+                "price": 70,
+                "quantity": 1
+            }
+        ],
+        "total_price": 70.0,
+        "created_at": "2024-07-06T15:00:09.477171",
+        "market_name": "",
+        "updated_at": "2024-07-06T15:00:09.477171",
+        "id": "a2dd8dd2-a7a8-40bf-a7e1-632395613f17",
+        "__class__": "Order"
+    },
+    "User.7efe0158-3c36-4a37-9838-d6b6af336b7a": {
+        "first_name": "Mohamed",
+        "last_name": "Essam",
+        "email": "essam@gmail.com",
+        "password": "e1aaef260db7f48558149ce9b0c2c3d8",
+        "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
+        "phone": "01097757050",
+        "rating": 0,
+        "created_at": "2024-07-06T15:07:12.714443",
+        "updated_at": "2024-07-06T15:07:12.714443",
+        "id": "7efe0158-3c36-4a37-9838-d6b6af336b7a",
+        "photo": "\"C:\\Users\\Owner\\Desktop\\MarketMate2\\web_flask\\static\\images\\images\\Essam.png\"",
+        "__class__": "User"
+    }
+}

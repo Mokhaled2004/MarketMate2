@@ -29,7 +29,7 @@ body{
     position: absolute;
     width: 15%;
     height: 110%;
-    background: linear-gradient(45deg,#2d1b0b,#623103,#bc824c);
+    background-color: #9a693b;
     box-shadow: 3px 3px 10px rgba(119,119,119,.5);
     border: .1em solid #fff;
 }
@@ -99,13 +99,17 @@ span{
     font-size: 15px;
     border:0;
     color: #fff;
-    background: linear-gradient(45deg,#2d1b0b,#623103,#bc824c);
+    background: #9a693b;
     padding: 7px 15px;
     box-shadow: 0px 2px 4px 0px rgba(0,0,0,.2);
     cursor: pointer;
     margin-top: 15px;
     text-decoration: none;
 
+}
+.btn:hover{
+    background: #66380d;
+    transition: all .3s ease-in-out;
 }
 .tabShow{
     transition: all 0.5s ease-in;

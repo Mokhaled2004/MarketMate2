@@ -112,6 +112,7 @@ body{
 
 .contact-form-btn:hover{
     background-color: #66380d;
+    transition: all .3s ease-in-out;
 }
 .address_form {
     padding-left: 20px;

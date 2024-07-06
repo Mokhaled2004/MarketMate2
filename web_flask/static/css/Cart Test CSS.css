@@ -97,6 +97,7 @@
 
   .foot:hover{
       background-color: #66380d;
+      transition: all .3s ease-in-out;
   }
   .box{
     display: flex;
@@ -159,7 +160,8 @@
     color: white;
   }
   button:hover{
-    background-color: #66380d;;
+    background-color: #66380d;
+    transition: all .3s ease-in-out;
   }
   .cart-item{
     display: flex;
@@ -193,3 +195,13 @@
     cursor: pointer;
     color: #333;
   }
+
+
+
+.greeting{
+  font-size: 1rem;
+  font-weight: 600;
+  color: #202020;
+  margin-top: 10px;
+  margin-left: 25px;
+}

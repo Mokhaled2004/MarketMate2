@@ -173,7 +173,7 @@ document.getElementById('cancelOrder').addEventListener('click', function() {
         // Update UI or show confirmation message
         alert('Order status updated to Canceled');
         // Optionally, you can update UI elements dynamically here
-        window.location.href = '/';
+        
     })
     .catch(error => {
         console.error('Error:', error);

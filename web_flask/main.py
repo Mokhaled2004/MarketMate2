@@ -406,9 +406,11 @@ def profile():
             user.first_name = request.form['first_name']
             user.last_name = request.form['last_name']
             user.email = request.form['email']
+            
             if request.form['password']:
                 user.password = md5(request.form['password'].encode()).hexdigest()
             user.address = request.form['address']
+            user.photo = request.form['photo']
             storage.save()
             flash('Profile updated successfully!', 'success')
         else:
@@ -420,10 +422,14 @@ def profile():
         'last_name': session.get('user_last_name'),
         'address': session.get('user_address'),
         'password': session.get('user_password'),
+        'photo': session.get('user_photo')
     }
 
     
-    return render_template('Profile HTML.html', title='Profile', user=user_details)
+    return render_template('Profile HTMl.html', title='Profile', user=user_details)
+#--------------------------------------------------------------------------------------------------------
+
+
 
 #--------------------------------------------------------------------------------------------------------
 @app.route('/fetch_order_history', methods=['GET'])
@@ -471,7 +477,23 @@ def fetch_filtered_orders():
 #--------------------------------------------------------------------------------------------------------
 @app.route('/carttest')
 def carttest():
-    return render_template('Cart Test HTML.html', title='carttest')
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
+
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo  # Assuming user.photo is already a full URL or a path
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    return render_template('Cart Test HTML.html', title='carttest',first_name=first_name, photo_url=photo_url)
 
 #--------------------------------------------------------------------------------------------------------
 @app.route('/checkoutdetails')
@@ -497,12 +519,44 @@ def home():
 #--------------------------------------------------------------------------------------------------------
 @app.route('/aboutus')
 def aboutus():
-    return render_template('About Us HTML.html', title='About Us')
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
+
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo  # Assuming user.photo is already a full URL or a path
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    return render_template('About Us HTML.html', title='About Us',first_name=first_name, photo_url=photo_url)
 
 #--------------------------------------------------------------------------------------------------------
 @app.route('/contactus')
 def contactus():
-    return render_template('Contact Form HTML.html', title='Contact Us')
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
+
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo  # Assuming user.photo is already a full URL or a path
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    return render_template('Contact Form HTML.html', title='Contact Us',first_name=first_name, photo_url=photo_url)
 
 #--------------------------------------------------------------------------------------------------------
 @app.route('/feedback')
@@ -517,7 +571,23 @@ def feedbacksubmit():
 #--------------------------------------------------------------------------------------------------------
 @app.route('/history')
 def history():
-    return render_template('History HTML.html', title='History')
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
+
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo  # Assuming user.photo is already a full URL or a path
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    return render_template('History HTML.html', title='History',first_name=first_name, photo_url=photo_url)
 
 #--------------------------------------------------------------------------------------------------------
 @app.route('/cart')
@@ -572,8 +642,25 @@ def dairy():
 #--------------------------------------------------------------------------------------------------------
 @app.route('/logged')
 def logged():
-    first_name = session.get('first_name', 'Guest')
-    return render_template('Logged Home Page HTML.html', title='Logged Home Page',first_name=first_name)
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
+
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo  # Assuming user.photo is already a full URL or a path
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+
+    return render_template('Logged Home Page HTML.html', title='Logged Home Page', first_name=first_name, photo_url=photo_url)
+
 
 #--------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":

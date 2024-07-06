@@ -200,6 +200,7 @@
 
 .dropbtn:hover {
     background-color: #66380d;
+    transition: all .3s ease-in-out;
 }
 
 /* Style for the dropdown content */

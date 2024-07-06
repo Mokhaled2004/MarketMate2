@@ -14,18 +14,11 @@
             <a onclick="tabs(0)" class="tab active">
                 <i class="fas fa-user"></i>
             </a>
-            <a onclick="tabs(1)" class="tab">
-                <i class="far fa-credit-card"></i>
-            </a>
-            <a onclick="tabs(2)" class="tab">
-                <i class="fas fa-tv"></i>
-            </a>
-            <a onclick="tabs(3)" class="tab">
+           
+            <a onclick="tabs(3)" class="tab" href="{{ url_for('history') }}">
                 <i class="fas fa-tasks"></i>
             </a>
-            <a onclick="tabs(4)" class="tab">
-                <i class="fas fa-cog"></i>
-            </a>
+            
         </nav>
     </div>
     <div class="rightbox">
@@ -41,6 +34,8 @@
                 <input type="password" class="input" name="password"  value="{{ user.password }}" readonly>
                 <h2>Address</h2>
                 <input type="text" class="input" name="address" value="{{ user.address }}">
+                <h2>Profile Photo</h2>
+                <input type="text" class="input" name="photo" value="{{ user.photo }}">
                 <button class="btn" type="submit">Update</button> <a href="{{ url_for('logged') }}" class="btn" type="submit">Home</a>
             </form>
         </div>

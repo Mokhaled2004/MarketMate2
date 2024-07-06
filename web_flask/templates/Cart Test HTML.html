@@ -30,7 +30,7 @@
             <ul class="menu">
 
                 <li>
-                    <a href="{{ url_for('home') }}" >
+                    <a href="{{ url_for('home') }}" class="active">
                         
                         Home
 
@@ -40,7 +40,7 @@
 
                 <li>
 
-                    <a href="{{ url_for('home') }}#category" class = "active"  >    
+                    <a href="{{ url_for('home') }}#category"  >    
 
 
                         Categories
@@ -104,8 +104,8 @@
                 </li>
 
                 <li>
-                        
-                        
+                    
+                    
                     <a href="{{ url_for('track') }}"  >
                         
                         Track&nbsp;Your&nbsp;Order  
@@ -126,6 +126,7 @@
                 </li>
 
                 
+               
             
 
                 </ul>
@@ -137,26 +138,21 @@
 
                 
 
-                <!--cart----->
-                <a href="{{ url_for('profile') }}" class=" like"  >
-
-                    
-                    <img src="{{ url_for('static', filename='/images/images/profile2.png') }}" alt="profile" >
-
-                    <span>
-
-                        1
-
-                    </span>
-
+                <!--User----->
+                <!-- Inside profile.html -->
+                
+                
+                <a class = "like" href="{{ url_for('profile') }}">
+                    <img src="{{ photo_url }}" alt="Profile Image">
                 </a>
-
+                
+                <a class = "greeting">Welcome, {{ first_name }}</a>
             </div>
+            
 
         </nav>
 
         <!--nav-end--------------------->
-        
         <div>
         
             <div class="left-sidebar">

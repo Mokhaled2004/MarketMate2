@@ -82,6 +82,7 @@ background-color:#40aa54;}
     background-repeat: no-repeat   ;
     object-position: center;
     border-radius: 50%;
+    
     transition: all ease 0.3s;
     
 }
@@ -962,3 +963,14 @@ footer{
     margin: 10px;
     width: 140px;
 }
+
+
+ .greeting{
+    font-size: 1rem;
+    font-weight: 600;
+    color: #202020;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+    
+    

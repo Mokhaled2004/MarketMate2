@@ -4,41 +4,152 @@
     <meta charset="UTF-8">
     <title>Order History</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/History.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Home Page CSS.css') }}">
     <script src="{{ url_for('static', filename='js/History.js') }}"></script>
 </head>
 <body>
     <!--==Navigation================================-->
     <nav class="navigation">
+    
         <!--logo-------->
-        <img src="{{ url_for('static', filename='/images/images/Logo.png') }}" alt="Logo" class="Logo">
+        
+
+        <img src="{{ url_for('static', filename='/images/images/Logo.png') }}" alt="Logo" class = "Logo" >
+
+
         
         <label for="menu-btn" class="menu-icon">
+
             <span class="nav-icon"></span>
+
         </label>
 
         <!--menu-------->
         <ul class="menu">
-            <li><a href="{{ url_for('logged') }}" >Home</a></li>
-            <li><a href="{{ url_for('logged') }}#category">Categories</a></li>
-            <li><a href="{{ url_for('logged') }}#category">Stores</a></li>
-            <li><a href="{{ url_for('logged') }}#popular-bundle-pack">Packages</a></li>
-            <li><a href="{{ url_for('feedback') }}">Feedback</a></li>
-            <li><a href="{{ url_for('aboutus') }}">About&nbsp;us</a></li>
-            <li><a href="{{ url_for('contactus') }}">Contact&nbsp;Us</a></li>
-            <li><a href="{{ url_for('track') }}">Track&nbsp;Your&nbsp;Order</a></li>
-            <li><a href="{{ url_for('login') }}">Logout</a></li>
-            <li><a href="{{ url_for('history') }}" class="active">History</a></li>
-        </ul>
+
+            <li>
+                <a href="{{ url_for('logged') }}" class="active">
+                    
+                    Home
+
+                </a>
+            
+            </li>
+
+            <li>
+
+                <a href="{{ url_for('logged') }}#category"  >    
+
+
+                    Categories
+                
+                </a>
+            
+            </li>
+
+            <li>
+
+                <a href="{{ url_for('logged') }}#category"  >    
+
+                    
+                    Stores
+                
+                </a>
+            
+            </li>
+
+            <li>
+                
+                <a href="{{ url_for('logged') }}#popular-bundle-pack"  >    
+                    
+                    Packages
+                
+                </a>
+            
+            </li>
+            
+            <li>
+                
+                <a href="{{ url_for('feedback') }}" >
+
+                    
+                    Feedback
+                
+                </a>
+            
+            </li>
+            
+            <li>
+
+                
+                <a href="{{ url_for('aboutus') }}" >
+
+                    About&nbsp;us
+
+                </a>
+
+            </li>
+
+            <li>
+                
+                
+                <a href="{{ url_for('contactus') }}"  >
+                    
+                    Contact&nbsp;Us
+                
+                </a>
+            
+            </li>
+
+            <li>
+                
+                
+                <a href="{{ url_for('track') }}"  >
+                    
+                    Track&nbsp;Your&nbsp;Order  
+                
+                </a>
+            
+            </li>
+
+            <li>
+                
+                <a href="{{ url_for('login') }}" >
+
+                        
+                    Logout
+                    
+                </a>
+                
+            </li>
+
+            
+           
+        
+
+            </ul>
 
         <!--right-nav-(cart-like)-->
         <div class="right-nav">
-            <!--cart----->
-            <a href="{{ url_for('profile') }}" class="like">
-                <img src="{{ url_for('static', filename='/images/images/profile2.png') }}" alt="profile">
-                <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Home Page CSS.css') }}">
+
+            
+
+            
+
+            <!--User----->
+            <!-- Inside profile.html -->
+            
+            
+            <a class = "like" href="{{ url_for('profile') }}">
+                <img src="{{ photo_url }}" alt="Profile Image">
             </a>
+            
+            <a class = "greeting">Welcome, {{ first_name }}</a>
         </div>
+        
+
     </nav>
+
     <!--nav-end--------------------->
     
     <!-- Order History with Filter Dropdown -->
