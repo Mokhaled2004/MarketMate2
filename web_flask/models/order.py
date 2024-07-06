@@ -23,6 +23,8 @@ class Order(BaseModel, Base):
         _tablename_ = 'orders'
         user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
         market_name = Column(String(128), nullable=False)
+        address = Column(String(128), nullable=False)
+        date = Column(String(128), nullable=False)
         products = relationship("Product", secondary=order_product, back_populates="orders")
 
     else:
@@ -32,6 +34,8 @@ class Order(BaseModel, Base):
         products = []
         total_price = 0.0
         market_name = ""
+        address = ""
+        date = ""
         
 
     def _init_(self, *args, **kwargs):

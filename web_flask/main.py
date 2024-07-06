@@ -96,9 +96,13 @@ def update_market_name():
     if not latest_order:
         return jsonify({'error': 'No orders found for the user'}), 404
 
-    # Update the market_name in the latest order
+    # Update the market_name, address, and date in the latest order
     latest_order.market_name = request.form.get('market_name')
-    storage.save()  # Save the updated order
+    latest_order.address = request.form.get('address')
+    latest_order.date = request.form.get('date')
+
+    # Save the updated order to storage
+    storage.save()
 
     return redirect(url_for('payment'))
 
@@ -422,19 +426,48 @@ def profile():
     return render_template('Profile HTML.html', title='Profile', user=user_details)
 
 #--------------------------------------------------------------------------------------------------------
-@app.route('/order_history')
-def order_history():
+@app.route('/fetch_order_history', methods=['GET'])
+def fetch_order_history():
     user_id = session.get('user_id')
     if not user_id:
-        return render_template('error.html', message='User not logged in')
+        return jsonify({'error': 'User not logged in'}), 401
 
-    # Fetch orders from storage
+    # Fetch all orders for the logged-in user
+    user_orders = []
     all_orders = storage.all(Order)
-    user_orders = [order for order in all_orders.values() if order.user_id == user_id]
+    for order in all_orders.values():
+        if order.user_id == user_id:
+            user_orders.append(order.to_dict())
 
-    # Render the template with orders data
-    return render_template('History HTMl.html', orders=user_orders)
+    return jsonify(user_orders)
 
+#--------------------------------------------------------------------------------------------------------
+
+@app.route('/fetch_filtered_orders', methods=['GET'])
+def fetch_filtered_orders():
+    filter_type = request.args.get('filter', 'all')
+    user_id = session.get('user_id')
+
+    if not user_id:
+        return jsonify({'error': 'User not logged in'}), 401
+
+    if filter_type == 'all':
+        # Fetch all orders for the logged-in user
+        user_orders = [order.to_dict() for order in storage.all(Order).values() if order.user_id == user_id]
+        filtered_orders = user_orders
+    elif filter_type == 'delivered':
+        user_orders = [order.to_dict() for order in storage.all(Order).values() if order.user_id == user_id and order.delivered == 'Delivered']
+        filtered_orders = user_orders
+    elif filter_type == 'cancelled':
+        user_orders = [order.to_dict() for order in storage.all(Order).values() if order.user_id == user_id and order.delivered == 'Cancelled']
+        filtered_orders = user_orders
+    elif filter_type == 'not-delivered':
+        user_orders = [order.to_dict() for order in storage.all(Order).values() if order.user_id == user_id and order.delivered == 'not delivered']
+        filtered_orders = user_orders
+    else:
+        return jsonify({'error': 'Invalid filter type'}), 400
+
+    return jsonify(filtered_orders)
 #--------------------------------------------------------------------------------------------------------
 @app.route('/carttest')
 def carttest():

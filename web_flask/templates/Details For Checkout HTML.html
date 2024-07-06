@@ -20,15 +20,17 @@
                 <div id="error_message"></div>
                 <form class='address_form' action="{{ url_for('update_market_name') }}" method="POST" onsubmit="return validate_form();">
                     <input type="text" placeholder="Name" class="contact-form-txt" id='name' required/>
-                    <input type="text" placeholder="Address" class="contact-form-txt" id='address' required/>
+                    <input type="text" placeholder="Address" class="contact-form-txt" id='address' name="address" required/> <!-- Added name attribute -->
                     <input type="email" placeholder="Email-ID" class="contact-form-txt" id='email' required/>
-                    <input type="text" placeholder="Market-Name" class="contact-form-txt" name='market_name' required/>
-                    <input type="text" placeholder="Locality/Apartment" class="contact-form-txt" required/>
+                    <input type="text" placeholder="Market-Name" class="contact-form-txt" name="market_name" required/>
+                    <input type="text" placeholder="Locality/Apartment" class="contact-form-txt" name="locality" required/> <!-- Corrected placeholder text and added name attribute -->
                     <input type="text" placeholder="Contact No." class="contact-form-txt" id='phone' required/>
-                    <input type="text" placeholder="Date (Format: dd/mm/yyyy)" class="contact-form-txt" id='date' required/>
+                    <input type="text" placeholder="Date (Format: dd/mm/yyyy)" class="contact-form-txt" id='date' name="date" required/> <!-- Added name attribute -->
                     <button type="submit" class="contact-form-btn" id="submit">
                         Submit
                     </button>
+                </form>
+                
             </div>
         </div>
     </body>

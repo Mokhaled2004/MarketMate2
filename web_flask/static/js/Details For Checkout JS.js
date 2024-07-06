@@ -2,6 +2,8 @@ function validate_form(){
     var name=document.getElementById("name").value;
     var phone=document.getElementById("phone").value;
     var email=document.getElementById("email").value;
+    var address=document.getElementById("address").value;
+    var date=document.getElementById("date").value;
     var pincode=document.getElementById("pincode").value;
     var error_message=document.getElementById("error_message");
 
