@@ -3,7 +3,7 @@
         "first_name": "Mohamed",
         "last_name": "Khaled",
         "email": "mokhaled2004@gmail.com",
-        "password": "f556f1c825faf1125d8b45ff59c7fa7c",
+        "password": "750a7d53ee53a1cb57018ed5f7045b0c",
         "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
         "phone": "01097757050",
         "rating": 5,
@@ -17,7 +17,7 @@
         "first_name": "Mazen",
         "last_name": "Wael",
         "email": "mazen@gmail.com",
-        "password": "2e416eddb797a7e7a2cb4358f210c851",
+        "password": "466c6c034573fff851449ad6120fbb51",
         "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
         "phone": "01097757050",
         "rating": 4,
@@ -113,7 +113,7 @@
         "first_name": "Mohamed",
         "last_name": "Essam",
         "email": "essam@gmail.com",
-        "password": "6cbba504af68aa45c946383f74a1de64",
+        "password": "f556f1c825faf1125d8b45ff59c7fa7c",
         "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
         "phone": "01097757050",
         "rating": 5,
@@ -154,6 +154,115 @@
         "created_at": "2024-07-06T16:09:54.956788",
         "updated_at": "2024-07-06T16:09:54.956788",
         "id": "3262c0be-9d84-4d77-80a9-ca6abde719e9",
+        "__class__": "Payment"
+    },
+    "Order.0fb170e0-2ec0-47c9-b1b9-d21af08dd42e": {
+        "delivered": "Cancelled",
+        "user_id": "242d7303-3dbb-49c4-8f88-dcf4d079cb5f",
+        "products": [
+            {
+                "title": "Potato",
+                "price": 50,
+                "quantity": 2
+            },
+            {
+                "title": "Onion",
+                "price": 35,
+                "quantity": 1
+            }
+        ],
+        "total_price": 85.0,
+        "created_at": "2024-07-06T17:11:55.036011",
+        "market_name": "Raya",
+        "updated_at": "2024-07-06T17:11:55.036011",
+        "id": "0fb170e0-2ec0-47c9-b1b9-d21af08dd42e",
+        "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
+        "date": "6/29/2024",
+        "__class__": "Order"
+    },
+    "Payment.f10b2d43-9980-4e18-a2b9-3aeca2e2281c": {
+        "order_id": "0fb170e0-2ec0-47c9-b1b9-d21af08dd42e",
+        "user_id": "242d7303-3dbb-49c4-8f88-dcf4d079cb5f",
+        "card_number": "34",
+        "card_name": "mikeee",
+        "expiry_month": "01",
+        "expiry_year": "2022",
+        "cvv": "34",
+        "payment_type": "visa",
+        "created_at": "2024-07-06T17:12:17.009822",
+        "updated_at": "2024-07-06T17:12:17.009822",
+        "id": "f10b2d43-9980-4e18-a2b9-3aeca2e2281c",
+        "__class__": "Payment"
+    },
+    "Order.f762fa56-2cc5-42d7-b5ba-a114adc21b1b": {
+        "delivered": "Delivered",
+        "user_id": "242d7303-3dbb-49c4-8f88-dcf4d079cb5f",
+        "products": [
+            {
+                "title": "Oranges",
+                "price": 90,
+                "quantity": 2
+            }
+        ],
+        "total_price": 90.0,
+        "created_at": "2024-07-06T17:56:15.379127",
+        "market_name": "Raya",
+        "updated_at": "2024-07-06T17:56:15.379127",
+        "id": "f762fa56-2cc5-42d7-b5ba-a114adc21b1b",
+        "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
+        "date": "6/17/2024",
+        "__class__": "Order"
+    },
+    "Payment.5f168e10-ec0d-499b-9d99-9f087b60f64e": {
+        "order_id": "f762fa56-2cc5-42d7-b5ba-a114adc21b1b",
+        "user_id": "242d7303-3dbb-49c4-8f88-dcf4d079cb5f",
+        "card_number": "12",
+        "card_name": "Mohamed Bayoumy",
+        "expiry_month": "01",
+        "expiry_year": "2022",
+        "cvv": "12",
+        "payment_type": "cash",
+        "created_at": "2024-07-06T17:56:35.434737",
+        "updated_at": "2024-07-06T17:56:35.434737",
+        "id": "5f168e10-ec0d-499b-9d99-9f087b60f64e",
+        "__class__": "Payment"
+    },
+    "Order.94d05fd4-0229-42bf-a2f9-b361880d43a8": {
+        "delivered": "Delivered",
+        "user_id": "242d7303-3dbb-49c4-8f88-dcf4d079cb5f",
+        "products": [
+            {
+                "title": "Watermelon",
+                "price": 48,
+                "quantity": 1
+            },
+            {
+                "title": "Mango",
+                "price": 43,
+                "quantity": 1
+            }
+        ],
+        "total_price": 91.0,
+        "created_at": "2024-07-06T18:34:52.608587",
+        "market_name": "SEOUDI MARKETS",
+        "updated_at": "2024-07-06T18:34:52.608587",
+        "id": "94d05fd4-0229-42bf-a2f9-b361880d43a8",
+        "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
+        "date": "6/17/2024",
+        "__class__": "Order"
+    },
+    "Payment.3a0e5b51-cf4c-45d8-8a5f-b037a84879c7": {
+        "order_id": "94d05fd4-0229-42bf-a2f9-b361880d43a8",
+        "user_id": "242d7303-3dbb-49c4-8f88-dcf4d079cb5f",
+        "card_number": "123",
+        "card_name": "Mohamed Bayoumy",
+        "expiry_month": "01",
+        "expiry_year": "2022",
+        "cvv": "5467",
+        "payment_type": "cash",
+        "created_at": "2024-07-06T18:47:33.000163",
+        "updated_at": "2024-07-06T18:47:33.000163",
+        "id": "3a0e5b51-cf4c-45d8-8a5f-b037a84879c7",
         "__class__": "Payment"
     }
 }

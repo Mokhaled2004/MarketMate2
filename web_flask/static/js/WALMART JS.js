@@ -1,575 +1,576 @@
 // Existing fruit and vegetable products list
 const fruitVegetableProducts = [
     {
-        id: 0,
-        image: '../static/images/images/apple.png',
-        title: 'Apple',
-        price: 30,
-        quantity: 1
-    },
-    {
-        id: 1,
-        image: '../static/images/images/patato.png',
-        title: 'Potato',
-        price: 25,
-        quantity: 1
-    },
-    {
-        id: 2,
-        image: '../static/images/images/chili.png',
-        title: 'Chili',
-        price: 20,
-        quantity: 1
-    },
-    {
-        id: 3,
-        image: '../static/images/images/onion.png',
-        title: 'Onion',
-        price: 35,
-        quantity: 1
-    },
-    {
-        id: 4,
-        image: '../static/images/images/tamato.png',
-        title: 'Tomato',
-        price: 35,
-        quantity: 1
-    },
-    {
-        id: 5,
-        image: '../static/images/images/Oranges.jpg',
-        title: 'Oranges',
-        price: 40,
-        quantity: 1
-    },
-    {
-        id: 6,
-        image: '../static/images/images/carrot.jpg',
-        title: 'Carrot',
-        price: 20,
-        quantity: 1
-    },
-    {
-        id: 7,
-        image: '../static/images/images/broccoli.jpg',
-        title: 'Broccoli',
-        price: 45,
-        quantity: 1
-    },
-    {
-        id: 8,
-        image: '../static/images/images/cucumber.jpg',
-        title: 'Cucumber',
-        price: 25,
-        quantity: 1
-    },
-    {
-        id: 9,
-        image: '../static/images/images/Eggplant.jpg',
-        title: 'Eggplant',
-        price: 35,
-        quantity: 1
-    },
-    {
-        id: 10,
-        image: '../static/images/images/strawberry.jpg',
-        title: 'Strawberry',
-        price: 40,
+        id: 12,
+        image: '../static/images/images/melon.jpg',
+        title: 'Watermelon',
+        price: 80,
         quantity: 1
     },
     {
         id: 11,
         image: '../static/images/images/mango.jpg',
         title: 'Mango',
+        price: 75,
+        quantity: 1
+    },
+    {
+        id: 10,
+        image: '../static/images/images/strawberry.jpg',
+        title: 'Strawberry',
+        price: 65,
+        quantity: 1
+    },
+    {
+        id: 9,
+        image: '../static/images/images/Eggplant.jpg',
+        title: 'Eggplant',
+        price: 60,
+        quantity: 1
+    },
+    {
+        id: 8,
+        image: '../static/images/images/cucumber.jpg',
+        title: 'Cucumber',
         price: 50,
         quantity: 1
     },
     {
-        id: 12,
-        image: '../static/images/images/melon.jpg',
-        title: 'Watermelon',
+        id: 7,
+        image: '../static/images/images/broccoli.jpg',
+        title: 'Broccoli',
+        price: 70,
+        quantity: 1
+    },
+    {
+        id: 6,
+        image: '../static/images/images/carrot.jpg',
+        title: 'Carrot',
+        price: 45,
+        quantity: 1
+    },
+    {
+        id: 5,
+        image: '../static/images/images/Oranges.jpg',
+        title: 'Oranges',
+        price: 65,
+        quantity: 1
+    },
+    {
+        id: 4,
+        image: '../static/images/images/tamato.png',
+        title: 'Tomato',
+        price: 60,
+        quantity: 1
+    },
+    {
+        id: 3,
+        image: '../static/images/images/onion.png',
+        title: 'Onion',
+        price: 60,
+        quantity: 1
+    },
+    {
+        id: 2,
+        image: '../static/images/images/chili.png',
+        title: 'Chili',
+        price: 45,
+        quantity: 1
+    },
+    {
+        id: 1,
+        image: '../static/images/images/patato.png',
+        title: 'Potato',
+        price: 50,
+        quantity: 1
+    },
+    {
+        id: 0,
+        image: '../static/images/images/apple.png',
+        title: 'Apple',
         price: 55,
         quantity: 1
     }
 ];
-// Adding meat products to the existing fruitVegetableProducts array
+
 const meatProducts = [
     {
-        id: 21,
-        image: '../static/images/images/beef.jpg',
-        title: 'Beef',
-        price: 350,
-        quantity: 1
-    },
-    {
-        id: 22,
-        image: '../static/images/images/lamb.jpg',
-        title: 'Lamb',
-        price: 600,
-        quantity: 1
-    },
-    {
-        id: 23,
-        image: '../static/images/images/vension.jpg',
-        title: 'Vension',
-        price: 650,
-        quantity: 1
-    },
-    {
-        id: 24,
-        image: '../static/images/images/goat.jpg',
-        title: 'Goat',
-        price: 400,
-        quantity: 1
-    },
-    {
-        id: 25,
-        image: '../static/images/images/chicken.jpg',
-        title: 'Chicken',
-        price: 250,
-        quantity: 1
-    },
-    {
-        id: 26,
-        image: '../static/images/images/duck.jpg',
-        title: 'Duck',
-        price: 230,
-        quantity: 1
-    },
-    {
-        id: 27,
-        image: '../static/images/images/rabbit.jpg',
-        title: 'Rabbit',
-        price: 330,
-        quantity: 1
-    },
-    {
-        id: 28,
-        image: '../static/images/images/liver.jpg',
-        title: 'Liver',
-        price: 350,
-        quantity: 1
-    },
-    {
-        id: 29,
-        image: '../static/images/images/sausage.jpg',
-        title: 'Sausage',
-        price: 230,
-        quantity: 1
-    },
-    {
-        id: 30,
-        image: '../static/images/images/tuna.jpg',
-        title: 'Tuna',
-        price: 400,
+        id: 32,
+        image: '../static/images/images/mackerel.jpg',
+        title: 'Mackerel',
+        price: 275,
         quantity: 1
     },
     {
         id: 31,
         image: '../static/images/images/trout.jpg',
         title: 'Trout',
-        price: 700,
+        price: 725,
         quantity: 1
     },
     {
-        id: 32,
-        image: '../static/images/images/mackerel.jpg',
-        title: 'Mackerel',
-        price: 250,
+        id: 30,
+        image: '../static/images/images/tuna.jpg',
+        title: 'Tuna',
+        price: 425,
+        quantity: 1
+    },
+    {
+        id: 29,
+        image: '../static/images/images/sausage.jpg',
+        title: 'Sausage',
+        price: 255,
+        quantity: 1
+    },
+    {
+        id: 28,
+        image: '../static/images/images/liver.jpg',
+        title: 'Liver',
+        price: 375,
+        quantity: 1
+    },
+    {
+        id: 27,
+        image: '../static/images/images/rabbit.jpg',
+        title: 'Rabbit',
+        price: 355,
+        quantity: 1
+    },
+    {
+        id: 26,
+        image: '../static/images/images/duck.jpg',
+        title: 'Duck',
+        price: 255,
+        quantity: 1
+    },
+    {
+        id: 25,
+        image: '../static/images/images/chicken.jpg',
+        title: 'Chicken',
+        price: 275,
+        quantity: 1
+    },
+    {
+        id: 24,
+        image: '../static/images/images/goat.jpg',
+        title: 'Goat',
+        price: 425,
+        quantity: 1
+    },
+    {
+        id: 23,
+        image: '../static/images/images/vension.jpg',
+        title: 'Vension',
+        price: 675,
+        quantity: 1
+    },
+    {
+        id: 22,
+        image: '../static/images/images/lamb.jpg',
+        title: 'Lamb',
+        price: 625,
+        quantity: 1
+    },
+    {
+        id: 21,
+        image: '../static/images/images/beef.jpg',
+        title: 'Beef',
+        price: 375,
         quantity: 1
     }
 ];
-// Adding meat products to the existing fruitVegetableProducts array
+
 const bakeryProducts = [
     {
-        id: 33,
-        image: '../static/images/images/whitebread.jpg',
-        title: 'White Bread',
-        price: 80,
-        quantity: 1
-    },
-    {
-        id: 34,
-        image: '../static/images/images/ryebread.jpg',
-        title: 'Rye Bread',
-        price: 120,
-        quantity: 1
-    },
-    {
-        id: 35,
-        image: '../static/images/images/baguette.jpg',
-        title: 'Baguette Bread',
+        id: 44,
+        image: '../static/images/images/donut.jpg',
+        title: 'Donut',
         price: 70,
-        quantity: 1
-    },
-    {
-        id: 36,
-        image: '../static/images/images/sourdoughbread.jpg',
-        title: 'Sourdough Bread',
-        price: 100,
-        quantity: 1
-    },
-    {
-        id: 37,
-        image: '../static/images/images/croissant.jpg',
-        title: 'Croissant',
-        price: 40,
-        quantity: 1
-    },
-    {
-        id: 38,
-        image: '../static/images/images/turnover.jpg',
-        title: 'Turnover',
-        price: 70,
-        quantity: 1
-    },
-    {
-        id: 39,
-        image: '../static/images/images/spongecake.jpg',
-        title: 'Sponge Cake',
-        price: 300,
-        quantity: 1
-    },
-    {
-        id: 40,
-        image: '../static/images/images/cheesecake.jpg',
-        title: 'Cheese Cake',
-        price: 250,
-        quantity: 1
-    },
-    {
-        id: 41,
-        image: '../static/images/images/cookies.jpg',
-        title: 'Cookies',
-        price: 165,
-        quantity: 1
-    },
-    {
-        id: 42,
-        image: '../static/images/images/shortbread.jpg',
-        title: 'Short Bread',
-        price: 135,
         quantity: 1
     },
     {
         id: 43,
         image: '../static/images/images/applepie.jpg',
         title: 'Apple Pie',
-        price: 220,
+        price: 245,
         quantity: 1
     },
     {
-        id: 44,
-        image: '../static/images/images/donut.jpg',
-        title: 'Donut',
-        price: 45,
+        id: 42,
+        image: '../static/images/images/shortbread.jpg',
+        title: 'Short Bread',
+        price: 160,
+        quantity: 1
+    },
+    {
+        id: 41,
+        image: '../static/images/images/cookies.jpg',
+        title: 'Cookies',
+        price: 190,
+        quantity: 1
+    },
+    {
+        id: 40,
+        image: '../static/images/images/cheesecake.jpg',
+        title: 'Cheese Cake',
+        price: 275,
+        quantity: 1
+    },
+    {
+        id: 39,
+        image: '../static/images/images/spongecake.jpg',
+        title: 'Sponge Cake',
+        price: 325,
+        quantity: 1
+    },
+    {
+        id: 38,
+        image: '../static/images/images/turnover.jpg',
+        title: 'Turnover',
+        price: 95,
+        quantity: 1
+    },
+    {
+        id: 37,
+        image: '../static/images/images/croissant.jpg',
+        title: 'Croissant',
+        price: 65,
+        quantity: 1
+    },
+    {
+        id: 36,
+        image: '../static/images/images/sourdoughbread.jpg',
+        title: 'Sourdough Bread',
+        price: 125,
+        quantity: 1
+    },
+    {
+        id: 35,
+        image: '../static/images/images/baguette.jpg',
+        title: 'Baguette Bread',
+        price: 95,
+        quantity: 1
+    },
+    {
+        id: 34,
+        image: '../static/images/images/ryebread.jpg',
+        title: 'Rye Bread',
+        price: 145,
+        quantity: 1
+    },
+    {
+        id: 33,
+        image: '../static/images/images/whitebread.jpg',
+        title: 'White Bread',
+        price: 105,
         quantity: 1
     }
 ];
-// Adding meat products to the existing fruitVegetableProducts array
+
 const snacksProducts = [
     {
-        id: 45,
-        image: '../static/images/images/chips.jpg',
-        title: 'Chips',
-        price: 15,
-        quantity: 1
-    },
-    {
-        id: 46,
-        image: '../static/images/images/pretzels.jpg',
-        title: 'Pretzels',
-        price: 80,
-        quantity: 1
-    },
-    {
-        id: 47,
-        image: '../static/images/images/popcorn.jpg',
-        title: 'Popcorn',
-        price: 40,
-        quantity: 1
-    },
-    {
-        id: 48,
-        image: '../static/images/images/crackers.jpg',
-        title: 'Crackers',
-        price: 25,
-        quantity: 1
-    },
-    {
-        id: 49,
-        image: '../static/images/images/trail_mix.jpg',
-        title: 'Trail Mix',
-        price: 230,
-        quantity: 1
-    },
-    {
-        id: 50,
-        image: '../static/images/images/sweets.jpg',
-        title: 'Candy',
-        price: 175,
-        quantity: 1
-    },
-    {
-        id: 51,
-        image: '../static/images/images/icecream.jpg',
-        title: 'Ice Cream',
-        price: 35,
-        quantity: 1
-    },
-    {
-        id: 52,
-        image: '../static/images/images/waterbottle.jpg',
-        title: 'Water',
-        price: 10,
-        quantity: 1
-    },
-    {
-        id: 53,
-        image: '../static/images/images/orangejuice.jpg',
-        title: 'Orange Juice',
-        price: 15,
-        quantity: 1
-    },
-    {
-        id: 54,
-        image: '../static/images/images/applejuice.jpg',
-        title: 'Apple Juice',
-        price: 15,
+        id: 56,
+        image: '../static/images/images/redbull.jpg',
+        title: 'Redbull',
+        price: 70,
         quantity: 1
     },
     {
         id: 55,
         image: '../static/images/images/soda.jpg',
         title: 'Sodas',
-        price: 20,
+        price: 45,
         quantity: 1
     },
     {
-        id: 56,
-        image: '../static/images/images/redbull.jpg',
-        title: 'Redbull',
-        price: 45,
+        id: 54,
+        image: '../static/images/images/applejuice.jpg',
+        title: 'Apple Juice',
+        price: 40,
+        quantity: 1
+    },
+    {
+        id: 53,
+        image: '../static/images/images/orangejuice.jpg',
+        title: 'Orange Juice',
+        price: 40,
+        quantity: 1
+    },
+    {
+        id: 52,
+        image: '../static/images/images/waterbottle.jpg',
+        title: 'Water',
+        price: 35,
+        quantity: 1
+    },
+    {
+        id: 51,
+        image: '../static/images/images/icecream.jpg',
+        title: 'Ice Cream',
+        price: 60,
+        quantity: 1
+    },
+    {
+        id: 50,
+        image: '../static/images/images/sweets.jpg',
+        title: 'Candy',
+        price: 200,
+        quantity: 1
+    },
+    {
+        id: 49,
+        image: '../static/images/images/trail_mix.jpg',
+        title: 'Trail Mix',
+        price: 255,
+        quantity: 1
+    },
+    {
+        id: 48,
+        image: '../static/images/images/crackers.jpg',
+        title: 'Crackers',
+        price: 50,
+        quantity: 1
+    },
+    {
+        id: 47,
+        image: '../static/images/images/popcorn.jpg',
+        title: 'Popcorn',
+        price: 65,
+        quantity: 1
+    },
+    {
+        id: 46,
+        image: '../static/images/images/pretzels.jpg',
+        title: 'Pretzels',
+        price: 105,
+        quantity: 1
+    },
+    {
+        id: 45,
+        image: '../static/images/images/chips.jpg',
+        title: 'Chips',
+        price: 40,
         quantity: 1
     }
 ];
 const dairyProducts = [
     {
-        id: 57,
-        image: '../static/images/images/Milk.jpeg',
-        title: 'Milk',
-        price: 40,
-        quantity: 1
-    },
-    {
-        id: 58,
-        image: '../static/images/images/Feta.jpeg',
-        title: 'Feta Cheese',
-        price: 20,
-        quantity: 1
-    },
-    {
-        id: 59,
-        image: '../static/images/images/Cheddar.jpeg',
-        title: 'Cheddar Cheese',
-        price: 30,
-        quantity: 1
-    },
-    {
-        id: 60,
-        image: '../static/images/images/Mozzarella.jpeg',
-        title: 'Mozzarella Cheese',
-        price: 35,
-        quantity: 1
-    },
-    {
-        id: 61,
-        image: '../static/images/images/Butter.jpeg',
-        title: 'Butter',
+        id: 65,
+        image: '../static/images/images/Cottage_Cheese.jpeg',
+        title: 'Cottage Cheese',
         price: 50,
-        quantity: 1
-    },
-    {
-        id: 62,
-        image: '../static/images/images/Yogurt.jpeg',
-        title: 'Yogurt',
-        price: 25,
-        quantity: 1
-    },
-    {
-        id: 63,
-        image: '../static/images/images/Whipping_cream.jpeg',
-        title: 'Whipping cream',
-        price: 35,
         quantity: 1
     },
     {
         id: 64,
         image: '../static/images/images/Ghee.jpeg',
         title: 'Ghee',
-        price: 45,
+        price: 75,
         quantity: 1
     },
     {
-        id: 65,
-        image: '../static/images/images/Cottage_Cheese.jpeg',
-        title: 'Cottage Cheese',
-        price: 20,
+        id: 63,
+        image: '../static/images/images/Whipping_cream.jpeg',
+        title: 'Whipping cream',
+        price: 65,
+        quantity: 1
+    },
+    {
+        id: 62,
+        image: '../static/images/images/Yogurt.jpeg',
+        title: 'Yogurt',
+        price: 55,
+        quantity: 1
+    },
+    {
+        id: 61,
+        image: '../static/images/images/Butter.jpeg',
+        title: 'Butter',
+        price: 80,
+        quantity: 1
+    },
+    {
+        id: 60,
+        image: '../static/images/images/Mozzarella.jpeg',
+        title: 'Mozzarella Cheese',
+        price: 65,
+        quantity: 1
+    },
+    {
+        id: 59,
+        image: '../static/images/images/Cheddar.jpeg',
+        title: 'Cheddar Cheese',
+        price: 60,
+        quantity: 1
+    },
+    {
+        id: 58,
+        image: '../static/images/images/Feta.jpeg',
+        title: 'Feta Cheese',
+        price: 50,
+        quantity: 1
+    },
+    {
+        id: 57,
+        image: '../static/images/images/Milk.jpeg',
+        title: 'Milk',
+        price: 70,
         quantity: 1
     }
 ];
 
 const babyProducts = [
     {
-        id: 66,
-        image: '../static/images/johnsonoil.jpg',
-        title: "Johnson's Baby Oil",
-        price: 350,
-        quantity: 1
-    },
-    {
-        id: 67,
-        image: '../static/images/Baby_Wipes.jpg',
-        title: "Little's Baby Wipes",
-        price: 70,
-        quantity: 1
-    },
-    {
-        id: 68,
-        image: '../static/images/Moisturizer.jpg',
-        title: 'Moisturizer',
-        price: 470,
-        quantity: 1
-    },
-    {
-        id: 69,
-        image: '../static/images/Baby_Shampoo.jpg',
-        title: 'Himalaya Baby Shampoo',
-        price: 330,
+        id: 71,
+        image: '../static/images/Diapers.jpg',
+        title: 'Pampers Baby Pants',
+        price: 580,
         quantity: 1
     },
     {
         id: 70,
         image: '../static/images/Baby_Powder.jpg',
         title: "Johnson's Baby Powder",
-        price: 125,
+        price: 155,
         quantity: 1
     },
     {
-        id: 71,
-        image: '../static/images/Diapers.jpg',
-        title: 'Pampers Baby Pants',
-        price: 550,
+        id: 69,
+        image: '../static/images/Baby_Shampoo.jpg',
+        title: 'Himalaya Baby Shampoo',
+        price: 360,
+        quantity: 1
+    },
+    {
+        id: 68,
+        image: '../static/images/Moisturizer.jpg',
+        title: 'Moisturizer',
+        price: 500,
+        quantity: 1
+    },
+    {
+        id: 67,
+        image: '../static/images/Baby_Wipes.jpg',
+        title: "Little's Baby Wipes",
+        price: 100,
+        quantity: 1
+    },
+    {
+        id: 66,
+        image: '../static/images/johnsonoil.jpg',
+        title: "Johnson's Baby Oil",
+        price: 380,
         quantity: 1
     }
 ];
 
 const medicineProducts = [
     {
-        id: 72,
-        image: '../static/images/images/panadol.jpg',
-        title: 'Panadol',
-        price: 60,
-        quantity: 1
-    },
-    {
-        id: 73,
-        image: '../static/images/images/bruffen.jpg',
-        title: 'Bruffen',
-        price: 40,
-        quantity: 1
-    },
-    {
-        id: 74,
-        image: '../static/images/images/zyrtec.jpg',
-        title: 'Zyrtec',
-        price: 35,
-        quantity: 1
-    },
-    {
-        id: 75,
-        image: '../static/images/images/cataflam.jpg',
-        title: 'Cataflam',
-        price: 30,
-        quantity: 1
-    },
-    {
-        id: 76,
-        image: '../static/images/images/osteocare.jpg',
-        title: 'Osteocare',
-        price: 70,
-        quantity: 1
-    },
-    {
-        id: 77,
-        image: '../static/images/images/otrivin.png',
-        title: 'Otrivin',
-        price: 45,
-        quantity: 1
-    },
-    {
-        id: 78,
-        image: '../static/images/images/feroglobin.png',
-        title: 'Feroglobin',
-        price: 45,
+        id: 80,
+        image: '../static/images/images/motilium.jpg',
+        title: 'Motilium',
+        price: 75,
         quantity: 1
     },
     {
         id: 79,
         image: '../static/images/images/aspirin.jpg',
         title: 'Aspirin',
+        price: 100,
+        quantity: 1
+    },
+    {
+        id: 78,
+        image: '../static/images/images/feroglobin.png',
+        title: 'Feroglobin',
+        price: 75,
+        quantity: 1
+    },
+    {
+        id: 77,
+        image: '../static/images/images/otrivin.png',
+        title: 'Otrivin',
+        price: 75,
+        quantity: 1
+    },
+    {
+        id: 76,
+        image: '../static/images/images/osteocare.jpg',
+        title: 'Osteocare',
+        price: 100,
+        quantity: 1
+    },
+    {
+        id: 75,
+        image: '../static/images/images/cataflam.jpg',
+        title: 'Cataflam',
+        price: 60,
+        quantity: 1
+    },
+    {
+        id: 74,
+        image: '../static/images/images/zyrtec.jpg',
+        title: 'Zyrtec',
+        price: 65,
+        quantity: 1
+    },
+    {
+        id: 73,
+        image: '../static/images/images/bruffen.jpg',
+        title: 'Bruffen',
         price: 70,
         quantity: 1
     },
     {
-        id: 80,
-        image: '../static/images/images/motilium.jpg',
-        title: 'Motilium',
-        price: 45,
+        id: 72,
+        image: '../static/images/images/panadol.jpg',
+        title: 'Panadol',
+        price: 90,
         quantity: 1
     }
 ];
+
 const PopularPackges = [
     {
-        id: 83,
-        image: '../static/images/images/pack1.png',
-        title: 'Green Garden Bundle',
-        price: 350,
-        quantity: 1
-    },
-    {
-        id: 84,
-        image: '../static/images/images/pack2.jpeg',
-        title: 'Health Essentials Kit',
-        price: 500,
-        quantity: 1
-    },
-    {
-        id: 85,
-        image: '../static/images/images/pack3.jpeg',
-        title: 'Butcher Choice Bundle',
-        price: 350.00,
-        quantity: 1
-    },
-    {
-        id: 86,
-        image: '../static/images/images/pack4.jpeg',
-        title: 'Baby Essentials Bundle',
-        price: 300.00,
+        id: 88,
+        image: '../static/images/images/pack6.jpeg',
+        title: 'Snack Attack Bundle',
+        price: 130,
         quantity: 1
     },
     {
         id: 87,
         image: '../static/images/images/pack5.jpeg',
         title: 'Baker Delight Box',
-        price: 250,
+        price: 280,
         quantity: 1
     },
     {
-        id: 88,
-        image: '../static/images/images/pack6.jpeg',
-        title: 'Snack Attack Bundle',
-        price: 100,
+        id: 86,
+        image: '../static/images/images/pack4.jpeg',
+        title: 'Baby Essentials Bundle',
+        price: 60,
+        quantity: 1
+    },
+    {
+        id: 85,
+        image: '../static/images/images/pack3.jpeg',
+        title: 'Butcher Choice Bundle',
+        price: 65,
+        quantity: 1
+    },
+    {
+        id: 84,
+        image: '../static/images/images/pack2.jpeg',
+        title: 'Health Essentials Kit',
+        price: 530,
+        quantity: 1
+    },
+    {
+        id: 83,
+        image: '../static/images/images/pack1.png',
+        title: 'Green Garden Bundle',
+        price: 380,
         quantity: 1
     }
 ];

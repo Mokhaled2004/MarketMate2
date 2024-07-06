@@ -22,7 +22,18 @@
                     <input type="text" placeholder="Name" class="contact-form-txt" id='name' required/>
                     <input type="text" placeholder="Address" class="contact-form-txt" id='address' name="address" required/> <!-- Added name attribute -->
                     <input type="email" placeholder="Email-ID" class="contact-form-txt" id='email' required/>
-                    <input type="text" placeholder="Market-Name" class="contact-form-txt" name="market_name" required/>
+                    <div class="dropdown">
+                        <input type="text" placeholder="Market-Name" class="contact-form-txt" name="market_name" id="market_name" required/>
+                        <div class="dropdown-content" id="market_dropdown">
+                            <a href="#" onclick="selectMarket('BIM')">BIM</a>
+                            <a href="#" onclick="selectMarket('RAYA MARKET')">RAYA MARKETS</a>
+                            <a href="#" onclick="selectMarket('RAGAB SONS')">RAGAB SONS</a>
+                            <a href="#" onclick="selectMarket('WALMART STORES')">WALMART STORES</a>
+                            <a href="#" onclick="selectMarket('SEOUDI MARKETS')">SEOUDI MARKETS</a>
+                            <!-- Add more options as needed -->
+                        </div>
+                    </div>
+                    
                     <input type="text" placeholder="Locality/Apartment" class="contact-form-txt" name="locality" required/> <!-- Corrected placeholder text and added name attribute -->
                     <input type="text" placeholder="Contact No." class="contact-form-txt" id='phone' required/>
                     <input type="text" placeholder="Date (Format: dd/mm/yyyy)" class="contact-form-txt" id='date' name="date" required/> <!-- Added name attribute -->

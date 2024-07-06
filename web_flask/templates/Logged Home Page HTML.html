@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 
     <html>
     
@@ -14,7 +14,9 @@
            MarketMate
     
         </title>
-    
+        <script>
+            
+        </script>
         <!--==Stylesheet=============================-->
         <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Home Page CSS.css') }}">
         
@@ -54,7 +56,7 @@
                 <ul class="menu">
     
                     <li>
-                        <a href="{{ url_for('logged') }}" class="active">
+                        <a href="{{ url_for('logged') }}" class = "active">
                             
                             Home
     
@@ -64,20 +66,21 @@
     
                     <li>
     
-                        <a href="{{ url_for('logged') }}#category"  >    
+                        <a href="{{ url_for('logged') }}#category"   >    
     
     
                             Categories
                         
                         </a>
                         <div class="dropdown-content">
-                            <a >FRUITS & VEGETABLES</a>
-                            <a >MEDICINE</a>
-                            <a >BABY CARE</a>
-                            <a >MEAT</a>
-                            <a >BAKERY</a>
-                            <a >SNACKS</a>
-                            <a >DAIRY PRODUCTS</a>
+                            <a href="{{ url_for('carttest') }}#category">FRUITS & VEGETABLES</a>
+                            <a href="{{ url_for('carttest') }}#category">MEDICINE</a>
+                            <a href="{{ url_for('carttest') }}#category">BABY CARE</a>
+                            <a href="{{ url_for('carttest') }}#category">MEAT</a>
+                            <a href="{{ url_for('carttest') }}#category">BAKERY</a>
+                            <a href="{{ url_for('carttest') }}#category">SNACKS</a>
+                            <a href="{{ url_for('carttest') }}#category">DAIRY PRODUCTS</a>
+                            <a  href="{{ url_for('carttest') }}#category" >POPULAR PACKAGES>POPULAR PACKAGES</a>
                             <!-- Add more links as needed -->
                         </div>
                     
@@ -92,15 +95,14 @@
                         
                         </a>
                         <div class="dropdown-content">
-                            <a >BIM</a>
-                            <a >AL RAYA</a>
-                            <a >CARREFOUR</a>
-                            <a >WELAD-RAGAB</a>
-                            <a >WALMART</a>
-                            <a >AMAZON</a>
+                            <a href="{{ url_for('carttest') }}">BIM</a>
+                            <a href="{{ url_for('raya') }}">AL RAYA</a>
+                            <a href="{{ url_for('ragabsons') }}">WELAD-RAGAB</a>
+                            <a href="{{ url_for('walmart') }}">WALMART</a>
+                            <a href="{{ url_for('seoudi') }}">Seoudi Supermarkets</a>
                             <!-- Add more links as needed -->
                         </div>
-                    
+                        
                     </li>
     
                     <li>

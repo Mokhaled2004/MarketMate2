@@ -650,6 +650,93 @@ def dairy():
     return render_template('Dairy Category Page HTML.html', title='Dairy Products')
 
 #--------------------------------------------------------------------------------------------------------
+
+@app.route('/raya')
+def raya():
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
+
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo  # Assuming user.photo is already a full URL or a path
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    return render_template('RAYA HTML.html', title='Raya Store',first_name=first_name, photo_url=photo_url)
+
+#--------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------
+
+@app.route('/ragabsons')
+def ragabsons():
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
+
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo  # Assuming user.photo is already a full URL or a path
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    return render_template('WELADRAGAB HTMl.html', title='Ragab sons Store',first_name=first_name, photo_url=photo_url)
+
+#--------------------------------------------------------------------------------------------------------
+@app.route('/walmart')
+def walmart():
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
+
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo  # Assuming user.photo is already a full URL or a path
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    return render_template('WALMART HTMl.html', title='Walmart Store',first_name=first_name, photo_url=photo_url)
+
+#--------------------------------------------------------------------------------------------------------
+@app.route('/seoudi')
+def seoudi():
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
+
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo  # Assuming user.photo is already a full URL or a path
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    return render_template('SEOUDI HTMl.html', title='Seoudi Store',first_name=first_name, photo_url=photo_url)
+
+#--------------------------------------------------------------------------------------------------------
 @app.route('/logged')
 def logged():
     if 'user_id' not in session:

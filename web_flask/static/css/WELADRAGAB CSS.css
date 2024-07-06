@@ -1,10 +1,8 @@
 
-
-
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Cart Test CSS.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/WELADRAGAB CSS.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Category Page CSS.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Home Page CSS.css') }}">
 
@@ -70,11 +68,12 @@
                     
                     </a>
                     <div class="dropdown-content">
-                        <a href="{{ url_for('carttest') }}">BIM</a>
-                        <a href="{{ url_for('raya') }}">AL RAYA</a>
-                        <a href="{{ url_for('ragabsons') }}">WELAD-RAGAB</a>
-                        <a href="{{ url_for('walmart') }}">WALMART</a>
-                        <a href="{{ url_for('seoudi') }}">Seoudi Supermarkets</a>
+                        <a >BIM</a>
+                        <a >AL RAYA</a>
+                        <a >CARREFOUR</a>
+                        <a >WELAD-RAGAB</a>
+                        <a >WALMART</a>
+                        <a >AMAZON</a>
                         <!-- Add more links as needed -->
                     </div>
                 </li>

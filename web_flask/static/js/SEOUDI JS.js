@@ -1,4 +1,3 @@
-// Existing fruit and vegetable products list
 const fruitVegetableProducts = [
     {
         id: 0,
