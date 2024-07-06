@@ -1,3 +1,4 @@
+
 document.querySelector('.card-number-input').oninput = () =>{
     document.querySelector('.card-number-box').innerText = document.querySelector('.card-number-input').value;
 }
