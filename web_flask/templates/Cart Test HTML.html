@@ -6,6 +6,8 @@
     <head>
         <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Cart Test CSS.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Category Page CSS.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Home Page CSS.css') }}">
+
 
         <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
     </head>
@@ -46,7 +48,17 @@
                         Categories
                     
                     </a>
-                
+                    <div class="dropdown-content">
+                        <a data-category="fruitVegetableProducts" onclick="switchCategory('fruitVegetableProducts')">FRUITS & VEGETABLES</a>
+                        <a data-category="medicineProducts" onclick="switchCategory('medicineProducts')">MEDICINE</a>
+                        <a data-category="babyProducts" onclick="switchCategory('babyProducts')">BABY CARE</a>
+                        <a data-category="meatProducts" onclick="switchCategory('meatProducts')">MEAT</a>
+                        <a data-category="bakeryProducts" onclick="switchCategory('bakeryProducts')">BAKERY</a>
+                        <a data-category="snacksProducts" onclick="switchCategory('snacksProducts')">SNACKS</a>
+                        <a data-category="dairyProducts" onclick="switchCategory('dairyProducts')">DAIRY PRODUCTS</a>
+                        <a data-category="PopularPackges" onclick="switchCategory('PopularPackges')">POPULAR PACKAGES</a>
+                        <!-- Add more links as needed -->
+                    </div>
                 </li>
 
                 <li>
@@ -57,7 +69,15 @@
                         Stores
                     
                     </a>
-                
+                    <div class="dropdown-content">
+                        <a >BIM</a>
+                        <a >AL RAYA</a>
+                        <a >CARREFOUR</a>
+                        <a >WELAD-RAGAB</a>
+                        <a >WALMART</a>
+                        <a >AMAZON</a>
+                        <!-- Add more links as needed -->
+                    </div>
                 </li>
 
                 <li>

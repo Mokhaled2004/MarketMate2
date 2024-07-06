@@ -513,8 +513,18 @@ def Contact():
 #--------------------------------------------------------------------------------------------------------
 @app.route('/')
 def home():
-    
-    return render_template('index.html', title='MarketMate')
+    users = storage.all(User)  # Retrieve all users from storage
+    total_ratings = 0
+    for u in users.values():
+        total_ratings   += u.rating
+                             
+    num_users = len(users)
+    if num_users > 0:
+        average_rating = total_ratings / num_users
+        average_rating = round(average_rating, 1)
+    else:
+        average_rating = 0  # Handle case where there are no users or ratings
+    return render_template('index.html', title='MarketMate', average_rating=average_rating)
 
 #--------------------------------------------------------------------------------------------------------
 @app.route('/aboutus')
@@ -668,6 +678,7 @@ def logged():
     num_users = len(users)
     if num_users > 0:
         average_rating = total_ratings / num_users
+        average_rating = round(average_rating, 1)
     else:
         average_rating = 0  # Handle case where there are no users or ratings
     return render_template('Logged Home Page HTML.html', title='Logged Home Page', first_name=first_name, photo_url=photo_url, average_rating=average_rating)
