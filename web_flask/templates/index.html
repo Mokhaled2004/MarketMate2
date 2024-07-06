@@ -218,19 +218,19 @@
                 <div class="stores-container">
     
                     <!--box---------------->
-                    <a class="store-box" href = '#stores'>
+                    <a class="store-box" href="{{ url_for('walmart') }}">
                         
-                        <img src="{{ url_for('static', filename='/images/images/carrefour.png') }}" alt="carrefour" >
-                        
-                    </a>
-                    <!--box---------------->
-                    <a class="store-box" href = '#category'>
-                        
-                        <img src="{{ url_for('static', filename='/images/images/Kher.jpg') }}" alt="Kher" >
+                        <img src="{{ url_for('static', filename='/images/images/walmart.jpg') }}" alt="Walmart" >
                         
                     </a>
                     <!--box---------------->
-                    <a class="store-box" href="#category">
+                    <a class="store-box" href="{{ url_for('raya') }}">
+                        
+                        <img src="{{ url_for('static', filename='/images/images/raya.png') }}" alt="Raya Market" >
+                        
+                    </a>
+                    <!--box---------------->
+                    <a class="store-box" href="{{ url_for('carttest') }}">
                         
                         <img src="{{ url_for('static', filename='/images/images/Bim.png') }}" alt="Bim" >
                         
