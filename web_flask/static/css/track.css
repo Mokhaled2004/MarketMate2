@@ -107,25 +107,43 @@ button:disabled {
 }
 
 .circle {
-    width: 30px;
-    height: 30px;
-    background-color: #ccc;
+    width: 120px;;
+    height: 100px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 16px;
     color: white;
+    background-color: rgb(253, 253, 253); /* Adjust opacity here */
+    transition: background-color 0.3s ease; /* Smooth transition for opacity change */
+    
+    
+    
+}
+
+.circle img {
+    width: 100%; /* Ensures the image fills the circle */
+    height: auto; /* Maintains aspect ratio */
+    padding-left:30px;
+    padding-right: 30px;
+    opacity: 0.2; /* Initial opacity for inactive state */
+    transition: opacity 0.3s ease; /* Smooth transition for opacity change */
 }
 
 .circle.active {
-    background-color: #9a693b;
+    background-image: url('circle_active.png'); /* Image for active state */
 }
+.circle.active img {
+    opacity: 1; /* Full opacity for image when active */
+}
+
 
 .status-messages {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+    
 }
 
 .status-messages div {
