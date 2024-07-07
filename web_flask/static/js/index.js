@@ -18,3 +18,4 @@ function searchText() {
         // You can add additional handling here, like showing an error message
     }
 }
+// commented

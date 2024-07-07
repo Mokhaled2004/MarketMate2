@@ -33,3 +33,4 @@ s.onclick = function ()
     a.classList.remove("hide");
     a.classList.add("show");
 }
+// commented

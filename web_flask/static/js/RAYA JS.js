@@ -820,6 +820,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+//commented
 
 
 

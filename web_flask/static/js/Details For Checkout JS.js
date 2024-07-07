@@ -67,3 +67,4 @@ document.addEventListener('DOMContentLoaded', function() {
 function selectMarket(market) {
     document.getElementById('market_name').value = market;
 }
+   // commented

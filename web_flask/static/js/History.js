@@ -35,3 +35,4 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initially fetch all orders
     fetchOrders('all');
 });
+   // commented
