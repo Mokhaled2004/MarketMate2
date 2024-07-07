@@ -315,3 +315,25 @@ form a {
     color: #a09999;
     transition: 0.3s all ease-in;
 }
+
+/* Flash messages */
+
+.flash-messages {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    width: 300px;
+  }
+  
+  .flash-messages .alert {
+    margin-bottom: 10px;
+    opacity: 0.95;
+  }
+  
+  .flash-messages .alert-dismissible .close {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: inherit;
+  }

@@ -99,6 +99,9 @@
       background-color: #66380d;
       transition: all .3s ease-in-out;
   }
+  .foot:active {
+    background-color: rgb(10, 178, 10); /* Change to green when active (clicked) */
+}
   .box{
     display: flex;
     flex-direction: column;

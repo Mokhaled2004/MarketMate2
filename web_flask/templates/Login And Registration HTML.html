@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Login And Registration CSS.css') }}">
     <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery, Popper.js, and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -21,19 +28,20 @@
                 <div class="head">
 
                     <h1>Sign In to MarketMate</h1>
-
-                    
                     <h3 style="cursor: pointer;">Use your E-mail ID</h3>
 
                 </div>
 
                 {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}
-                        <ul class="flashes">
+                        <div class="flash-messages">
                             {% for category, message in messages %}
-                                <li class="{{ category }}">{{ message }}</li>
+                                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">&times;</button>
+                                </div>
                             {% endfor %}
-                        </ul>
+                        </div>
                     {% endif %}
                 {% endwith %}
 
@@ -110,11 +118,14 @@
 
                 {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}
-                        <ul class="flashes">
+                        <div class="flash-messages">
                             {% for category, message in messages %}
-                                <li class="{{ category }}">{{ message }}</li>
+                                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">&times;</button>
+                                </div>
                             {% endfor %}
-                        </ul>
+                        </div>
                     {% endif %}
                 {% endwith %}
 
@@ -130,9 +141,6 @@
                     <input type="text" name="phone" placeholder="PHONE" required>
                     <br>
                     <input type="text" name="address" placeholder="ADDRESS (optional)">
-                    
-                    
-                
                     <br>
                     <button type="submit" style="cursor: pointer;" class='sign_up_btn' style="color: white; text-decoration: none;">
                         SIGN UP
@@ -146,6 +154,15 @@
     </section>
 
 </section>
+
+<script>
+    $(document).ready(function() {
+        $(".alert-dismissible").delay(3000).fadeOut(500, function(){
+            $(this).remove();
+        });
+    });
+</script>
+
 
 <script src="{{ url_for('static', filename='js/Login And Registration JS.js') }}"></script>
 
