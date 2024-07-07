@@ -3,7 +3,7 @@
         "first_name": "Mohamed",
         "last_name": "Khaled",
         "email": "mokhaled2004@gmail.com",
-        "password": "7deabdd1cd9fc3f6a9fce252365f4b8d",
+        "password": "ec472ad94c14fc706d803f2060a3156d",
         "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
         "phone": "01097757050",
         "rating": 3,
@@ -56,7 +56,7 @@
         "first_name": "Mohamed",
         "last_name": "Yasser",
         "email": "yasser@gmail.com",
-        "password": "9f61408e3afb633e50cdf1b20de6f466",
+        "password": "709f6d3d82be6a351eb1d9655086b4d8",
         "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
         "phone": "01097757050",
         "rating": 0,
@@ -96,6 +96,39 @@
         "created_at": "2024-07-07T17:44:53.421860",
         "updated_at": "2024-07-07T17:44:53.421860",
         "id": "4e37a091-aee8-480a-98b6-3d718d3bf92a",
+        "__class__": "Payment"
+    },
+    "Order.0385db42-299e-4d2f-b558-dc70e5bc49d6": {
+        "delivered": "Cancelled",
+        "user_id": "2e1ac028-327b-452c-b1cb-e8270399403d",
+        "products": [
+            {
+                "title": "Potato",
+                "price": 25,
+                "quantity": 1
+            }
+        ],
+        "total_price": 25.0,
+        "created_at": "2024-07-07T17:54:49.695200",
+        "market_name": "RAGAB SONS",
+        "updated_at": "2024-07-07T17:54:49.695200",
+        "id": "0385db42-299e-4d2f-b558-dc70e5bc49d6",
+        "address": "7832 Mohamed Ibrahim street, Region C Mokattam",
+        "date": "2",
+        "__class__": "Order"
+    },
+    "Payment.a73fabaf-5dc9-4b66-9477-c066064f093e": {
+        "order_id": "0385db42-299e-4d2f-b558-dc70e5bc49d6",
+        "user_id": "2e1ac028-327b-452c-b1cb-e8270399403d",
+        "card_number": "3",
+        "card_name": "43",
+        "expiry_month": "01",
+        "expiry_year": "2022",
+        "cvv": "34",
+        "payment_type": "visa",
+        "created_at": "2024-07-07T17:55:15.464979",
+        "updated_at": "2024-07-07T17:55:15.464979",
+        "id": "a73fabaf-5dc9-4b66-9477-c066064f093e",
         "__class__": "Payment"
     }
 }
