@@ -17,6 +17,7 @@
     
         <!--==Stylesheet=============================-->
         <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Home Page CSS.css') }}">
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/images/Logo.png') }}">
         <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
     
@@ -71,6 +72,16 @@
                             Categories
                         
                         </a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('login') }}#category">FRUITS & VEGETABLES</a>
+                            <a href="{{ url_for('login') }}#category">MEDICINE</a>
+                            <a href="{{ url_for('login') }}#category">BABY CARE</a>
+                            <a href="{{ url_for('login') }}#category">MEAT</a>
+                            <a href="{{ url_for('login') }}#category">BAKERY</a>
+                            <a href="{{ url_for('login') }}#category">SNACKS</a>
+                            <a href="{{ url_for('login') }}#category">DAIRY PRODUCTS</a>
+                            <a  href="{{ url_for('login') }}#category" >POPULAR PACKAGES>POPULAR PACKAGES</a>
+                        </div>
                     
                     </li>
     
@@ -82,6 +93,13 @@
                             Stores
                         
                         </a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('login') }}">BIM</a>
+                            <a href="{{ url_for('login') }}">AL RAYA</a>
+                            <a href="{{ url_for('login') }}">WELAD-RAGAB</a>
+                            <a href="{{ url_for('login') }}">WALMART</a>
+                            <a href="{{ url_for('login') }}">Seoudi Supermarkets</a>
+                        </div>
                     
                     </li>
     
@@ -97,7 +115,7 @@
                     
                     <li>
                         
-                        <a href="{{ url_for('feedback') }}" >
+                        <a href="{{ url_for('login') }}" >
     
                             
                             Feedback
@@ -120,7 +138,7 @@
                     <li>
                         
                         
-                        <a href="{{ url_for('contactus') }}"  >
+                        <a href="{{ url_for('login') }}"  >
                             
                             Contact&nbsp;Us
                         
@@ -155,11 +173,8 @@
     
                 <!--right-nav-(cart-like)-->
                 <div class="right-nav">
-    
-                    
-    
-                    
-    
+   
+
                     <!--cart----->
                     <a href="{{ url_for('profile') }}" class=" like"  >
     
@@ -195,10 +210,8 @@
             
 <!--search-banner-end--------------->
     
-            
-    
+        
             <!--Markets-->>
-            
             
             <!--==category=========================================-->
             <section id="category">

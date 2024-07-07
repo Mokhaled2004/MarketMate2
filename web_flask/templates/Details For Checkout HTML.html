@@ -1,62 +1,77 @@
 <!DOCTYPE html>
-
 <html>
 
     <head>
-
+        <!-- Meta tags for character encoding and viewport settings -->
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
+        <!-- Page title -->
         <title>Details for Delivery</title>
 
+        <!-- Link to external CSS file for styling -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/Details For Checkout CSS.css') }}">
+        
+        <!-- Favicon links -->
         <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/images/Logo.png') }}">
         <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
         
+        <!-- Link to external JavaScript file -->
         <script src="{{ url_for('static', filename='js/Details For Checkout JS.js') }}"></script>
-
     </head>
 
     <body>
-
+        <!-- Main container for contact information and map -->
         <div class="contact-in">
 
+            <!-- Embedded Google Map -->
             <div class="contact-map">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d345654.57630879284!2d31.235711!3d30.044419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145847b5730a4e1f%3A0x1a1e1a4a1e1e1e1e!2sCairo%2C%20Egypt!5e0!3m2!1sen!2s!4v1642929688022!5m2!1sen!2sin" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
+            <!-- Form container for contact details and order information -->
             <div class="contact-form">
-                <!-- Section to display order details -->
+                <!-- Section to display order details dynamically -->
                 <div id="order-details" class="order-details"></div>
+                
+                <!-- Heading for the form -->
                 <h1 align='center'>Details For Delivery</h1>
+                
+                <!-- Container for error messages -->
                 <div id="error_message"></div>
 
+                <!-- Form for collecting delivery details -->
                 <form class='address_form' action="{{ url_for('update_market_name') }}" method="POST" onsubmit="return validate_form();">
+                    <!-- Input fields for various details -->
                     <input type="text" placeholder="Name" class="contact-form-txt" id='name' required/>
                     <input type="text" placeholder="Address" class="contact-form-txt" id='address' name="address" required/> <!-- Added name attribute -->
                     <input type="email" placeholder="Email-ID" class="contact-form-txt" id='email' required/>
+
+                    <!-- Dropdown for selecting market name -->
                     <div class="dropdown">
                         <input type="text" placeholder="Market-Name" class="contact-form-txt" name="market_name" id="market_name" required/>
                         <div class="dropdown-content" id="market_dropdown">
+                            <!-- Links for market names with onclick events to select market -->
                             <a href="#" onclick="selectMarket('BIM')">BIM</a>
                             <a href="#" onclick="selectMarket('RAYA MARKET')">RAYA MARKETS</a>
                             <a href="#" onclick="selectMarket('RAGAB SONS')">RAGAB SONS</a>
                             <a href="#" onclick="selectMarket('WALMART STORES')">WALMART STORES</a>
                             <a href="#" onclick="selectMarket('SEOUDI MARKETS')">SEOUDI MARKETS</a>
-                            
                         </div>
                     </div>
                     
+                    <!-- More input fields for additional details -->
                     <input type="text" placeholder="Locality/Apartment" class="contact-form-txt" name="locality" required/> <!-- Corrected placeholder text and added name attribute -->
                     <input type="text" placeholder="Contact No." class="contact-form-txt" id='phone' required/>
                     <input type="text" placeholder="Date (Format: dd/mm/yyyy)" class="contact-form-txt" id='date' name="date" required/> <!-- Added name attribute -->
+
+                    <!-- Submit button for the form -->
                     <button type="submit" class="contact-form-btn" id="submit">
                         Submit
                     </button>
                     
                 </form>
-                
             </div>
         </div>
-    </body>
+    </body>
 </html>

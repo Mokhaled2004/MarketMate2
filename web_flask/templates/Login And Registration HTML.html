@@ -1,15 +1,27 @@
+<!-- This is an HTML comment -->
 <!DOCTYPE html>
 <html>
 
 <head>
+    <!-- Set the title of the page -->
     <title>Login In/Sign Up</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Login And Registration CSS.css') }}">
-    <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
 
-    <!-- Bootstrap CSS -->
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Login And Registration CSS.css') }}">
+    
+    <!-- Include the Font Awesome library -->
+    <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
+    
+    <!-- Set the favicon -->
+    <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
+    
+    <!-- Set the icon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/images/Logo.png') }}">
+    
+    <!-- Include Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <!-- jQuery, Popper.js, and Bootstrap JS -->
+    
+    <!-- Include jQuery, Popper.js, and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -17,10 +29,12 @@
 
 <body>
 
+<!-- Start of the main section -->
 <section class="imp">
 
     <section>
 
+        <!-- Start of the login section -->
         <div class="login show" id="one">
 
             <div class="textbox slide-left2">
@@ -32,6 +46,7 @@
 
                 </div>
 
+                <!-- Flash messages section -->
                 {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}
                         <div class="flash-messages">
@@ -45,6 +60,7 @@
                     {% endif %}
                 {% endwith %}
 
+                <!-- Login form -->
                 <form action="{{ url_for('login') }}" method="POST">
                     <input type="text" name="email" placeholder="EMAIL" required>
                     <input type="password" name="password" placeholder="PASSWORD" required>
@@ -60,6 +76,7 @@
 
         </div>
 
+        <!-- Start of the second section -->
         <div class="sec show" id="two">
 
             <div class="textbox slide-left">
@@ -78,6 +95,7 @@
 
     <section>
 
+        <!-- Start of the third section -->
         <div class="sec hide" id="three">
 
             <div class="textbox slide-left">
@@ -92,6 +110,7 @@
 
         </div>
 
+        <!-- Start of the registration section -->
         <div class="login hide" id="four">
 
             <div class="textbox slide-right">
@@ -116,6 +135,7 @@
 
                 </div>
 
+                <!-- Flash messages section -->
                 {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}
                         <div class="flash-messages">
@@ -129,6 +149,7 @@
                     {% endif %}
                 {% endwith %}
 
+                <!-- Registration form -->
                 <form action="{{ url_for('signup') }}" method="POST">
                     <input type="text" name="first_name" placeholder="FIRST NAME" required>
                     <br>
@@ -154,7 +175,9 @@
     </section>
 
 </section>
+<!-- End of the main section -->
 
+<!-- JavaScript code -->
 <script>
     $(document).ready(function() {
         $(".alert-dismissible").delay(3000).fadeOut(500, function(){

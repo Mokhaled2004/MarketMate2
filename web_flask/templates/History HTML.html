@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <title>Order History</title>
+
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/images/Logo.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/History.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Home Page CSS.css') }}">
     <script src="{{ url_for('static', filename='js/History.js') }}"></script>
+
 </head>
+
 <body>
     <!--==Navigation================================-->
     <nav class="navigation">
@@ -123,22 +128,12 @@
                 
             </li>
 
-            
-           
-        
-
             </ul>
 
         <!--right-nav-(cart-like)-->
         <div class="right-nav">
 
-            
-
-            
-
-            <!--User----->
-            <!-- Inside profile.html -->
-            
+            <!--profile -->
             
             <a class = "like" href="{{ url_for('profile') }}">
                 <img src="{{ photo_url }}" alt="Profile Image">
@@ -147,7 +142,6 @@
             <a class = "greeting">Welcome, {{ first_name }}</a>
         </div>
         
-
     </nav>
 
     <!--nav-end--------------------->

@@ -1,53 +1,39 @@
-
-
+<!-- This is an HTML file for RAYA HTML template -->
 
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/RAYA CSS.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Category Page CSS.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Home Page CSS.css') }}">
+        <!-- Include CSS files -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/RAYA CSS.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Category Page CSS.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Home Page CSS.css') }}">
 
-
+        <!-- Include Font Awesome library -->
         <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <!--==Navigation================================-->
+        <!-- Navigation -->
         <nav class="navigation">
-    
-            <!--logo-------->
-            
+            <!-- Logo -->
+            <img src="{{ url_for('static', filename='/images/images/Logo.png') }}" alt="Logo" class="Logo">
 
-            <img src="{{ url_for('static', filename='/images/images/Logo.png') }}" alt="Logo" class = "Logo" >
-
-
-            
+            <!-- Menu icon -->
             <label for="menu-btn" class="menu-icon">
-
                 <span class="nav-icon"></span>
-
             </label>
 
-            <!--menu-------->
+            <!-- Menu items -->
             <ul class="menu">
-
                 <li>
-                    <a href="{{ url_for('logged') }}" >
-                        
+                    <a href="{{ url_for('logged') }}">
                         Home
-
                     </a>
-                
                 </li>
-
                 <li>
-
-                    <a href="{{ url_for('logged') }}#category" class = "active" >    
-
-
+                    <a href="{{ url_for('logged') }}#category" class="active">
                         Categories
-                    
                     </a>
+                    <!-- Dropdown content for categories -->
                     <div class="dropdown-content">
                         <a data-category="fruitVegetableProducts" onclick="switchCategory('fruitVegetableProducts')">FRUITS & VEGETABLES</a>
                         <a data-category="medicineProducts" onclick="switchCategory('medicineProducts')">MEDICINE</a>
@@ -57,137 +43,82 @@
                         <a data-category="snacksProducts" onclick="switchCategory('snacksProducts')">SNACKS</a>
                         <a data-category="dairyProducts" onclick="switchCategory('dairyProducts')">DAIRY PRODUCTS</a>
                         <a data-category="PopularPackges" onclick="switchCategory('PopularPackges')">POPULAR PACKAGES</a>
-                        <!-- Add more links as needed -->
                     </div>
                 </li>
-
                 <li>
-
-                    <a href="{{ url_for('logged') }}#category"  >    
-
-                        
+                    <a href="{{ url_for('logged') }}#category">
                         Stores
-                    
                     </a>
+                    <!-- Dropdown content for stores -->
                     <div class="dropdown-content">
                         <a href="{{ url_for('carttest') }}">BIM</a>
                         <a href="{{ url_for('raya') }}">AL RAYA</a>
                         <a href="{{ url_for('ragabsons') }}">WELAD-RAGAB</a>
                         <a href="{{ url_for('walmart') }}">WALMART</a>
                         <a href="{{ url_for('seoudi') }}">Seoudi Supermarkets</a>
-                        <!-- Add more links as needed -->
                     </div>
                 </li>
-
                 <li>
-                    
-                    <a href="{{ url_for('logged') }}#popular-bundle-pack"  >    
-                        
+                    <a href="{{ url_for('logged') }}#popular-bundle-pack">
                         Packages
-                    
                     </a>
-                
                 </li>
-                
                 <li>
-                    
-                    <a href="{{ url_for('feedback') }}" >
-
-                        
+                    <a href="{{ url_for('feedback') }}">
                         Feedback
-                    
                     </a>
-                
                 </li>
-                
                 <li>
-
-                    
-                    <a href="{{ url_for('aboutus') }}" >
-
+                    <a href="{{ url_for('aboutus') }}">
                         About&nbsp;us
-
                     </a>
-
                 </li>
-
                 <li>
-                    
-                    
-                    <a href="{{ url_for('contactus') }}"  >
-                        
+                    <a href="{{ url_for('contactus') }}">
                         Contact&nbsp;Us
-                    
                     </a>
-                
                 </li>
-
                 <li>
-                    
-                    
-                    <a href="{{ url_for('track') }}"  >
-                        
-                        Track&nbsp;Your&nbsp;Order  
-                    
+                    <a href="{{ url_for('track') }}">
+                        Track&nbsp;Your&nbsp;Order
                     </a>
-                
                 </li>
-
                 <li>
-                    
-                    <a href="{{ url_for('login') }}" >
-
-                            
+                    <a href="{{ url_for('login') }}">
                         Logout
-                        
                     </a>
-                    
                 </li>
+            </ul>
 
-                
-               
-            
-
-                </ul>
-
-            <!--right-nav-(cart-like)-->
+            <!-- Right navigation (cart-like) -->
             <div class="right-nav">
-
-                
-
-                
-
-                <!--User----->
-                <!-- Inside profile.html -->
-                
-                
-                <a class = "like" href="{{ url_for('profile') }}">
+                <!-- User profile image -->
+                <a class="like" href="{{ url_for('profile') }}">
                     <img src="{{ photo_url }}" alt="Profile Image">
                 </a>
-                
-                <a class = "greeting">Welcome, {{ first_name }}</a>
+                <!-- Greeting message -->
+                <a class="greeting">Welcome, {{ first_name }}</a>
             </div>
-            
-
         </nav>
 
-        <!--nav-end--------------------->
+        <!-- Left sidebar -->
         <div>
-        
             <div class="left-sidebar">
-                <img src="{{ url_for('static', filename='/images/images/plate7.png') }}" alt="plate" >
-    
-                
+                <img src="{{ url_for('static', filename='/images/images/plate7.png') }}" alt="plate">
             </div>
-            </div>
-        <div class="header">
-            <img src="{{ url_for('static', filename='/images/images/raya.png') }}" alt="Raya logo" >
+        </div>
 
+        <!-- Header -->
+        <div class="header">
+            <img src="{{ url_for('static', filename='/images/images/raya.png') }}" alt="Raya logo">
             <h3 id="categoryTitle">Fruits & Vegetables</h3>
             <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
         </div>
+
+        <!-- Main container -->
         <div class="container">
             <div id="root"></div>
+            <!-- Sidebar -->
             <div class="sidebar">
                 <div class="head"><p>Raya Cart</p></div>
                 <div id="cartItem">Your cart is empty</div>
@@ -196,81 +127,65 @@
                     <h2 id="total">$ 0.00</h2>
                 </div>
                 <div>
-                    <a class="foot"id="checkoutButton" href="{{ url_for('checkoutdetails') }}">
-                       Create Order
+                    <a class="foot" id="checkoutButton" href="{{ url_for('checkoutdetails') }}">
+                        Create Order
                     </a>
                     <a class="foot" href="{{ url_for('checkoutdetails') }}">
-                        preceed to checkout
-                     </a>
-                    
+                        Proceed to Checkout
+                    </a>
                 </div>
             </div>
         </div>
+
+        <!-- Include JavaScript file -->
         <script src="{{ url_for('static', filename='js/RAYA JS.js') }}"></script>
-        <!--box-container---------->
 
+        <!-- Category container -->
         <div class="category-container">
-
-            <!--box---------------->
-                <a class="category-box" data-category="fruitVegetableProducts" onclick="switchCategory('fruitVegetableProducts')"  >
-
+            <!-- Category boxes -->
+            <a class="category-box" data-category="fruitVegetableProducts" onclick="switchCategory('fruitVegetableProducts')">
                 <img src="{{ url_for('static', filename='/images/images/Vegetables.png') }}" alt="fruits&vegetables">
                 <span>Fruits & <br> Vegetables</span>
             </a>
-            <!--box---------------->
-            <a class="category-box" data-category="meatProducts" onclick="switchCategory('meatProducts')"  >
-
-                <img src="{{ url_for('static', filename='/images/images/fish.png') }}" alt="meat" >
+            <a class="category-box" data-category="meatProducts" onclick="switchCategory('meatProducts')">
+                <img src="{{ url_for('static', filename='/images/images/fish.png') }}" alt="meat">
                 <span>Meat</span>
             </a>
-            <!--box---------------->
-            <a class="category-box" data-category="bakeryProducts" onclick="switchCategory('bakeryProducts')"  >
-
-                <img src="{{ url_for('static', filename='/images/images/bakery1.png') }}" alt="bakery" >
+            <a class="category-box" data-category="bakeryProducts" onclick="switchCategory('bakeryProducts')">
+                <img src="{{ url_for('static', filename='/images/images/bakery1.png') }}" alt="bakery">
                 <span>Bakery</span>
             </a>
-            <!--box---------------->
-            <a class="category-box" data-category="snacksProducts" onclick="switchCategory('snacksProducts')"  >
-
-                <img src="{{ url_for('static', filename='/images/images/snacks.png') }}" alt="snacks" >
+            <a class="category-box" data-category="snacksProducts" onclick="switchCategory('snacksProducts')">
+                <img src="{{ url_for('static', filename='/images/images/snacks.png') }}" alt="snacks">
                 <span>Snacks</span>
             </a>
-            <!--box---------------->
-            <a class="category-box" data-category="dairyProducts" onclick="switchCategory('dairyProducts')"  >
-
-                <img src="{{ url_for('static', filename='/images/images/dairy.png') }}" alt="dairy" >
+            <a class="category-box" data-category="dairyProducts" onclick="switchCategory('dairyProducts')">
+                <img src="{{ url_for('static', filename='/images/images/dairy.png') }}" alt="dairy">
                 <span>Dairy</span>
             </a>
-            <!--box---------------->
-            <a class="category-box" data-category="babyProducts" onclick="switchCategory('babyProducts')"  >
-
-                <img src="{{ url_for('static', filename='/images/images/baby.png') }}" alt="Baby" >
+            <a class="category-box" data-category="babyProducts" onclick="switchCategory('babyProducts')">
+                <img src="{{ url_for('static', filename='/images/images/baby.png') }}" alt="Baby">
                 <span>Baby</span>
             </a>
-            <a class="category-box" data-category="medicineProducts" onclick="switchCategory('medicineProducts')"  >
-
-                <img src="{{ url_for('static', filename='/images/images/medicine.png') }}" alt="medicine" >
+            <a class="category-box" data-category="medicineProducts" onclick="switchCategory('medicineProducts')">
+                <img src="{{ url_for('static', filename='/images/images/medicine.png') }}" alt="medicine">
                 <span>Medicine</span>
             </a>
-            <a class="category-box" data-category="PopularPackges" onclick="switchCategory('PopularPackges')"  >
-
-                <img src="{{ url_for('static', filename='/images/images/package.png') }}" alt="Popular" >
-                <span>Packges</span>
+            <a class="category-box" data-category="PopularPackges" onclick="switchCategory('PopularPackges')">
+                <img src="{{ url_for('static', filename='/images/images/package.png') }}" alt="Popular">
+                <span>Packages</span>
             </a>
         </div>
-        
-        <div id="root"></div>
-        
+
         <!-- Cart Display -->
         <div>
             <div id="cartItem"></div>
             <div id="total"></div>
         </div>
-        
-        <div class ="right">
-            <img src="{{ url_for('static', filename='/images/images/plate2.png') }}" alt="plate" >
 
-        <div>
-            
+        <!-- Right sidebar -->
+        <div class="right">
+            <img src="{{ url_for('static', filename='/images/images/plate2.png') }}" alt="plate">
+        </div>
     </body>
 </html>

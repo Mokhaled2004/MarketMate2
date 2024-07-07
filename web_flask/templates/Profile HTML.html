@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Profile Page</title>
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Profile CSS.css') }}">
+    <!-- Include Font Awesome icons -->
     <script src="https://kit.fontawesome.com/cacf32ff12.js" crossorigin="anonymous"></script>
+    <!-- Set favicon -->
     <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
 </head>
 <body>
 <div class="container">
     <div class="leftbox">
         <nav>
+            <!-- Tab for personal information (active tab) -->
             <a onclick="tabs(0)" class="tab active">
                 <i class="fas fa-user"></i>
             </a>
            
+            <!-- Tab for order history -->
             <a onclick="tabs(3)" class="tab" href="{{ url_for('history') }}">
                 <i class="fas fa-tasks"></i>
             </a>
@@ -22,6 +27,7 @@
         </nav>
     </div>
     <div class="rightbox">
+        <!-- Personal information tab -->
         <div class="profile tabShow">
             <h1>Personal Information</h1>
             <form action="{{ url_for('profile') }}" method="POST">
@@ -39,6 +45,7 @@
                 <button class="btn" type="submit">Update</button> <a href="{{ url_for('logged') }}" class="btn" type="submit">Home</a>
             </form>
         </div>
+        <!-- Order history tab -->
         <div class="History tabShow">
             <h1>Order History</h1>
             <ul>
@@ -58,7 +65,9 @@
     
     </div>
 </div>
+<!-- Include jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Include custom JavaScript file -->
 <script src="{{ url_for('static', filename='js/Profile JS.js') }}"></script>
 </body>
 </html>

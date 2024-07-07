@@ -22,7 +22,7 @@
         
     
         <!--==Fav-icon===============================-->
-        <link rel="shortcut icon" href="images/fav-icon.png"/>
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/images/Logo.png') }}">
     
         <!--==Using-Font-Awesome=====================-->
         <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
@@ -167,23 +167,13 @@
                         </a>
                         
                     </li>
-    
-                    
-                   
-                
-    
+
                     </ul>
     
                 <!--right-nav-(cart-like)-->
                 <div class="right-nav">
-    
-                    
-    
-                    
-    
-                    <!--User----->
-                    <!-- Inside profile.html -->
-                    
+
+                    <!--profile-->
                     
                     <a class = "like" href="{{ url_for('profile') }}">
                         <img src="{{ photo_url }}" alt="Profile Image">
