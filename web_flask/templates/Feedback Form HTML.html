@@ -1,33 +1,51 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Page title -->
         <title>Feedback</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/Feedback Form CSS.css') }}">
-        <script src="https://kit.fontawesome.com/9088cc6401.js" crossorigin="anonymous"></script>
-        <link rel="shortcut icon" type="image/jpg" href="path/to/favicon.ico"/>
-    </head>
-    <body>
         
+        <!-- Favicon link -->
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/images/Logo.png') }}">
+        
+        <!-- CSS stylesheet link -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/Feedback Form CSS.css') }}">
+        
+        <!-- Font Awesome script link for star icons -->
+        <script src="https://kit.fontawesome.com/9088cc6401.js" crossorigin="anonymous"></script>
+    </head>
+    
+    <body>
+        <!-- Main feedback form section -->
         <section>
             <div class="rating-css">
+                <!-- Feedback form heading -->
                 <div style="font-family: 'Poppins', sans-serif;">Feedback<br>Form</div>
+                
+                <!-- Feedback form submission -->
                 <form action="{{ url_for('feedsubmit') }}" method="POST">
+                    <!-- Star rating input -->
                     <div class="star-icon">
+                        <!-- Radio button for 1-star rating -->
                         <input type="radio" name="rating" id="rating1" value="1">
                         <label for="rating1" class="fa fa-star"></label>
-    
+                        
+                        <!-- Radio button for 2-star rating -->
                         <input type="radio" name="rating" id="rating2" value="2">
                         <label for="rating2" class="fa fa-star"></label>
-    
+                        
+                        <!-- Radio button for 3-star rating -->
                         <input type="radio" name="rating" id="rating3" value="3">
                         <label for="rating3" class="fa fa-star"></label>
-    
+                        
+                        <!-- Radio button for 4-star rating -->
                         <input type="radio" name="rating" id="rating4" value="4">
                         <label for="rating4" class="fa fa-star"></label>
-    
+                        
+                        <!-- Radio button for 5-star rating -->
                         <input type="radio" name="rating" id="rating5" value="5">
                         <label for="rating5" class="fa fa-star"></label>
-    
+                        
+                        <!-- Submit button -->
                         <button type="submit" class="btn" style="color: #ffffff; text-decoration: none;">Submit</button>
                     </div>
                 </form>
