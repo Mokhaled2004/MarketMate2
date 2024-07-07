@@ -9,7 +9,7 @@
             About Us
 
         </title>
-
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/images/Logo.png') }}">
         <meta charset = "utf-8">
 
         <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
@@ -31,11 +31,8 @@
     
             <!--logo-------->
             
-
             <img src="{{ url_for('static', filename='/images/images/Logo.png') }}" alt="Logo" class = "Logo" >
 
-
-            
             <label for="menu-btn" class="menu-icon">
 
                 <span class="nav-icon"></span>
@@ -62,6 +59,18 @@
                         Categories
                     
                     </a>
+                    <div class="dropdown-content">
+
+                        <a href="{{ url_for('carttest') }}#category">FRUITS & VEGETABLES</a>
+                        <a href="{{ url_for('carttest') }}#category">MEDICINE</a>
+                        <a href="{{ url_for('carttest') }}#category">BABY CARE</a>
+                        <a href="{{ url_for('carttest') }}#category">MEAT</a>
+                        <a href="{{ url_for('carttest') }}#category">BAKERY</a>
+                        <a href="{{ url_for('carttest') }}#category">SNACKS</a>
+                        <a href="{{ url_for('carttest') }}#category">DAIRY PRODUCTS</a>
+                        <a  href="{{ url_for('carttest') }}#category" >POPULAR PACKAGES>POPULAR PACKAGES</a>
+                        
+                    </div>
                 
                 </li>
 
@@ -69,10 +78,19 @@
 
                     <a href="{{ url_for('home') }}#category"  >    
 
-                        
                         Stores
                     
                     </a>
+
+                    <div class="dropdown-content">
+
+                        <a href="{{ url_for('carttest') }}">BIM</a>
+                        <a href="{{ url_for('raya') }}">AL RAYA</a>
+                        <a href="{{ url_for('ragabsons') }}">WELAD-RAGAB</a>
+                        <a href="{{ url_for('walmart') }}">WALMART</a>
+                        <a href="{{ url_for('seoudi') }}">Seoudi Supermarkets</a>
+
+                    </div>
                 
                 </li>
 
@@ -99,7 +117,6 @@
                 
                 <li>
 
-                    
                     <a href="{{ url_for('aboutus') }}" class="active" >
 
                         About&nbsp;us
@@ -110,7 +127,6 @@
 
                 <li>
                     
-                    
                     <a href="{{ url_for('contactus') }}"  >
                         
                         Contact&nbsp;Us
@@ -120,7 +136,6 @@
                 </li>
 
                 <li>
-                    
                     
                     <a href="{{ url_for('track') }}"  >
                         
@@ -141,31 +156,21 @@
                     
                 </li>
 
-                
-               
+            </ul>
+
             
-
-                </ul>
-
-            <!--right-nav-(cart-like)-->
             <div class="right-nav">
 
-                
-
-                
-
-                <!--User----->
-                <!-- Inside profile.html -->
-                
-                
                 <a class = "like" href="{{ url_for('profile') }}">
+
                     <img src="{{ photo_url }}" alt="Profile Image">
+
                 </a>
                 
                 <a class = "greeting">Welcome, {{ first_name }}</a>
+
             </div>
             
-
         </nav>
 
         <!--nav-end--------------------->
@@ -191,16 +196,14 @@
                         <p>
 
 							At MarketMate, we simplify your shopping experience by offering a seamless way to select and purchase products from a variety of supermarkets. Our platform allows you to effortlessly browse, compare, and choose your favorite items, all from the comfort of your home. With a focus on convenience and quality, MarketMate ensures that your groceries are delivered promptly and efficiently, so you can spend more time on what truly matters. Experience the future of grocery shopping with MarketMate, where variety meets convenience.</b>.
+                    
                     </div>
-
-
 
                 <div class = "image-section">
 
-                    <a href="{{ url_for('home') }}" >
+                    <a href="{{ url_for('logged') }}" >
 
                         <img src="{{ url_for('static', filename='/images/images/Logo.png') }}" alt="Logo" style = 'cursor: pointer;' >
-
 
                     </a>
 
