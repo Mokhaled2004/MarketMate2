@@ -14,30 +14,25 @@
 
         <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Contact Form CSS.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Home Page CSS.css') }}">
-
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/images/Logo.png') }}">
 
         
         <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
 
-        
         <script src="{{ url_for('static', filename='js/Contact Form JS.js') }}"></script>
         
-
-        
-
     </head>
 
     <body>
+
          <!--==Navigation================================-->
+
         <nav class="navigation">
     
             <!--logo-------->
             
-
             <img src="{{ url_for('static', filename='/images/images/Logo.png') }}" alt="Logo" class = "Logo" >
-
-
-            
+          
             <label for="menu-btn" class="menu-icon">
 
                 <span class="nav-icon"></span>
@@ -64,6 +59,17 @@
                         Categories
                     
                     </a>
+
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('carttest') }}#category">FRUITS & VEGETABLES</a>
+                        <a href="{{ url_for('carttest') }}#category">MEDICINE</a>
+                        <a href="{{ url_for('carttest') }}#category">BABY CARE</a>
+                        <a href="{{ url_for('carttest') }}#category">MEAT</a>
+                        <a href="{{ url_for('carttest') }}#category">BAKERY</a>
+                        <a href="{{ url_for('carttest') }}#category">SNACKS</a>
+                        <a href="{{ url_for('carttest') }}#category">DAIRY PRODUCTS</a>
+                        <a  href="{{ url_for('carttest') }}#category" >POPULAR PACKAGES>POPULAR PACKAGES</a>
+                    </div>
                 
                 </li>
 
@@ -75,6 +81,14 @@
                         Stores
                     
                     </a>
+
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('carttest') }}">BIM</a>
+                        <a href="{{ url_for('raya') }}">AL RAYA</a>
+                        <a href="{{ url_for('ragabsons') }}">WELAD-RAGAB</a>
+                        <a href="{{ url_for('walmart') }}">WALMART</a>
+                        <a href="{{ url_for('seoudi') }}">Seoudi Supermarkets</a>
+                    </div>
                 
                 </li>
 
@@ -101,7 +115,6 @@
                 
                 <li>
 
-                    
                     <a href="{{ url_for('aboutus') }}" >
 
                         About&nbsp;us
@@ -111,8 +124,7 @@
                 </li>
 
                 <li>
-                    
-                    
+                                      
                     <a href="{{ url_for('contactus') }}" class="active" >
                         
                         Contact&nbsp;Us
@@ -142,23 +154,13 @@
                     </a>
                     
                 </li>
-
-                
-               
-            
-
-                </ul>
+ 
+            </ul>
 
             <!--right-nav-(cart-like)-->
             <div class="right-nav">
 
-                
-
-                
-
-                <!--User----->
-                <!-- Inside profile.html -->
-                
+            <!--profile -->
                 
                 <a class = "like" href="{{ url_for('profile') }}">
                     <img src="{{ photo_url }}" alt="Profile Image">
@@ -167,13 +169,16 @@
                 <a class = "greeting">Welcome, {{ first_name }}</a>
             </div>
             
-
         </nav>
 
         <!--nav-end--------------------->
+
         <div class="wrapper">
+
             <h2 align='center'>Contact Form</h2>
+
             <div id="error_message"></div>
+            
             <form id="myform" method="POST" action="{{ url_for('submit_contact_form') }}" onsubmit="return validate();">
                 <div class="input_field">
                     <input type="text" placeholder="Name" id="name" name="name">
