@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""create a unique FileStorage instance for your application"""
+"""create a unique FileStorage instance forr your application"""
 from os import getenv
 
 
