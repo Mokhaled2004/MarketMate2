@@ -3,8 +3,7 @@
 import models
 from models.base_model import BaseModel, Base
 from os import getenv
-import sqlalchemy
-from sqlalchemy import Column, String, Float, Table
+from sqlalchemy import Column, String, Float
 from sqlalchemy.orm import relationship
 
 class Product(BaseModel, Base):
@@ -17,11 +16,15 @@ class Product(BaseModel, Base):
         price = Column(Float, nullable=False)
         orders = relationship("Order", secondary='order_product', back_populates="products")
 
-        
+
     else:
-        name = ""
+        
+        user_id = ""
+        titlee = ""
         price = 0.0
+        quantity = 0
+        image = ""
 
     def __init__(self, *args, **kwargs):
-        """initializes Product"""
-        super().__init__(*args, **kwargs)
+
+               super().__init__(*args, **kwargs)
