@@ -39,15 +39,16 @@ window.addEventListener('load', function() {
     }
 });
 
-    document.getElementById('markDelivered').addEventListener('click', function() {
-        alert('Order marked as delivered!');
-        // Optionally, update UI or perform further actions
-    });
+document.getElementById('markDelivered').addEventListener('click', function() {
+    this.innerText = 'Delivered!';
+    // Optionally, update UI or perform further actions
+});
 
-    document.getElementById('cancelOrder').addEventListener('click', function() {
-        alert('Order cancelled!');
-        // Optionally, update UI or perform further actions
-    });
+document.getElementById('cancelOrder').addEventListener('click', function() {
+    this.innerText = 'Cancelled!';
+    // Optionally, update UI or perform further actions
+});
+
 
     function startTimer(seconds, message, callback) {
         const timerDiv = document.getElementById('timer');
@@ -178,6 +179,14 @@ document.getElementById('cancelOrder').addEventListener('click', function() {
     .catch(error => {
         console.error('Error:', error);
         alert('Failed to update order status');
+    });
+});
+
+// Add event listeners to all buttons with the 'pressed' class
+document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', function() {
+        // Toggle the 'pressed' class on the clicked button
+        this.classList.toggle('pressed');
     });
 });
 
