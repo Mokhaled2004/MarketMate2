@@ -24,7 +24,11 @@
     padding: 15px;
   }
   
-  
+  .header img {
+    /* Adjust image styles here */
+    max-height:150%; /* Example: Make images fill the height of the header */
+    max-width: 150%; /* Example: Make images fill the width of the header */
+}
   
   .cart{
     display: flex;
