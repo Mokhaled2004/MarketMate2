@@ -822,5 +822,45 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 //commented
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Select the search form and input
+    const searchForm = document.getElementById('search-boxx');
+    const searchInput = document.getElementById('search-input');
+
+    // Add an event listener to the search form
+    searchForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        const query = searchInput.value.toLowerCase(); // Get the search query
+        filterProducts(query); // Call the filter function
+    });
+
+    // Function to filter products based on the search query
+    function filterProducts(query) {
+        // Filter the categories array based on the query
+        const filteredProducts = categories.filter(product => product.title.toLowerCase().includes(query));
+        displayFilteredProducts(filteredProducts); // Display the filtered products
+    }
+
+    // Function to display filtered products
+    function displayFilteredProducts(products) {
+        document.getElementById('root').innerHTML = products.map((item) => {
+            var { image, title, price } = item;
+            return (
+                `<div class='box'>
+                    <div class='img-box'>
+                        <img class='images' src=${image}></img>
+                    </div>
+                    <div class='bottom'>
+                        <p>${title}</p>
+                        <h2>LE ${price}.00</h2>
+                        <button onclick='addtocart(${item.id})'>Add to cart</button>
+                    </div>
+                </div>`
+            );
+        }).join('');
+    }
+
+});
+
 
 
