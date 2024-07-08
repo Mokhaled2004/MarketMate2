@@ -1,1 +1,19 @@
+<<<<<<< HEAD
 {"User.2eb62596-94d2-4e96-b6d0-335b73a6e3e2": {"first_name": "Mohamed", "last_name": "Khaled", "email": "mokhaled2004@gmail.com", "password": "c8b2f17833a4c73bb20f88876219ddcd", "address": "7832 Mohamed Ibrahim street, Region C Mokattam", "phone": "01097757050", "rating": 0, "created_at": "2024-07-08T14:15:13.047991", "updated_at": "2024-07-08T14:15:13.047991", "id": "2eb62596-94d2-4e96-b6d0-335b73a6e3e2", "__class__": "User"}}
+=======
+{
+    "User.36203e35-fc47-473d-8e35-c140c9578dfa": {
+        "first_name": "mazen",
+        "last_name": "wael",
+        "email": "Mazenwael575@gmail.com",
+        "password": "d9b1d7db4cd6e70935368a1efb10e377",
+        "address": "nasr",
+        "phone": "01286080266",
+        "rating": 0,
+        "created_at": "2024-07-08T14:04:03.975159",
+        "updated_at": "2024-07-08T14:04:03.975163",
+        "id": "36203e35-fc47-473d-8e35-c140c9578dfa",
+        "__class__": "User"
+    }
+}
+>>>>>>> 97d6463584aec5462d43b0461ee62b6cabeb560a
