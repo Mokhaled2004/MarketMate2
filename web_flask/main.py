@@ -469,6 +469,9 @@ def fetch_order_history():
 
     return jsonify(user_orders)
 
+
+
+
 #----------------------------Filter Order History-----------------------------------------------
 
 @app.route('/fetch_filtered_orders', methods=['GET'])
