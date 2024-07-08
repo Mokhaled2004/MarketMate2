@@ -2,7 +2,7 @@ window.addEventListener('load', function() {
     const statusDiv = document.getElementById('status');
     statusDiv.textContent = 'Order placed. Preparing for shipment...';
 
-    const stageDuration = 3; // in seconds
+    const stageDuration = 30; // in seconds
     const stages = [
         { stage: 'Order Placed', duration: stageDuration },
         { stage: 'Shipped', duration: stageDuration },
