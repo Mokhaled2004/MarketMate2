@@ -367,7 +367,7 @@ def login():
         hashed_password = md5(password.encode()).hexdigest()
         user = None
         for u in storage.all(User).values():
-            if u.email == email :
+            if u.email == email or u.password == hashed_password  :
                 user = u
                 break
         if user:
@@ -378,6 +378,7 @@ def login():
             session['user_last_name'] = user.last_name
             session['user_address'] = user.address
             session['user_password'] = user.password
+            session['user_photo'] = user.photo
             flash('Logged in successfully!', 'success')
             return redirect(url_for('logged'))
         else:
@@ -402,7 +403,8 @@ def signup():
                 flash('Email already exists. Please log in.', 'warning')
                 return redirect(url_for('signup'))
         # Create a new user
-        new_user = User(first_name=first_name, last_name=last_name, email=email, password=password, address=address, phone=phone,rating = 0)
+        hashed_password = md5(password.encode()).hexdigest()
+        new_user = User(first_name=first_name, last_name=last_name, email=email, password=hashed_password, address=address, phone=phone,rating = 0)
         storage.new(new_user)
         storage.save()
         # Check if the user was saved
