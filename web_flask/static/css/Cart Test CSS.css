@@ -302,3 +302,7 @@
   background-color: #66380d;;
   transition: all ease 0.3s;
 }
+
+.foot.pressed{
+  background-color: #4CAF50;
+}
