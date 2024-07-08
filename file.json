@@ -1,4 +1,1 @@
-<<<<<<< HEAD
-{"User.a8f42c93-a7ab-429a-aeb5-9a92015a97d0": {"first_name": "mazen", "last_name": "wael", "email": "Mazenwael575@gmail.com", "password": "d9b1d7db4cd6e70935368a1efb10e377", "address": "NASR", "phone": "01286080266", "rating": 0, "created_at": "2024-07-08T13:11:32.546991", "updated_at": "2024-07-08T13:11:32.546995", "id": "a8f42c93-a7ab-429a-aeb5-9a92015a97d0", "__class__": "User"}}
-=======
->>>>>>> refs/remotes/origin/main
+{"User.caaf084a-c23c-4dc9-81f0-9b2ab7f64b85": {"first_name": "mazen", "last_name": "wael ", "email": "Mazenwael575@gmail.com", "password": "d9b1d7db4cd6e70935368a1efb10e377", "address": "nasr", "phone": "01286080266", "rating": 0, "created_at": "2024-07-08T13:48:50.269370", "updated_at": "2024-07-08T13:48:50.269374", "id": "caaf084a-c23c-4dc9-81f0-9b2ab7f64b85", "__class__": "User"}}
