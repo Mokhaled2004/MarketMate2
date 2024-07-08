@@ -3,7 +3,7 @@
         "first_name": "mazen",
         "last_name": "wael",
         "email": "Mazenwael575@gmail.com",
-        "password": "d9b1d7db4cd6e70935368a1efb10e377",
+        "password": "7363a0d0604902af7b70b271a0b96480",
         "address": "nasr",
         "phone": "01286080266",
         "rating": 0,
@@ -11,5 +11,66 @@
         "updated_at": "2024-07-08T14:04:03.975163",
         "id": "36203e35-fc47-473d-8e35-c140c9578dfa",
         "__class__": "User"
+    },
+    "Order.bf11f76f-76f7-46cf-b979-65607e2be473": {
+        "delivered": "Cancelled",
+        "user_id": "36203e35-fc47-473d-8e35-c140c9578dfa",
+        "products": [
+            {
+                "title": "Potato",
+                "price": 75,
+                "quantity": 3
+            }
+        ],
+        "total_price": 75.0,
+        "created_at": "2024-07-08T17:06:22.767015",
+        "market_name": "BIM",
+        "updated_at": "2024-07-08T17:06:22.767015",
+        "id": "bf11f76f-76f7-46cf-b979-65607e2be473",
+        "address": "nasr",
+        "date": "15/10/2003",
+        "__class__": "Order"
+    },
+    "Payment.6579f57c-fb69-476b-bd67-069fdf27d8d5": {
+        "order_id": "bf11f76f-76f7-46cf-b979-65607e2be473",
+        "user_id": "36203e35-fc47-473d-8e35-c140c9578dfa",
+        "card_number": "",
+        "card_name": "",
+        "expiry_month": "01",
+        "expiry_year": "2022",
+        "cvv": "",
+        "payment_type": "visa",
+        "created_at": "2024-07-08T17:06:49.078545",
+        "updated_at": "2024-07-08T17:06:49.078547",
+        "id": "6579f57c-fb69-476b-bd67-069fdf27d8d5",
+        "__class__": "Payment"
+    },
+    "Payment.79b4f2f2-2f6e-4fa4-bc98-ae97a72a5a94": {
+        "order_id": "bf11f76f-76f7-46cf-b979-65607e2be473",
+        "user_id": "36203e35-fc47-473d-8e35-c140c9578dfa",
+        "card_number": "4645 3214 1145 1232",
+        "card_name": "mazen wael",
+        "expiry_month": "01",
+        "expiry_year": "2022",
+        "cvv": "232",
+        "payment_type": "visa",
+        "created_at": "2024-07-08T17:07:27.041516",
+        "updated_at": "2024-07-08T17:07:27.041517",
+        "id": "79b4f2f2-2f6e-4fa4-bc98-ae97a72a5a94",
+        "__class__": "Payment"
+    },
+    "Payment.f5ca1b5c-8266-4a54-b014-e480b13982ed": {
+        "order_id": "bf11f76f-76f7-46cf-b979-65607e2be473",
+        "user_id": "36203e35-fc47-473d-8e35-c140c9578dfa",
+        "card_number": "4645 3214 1145 1232",
+        "card_name": "mazen wael",
+        "expiry_month": "01",
+        "expiry_year": "2022",
+        "cvv": "232",
+        "payment_type": "visa",
+        "created_at": "2024-07-08T17:07:37.371328",
+        "updated_at": "2024-07-08T17:07:37.371331",
+        "id": "f5ca1b5c-8266-4a54-b014-e480b13982ed",
+        "__class__": "Payment"
     }
 }

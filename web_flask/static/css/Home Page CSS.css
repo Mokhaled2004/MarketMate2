@@ -1004,3 +1004,9 @@ footer{
 .right{
     margin-top: 1000px;
 }
+
+#dynamic-title {
+    font-weight: bold;
+    font-size: 2em;
+    transition: color 1s ease-in-out;
+}

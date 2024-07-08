@@ -1,7 +1,17 @@
-
-// Update card number box with input value
+// Update card number box with input value and format with spaces
 document.querySelector('.card-number-input').oninput = () => {
-    document.querySelector('.card-number-box').innerText = document.querySelector('.card-number-input').value;
+    let input = document.querySelector('.card-number-input').value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+    let formattedValue = '';
+    
+    for (let i = 0; i < input.length; i++) {
+        if (i > 0 && i % 4 === 0) {
+            formattedValue += ' ';
+        }
+        formattedValue += input[i];
+    }
+    
+    document.querySelector('.card-number-input').value = formattedValue;
+    document.querySelector('.card-number-box').innerText = formattedValue;
 }
 
 // Update card holder name with input value
@@ -35,4 +45,3 @@ document.querySelector('.cvv-input').onmouseleave = () => {
 document.querySelector('.cvv-input').oninput = () => {
     document.querySelector('.cvv-box').innerText = document.querySelector('.cvv-input').value;
 }
-// commented

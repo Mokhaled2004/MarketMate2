@@ -198,32 +198,56 @@
                 <!--text------->
                 <div class="search-banner-text">
     
-                    <h1>
-                        
-                        Order Your daily Groceries
+                    <head>
+                        <title>Typing Title Example</title>
+                        <style>
+                            #dynamic-title {
+                                font-weight: bold;
+                                font-size: 3em; /* Increased font size */
+                                transition: color 1s ease-in-out;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <h1 id="dynamic-title"></h1>
                     
-                    </h1>
-    
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                const title = document.getElementById('dynamic-title');
+                                const text = "Order Your Daily Groceries :)";
+                                let index = 0;
                     
-    
-                    <!--search-box------>
-                    <form action="" class="search-box">
-    
-                        <!--icon------>
-                        <i class="fas fa-search"></i>
-    
-                        <!--input----->
-                        <input type="text" class="search-input" placeholder="Search" name="search" size = "80px" required>
-    
-                        <!--btn------->
-                        <input type="submit" class="search-btn" value="Search">
-    
+                                function typeText() {
+                                    if (index < text.length) {
+                                        title.innerHTML += text.charAt(index);
+                                        index++;
+                                        setTimeout(typeText, 100); // Adjust typing speed here
+                                    }
+                                }
+                    
+                                // Function to reset and start typing effect
+                                function startTypingEffect() {
+                                    title.innerHTML = ''; // Reset the text
+                                    index = 0; // Reset the index
+                                    typeText(); // Start the typing effect
+                                }
+                    
+                                // Observer to detect when the title is in view
+                                const observer = new IntersectionObserver((entries) => {
+                                    entries.forEach(entry => {
+                                        if (entry.isIntersecting) {
+                                            startTypingEffect();
+                                        }
+                                    });
+                                });
+                    
+                                observer.observe(title);
+                            });
+                        </script>
+                    </body>
+                    <!-- Search Box Form -->
+                     
                     </form>
-    
-                    <br>
-    
-            
-    
                 </div>
     
             </section>
