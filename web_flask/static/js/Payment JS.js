@@ -19,7 +19,7 @@ document.querySelector('.card-holder-input').oninput = () => {
     document.querySelector('.card-holder-name').innerText = document.querySelector('.card-holder-input').value;
 }
 
-// Update expiration month with input value
+// Update expiration month with input valuee
 document.querySelector('.month-input').oninput = () => {
     document.querySelector('.exp-month').innerText = document.querySelector('.month-input').value;
 }
