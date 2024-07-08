@@ -448,7 +448,7 @@ def profile():
         'photo': session.get('user_photo')
     }
 
-    storage.save()
+    
 
     return render_template('Profile HTMl.html', title='Profile', user=user_details)
 
