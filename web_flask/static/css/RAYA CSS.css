@@ -103,6 +103,10 @@
       background-color: #66380d;
       transition: all .3s ease-in-out;
   }
+  
+  .foot.pressed{
+      background-color: #4CAF50;
+  }
   .box{
     display: flex;
     flex-direction: column;

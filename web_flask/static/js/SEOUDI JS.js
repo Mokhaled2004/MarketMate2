@@ -855,6 +855,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+function changeText(link) {
+    link.innerHTML = 'Order Added &#10004;'; 
+    link.classList.add('pressed');
+}
+
 
 
 

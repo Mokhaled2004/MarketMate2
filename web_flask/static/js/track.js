@@ -153,9 +153,7 @@ document.getElementById('markDelivered').addEventListener('click', function() {
         if (!response.ok) {
             throw new Error('Failed to update order status');
         }
-        // Update UI or show confirmation message
-        alert('Order status updated to Delivered');
-        // Optionally, you can update UI elements dynamically here
+        
     })
     .catch(error => {
         console.error('Error:', error);
@@ -171,9 +169,7 @@ document.getElementById('cancelOrder').addEventListener('click', function() {
         if (!response.ok) {
             throw new Error('Failed to update order status');
         }
-        // Update UI or show confirmation message
-        alert('Order status updated to Canceled');
-        // Optionally, you can update UI elements dynamically here
+        
         
     })
     .catch(error => {
