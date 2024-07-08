@@ -452,7 +452,7 @@ def profile():
 
     
 
-    return render_template('Profile HTMl.html', title='Profile', user=user_details)
+    return render_template('Profile HTML.html', title='Profile', user=user_details)
 
 #----------------------------Order-History-----------------------------------------------
 
@@ -674,7 +674,7 @@ def ragabsons():
    
     else:
             photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
-    return render_template('WELADRAGAB HTMl.html', title='Ragab sons Store',first_name=first_name, photo_url=photo_url)
+    return render_template('WELADRAGAB HTML.html', title='Ragab sons Store',first_name=first_name, photo_url=photo_url)
 
 #----------------------------Walmart Page (WALMART Store)-----------------------------------------------
 
@@ -696,7 +696,7 @@ def walmart():
    
     else:
             photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
-    return render_template('WALMART HTMl.html', title='Walmart Store',first_name=first_name, photo_url=photo_url)
+    return render_template('WALMART HTML.html', title='Walmart Store',first_name=first_name, photo_url=photo_url)
 
 #----------------------------SEOUDI Page (SEOUDI Store)-----------------------------------------------
 
@@ -718,7 +718,7 @@ def seoudi():
    
     else:
             photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
-    return render_template('SEOUDI HTMl.html', title='Seoudi Store',first_name=first_name, photo_url=photo_url)
+    return render_template('SEOUDI HTML.html', title='Seoudi Store',first_name=first_name, photo_url=photo_url)
 
 #----------------------------Logged Home Page-----------------------------------------------
 

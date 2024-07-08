@@ -1,0 +1,15 @@
+{
+    "User.36203e35-fc47-473d-8e35-c140c9578dfa": {
+        "first_name": "mazen",
+        "last_name": "wael",
+        "email": "Mazenwael575@gmail.com",
+        "password": "d9b1d7db4cd6e70935368a1efb10e377",
+        "address": "nasr",
+        "phone": "01286080266",
+        "rating": 0,
+        "created_at": "2024-07-08T14:04:03.975159",
+        "updated_at": "2024-07-08T14:04:03.975163",
+        "id": "36203e35-fc47-473d-8e35-c140c9578dfa",
+        "__class__": "User"
+    }
+}
