@@ -746,12 +746,16 @@ def logged():
 
     users = storage.all(User)  # Retrieve all users from storage
     total_ratings = 0
+    count_positive_ratings = 0
+
     for u in users.values():
-        total_ratings   += u.rating
+        if u.rating > 0:
+            total_ratings += u.rating
+            count_positive_ratings += 1
                              
-    num_users = len(users)
-    if num_users > 0:
-        average_rating = total_ratings / num_users
+    #num_users = len(users)
+    if count_positive_ratings > 0:
+        average_rating = total_ratings / count_positive_ratings
         average_rating = round(average_rating, 1)
     else:
         average_rating = 0  # Handle case where there are no users or ratings
