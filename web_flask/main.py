@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ Starts a Flask Web Application """
-import os
 from flask import Flask, render_template, request, redirect, url_for, flash,session, jsonify    
 from hashlib import md5
 from models import storage
@@ -9,17 +8,33 @@ from models.product import Product
 from models.order   import Order
 from models.review import Review
 from models.payment import Payment
-import json
-from datetime import datetime, timedelta
+from datetime import datetime
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
 
+#----------------------------Index Page (Home)-----------------------------------------------
 
-from flask import session, jsonify, request
+@app.route('/')
+def home():
+    users = storage.all(User)  # Retrieve all users from storage
+    total_ratings = 0
+    for u in users.values():
+        total_ratings   += u.rating
+                             
+    num_users = len(users)
+    if num_users > 0:
+        average_rating = total_ratings / num_users
+        average_rating = round(average_rating, 1)
+    else:
+        average_rating = 0  # Handle case where there are no users or ratings
+    return render_template('index.html', title='MarketMate', average_rating=average_rating)
 
-#--------------------------------------------------------------------------------------------------------
+
+
+#----------------------------Process-Payment-----------------------------------------------
+
 @app.route('/process_payment', methods=['POST'])
 def process_payment():
     if request.method == 'POST':
@@ -28,8 +43,6 @@ def process_payment():
             flash('Please log in to complete payment.', 'danger')
             return redirect(url_for('login'))
         
-   
-
         all_orders = storage.all(Order)
         latest_order = None
 
@@ -44,7 +57,6 @@ def process_payment():
 
         order_id = latest_order.id # Update status to 'Delivered'
         storage.save()  # Save the updated order
-
 
         card_number = request.form['card_number']
         card_name = request.form['card_name']
@@ -66,17 +78,18 @@ def process_payment():
             
         )
 
-        # Assuming storage handles SQLAlchemy session or file-based storage
+        # Assuming storage handles file-based storage
         storage.new(payment)
         storage.save()
 
         flash('Payment processed successfully!', 'success')
-        return redirect(url_for('track'))  # Redirect to track page or another appropriate page
+        return redirect(url_for('track'))  # Redirect to track page 
 
-    # If method is not POST (though form should handle this)
+    
     return redirect(url_for('home'))  # Redirect to home page if method is not POST
     
-#--------------------------------------------------------------------------------------------------------   
+#----------------------------Update-Market-Name-----------------------------------------------
+ 
 @app.route('/update_market_name', methods=['POST'])
 def update_market_name():
     user_id = session.get('user_id')
@@ -96,13 +109,18 @@ def update_market_name():
     if not latest_order:
         return jsonify({'error': 'No orders found for the user'}), 404
 
-    # Update the market_name in the latest order
+    # Update the market_name, address, and date in the latest order
     latest_order.market_name = request.form.get('market_name')
-    storage.save()  # Save the updated order
+    latest_order.address = request.form.get('address')
+    latest_order.date = request.form.get('date')
+
+    # Save the updated order to storage
+    storage.save()
 
     return redirect(url_for('payment'))
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------------Submit-Contact-Form-----------------------------------------------
+
 @app.route('/submit_contact_form', methods=['POST'])
 def submit_contact_form():
     if 'user_id' not in session:
@@ -121,7 +139,8 @@ def submit_contact_form():
     flash('Contact form submitted successfully!', 'success')
     return redirect(url_for('contactus'))
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------------Feedback-----------------------------------------------
+
 @app.route('/feedsubmit', methods=['POST'])
 def feedsubmit():
     if 'user_id' not in session:
@@ -152,7 +171,8 @@ def feedsubmit():
     return redirect(url_for('feedbacksubmit'))
 
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------------Mark-Delivered-----------------------------------------------
+
 @app.route('/mark_delivered', methods=['PUT'])
 def mark_latest_delivered():
     user_id = session.get('user_id')
@@ -176,7 +196,8 @@ def mark_latest_delivered():
 
     return jsonify({'message': 'Latest order marked as Delivered'}), 200
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------------Mark-Cancelled-----------------------------------------------
+
 @app.route('/mark_cancelled', methods=['PUT'])
 def mark_cancelled():
     user_id = session.get('user_id')
@@ -200,7 +221,7 @@ def mark_cancelled():
 
     return jsonify({'message': 'Latest order marked as Delivered'}), 200
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------------Add to Cart -----------------------------------------------
 @app.route('/process_cart', methods=['POST'])
 def process_cart():
     if request.method == 'POST':
@@ -243,7 +264,8 @@ def process_cart():
     else:
         return jsonify({'error': 'Method not allowed'}), 405
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------------Remove from Cart-----------------------------------------------
+
 @app.route('/remove_item_by_title/<string:product_title>', methods=['DELETE'])
 def remove_item_by_title(product_title):
     user_id = session.get('user_id')  # Assume you store user_id in the session
@@ -272,7 +294,8 @@ def remove_item_by_title(product_title):
     else:
         return jsonify({'error': 'Product not found or does not belong to the user'}), 404
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------------Checkout-----------------------------------------------
+
 @app.route('/checkout', methods=['POST'])
 def checkout():
     user_id = session.get('user_id')
@@ -285,14 +308,14 @@ def checkout():
     total_price = 0.0
     delivered = "not delivered"
 
-    all_products = storage.all(Product)  # Adjust according to your storage implementation
+    all_products = storage.all(Product)  
     for product in all_products.values():
         if product.user_id == user_id:
             products_to_delete.append(product)
             products.append({
                 'title': product.title,
                 'price': product.price,
-                'quantity': product.quantity  # Assuming quantity is already correct
+                'quantity': product.quantity  
             })
             total_price += product.price 
 
@@ -306,7 +329,7 @@ def checkout():
         market_name= ""
     )
 
-    # Save the order to storage (assuming your storage handles SQLAlchemy sessions or file-based storage)
+    # Save the order to file-based storage
     storage.new(order)
     storage.save()
 
@@ -316,7 +339,8 @@ def checkout():
     storage.save()
     return jsonify({'message': 'Order placed successfully'}), 200
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------------Display Order Details-----------------------------------------------
+
 @app.route('/order_details', methods=['GET'])
 def order_details():
     user_id = session.get('user_id')
@@ -332,7 +356,8 @@ def order_details():
 
     return jsonify(user_orders), 200
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------------Login-----------------------------------------------
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -342,17 +367,18 @@ def login():
         hashed_password = md5(password.encode()).hexdigest()
         user = None
         for u in storage.all(User).values():
-            if u.email == email :
+            if u.email == email or u.password == hashed_password  :
                 user = u
                 break
         if user:
-            # Store user details in session
+            
             session['user_id'] = user.id
             session['user_email'] = user.email
             session['user_first_name'] = user.first_name
             session['user_last_name'] = user.last_name
             session['user_address'] = user.address
             session['user_password'] = user.password
+            session['user_photo'] = user.photo
             flash('Logged in successfully!', 'success')
             return redirect(url_for('logged'))
         else:
@@ -360,7 +386,8 @@ def login():
             return redirect(url_for('login'))
     return render_template('Login And Registration HTML.html')
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------------Sign-up-----------------------------------------------
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
@@ -369,14 +396,15 @@ def signup():
         email = request.form['email']
         password = request.form['password']
         address = request.form.get('address', '')
-        phone = request.form.get('phone')  # Corrected syntax
+        phone = request.form.get('phone')  
         # Check if email already exists
         for u in storage.all(User).values():
             if u.email == email:
                 flash('Email already exists. Please log in.', 'warning')
                 return redirect(url_for('signup'))
         # Create a new user
-        new_user = User(first_name=first_name, last_name=last_name, email=email, password=password, address=address, phone=phone,rating = 0)
+        hashed_password = md5(password.encode()).hexdigest()
+        new_user = User(first_name=first_name, last_name=last_name, email=email, password=hashed_password, address=address, phone=phone,rating = 0)
         storage.new(new_user)
         storage.save()
         # Check if the user was saved
@@ -388,7 +416,8 @@ def signup():
         return redirect(url_for('login'))
     return render_template('Login And Registration HTML.html')
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------------View Profile-----------------------------------------------
+
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if 'user_id' not in session:
@@ -402,9 +431,11 @@ def profile():
             user.first_name = request.form['first_name']
             user.last_name = request.form['last_name']
             user.email = request.form['email']
+            
             if request.form['password']:
                 user.password = md5(request.form['password'].encode()).hexdigest()
             user.address = request.form['address']
+            user.photo = request.form['photo']
             storage.save()
             flash('Profile updated successfully!', 'success')
         else:
@@ -416,133 +447,316 @@ def profile():
         'last_name': session.get('user_last_name'),
         'address': session.get('user_address'),
         'password': session.get('user_password'),
+        'photo': session.get('user_photo')
     }
 
     
-    return render_template('Profile HTML.html', title='Profile', user=user_details)
 
-#--------------------------------------------------------------------------------------------------------
-@app.route('/order_history')
-def order_history():
+    return render_template('Profile HTMl.html', title='Profile', user=user_details)
+
+#----------------------------Order-History-----------------------------------------------
+
+@app.route('/fetch_order_history', methods=['GET'])
+def fetch_order_history():
     user_id = session.get('user_id')
     if not user_id:
-        return render_template('error.html', message='User not logged in')
+        return jsonify({'error': 'User not logged in'}), 401
 
-    # Fetch orders from storage
+    # Fetch all orders for the logged-in user
+    user_orders = []
     all_orders = storage.all(Order)
-    user_orders = [order for order in all_orders.values() if order.user_id == user_id]
+    for order in all_orders.values():
+        if order.user_id == user_id:
+            user_orders.append(order.to_dict())
 
-    # Render the template with orders data
-    return render_template('History HTMl.html', orders=user_orders)
+    return jsonify(user_orders)
 
-#--------------------------------------------------------------------------------------------------------
+
+
+
+#----------------------------Filter Order History-----------------------------------------------
+
+@app.route('/fetch_filtered_orders', methods=['GET'])
+def fetch_filtered_orders():
+    filter_type = request.args.get('filter', 'all')
+    user_id = session.get('user_id')
+
+    if not user_id:
+        return jsonify({'error': 'User not logged in'}), 401
+
+    if filter_type == 'all':
+        # Fetch all orders for the logged-in user
+        user_orders = [order.to_dict() for order in storage.all(Order).values() if order.user_id == user_id]
+        filtered_orders = user_orders
+    elif filter_type == 'delivered':
+        user_orders = [order.to_dict() for order in storage.all(Order).values() if order.user_id == user_id and order.delivered == 'Delivered']
+        filtered_orders = user_orders
+    elif filter_type == 'cancelled':
+        user_orders = [order.to_dict() for order in storage.all(Order).values() if order.user_id == user_id and order.delivered == 'Cancelled']
+        filtered_orders = user_orders
+    elif filter_type == 'not-delivered':
+        user_orders = [order.to_dict() for order in storage.all(Order).values() if order.user_id == user_id and order.delivered == 'not delivered']
+        filtered_orders = user_orders
+    else:
+        return jsonify({'error': 'Invalid filter type'}), 400
+
+    return jsonify(filtered_orders)
+
+#----------------------------Carttest page (BIM Store)-----------------------------------------------
+
 @app.route('/carttest')
 def carttest():
-    return render_template('Cart Test HTML.html', title='carttest')
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
 
-#--------------------------------------------------------------------------------------------------------
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
+
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo 
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    return render_template('Cart Test HTML.html', title='carttest',first_name=first_name, photo_url=photo_url)
+
+#----------------------------Check-out Detals Page-----------------------------------------------
+
 @app.route('/checkoutdetails')
 def checkoutdetails():
     return render_template('Details For Checkout HTML.html', title='Checkout Details')
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------------Track Order Page-----------------------------------------------
+
 @app.route('/track')
 def track():
     return render_template('track.html', title='track order')
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------------Contact Confirm Page-----------------------------------------------
+
 @app.route('/Contact Form Confirm HTML and CSS')
 def Contact():
     return render_template('Contact Form Confirm HTML and CSS.html', title='Contact Form Confirm HTML and CSS')
 
-#--------------------------------------------------------------------------------------------------------
-@app.route('/')
-def home():
-    
-    return render_template('index.html', title='MarketMate')
+#----------------------------About-Us Page-----------------------------------------------
 
-#--------------------------------------------------------------------------------------------------------
 @app.route('/aboutus')
 def aboutus():
-    return render_template('About Us HTML.html', title='About Us')
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
 
-#--------------------------------------------------------------------------------------------------------
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
+
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo  
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    return render_template('About Us HTML.html', title='About Us',first_name=first_name, photo_url=photo_url)
+
+#----------------------------Contact Form Page-----------------------------------------------
+
 @app.route('/contactus')
 def contactus():
-    return render_template('Contact Form HTML.html', title='Contact Us')
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
 
-#--------------------------------------------------------------------------------------------------------
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
+
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo 
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    return render_template('Contact Form HTML.html', title='Contact Us',first_name=first_name, photo_url=photo_url)
+
+#----------------------------Feedback Page-----------------------------------------------
+
 @app.route('/feedback')
 def feedback():
     return render_template('Feedback Form HTML.html', title='FeedBack')
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------------Feedback Submit Page-----------------------------------------------
+
 @app.route('/feedbacksubmit')
 def feedbacksubmit():
     return render_template('Feedback Form Confirm HTML and CSS.html', title='FeedBack')
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------------Orders History Page-----------------------------------------------
+
 @app.route('/history')
 def history():
-    return render_template('History HTML.html', title='History')
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
 
-#--------------------------------------------------------------------------------------------------------
-@app.route('/cart')
-def cart():
-    return render_template('Shopping Cart HTML.html', title='Shopping Cart')
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
 
-#--------------------------------------------------------------------------------------------------------
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo 
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    return render_template('History HTML.html', title='History',first_name=first_name, photo_url=photo_url)
+
+#----------------------------Payment Page-----------------------------------------------
+
 @app.route('/payment')
 def payment():
     return render_template('Payment HTML.html', title='Payment')
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------------Payment Confirmation Page-----------------------------------------------
+
 @app.route('/paymentconfirm')
 def paymentconfirm():
     return render_template('Payment Confirmation HTML and CSS.html', title='Payment Confirmation')
 
-#--------------------------------------------------------------------------------------------------------
-@app.route('/fruits')
-def fruits():
-    return render_template('Fruits Category Page HTML.html', title='Fruits & Vegetables')
+#----------------------------Raya Page (RAYA Store)-----------------------------------------------
 
-#--------------------------------------------------------------------------------------------------------
-@app.route('/medicine')
-def medicine():
-    return render_template('Medicine Category Page HTML.html', title='Medicine')
+@app.route('/raya')
+def raya():
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
 
-#--------------------------------------------------------------------------------------------------------
-@app.route('/babycare')
-def babycare():
-    return render_template('Baby Care Category Page HTML.html', title='Baby Care')
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
 
-#--------------------------------------------------------------------------------------------------------
-@app.route('/meat')
-def meat():
-    return render_template('Meat Category Page HTML.html', title='Meat')
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo  
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    return render_template('RAYA HTML.html', title='Raya Store',first_name=first_name, photo_url=photo_url)
 
-#--------------------------------------------------------------------------------------------------------
-@app.route('/bakery')
-def bakery():
-    return render_template('Bakery Category Page HTML.html', title='Bakery')
+#----------------------------Ragab-Sons Page (RAGAB-SONS Store)-----------------------------------------------
 
-#--------------------------------------------------------------------------------------------------------
-@app.route('/snacks')
-def snacks():
-    return render_template('Snacks Category Page HTML.html', title='Snacks')
+@app.route('/ragabsons')
+def ragabsons():
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
 
-#--------------------------------------------------------------------------------------------------------
-@app.route('/dairy')
-def dairy():
-    return render_template('Dairy Category Page HTML.html', title='Dairy Products')
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
 
-#--------------------------------------------------------------------------------------------------------
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo 
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    return render_template('WELADRAGAB HTMl.html', title='Ragab sons Store',first_name=first_name, photo_url=photo_url)
+
+#----------------------------Walmart Page (WALMART Store)-----------------------------------------------
+
+@app.route('/walmart')
+def walmart():
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
+
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo 
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    return render_template('WALMART HTMl.html', title='Walmart Store',first_name=first_name, photo_url=photo_url)
+
+#----------------------------SEOUDI Page (SEOUDI Store)-----------------------------------------------
+
+@app.route('/seoudi')
+def seoudi():
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
+
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo  
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+    return render_template('SEOUDI HTMl.html', title='Seoudi Store',first_name=first_name, photo_url=photo_url)
+
+#----------------------------Logged Home Page-----------------------------------------------
+
 @app.route('/logged')
 def logged():
-    first_name = session.get('first_name', 'Guest')
-    return render_template('Logged Home Page HTML.html', title='Logged Home Page',first_name=first_name)
+    if 'user_id' not in session:
+        flash('Please log in to view your profile.', 'danger')
+        return redirect(url_for('login'))
 
-#--------------------------------------------------------------------------------------------------------
+    user_id = session['user_id']
+    user = storage.get(User,user_id)
+    if not user:
+        flash('User not found.', 'danger')
+        return redirect(url_for('login'))
+
+    first_name = user.first_name
+    if user.photo and user.photo != "None":
+            photo_url = user.photo  
+   
+    else:
+            photo_url = "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+
+
+    users = storage.all(User)  # Retrieve all users from storage
+    total_ratings = 0
+    for u in users.values():
+        total_ratings   += u.rating
+                             
+    num_users = len(users)
+    if num_users > 0:
+        average_rating = total_ratings / num_users
+        average_rating = round(average_rating, 1)
+    else:
+        average_rating = 0  # Handle case where there are no users or ratings
+    return render_template('Logged Home Page HTML.html', title='Logged Home Page', first_name=first_name, photo_url=photo_url, average_rating=average_rating)
+
+#----------------------------Main-----------------------------------------------
+
 if __name__ == "__main__":
     """ Main Function """
     app.run(debug=True, port=5001)

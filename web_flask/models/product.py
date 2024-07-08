@@ -3,8 +3,7 @@
 import models
 from models.base_model import BaseModel, Base
 from os import getenv
-import sqlalchemy
-from sqlalchemy import Column, String, Float, Table
+from sqlalchemy import Column, String, Float
 from sqlalchemy.orm import relationship
 
 class Product(BaseModel, Base):

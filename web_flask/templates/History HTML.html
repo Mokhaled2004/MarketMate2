@@ -2,21 +2,168 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <title>Order History</title>
+
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/images/Logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/History.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Home Page CSS.css') }}">
+
+    <script src="{{ url_for('static', filename='js/History.js') }}"></script>
+
 </head>
+
 <body>
-    <div class="History tabShow">
-        <h1>Order History</h1>
-        <ul>
-            {% for order in orders %}
+    <!--==Navigation================================-->
+    <nav class="navigation">
+    
+        <!--logo-------->
+        
+
+        <img src="{{ url_for('static', filename='/images/images/Logo.png') }}" alt="Logo" class = "Logo" >
+
+
+        
+        <label for="menu-btn" class="menu-icon">
+
+            <span class="nav-icon"></span>
+
+        </label>
+
+        <!--menu-------->
+        <ul class="menu">
+
             <li>
-                <strong>Order ID:</strong> {{ order.id }}<br>
-                <strong>Order Date:</strong> {{ order.created_at }}<br>
-                <strong>Market Name:</strong> {{ order.market_name }}<br>
-                <!-- Add other relevant order details as needed -->
-                <hr>
+                <a href="{{ url_for('logged') }}" >
+                    
+                    Home
+
+                </a>
+            
             </li>
-            {% endfor %}
+
+            <li>
+
+                <a href="{{ url_for('logged') }}#category"  >    
+
+
+                    Categories
+                
+                </a>
+                
+            
+            </li>
+
+            <li>
+
+                <a href="{{ url_for('logged') }}#category"  >    
+
+                    
+                    Stores
+                
+                </a>
+                
+            
+            </li>
+
+            <li>
+                
+                <a href="{{ url_for('logged') }}#popular-bundle-pack"  >    
+                    
+                    Packages
+                
+                </a>
+            
+            </li>
+            
+            <li>
+                
+                <a href="{{ url_for('feedback') }}" >
+
+                    
+                    Feedback
+                
+                </a>
+            
+            </li>
+            
+            <li>
+
+                
+                <a href="{{ url_for('aboutus') }}" >
+
+                    About&nbsp;us
+
+                </a>
+
+            </li>
+
+            <li>
+                
+                
+                <a href="{{ url_for('contactus') }}"  >
+                    
+                    Contact&nbsp;Us
+                
+                </a>
+            
+            </li>
+
+            <li>
+                
+                
+                <a href="{{ url_for('track') }}"  >
+                    
+                    Track&nbsp;Your&nbsp;Order  
+                
+                </a>
+            
+            </li>
+
+            <li>
+                
+                <a href="{{ url_for('login') }}" >
+
+                        
+                    Logout
+                    
+                </a>
+                
+            </li>
+
+            </ul>
+
+        <!--right-nav-(cart-like)-->
+        <div class="right-nav">
+
+            <!--profile -->
+            
+            <a class = "like" href="{{ url_for('profile') }}">
+                <img src="{{ photo_url }}" alt="Profile Image">
+            </a>
+            
+            <a class = "greeting">Welcome, {{ first_name }}</a>
+        </div>
+        
+    </nav>
+
+    <!--nav-end--------------------->
+    
+    <!-- Order History with Filter Dropdown -->
+    <div class="History tabShow">
+        <h1>Orders History
+            <div class="dropdown">
+                <button class="dropbtn">Filter</button>
+                <div class="dropdown-content">
+                    <a href="#" data-filter="all">All</a>
+                    <a href="#" data-filter="delivered">Delivered</a>
+                    <a href="#" data-filter="not-delivered">Not-Delivered</a>
+                    <a href="#" data-filter="cancelled">Cancelled</a>
+                </div>
+            </div>
+        </h1>
+        <ul id="order-list">
+            <!-- Orders will be dynamically inserted here -->
         </ul>
     </div>
 </body>

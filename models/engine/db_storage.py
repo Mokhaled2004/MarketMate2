@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" new class for sqlAlchemy """
+""" new class for sqlAlchemyy """
 import models
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import (create_engine)

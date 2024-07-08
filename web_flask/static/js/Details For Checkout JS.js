@@ -2,6 +2,8 @@ function validate_form(){
     var name=document.getElementById("name").value;
     var phone=document.getElementById("phone").value;
     var email=document.getElementById("email").value;
+    var address=document.getElementById("address").value;
+    var date=document.getElementById("date").value;
     var pincode=document.getElementById("pincode").value;
     var error_message=document.getElementById("error_message");
 
@@ -46,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 data.forEach(order => {
                     orderDetailsHtml += `<p>Order ID: ${order.id}</p>`;
                     orderDetailsHtml += `<p>Order Date: ${order.created_at}</p>`;
+                    orderDetailsHtml += `<p>Order Delivery Date: ${order.date}</p>`;
                     orderDetailsHtml += `<p>Total Price: ${order.total_price}</p>`;
                     orderDetailsHtml += `<p>Status: ${order.delivered}</p>`;
                     order.products.forEach(product => {
@@ -61,3 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+function selectMarket(market) {
+    document.getElementById('market_name').value = market;
+}
+   // commented

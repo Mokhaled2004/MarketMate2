@@ -2,7 +2,7 @@ window.addEventListener('load', function() {
     const statusDiv = document.getElementById('status');
     statusDiv.textContent = 'Order placed. Preparing for shipment...';
 
-    const stageDuration = 10; // in seconds
+    const stageDuration = 30; // in seconds
     const stages = [
         { stage: 'Order Placed', duration: stageDuration },
         { stage: 'Shipped', duration: stageDuration },
@@ -26,6 +26,8 @@ window.addEventListener('load', function() {
               //document.getElementById('markDelivered').classList.remove('hidden');
                 document.getElementById('timer').classList.add('hidden');
                 document.getElementById('status').classList.add('hidden');
+                document.getElementById('markDelivered').disabled = false;
+                document.getElementById('markDelivered').classList.remove('hidden');
                 document.getElementById('thankYouMessage').classList.remove('hidden');
                 document.getElementById('order-details').innerHTML = '<h2>Order Details</h2>'; // Remove order details
                 localStorage.removeItem('timeLeft');
@@ -37,12 +39,16 @@ window.addEventListener('load', function() {
     }
 });
 
+document.getElementById('markDelivered').addEventListener('click', function() {
+    this.innerText = 'Delivered!';
+    // Optionally, update UI or perform further actions
+});
 
+document.getElementById('cancelOrder').addEventListener('click', function() {
+    this.innerText = 'Cancelled!';
+    // Optionally, update UI or perform further actions
+});
 
-    document.getElementById('cancelOrder').addEventListener('click', function() {
-        alert('Order cancelled!');
-        // Optionally, update UI or perform further actions
-    });
 
     function startTimer(seconds, message, callback) {
         const timerDiv = document.getElementById('timer');
@@ -168,11 +174,21 @@ document.getElementById('cancelOrder').addEventListener('click', function() {
         // Update UI or show confirmation message
         alert('Order status updated to Canceled');
         // Optionally, you can update UI elements dynamically here
-        window.location.href = '/';
+        
     })
     .catch(error => {
         console.error('Error:', error);
         alert('Failed to update order status');
     });
 });
+
+// Add event listeners to all buttons with the 'pressed' class
+document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', function() {
+        // Toggle the 'pressed' class on the clicked button
+        this.classList.toggle('pressed');
+    });
+});
+//commented
+
 

@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 
     <html>
     
@@ -14,13 +14,15 @@
            MarketMate
     
         </title>
-    
+        <script>
+            
+        </script>
         <!--==Stylesheet=============================-->
         <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Home Page CSS.css') }}">
         
     
         <!--==Fav-icon===============================-->
-        <link rel="shortcut icon" href="images/fav-icon.png"/>
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/images/Logo.png') }}">
     
         <!--==Using-Font-Awesome=====================-->
         <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
@@ -33,7 +35,8 @@
         </head>
     
         <body>
-    
+            
+            
              <!--==Navigation================================-->
              <nav class="navigation">
     
@@ -54,7 +57,7 @@
                 <ul class="menu">
     
                     <li>
-                        <a href="{{ url_for('home') }}" class="active">
+                        <a href="{{ url_for('logged') }}" class = "active">
                             
                             Home
     
@@ -64,29 +67,46 @@
     
                     <li>
     
-                        <a href="{{ url_for('home') }}#category"  >    
+                        <a href="{{ url_for('logged') }}#category"   >    
     
     
                             Categories
                         
                         </a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('carttest') }}#category">FRUITS & VEGETABLES</a>
+                            <a href="{{ url_for('carttest') }}#category">MEDICINE</a>
+                            <a href="{{ url_for('carttest') }}#category">BABY CARE</a>
+                            <a href="{{ url_for('carttest') }}#category">MEAT</a>
+                            <a href="{{ url_for('carttest') }}#category">BAKERY</a>
+                            <a href="{{ url_for('carttest') }}#category">SNACKS</a>
+                            <a href="{{ url_for('carttest') }}#category">DAIRY PRODUCTS</a>
+                            <a  href="{{ url_for('carttest') }}#category" >POPULAR PACKAGES>POPULAR PACKAGES</a>
+                        </div>
                     
                     </li>
     
                     <li>
     
-                        <a href="{{ url_for('home') }}#category"  >    
+                        <a href="{{ url_for('logged') }}#category"  >    
     
                             
                             Stores
                         
                         </a>
-                    
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('carttest') }}">BIM</a>
+                            <a href="{{ url_for('raya') }}">AL RAYA</a>
+                            <a href="{{ url_for('ragabsons') }}">WELAD-RAGAB</a>
+                            <a href="{{ url_for('walmart') }}">WALMART</a>
+                            <a href="{{ url_for('seoudi') }}">Seoudi Supermarkets</a>
+                        </div>
+                        
                     </li>
     
                     <li>
                         
-                        <a href="{{ url_for('home') }}#popular-bundle-pack"  >    
+                        <a href="{{ url_for('logged') }}#popular-bundle-pack"  >    
                             
                             Packages
                         
@@ -148,35 +168,21 @@
                         </a>
                         
                     </li>
-    
-                    
-                
-    
+
                     </ul>
     
                 <!--right-nav-(cart-like)-->
                 <div class="right-nav">
-    
+
+                    <!--profile-->
                     
-    
-                    
-    
-                    <!--cart----->
-                    <a href="{{ url_for('profile') }}" class=" like"  >
-    
-                        
-                        <img src="{{ url_for('static', filename='/images/images/profile2.png') }}" alt="profile" >
-    
-                        <span>
-    
-                            1
-    
-                        </span>
-    
+                    <a class = "like" href="{{ url_for('profile') }}">
+                        <img src="{{ photo_url }}" alt="Profile Image">
                     </a>
                     
-    
+                    <a class = "greeting">Welcome, {{ first_name }}</a>
                 </div>
+                
     
             </nav>
     
@@ -236,7 +242,7 @@
                 
                     <h2>
         
-                        Stores
+                        Top Stores 
                         
                     </h2>
     
@@ -247,19 +253,20 @@
                 <div class="stores-container">
     
                     <!--box---------------->
-                    <a class="store-box" href = '#stores'>
+                    <a class="store-box" href="{{ url_for('walmart') }}">
                         
-                        <img src="{{ url_for('static', filename='/images/images/carrefour.png') }}" alt="carrefour" >
+                        <img src="{{ url_for('static', filename='/images/images/walmart.jpg') }}" alt="Walmart" >
                         
-                    </a>
-                    <!--box---------------->
-                    <a class="store-box" href = '#category'>
-                        
-                        <img src="{{ url_for('static', filename='/images/images/Kher.jpg') }}" alt="Kher" >
                         
                     </a>
                     <!--box---------------->
-                    <a class="store-box" href="#category">
+                    <a class="store-box" href="{{ url_for('raya') }}">
+                        
+                        <img src="{{ url_for('static', filename='/images/images/raya.png') }}" alt="Raya Market" >
+                        
+                    </a>
+                    <!--box---------------->
+                    <a class="store-box" href="{{ url_for('carttest') }}">
                         
                         <img src="{{ url_for('static', filename='/images/images/Bim.png') }}" alt="Bim" >
                         
@@ -273,7 +280,7 @@
     
                     <h2>
                         
-                        Category
+                        Categories
                     
                     </h2>
     
@@ -351,7 +358,7 @@
             <section id="popular-product">
                 <!--heading----------->
                 <div class="product-heading">
-                    <h3>Popular Product</h3>
+                    <h3>Popular Products</h3>
                     <span>All</span>
                 </div>
                 <!--box-container------>
@@ -411,7 +418,7 @@
             <section id="popular-bundle-pack">
                 <!--heading-------------->
                 <div class="product-heading">
-                    <h3>Popular Bundle Pack</h3>
+                    <h3>Popular Bundle Packs</h3>
                 </div>
                 <!--box-container------>
                 <div class="product-container">
@@ -503,7 +510,7 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <!--==comments===-->
-                        <p>MarketMate Gamed Fashkh .</Str></p>
+                        <p>I've been using MarketMate for my weekly grocery shopping for the past few months, and I couldn't be happier with the service.</Str></p>
                     </div>
                     <!--box------------->
                     <div class="client-box">
@@ -527,7 +534,7 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <!--==comments===-->
-                        <p>Bageeb kol l ehteyagat l khasa lel Tabeekh mn MarketMakt ma3 kol ehteramy.</p>
+                        <p>The range of products available is extensive. From organic vegetables to specialty items, I can find everything I need in one place. It's particularly convenient for sourcing hard-to-find ingredients for my recipes.</p>
                     </div>
                     <!--box------------->
                     <div class="client-box">
@@ -550,7 +557,7 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <!--==comments===-->
-                        <p>Lala akher mara talabt hagat magatsh f ma3adha bs l qualtiy helwa f hadeelo talat negmat.</p>
+                        <p>The variety of products available is fantastic. Whether I'm looking for everyday staples or specialty items, MarketMate has it all. I love exploring new products and trying out different brands.</p>
                     </div>
                 </div>
             </section>
@@ -567,22 +574,30 @@
                 <div class="footer-links">
                     <strong>Stores</strong>
                     <ul>
-                        <li><a href="#category">Carrefour</a></li>
-                        <li><a href="#category">Kher zaman</a></li>
-                        <li><a href="#category">BIM</a></li>
+
+                        <li><a href="{{ url_for('carttest') }}">BIM</a></li>
+                        <li><a href="{{ url_for('raya') }}">AL RAYA</a></li>
+                        <li><a href="{{ url_for('ragabsons') }}">WELAD-RAGAB</a></li>
+                        <li><a href="{{ url_for('walmart') }}">WALMART</a></li>
+                        <li><a href="{{ url_for('seoudi') }}">Seoudi Supermarkets</a></li>
+
+                    
                     </ul>
                 </div>
                 <!--links------------------------->
                 <div class="footer-links">
                     <strong>Category</strong>
                     <ul>
-                        <li><a href="Fruits Category Page HTML.html">Fruits and Vegetables</a></li>
-                        <li><a href="Medicine Category Page HTML.html">Medicine</a></li>
-                        <li><a href="Baby Care Category Page HTML.html">Baby Care</a></li>
-                        <li><a href="Meat Category Page HTML.html">Meat</a></li>
-                        <li><a href="Baby Care Category Page HTML.html">Bakery</a></li>
-                        <li><a href="Snacks Category Page HTML.html">Snacks</a></li>
-                        <li><a href="Dairy Category Page HTML.html">Dairy Products</a></li>
+
+                        <li><a href="{{ url_for('carttest') }}#category">FRUITS & VEGETABLES</a></li>
+                        <li><a href="{{ url_for('carttest') }}#category">MEDICINE</a></li>
+                        <li><a href="{{ url_for('carttest') }}#category">BABY CARE</a></li>
+                        <li><a href="{{ url_for('carttest') }}#category">MEAT</a></li>
+                        <li><a href="{{ url_for('carttest') }}#category">BAKERY</a></li>
+                        <li><a href="{{ url_for('carttest') }}#category">SNACKS</a></li>
+                        <li><a href="{{ url_for('carttest') }}#category">DAIRY PRODUCTS</a></li>
+                        <li><a  href="{{ url_for('carttest') }}#category" >POPULAR PACKAGES</a></li>
+                        
     
     
                     </ul>
@@ -595,6 +610,14 @@
                         <li><a href="#">Email : mokhaled2004@gmail.com</a></li>
                     </ul>
                     <br><p style="color: aliceblue;">Copyright ©2024 | All Rights Reserved</p>
+                </div>
+
+                <div class="footer-links">
+                    <strong>Ratings:</strong> 
+                    <ul>
+                        <li><a>{{ average_rating }} </a></li>
+                    </ul>
+                    
                 </div>
                 </div>
             </footer>

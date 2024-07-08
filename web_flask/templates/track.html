@@ -4,35 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Tracking</title>
+    <!-- Link to track.css stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/track.css') }}">
+    <!-- Link to Home Page CSS stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Home Page CSS.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/images/Logo.png') }}">
+
 </head>
 <body>
+    
     <div class="order-status">
         <div id="order-details" class="order-details"></div>
         <div id="status">Order placed. Preparing for shipment...</div>
         <div class="progress-container">
             <div class="progress" id="progress"></div>
-            <div class="circle active">1</div>
-            <div class="circle">2</div>
-            <div class="circle">3</div>
-            <div class="circle">4</div>
+            <!-- Circle with image for ordered placed -->
+            <div class="circle active"><img src="{{ url_for('static', filename='/images/images/orderedplaced1.jpg') }}"  ></div>
+            <!-- Circle with image for order shipped -->
+            <div class="circle"><img src="{{ url_for('static', filename='/images/images/ordershipped.jpg') }}"  ></div>
+            
+            <!-- Circle with image for order delivered -->
+            <div class="circle"><img src="{{ url_for('static', filename='/images/images/orderdeliv.jpg') }}"  ></div>
         </div>
+        
         <div class="status-messages">
+            <!-- Stage 1: Order Placed -->
             <div id="stage1" class="active">Order Placed</div>
+            <!-- Stage 2: Shipped -->
             <div id="stage2">Shipped</div>
-            <div id="stage3">Out for Delivery</div>
+            
+            <!-- Stage 4: Delivered -->
             <div id="stage4">Delivered</div>
         </div>
         <div id="timer"></div>
         <button id="markDelivered" class="hidden" disabled>Mark as Delivered</button>
-        <button href="{{ url_for('logged') }}" id="cancelOrder">Cancel Order</button>
+        <button class="Cancel" href="{{ url_for('logged') }}" id="cancelOrder">Cancel Order</button>
         
-        <a class = "btn" href="{{ url_for('logged') }}"id="cancelOrder">Home</a>
+        <!-- Link to Home page -->
+        <a class="btn" href="{{ url_for('logged') }}" id="cancelOrder">Home</a>
         <div id="thankYouMessage" class="hidden">Thanks for shopping with us!</div>
 
         
     </div>
 
+    <!-- Link to track.js script -->
     <script src="{{ url_for('static', filename='js/track.js') }}"></script>
 </body>
 </html>

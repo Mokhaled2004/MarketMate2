@@ -1,62 +1,92 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Feedback</title>
-		<style>
 
-            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+	<head>
+		<!-- Page title -->
+		<title>Feedback</title>
+		
+		<!-- Favicon link -->
+		<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/images/Logo.png') }}">
+		
+		<!-- Embedded CSS for styling the page -->
+		<style>
+			/* Importing Poppins font from Google Fonts */
+			@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+			/* Resetting margin and padding for all elements */
 			*{
 				margin:0;
 				padding:0;
                 font-family: 'Poppins', sans-serif;
 			}
+
+			/* Styling the body element */
 			body{
 				display:flex;
 				min-height:100vh;
 				align-items:center;
 				justify-content:center;
-				background-color : #eebe4560;
+				background-color: #eebe4560; /* Light yellow background color */
 			}
+
+			/* Styling the container box */
 			.box{
 				height:380px;
 				width:400px;
-				background:#101012;
+				background:#101012; /* Dark background color */
 				padding:20px;
-                box-shadow: 4px 4px 2px #eabc04;
+                box-shadow: 4px 4px 2px #eebe4560; /* Shadow with light yellow color */
 			}
+
+			/* Styling the content inside the box */
 			.box div{
-				color:#f8b306dd;
+				color:#e5ff00; /* Bright yellow text color */
 				font-size:30px;
 				font-family:sans-serif;
 				font-weight:800;
 				text-align:center;
 				padding:20px 0;
 			}
+
+			/* Styling the button */
 			.btn{
 				border-radius:20px;
-				color:#fff;
+				color:#fff; /* White text color */
 				margin-top:18px;
 				padding:10px;
-				background-color:#9a693b;;
+				background-color:#9a693b; /* Brown background color */
 				font-size:18px;
 				border:none;
 				cursor:pointer;
 			}
 
+			/* Button hover effect */
 			.btn:hover{
-				background-color:#66380d;
+				background-color:#66380d; /* Darker brown background color on hover */
 			}
+
 		</style>
 		
+		<!-- Another favicon link (note: not used in this example, local path) -->
 		<link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
+	
 	</head>
+
 	<body>
+		<!-- Container box for thank you message -->
 		<div class="box">
 			<div>
+				<!-- Heading for thank you message -->
 				<h1>Thank You</h1><br>
+				<!-- Subheading for feedback submission message -->
 				<h5>Your feedback has been submitted. We shall take it into consideration to improve our website.</h5>
-				<button type="button" class="btn"><a href="{{ url_for('logged') }}"style = 'color: #ffffff; text-decoration: none;'>Home</a></button>
+				<!-- Button to navigate back to the home page -->
+				<button type="button" class="btn">
+					<a href="{{ url_for('logged') }}" style="color: #ffffff; text-decoration: none;">Home</a>
+				</button>
 			</div>
 		</div>
+
 	</body>
+	
 </html>

@@ -1,200 +1,109 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
-    <head>
-
-        <meta charset="utf-8">
-
-        <title>
-            
-            Contact Form
-        
-        </title>
-
-        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Contact Form CSS.css') }}">
-
-        
-        <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
-
-        
-        <script src="{{ url_for('static', filename='js/Contact Form JS.js') }}"></script>
-        
-
-        
-
-    </head>
-
-    <body>
-         <!--==Navigation================================-->
-         <nav class="navigation">
+<head>
+    <meta charset="utf-8">
+    <title>Contact Form</title>
     
-            <!--logo-------->
-            
-
-            <img src="{{ url_for('static', filename='/images/images/Logo.png') }}" alt="Logo" class = "Logo" >
-
-
-            
-            <label for="menu-btn" class="menu-icon">
-
-                <span class="nav-icon"></span>
-
-            </label>
-
-            <!--menu-------->
-            <ul class="menu">
-
-                <li>
-                    <a href="{{ url_for('home') }}" >
-                        
-                        Home
-
-                    </a>
-                
-                </li>
-
-                <li>
-
-                    <a href="{{ url_for('home') }}#category"  >    
-
-
-                        Categories
-                    
-                    </a>
-                
-                </li>
-
-                <li>
-
-                    <a href="{{ url_for('home') }}#category"  >    
-
-                        
-                        Stores
-                    
-                    </a>
-                
-                </li>
-
-                <li>
-                    
-                    <a href="{{ url_for('home') }}#popular-bundle-pack"  >    
-                        
-                        Packages
-                    
-                    </a>
-                
-                </li>
-                
-                <li>
-                    
-                    <a href="{{ url_for('feedback') }}" >
-
-                        
-                        Feedback
-                    
-                    </a>
-                
-                </li>
-                
-                <li>
-
-                    
-                    <a href="{{ url_for('aboutus') }}" >
-
-                        About&nbsp;us
-
-                    </a>
-
-                </li>
-
-                <li>
-                    
-                    
-                    <a href="{{ url_for('contactus') }}" class = "active"  >
-                        
-                        Contact&nbsp;Us
-                    
-                    </a>
-                
-                </li>
-
-                <li>
-                        
-                        
-                    <a href="{{ url_for('track') }}"  >
-                        
-                        Track&nbsp;Your&nbsp;Order  
-                    
-                    </a>
-                
-                </li>
-
-                <li>
-                    
-                    <a href="{{ url_for('login') }}" >
-
-                            
-                        Logout
-                        
-                    </a>
-                    
-                </li>
-
-                
-            
-
-                </ul>
-
-            <!--right-nav-(cart-like)-->
-            <div class="right-nav">
-
-                
-
-                
-
-                <!--cart----->
-                <a href="{{ url_for('profile') }}" class=" like"  >
-
-                    <i class="fas fa-user"></i>
-                    <img src="{{ url_for('static', filename='/images/images/profile2.png') }}" alt="profile" >
-
-                    <span>
-
-                        1
-
-                    </span>
-
-                </a>
-
-            </div>
-
-        </nav>
-
-        <!--nav-end--------------------->
-        <div class="wrapper">
-            <h2 align='center'>Contact Form</h2>
-            <div id="error_message"></div>
-            <form id="myform" method="POST" action="{{ url_for('submit_contact_form') }}" onsubmit="return validate();">
-                <div class="input_field">
-                    <input type="text" placeholder="Name" id="name" name="name">
+    <!-- Linking CSS files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Contact Form CSS.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Home Page CSS.css') }}">
+    
+    <!-- Setting favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/images/Logo.png') }}">
+    <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
+    
+    <!-- Linking JavaScript file -->
+    <script src="{{ url_for('static', filename='js/Contact Form JS.js') }}"></script>
+</head>
+<body>
+    
+    <!-- Navigation Section -->
+    <nav class="navigation">
+        <!-- Logo -->
+        <img src="{{ url_for('static', filename='/images/images/Logo.png') }}" alt="Logo" class="Logo">
+        
+        <!-- Menu Icon -->
+        <label for="menu-btn" class="menu-icon">
+            <span class="nav-icon"></span>
+        </label>
+        
+        <!-- Menu Items -->
+        <ul class="menu">
+            <li><a href="{{ url_for('logged') }}">Home</a></li>
+            <li>
+                <a href="{{ url_for('home') }}#category">Categories</a>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('carttest') }}#category">FRUITS & VEGETABLES</a>
+                    <a href="{{ url_for('carttest') }}#category">MEDICINE</a>
+                    <a href="{{ url_for('carttest') }}#category">BABY CARE</a>
+                    <a href="{{ url_for('carttest') }}#category">MEAT</a>
+                    <a href="{{ url_for('carttest') }}#category">BAKERY</a>
+                    <a href="{{ url_for('carttest') }}#category">SNACKS</a>
+                    <a href="{{ url_for('carttest') }}#category">DAIRY PRODUCTS</a>
+                    <a href="{{ url_for('carttest') }}#category">POPULAR PACKAGES</a>
                 </div>
-                <div class="input_field">
-                    <input type="text" placeholder="Subject" id="subject" name="subject">
+            </li>
+            <li>
+                <a href="{{ url_for('home') }}#category">Stores</a>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('carttest') }}">BIM</a>
+                    <a href="{{ url_for('raya') }}">AL RAYA</a>
+                    <a href="{{ url_for('ragabsons') }}">WELAD-RAGAB</a>
+                    <a href="{{ url_for('walmart') }}">WALMART</a>
+                    <a href="{{ url_for('seoudi') }}">Seoudi Supermarkets</a>
                 </div>
-                <div class="input_field">
-                    <input type="text" placeholder="Phone" id="phone" name="phone">
-                </div>
-                <div class="input_field">
-                    <input type="text" placeholder="Email" id="email" name="email">
-                </div>
-                <div class="input_field">
-                    <textarea placeholder="Message" id="message" name="message"></textarea>
-                </div>
-                <button type="submit" class="btn">Submit</button>
-            </form>
+            </li>
+            <li><a href="{{ url_for('home') }}#popular-bundle-pack">Packages</a></li>
+            <li><a href="{{ url_for('feedback') }}">Feedback</a></li>
+            <li><a href="{{ url_for('aboutus') }}">About&nbsp;us</a></li>
+            <li><a href="{{ url_for('contactus') }}" class="active">Contact&nbsp;Us</a></li>
+            <li><a href="{{ url_for('track') }}">Track&nbsp;Your&nbsp;Order</a></li>
+            <li><a href="{{ url_for('login') }}">Logout</a></li>
+        </ul>
+        
+        <!-- Right Navigation (Cart, Profile, etc.) -->
+        <div class="right-nav">
+            <!-- Profile -->
+            <a class="like" href="{{ url_for('profile') }}">
+                <img src="{{ photo_url }}" alt="Profile Image">
+            </a>
+            <a class="greeting">Welcome, {{ first_name }}</a>
         </div>
+    </nav>
+    <!-- Navigation End -->
 
-    </body>
+    <!-- Reviews Section -->
+    
 
+    
+    <!-- Contact Form Section -->
+    <div class="wrapper">
+        <h2 align='center'>Contact Form</h2>
+        
+        <!-- Error Message Display -->
+        <div id="error_message"></div>
+        
+        <!-- Form -->
+        <form id="myform" method="POST" action="{{ url_for('submit_contact_form') }}" onsubmit="return validate();">
+            <div class="input_field">
+                <input type="text" placeholder="Name" id="name" name="name">
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="Subject" id="subject" name="subject">
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="Phone" id="phone" name="phone">
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="Email" id="email" name="email">
+            </div>
+            <div class="input_field">
+                <textarea placeholder="Message" id="message" name="message"></textarea>
+            </div>
+            <button type="submit" class="btn" onclick="redirectToPage()">Submit</button>
+        </form>
+    </div>
+    <!-- Contact Form End -->
+    
+</body>
 </html>

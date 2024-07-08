@@ -1,136 +1,107 @@
 <!DOCTYPE html>
 
-    <html lang="en">
+<!-- HTML document starts here -->
+<html lang="en">
 
-    <head>
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the page -->
+    <title>Complete Your Purchase</title>
 
-        <meta charset="UTF-8">
+    <!-- Custom CSS file link -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Payment CSS.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/images/Logo.png') }}">
 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+</head>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <title>
-
-            Complete Your Purchase
-
-        </title>
-
-        <!-- custom css file link  -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/Payment CSS.css') }}">
-
-        
-        <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
-
-    </head>
-
-    <body>
-
+<body>
+    <!-- Container div -->
     <div class="container">
-
+        <!-- Card container div -->
         <div class="card-container">
-
+            <!-- Front side of the card -->
             <div class="front">
-
+                <!-- Image div -->
                 <div class="image">
-
-                    <img src="{{ url_for('static', filename='/images/chip.png') }}" alt="chip" >
-
-
-                    <img src="{{ url_for('static', filename='/images/visa.png') }}" alt="visa" >
-
-
+                    <!-- Chip image -->
+                    <img src="{{ url_for('static', filename='/images/chip.png') }}" alt="chip">
+                    <!-- Visa logo image -->
+                    <img src="{{ url_for('static', filename='/images/visa.png') }}" alt="visa">
                 </div>
 
+                <!-- Card number box -->
                 <div class="card-number-box">
-                    
+                    <!-- Card number placeholder -->
                     ################
-                
                 </div>
 
+                <!-- Flexbox for card holder name and expiry -->
                 <div class="flexbox">
-
+                    <!-- Box for card holder name -->
                     <div class="box">
-
+                        <!-- Card holder name -->
                         <div class="card-holder-name">
-                            
                             Name of card holder
-                    
                         </div>
-
                     </div>
 
+                    <!-- Box for expiry -->
                     <div class="box">
-
-                        <span>
-                            
-                            expiry
-                        
-                        </span>
-
+                        <!-- Expiry label -->
+                        <span>expiry</span>
+                        <!-- Expiry date input -->
                         <div class="expiration">
-
-                            <span class="exp-month">
-                                
-                                mm / 
-                            
-                            </span>
-
-                            <span class="exp-year">
-                                
-                                yyyy
-                            
-                            </span>
-
+                            <!-- Expiry month -->
+                            <span class="exp-month">mm /</span>
+                            <!-- Expiry year -->
+                            <span class="exp-year">yyyy</span>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-            
 
+            <!-- Back side of the card -->
             <div class="back">
+                <!-- Stripe div -->
+                <div class="stripe"></div>
 
-                <div class="stripe"> </div>
-
+                <!-- Box for CVV -->
                 <div class="box">
-
-                    <span>
-                        
-                        cvv
-                    
-                    </span>
-
-                    <div class="cvv-box"> </div>
-
-                    
-                    <img src="{{ url_for('static', filename='/images/visa.png') }}" alt="visa" >
-
-
+                    <!-- CVV label -->
+                    <span>cvv</span>
+                    <!-- CVV box -->
+                    <div class="cvv-box"></div>
+                    <!-- Visa logo image -->
+                    <img src="{{ url_for('static', filename='/images/visa.png') }}" alt="visa">
                 </div>
-
             </div>
-
         </div>
 
+        <!-- Payment form -->
         <form action="{{ url_for('process_payment') }}" method="POST">
-
+            <!-- Input box for card number -->
             <div class="inputBox">
                 <span>Card Number</span>
-                <input type="text" maxlength="16" name="card_number" class="card-number-input" required>
+                <input type="text" maxlength="16" name="card_number" class="card-number-input">
             </div>
-        
+
+            <!-- Input box for name on card -->
             <div class="inputBox">
                 <span>Name on Card</span>
-                <input type="text" name="card_name" class="card-holder-input" required>
+                <input type="text" name="card_name" class="card-holder-input">
             </div>
-        
+
+            <!-- Flexbox for expiry month, expiry year, and CVV -->
             <div class="flexbox">
+                <!-- Input box for expiry month -->
                 <div class="inputBox">
                     <span>Expiry MM</span>
-                    <select name="expiry_month" class="month-input" required>
+                    <select name="expiry_month" class="month-input">
                         <option value="01">01</option>
                         <option value="02">02</option>
                         <option value="03">03</option>
@@ -145,10 +116,11 @@
                         <option value="12">12</option>
                     </select>
                 </div>
-        
+
+                <!-- Input box for expiry year -->
                 <div class="inputBox">
                     <span>Expiry YY</span>
-                    <select name="expiry_year" class="year-input" required>
+                    <select name="expiry_year" class="year-input">
                         <option value="2022">2022</option>
                         <option value="2023">2023</option>
                         <option value="2024">2024</option>
@@ -161,24 +133,22 @@
                         <option value="2031">2031</option>
                     </select>
                 </div>
-        
+
+                <!-- Input box for CVV -->
                 <div class="inputBox">
                     <span>CVV</span>
-                    <input type="text" maxlength="4" name="cvv" class="cvv-input" required>
+                    <input type="text" maxlength="4" name="cvv" class="cvv-input">
                 </div>
             </div>
-        
-            <button class ="submit-btn" type="submit" name="payment_type" value="visa">Pay with Visa</button>
-            <button class ="submit-btn" type="submit" name="payment_type" value="cash">Pay Cash</button>
-        
+
+            <!-- Submit buttons -->
+            <button class="submit-btn" type="submit" name="payment_type" value="visa">Pay with Visa</button>
+            <button class="submit-btn" type="submit" name="payment_type" value="cash">Pay Cash</button>
         </form>
-        
-
     </div>
-    
+
+    <!-- JavaScript file -->
     <script src="{{ url_for('static', filename='js/Payment JS.js') }}"></script>
-
-
-    </body>
+</body>
 
 </html>

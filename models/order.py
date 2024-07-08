@@ -5,8 +5,7 @@
 import models
 from models.base_model import BaseModel, Base
 from os import getenv
-import sqlalchemy
-from sqlalchemy import Column, Table, String, Integer, ForeignKey
+from sqlalchemy import Column, Table, String,ForeignKey
 from sqlalchemy.orm import relationship
 
 
@@ -20,26 +19,33 @@ if models.storage_t == 'db':
 class Order(BaseModel, Base):
     """Representation of Order"""
     if models.storage_t == 'db':
-        __tablename__ = 'orders'
+        _tablename_ = 'orders'
         user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
         market_name = Column(String(128), nullable=False)
+        address = Column(String(128), nullable=False)
+        date = Column(String(128), nullable=False)
         products = relationship("Product", secondary=order_product, back_populates="orders")
 
     else:
 
+        delivered = "not delivered"
         user_id = ""
+        products = []
+        total_price = 0.0
         market_name = ""
-        products_ids = []
+        address = ""
+        date = ""
+        
 
-    def __init__(self, *args, **kwargs):
+    def _init_(self, *args, **kwargs):
         """initializes Order"""
-        super().__init__(*args, **kwargs)
+        super()._init_(*args, **kwargs)
 
-    if models.storage_t != 'db':
+    
         
         @property
         def products(self):
-            """getter attribute returns the list of Product instances"""
+            """Getter attribute returns the list of Product instances"""
             from models.product import Product
             product_list = []
             all_products = models.storage.all(Product)
@@ -47,3 +53,10 @@ class Order(BaseModel, Base):
                 if product.order_id == self.id:
                     product_list.append(product)
             return product_list
+        
+        @products.setter
+        def products(self, value):
+            """Setter attribute sets the list of Product instances"""
+            self._products = value
+        
+   

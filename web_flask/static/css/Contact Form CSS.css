@@ -14,6 +14,14 @@
     background-color: #eebe4560;
   }
 
+  .greeting{
+    font-size: 1rem;
+    font-weight: 600;
+    color: #202020;
+    margin-top: 4px;
+    margin-left: 25px;
+    display: inline;
+}
 
 
   .wrapper{
@@ -102,6 +110,7 @@
   width: 100%;
   margin: auto;
   margin-left: 90px;
+  
 }
 
 .menu{
@@ -195,3 +204,6 @@ align-items:left;
 }
 
 /* Navigation ENd*/
+
+
+   /* Commented*/
