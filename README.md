@@ -32,3 +32,5 @@ MarketMate is a project designed to simplify your shopping experience by offerin
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/marketmate.git
+
+## Usage
