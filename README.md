@@ -82,6 +82,18 @@ Thank you for considering contributing to MarketMate! By contributing to this pr
 
 <div align="center">
   <img src="/readmeimages/ss1.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss2.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss3.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss4.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss5.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss6.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss7.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss8.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss9.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss10.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss11.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss12.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss13.jpg" alt="MarketMate Logo" >
 </div>
 
 
