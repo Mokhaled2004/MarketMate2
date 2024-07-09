@@ -12,7 +12,7 @@
 - [Contributing](#contributing)
 - [License](#license)
 - [Screenshot](#screenshot)
-- [Landing Page](#Landing Page)
+- [Landing Page](#LandingPage)
 - [Contact](#contact)
 
 ## Introduction
