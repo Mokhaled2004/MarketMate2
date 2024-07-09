@@ -98,7 +98,8 @@ Thank you for considering contributing to MarketMate! By contributing to this pr
 
 
 
-
+## Landing Page
+https://mazenwael575.wixsite.com/marketmate
 ## Contact Us
 
 For any questions, feedback, or support inquiries, please feel free to reach out to our team:
