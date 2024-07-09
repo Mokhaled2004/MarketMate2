@@ -12,8 +12,8 @@
 - [Contributing](#contributing)
 - [License](#license)
 - [Screenshot](#screenshot)
-- [LandingPage](#landingpage)
-- [ContactUs](#contactus)
+- [LandingPage](#landing-page)
+- [ContactUs](#contact-us)
 
 ## Introduction
 MarketMate is a project designed to simplify your shopping experience by offering a seamless way to select and purchase products from a variety of supermarkets. Our platform allows you to effortlessly browse, compare, and choose your favorite items, all from the comfort of your home. With a focus on convenience and quality, MarketMate ensures that your groceries are delivered promptly and efficiently, so you can spend more time on what truly matters. Experience the future of grocery shopping with MarketMate, where variety meets convenience.
@@ -99,9 +99,9 @@ Thank you for considering contributing to MarketMate! By contributing to this pr
 
 
 
-## Landing Page
+## Landing-Page
 https://mazenwael575.wixsite.com/marketmate
-## Contact Us
+## Contact-Us
 
 For any questions, feedback, or support inquiries, please feel free to reach out to our team:
 
