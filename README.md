@@ -44,7 +44,7 @@ To start the MarketMate application
 Finished the Steps?  
 Cool, now you have the application running on your web browser.  
 
-Here is the steps "How to use MarketMate"
+<h2>Here is the steps "How to use MarketMate"</h2>
 
 ### User Account Management  
 - **Sign Up**: Create a new account to start using MarketMate.  
