@@ -27,7 +27,7 @@ class User(BaseModel, Base):
         first_name = Column(String(128))
         last_name = Column(String(128))
         address = Column(String(128))
-        photo = Column(String(128))
+        photo = Column(String)
         rating = Column(int, default=0)
         orders = relationship("Order", cascade='all, delete, delete-orphan',
                             backref="user")
