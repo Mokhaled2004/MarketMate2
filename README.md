@@ -43,4 +43,11 @@ To start the MarketMate application
   
 Finished the Steps?  
 Cool, now you have the application running on your web browser.  
-Enjoy using the app!
+
+Here is the steps "How to use MarketMate"
+
+### User Account Management  
+- **Sign Up**: Create a new account to start using MarketMate.  
+- **Login**: Access your account using your credentials.  
+- **Profile Management**: Update your profile information and manage your delivery addresses.
+
