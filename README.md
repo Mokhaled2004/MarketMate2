@@ -18,9 +18,15 @@ MarketMate is a project designed to simplify your shopping experience by offerin
 
 
 ## Features
-- Feature 1
-- Feature 2
-- Feature 3
+- Compare stores and choose the best prices
+- Find all the products you need and add them to your cart
+- Track your order until it’s in your hands
+- Submit reviews and feedback on the products and stores
+- View your order history
+- Cancel your order anytime you want
+- Choose any address for delivery
+- Pay by Visa or cash—it's your choice
+- Enjoy discounts when you use our site
 
 ## Installation
 1. Clone the repository:
