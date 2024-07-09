@@ -34,3 +34,11 @@ MarketMate is a project designed to simplify your shopping experience by offerin
    git clone https://github.com/yourusername/marketmate.git
 
 ## Usage
+To start the MarketMate application
+- Run the main.py file 
+- An address will be prompted in your terminal
+- Hold ctrl and click on the address.
+  
+Finished the Steps?
+Cool now you have the application running on your web-browser.
+Enjoy Using the app
