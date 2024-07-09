@@ -83,7 +83,7 @@ Thank you for considering contributing to MarketMate! By contributing to this pr
 
 <div align="center">
   <img src="/readmeimages/ss1.jpg" alt="MarketMate Logo" >
-  <img src="/readmeimages/ss1.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss2.jpg" alt="MarketMate Logo" >
   <img src="/readmeimages/ss3.jpg" alt="MarketMate Logo" >
   <img src="/readmeimages/ss4.jpg" alt="MarketMate Logo" >
   <img src="/readmeimages/ss5.jpg" alt="MarketMate Logo" >
