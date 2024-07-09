@@ -42,5 +42,8 @@ To start the MarketMate application
 - Hold ctrl and click on the address.
   
 Finished the Steps?
+ ```bash
 Cool now you have the application running on your web-browser.
+ ```bash
 Enjoy Using the app
+ ```bash
