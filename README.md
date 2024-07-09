@@ -1,6 +1,7 @@
 
 
 <div align="center">
+  <img src="C:\Users\Owner\.vscode\programs\MarketMate2\web_flask\static\images\images\Logo.png" alt="MarketMate Logo" width="200">
   <h1 style="font-size: 3em;">MarketMate</h1>
 </div>
 
