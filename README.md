@@ -81,6 +81,7 @@ Thank you for considering contributing to MarketMate! By contributing to this pr
 For any questions, feedback, or support inquiries, please feel free to reach out to our team:
 
 <h2>Email:</h2>
+
   mokhaled2004@gmail.com
   
   Mazenwael575@gmail.com 
