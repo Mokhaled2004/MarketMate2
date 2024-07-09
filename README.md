@@ -69,7 +69,7 @@ Thank you for considering contributing to MarketMate! By contributing to this pr
 - **Reporting Issues**: Encountered a bug or have a suggestion? Please open an issue on GitHub with a detailed description.
 - **Feature Requests**: Have an idea for a new feature? Submit a feature request on our GitHub repository outlining its benefits and potential implementation.
 - **Code Contributions**: Want to fix a bug or add a feature yourself?
- - Fork the repository and create a new branch for your changes.
+ -- Fork the repository and create a new branch for your changes.
  - Ensure your code follows the project's coding standards.
  - Submit a pull request with a clear description of your changes.
 
