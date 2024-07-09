@@ -72,4 +72,14 @@ Thank you for considering contributing to MarketMate! By contributing to this pr
   - Fork the repository and create a new branch for your changes.
   - Ensure your code follows the project's coding standards.
   - Submit a pull request with a clear description of your changes.
+ 
+## License
+
+
+## Contact Us
+
+For any questions, feedback, or support inquiries, please feel free to reach out to our team:
+
+<h2>Email: mokhaled2004@gmail.com & Mazenwael575@gmail.com </h2>
+
 
