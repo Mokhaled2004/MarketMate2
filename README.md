@@ -74,8 +74,7 @@ Thank you for considering contributing to MarketMate! By contributing to this pr
   - Submit a pull request with a clear description of your changes.
  
 ## License
-
-
+MarketMate by Mazen Wael, Mohamed Khaled is marked with CC0 1.0 Universal 
 ## Contact Us
 
 For any questions, feedback, or support inquiries, please feel free to reach out to our team:
