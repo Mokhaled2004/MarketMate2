@@ -12,6 +12,7 @@
 - [Contributing](#contributing)
 - [License](#license)
 - [Screenshot](#screenshot)
+- [Landing Page] (#landing)
 - [Contact](#contact)
 
 ## Introduction
@@ -81,12 +82,25 @@ Thank you for considering contributing to MarketMate! By contributing to this pr
 ## ScreenShot
 
 <div align="center">
-  <img src="/readmeimages/ss1.jpg" alt="MarketMate Logo" width="200">
+  <img src="/readmeimages/ss1.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss2.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss3.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss4.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss5.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss6.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss7.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss8.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss9.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss10.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss11.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss12.jpg" alt="MarketMate Logo" >
+  <img src="/readmeimages/ss13.jpg" alt="MarketMate Logo" >
 </div>
 
 
 
-
+## Landing Page
+https://mazenwael575.wixsite.com/marketmate
 ## Contact Us
 
 For any questions, feedback, or support inquiries, please feel free to reach out to our team:
