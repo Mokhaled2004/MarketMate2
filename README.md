@@ -44,10 +44,21 @@ To start the MarketMate application
 Finished the Steps?  
 Cool, now you have the application running on your web browser.  
 
-<h2>Here is the steps "How to use MarketMate"</h2>
+<h2>Here are the steps "How to use MarketMate"</h2>
 
 ### User Account Management  
 - **Sign Up**: Create a new account to start using MarketMate.  
 - **Login**: Access your account using your credentials.  
 - **Profile Management**: Update your profile information and manage your delivery addresses.
+
+### Navigation the Platform
+- **Bworse**:View the home page to see featured products and offers.
+- **Compare**:Use the store comparison feature to find the best prices for your desired products. Having the ability change the stores from the navigation bar.
+- **Search & Filter**: By pressing on the categories u can choose which category you want to browse, use the seach bar to filter the products.
+- **Add/Removing To/From Cart**:Add/Remove products to your cart and review your selections before proceeding to checkout.Having the ability to control the quantities of the products in your cart too!
+- **Track Your Orders**: Monitor the status and progress of your orders from placement to delivery. Having the ability to accept or cancel the order ITS YOUR CHOICE!
+- **View Your History With Us**: Access and review your complete and incomplete interaction and transaction history with our service.
+- **Drop Your Rating**: Provide your feedback and rating for the products or services offered.
+- **Contact Us**: Reach out to our support team for assistance or inquiries.
+
 
