@@ -81,7 +81,7 @@ Thank you for considering contributing to MarketMate! By contributing to this pr
 ## ScreenShot
 
 <div align="center">
-  <img src="/readmeimages/ss1.jpg" alt="MarketMate Logo" width="200">
+  <img src="/readmeimages/ss1.jpg" alt="MarketMate Logo" >
 </div>
 
 
