@@ -1,8 +1,8 @@
 
 
-<p align="center">
+<div align="center">
   <h1 style="font-size: 3em;">MarketMate</h1>
-</p>
+</div>
 
 ## Table of Contents
 - [Introduction](#introduction)
