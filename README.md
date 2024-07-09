@@ -1,8 +1,12 @@
 
 
 <div align="center">
-  <img src="/readmeimages/Logo.png" alt="MarketMate Logo" width="200">
-  <h1 style="font-size: 3em;">MarketMate</h1>
+  <div style="display: inline-block; vertical-align: middle;">
+    <img src="/readmeimages/Logo.png" alt="MarketMate Logo" width="200">
+  </div>
+  <div style="display: inline-block; vertical-align: middle;">
+    <h1 style="font-size: 3em; margin: 0;">MarketMate</h1>
+  </div>
 </div>
 
 ## Table of Contents
