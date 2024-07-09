@@ -1,7 +1,7 @@
 
 
 <div align="center">
-  <img src="/images/Logo.png" alt="MarketMate Logo" width="200">
+  <img src="/readmeimages/Logo.png" alt="MarketMate Logo" width="200">
   <h1 style="font-size: 3em;">MarketMate</h1>
 </div>
 
