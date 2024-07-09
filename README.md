@@ -1,4 +1,4 @@
-# MarketMate
+
 
 <p align="center">
   <h1 style="font-size: 3em;">MarketMate</h1>
