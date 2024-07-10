@@ -35,7 +35,7 @@ http://mokhaled.pythonanywhere.com/
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/marketmate.git
+   git clone https://github.com/Mokhaled2004/marketmate.git
 
 ## Usage
 To start the MarketMate application
@@ -96,6 +96,10 @@ Thank you for considering contributing to MarketMate! By contributing to this pr
   <img src="/readmeimages/ss12.jpg" alt="MarketMate Logo" >
   <img src="/readmeimages/ss13.jpg" alt="MarketMate Logo" >
 </div>
+
+## <h2>Story Behind EatExpress</h2>
+
+## Inspiration
 
 
 
