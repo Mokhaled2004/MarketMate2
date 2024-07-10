@@ -60,7 +60,7 @@ Cool, now you have the application running on your web browser.
 - **Profile Management**: Update your profile information and manage your delivery addresses.
 
 ### Navigation the Platform
-- **Bworse**:View the home page to see featured products and offers.
+- **Browse**:View the home page to see featured products and offers.
 - **Compare**:Use the store comparison feature to find the best prices for your desired products. Having the ability change the stores from the navigation bar.
 - **Search & Filter**: By pressing on the categories u can choose which category you want to browse, use the seach bar to filter the products.
 - **Add/Removing To/From Cart**:Add/Remove products to your cart and review your selections before proceeding to checkout.Having the ability to control the quantities of the products in your cart too!
