@@ -109,6 +109,15 @@ One of the significant technical challenges was building a clean Flask web app a
 
 <img src="/readmeimages/Done.gif" alt="MarketMate Logo" width="400" height="300">
 
+<h3>Overcoming Struggles</h3>
+
+During the development process, there were moments of struggle, particularly with doing updates and adding features to improve and give users a better experience. We also faced challenges in designing a user-friendly interface that caters to both tech-savvy users and those who are less familiar with technology.
+
+<h3>Future Vision</h3>
+
+In the next iteration of MarketMate, we envision adding more features such as a rewards system for frequent users, AI-powered product recommendations, and integration with more payment gateways to offer greater flexibility. We also plan to expand our service area to cover more cities and regions.
+
+
 
 
 ## Landing-Page
@@ -119,8 +128,8 @@ For any questions, feedback, or support inquiries, please feel free to reach out
 
 <h2>Email:</h2>
 
-  mokhaled2004@gmail.com
+ - mokhaled2004@gmail.com
   
-  Mazenwael575@gmail.com 
+-  Mazenwael575@gmail.com 
 
 
