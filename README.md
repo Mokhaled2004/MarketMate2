@@ -133,7 +133,7 @@ https://mazenwael575.wixsite.com/marketmate
 
 For any questions, feedback, or support inquiries, please feel free to reach out to our team:
 
-<h2>Email:</h2>
+<h2>Our Emails:</h2>
 
 - mokhaled2004@gmail.com
 -  Mazenwael575@gmail.com 
