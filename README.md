@@ -99,9 +99,15 @@ Thank you for considering contributing to MarketMate! By contributing to this pr
 
 ## <h2>Story Behind EatExpress</h2>
 
-<h1>Inspiration</h1>
+<h3>Inspiration</h3>
   
 The inspiration behind MarketMate emerged from the growing need for a more streamlined and efficient way for people to do their grocery shopping, particularly during the COVID-19 pandemic when visiting stores in person was often challenging and risky. The goal was to create a platform that simplifies the shopping experience by allowing users to easily compare prices, select products, and purchase groceries from various supermarkets online.
+
+<h3>Technical Challenges</h3>
+
+One of the significant technical challenges was building a clean Flask web app architecture and connecting the web static with the storage file. We learned everything by doing it, which gave us the experience, but also a lot of sleepless nights.
+
+<img src="[/readmeimages/ss13.jpg" alt="MarketMate Logo](https://gifdb.com/images/featured/done-2de4g1978uus7pp6.gif)" >
 
 
 ## Landing-Page
