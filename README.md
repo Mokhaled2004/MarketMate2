@@ -45,7 +45,7 @@ http://mokhaled.pythonanywhere.com/
 
 ## Usage
 To start the MarketMate application
-- Run the main.py file 
+- Run the run.py file 
 - An address will be prompted in your terminal
 - Hold ctrl and click on the address.
   
