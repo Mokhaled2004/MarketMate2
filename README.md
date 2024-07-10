@@ -13,8 +13,8 @@
 - [License](#license)
 - [Screenshot](#screenshot)
 - [Story Behind MarketMate](#Story-Behind-MarketMate)
-  
-      -[Inspiration](#Inspiration)
+  - [Inspiration](#Inspiration)
+
 - [LandingPage](#landing-page)
 - [ContactUs](#contact-us)
 
