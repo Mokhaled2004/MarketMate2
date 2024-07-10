@@ -100,6 +100,7 @@ Thank you for considering contributing to MarketMate! By contributing to this pr
 ## <h2>Story Behind EatExpress</h2>
 
 - Inspiration
+  
 The inspiration behind MarketMate emerged from the growing need for a more streamlined and efficient way for people to do their grocery shopping, particularly during the COVID-19 pandemic when visiting stores in person was often challenging and risky. The goal was to create a platform that simplifies the shopping experience by allowing users to easily compare prices, select products, and purchase groceries from various supermarkets online.
 
 
