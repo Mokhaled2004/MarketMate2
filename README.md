@@ -122,9 +122,9 @@ In the next iteration of MarketMate, we envision adding more features such as a 
 
 
 
-## Landing-Page
+## Landing Page
 https://mazenwael575.wixsite.com/marketmate
-## Contact-Us
+## Contact Us
 
 For any questions, feedback, or support inquiries, please feel free to reach out to our team:
 
