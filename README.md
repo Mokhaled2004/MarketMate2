@@ -80,7 +80,7 @@ Thank you for considering contributing to MarketMate! By contributing to this pr
 
 <h2>Our Linkedin Accounts</h2>
 
-- www.linkedin.com/in/mohamed-khaled-bayoumi
+- <a href="https://www.linkedin.com/in/mohamed-khaled-bayoumi" target="_blank">Mohamed Kahled's LinkedIn Profile</a>
 - 
 
 ## ScreenShot
