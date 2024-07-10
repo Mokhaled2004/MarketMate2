@@ -107,7 +107,7 @@ The inspiration behind MarketMate emerged from the growing need for a more strea
 
 One of the significant technical challenges was building a clean Flask web app architecture and connecting the web static with the storage file. We learned everything by doing it, which gave us the experience, but also a lot of sleepless nights.
 
-![Description]([URL_to_your_GIF](https://gifdb.com/images/featured/done-2de4g1978uus7pp6.gif))
+<img src="/readmeimages/Done.gif" alt="MarketMate Logo" width="200">
 
 
 ## Landing-Page
