@@ -12,6 +12,7 @@
 - [Contributing](#contributing)
 - [License](#license)
 - [Screenshot](#screenshot)
+- [Story Behind MarketMate](#Story-Behind-MarketMate)
 - [LandingPage](#landing-page)
 - [ContactUs](#contact-us)
 
@@ -98,7 +99,7 @@ Thank you for considering contributing to MarketMate! By contributing to this pr
   <img src="/readmeimages/ss13.jpg" alt="MarketMate Logo" >
 </div>
 
-## <h2>Story Behind EatExpress</h2>
+## <h2>Story Behind MarketMate</h2>
 
 <h3>Inspiration</h3>
   
