@@ -14,6 +14,9 @@
 - [Screenshot](#screenshot)
 - [Story Behind MarketMate](#Story-Behind-MarketMate)
   - [Inspiration](#Inspiration)
+  - [Technical Challenges](#Technical-Challenges)
+  - [Overcoming Struggles](#Overcoming-Struggles)
+  - [Future Vision](#Future-Vision)
 
 - [LandingPage](#landing-page)
 - [ContactUs](#contact-us)
